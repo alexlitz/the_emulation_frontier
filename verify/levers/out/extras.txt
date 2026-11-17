@@ -1,0 +1,19 @@
+baseline / R0                                                          alone 218  on_R0 194
+correction: q-norm variant must match (rms_head / rms_whole / ln_head) alone 220  on_R0 197
+[upper bound] post-only targets free on any post-norm host             alone 217  on_R0 193
+[upper bound] post-norm target wall dropped                            alone 212  on_R0 188
+KV-head packing (head_dim blocks) replaces the KV-head-count rule      alone 214  on_R0 190
+[upper bound] K=V host layers play own-V layers (keqv rule dropped)    alone 218  on_R0 194
+[upper bound] recurrent family wall dropped (rf target side)           alone 215  on_R0 190
+[upper bound] sink target on a plain host                              alone 218  on_R0 194
+[upper bound] all bias walls dropped                                   alone 204  on_R0 180
+ignore DSA (context <= index_topk)                                     alone 213  on_R0 186
+ignore softcap (already a payable regime)                              alone 218  on_R0 194
+ignore MTP (already free both ways)                                    alone 218  on_R0 194
+exclude draft / assistant models (52 points)                           alone 207  on_R0 185
+token splitting k=2 (kv_cap, q_cap, qheads / k)                        alone 218  on_R0 194
+token splitting k=2 (kv_cap, q_cap, qheads / k + kv_heads / k)         alone 214  on_R0 190
+token splitting k=4 (kv_cap, q_cap, qheads / k)                        alone 218  on_R0 194
+token splitting k=4 (kv_cap, q_cap, qheads / k + kv_heads / k)         alone 214  on_R0 190
+token splitting k=8 (kv_cap, q_cap, qheads / k)                        alone 218  on_R0 194
+token splitting k=8 (kv_cap, q_cap, qheads / k + kv_heads / k)         alone 214  on_R0 190

@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+dist/
+*.egg-info/
+recipes/tef_recipes/build/
+
+# Build artifacts / published bundles
+elephantine-2026-08-08/
+blogpost_bundle.tar.gz
+*.tar.gz
+
+# Generated graph renders (regenerate with `python -m graph.model_graph ...`)
+graph/*.html
+graph/*.svg
+graph/*.png
+graph/*.dot
+graph/hasse_*
+
+# Local notes
+notes/
+
+# intermediate artifacts
+*.bak
+graph/staging_configs.json
+
+# the writeup lives on the blog, not in the code repo
+BLOGPOST.md
+
+# local backups of serving/ data pulls
+serving/data/prev_*/
+
+# daily price-tracker snapshots (serving.track), local only
+serving/data/history/
+# latest raw price pulls, rewritten daily by the systemd price tracker (snapshots: serving/data/history/)
+serving/data/or_models.json
+serving/data/or_endpoints.json
+serving/data/fl_models.json
+
+# local editor / tool state
+.vscode/
+.idea/
+
+# Lean build artefacts (proofs/lean)
+proofs/lean/.lake/
+proofs/lean/build/
+
+# development-only working material (kept locally, not published)
+verify/sweep/REVIEW_BRIEF.md
+verify/r3/PLAN.md
+verify/r3/DEFERRED.md
+verify/r3/parts/
+verify/r3/assemble.py
+verify/r3/check_part.py
+verify/r3/d_work/
+proofs/CHECKLIST.md

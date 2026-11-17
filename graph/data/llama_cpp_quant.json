@@ -1,0 +1,1275 @@
+{
+ "commit": "a956a852c9c8bc1fb07206364838ddef299178c0",
+ "fetched": "2026-11-14",
+ "repo": "ggml-org/llama.cpp",
+ "urls": [
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/conversion/base.py",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/convert_hf_to_gguf.py",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/ggml/include/ggml.h",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/ggml/include/gguf.h",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/ggml/src/ggml-common.h",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/ggml/src/ggml.c",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/ggml/src/gguf.cpp",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/gguf-py/gguf/constants.py",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/gguf-py/gguf/quants.py",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/include/llama.h",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/src/llama-arch.cpp",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/src/llama-hparams.cpp",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/src/llama-model-loader.h",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/src/llama-model.cpp",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/src/llama-quant.cpp",
+  "https://raw.githubusercontent.com/ggml-org/llama.cpp/a956a852c9c8bc1fb07206364838ddef299178c0/src/models/models.h"
+ ],
+ "types": {
+  "I8": {
+   "id": 24,
+   "block": 1,
+   "bytes": 1,
+   "bpw": 8.0,
+   "quantized": false,
+   "cite": [
+    "ggml/src/ggml.c:640"
+   ]
+  },
+  "I16": {
+   "id": 25,
+   "block": 1,
+   "bytes": 2,
+   "bpw": 16.0,
+   "quantized": false,
+   "cite": [
+    "ggml/src/ggml.c:646"
+   ]
+  },
+  "I32": {
+   "id": 26,
+   "block": 1,
+   "bytes": 4,
+   "bpw": 32.0,
+   "quantized": false,
+   "cite": [
+    "ggml/src/ggml.c:652"
+   ]
+  },
+  "I64": {
+   "id": 27,
+   "block": 1,
+   "bytes": 8,
+   "bpw": 64.0,
+   "quantized": false,
+   "cite": [
+    "ggml/src/ggml.c:658"
+   ]
+  },
+  "F64": {
+   "id": 28,
+   "block": 1,
+   "bytes": 8,
+   "bpw": 64.0,
+   "quantized": false,
+   "cite": [
+    "ggml/src/ggml.c:664"
+   ]
+  },
+  "F32": {
+   "id": 0,
+   "block": 1,
+   "bytes": 4,
+   "bpw": 32.0,
+   "quantized": false,
+   "cite": [
+    "ggml/src/ggml.c:670"
+   ]
+  },
+  "F16": {
+   "id": 1,
+   "block": 1,
+   "bytes": 2,
+   "bpw": 16.0,
+   "quantized": false,
+   "cite": [
+    "ggml/src/ggml.c:676"
+   ]
+  },
+  "Q1_0": {
+   "id": 41,
+   "block": 128,
+   "bytes": 18,
+   "bpw": 1.125,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:684",
+    "ggml/src/ggml-common.h:185"
+   ]
+  },
+  "Q2_0": {
+   "id": 42,
+   "block": 64,
+   "bytes": 18,
+   "bpw": 2.25,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:692",
+    "ggml/src/ggml-common.h:192"
+   ]
+  },
+  "Q4_0": {
+   "id": 2,
+   "block": 32,
+   "bytes": 18,
+   "bpw": 4.5,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:700",
+    "ggml/src/ggml-common.h:199"
+   ]
+  },
+  "Q4_1": {
+   "id": 3,
+   "block": 32,
+   "bytes": 20,
+   "bpw": 5.0,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:708",
+    "ggml/src/ggml-common.h:212"
+   ]
+  },
+  "Q5_0": {
+   "id": 6,
+   "block": 32,
+   "bytes": 22,
+   "bpw": 5.5,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:728",
+    "ggml/src/ggml-common.h:235"
+   ]
+  },
+  "Q5_1": {
+   "id": 7,
+   "block": 32,
+   "bytes": 24,
+   "bpw": 6.0,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:736",
+    "ggml/src/ggml-common.h:249"
+   ]
+  },
+  "Q8_0": {
+   "id": 8,
+   "block": 32,
+   "bytes": 34,
+   "bpw": 8.5,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:744",
+    "ggml/src/ggml-common.h:256"
+   ]
+  },
+  "Q8_1": {
+   "id": 9,
+   "block": 32,
+   "bytes": 36,
+   "bpw": 9.0,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:752",
+    "ggml/src/ggml-common.h:269"
+   ]
+  },
+  "MXFP4": {
+   "id": 39,
+   "block": 32,
+   "bytes": 17,
+   "bpw": 4.25,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:759",
+    "ggml/src/ggml-common.h:219"
+   ]
+  },
+  "NVFP4": {
+   "id": 40,
+   "block": 64,
+   "bytes": 36,
+   "bpw": 4.5,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:767",
+    "ggml/src/ggml-common.h:227"
+   ]
+  },
+  "F8_E4M3": {
+   "id": 43,
+   "block": 1,
+   "bytes": 1,
+   "bpw": 8.0,
+   "quantized": false,
+   "cite": [
+    "ggml/src/ggml.c:775"
+   ]
+  },
+  "Q2_K": {
+   "id": 10,
+   "block": 256,
+   "bytes": 84,
+   "bpw": 2.625,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:783",
+    "ggml/src/ggml-common.h:309"
+   ]
+  },
+  "Q3_K": {
+   "id": 11,
+   "block": 256,
+   "bytes": 110,
+   "bpw": 3.4375,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:791",
+    "ggml/src/ggml-common.h:321"
+   ]
+  },
+  "Q4_K": {
+   "id": 12,
+   "block": 256,
+   "bytes": 144,
+   "bpw": 4.5,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:799",
+    "ggml/src/ggml-common.h:338"
+   ]
+  },
+  "Q5_K": {
+   "id": 13,
+   "block": 256,
+   "bytes": 176,
+   "bpw": 5.5,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:807",
+    "ggml/src/ggml-common.h:356"
+   ]
+  },
+  "Q6_K": {
+   "id": 14,
+   "block": 256,
+   "bytes": 210,
+   "bpw": 6.5625,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:815",
+    "ggml/src/ggml-common.h:368"
+   ]
+  },
+  "IQ2_XXS": {
+   "id": 16,
+   "block": 256,
+   "bytes": 66,
+   "bpw": 2.0625,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:823",
+    "ggml/src/ggml-common.h:385"
+   ]
+  },
+  "IQ2_XS": {
+   "id": 17,
+   "block": 256,
+   "bytes": 74,
+   "bpw": 2.3125,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:831",
+    "ggml/src/ggml-common.h:393"
+   ]
+  },
+  "IQ3_XXS": {
+   "id": 18,
+   "block": 256,
+   "bytes": 98,
+   "bpw": 3.0625,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:839",
+    "ggml/src/ggml-common.h:411"
+   ]
+  },
+  "IQ3_S": {
+   "id": 21,
+   "block": 256,
+   "bytes": 110,
+   "bpw": 3.4375,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:847",
+    "ggml/src/ggml-common.h:422"
+   ]
+  },
+  "IQ2_S": {
+   "id": 22,
+   "block": 256,
+   "bytes": 82,
+   "bpw": 2.5625,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:855",
+    "ggml/src/ggml-common.h:402"
+   ]
+  },
+  "IQ1_S": {
+   "id": 19,
+   "block": 256,
+   "bytes": 50,
+   "bpw": 1.5625,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:863",
+    "ggml/src/ggml-common.h:430"
+   ]
+  },
+  "IQ1_M": {
+   "id": 29,
+   "block": 256,
+   "bytes": 56,
+   "bpw": 1.75,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:871",
+    "ggml/src/ggml-common.h:438"
+   ]
+  },
+  "IQ4_NL": {
+   "id": 20,
+   "block": 32,
+   "bytes": 18,
+   "bpw": 4.5,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:879",
+    "ggml/src/ggml-common.h:452"
+   ]
+  },
+  "IQ4_XS": {
+   "id": 23,
+   "block": 256,
+   "bytes": 136,
+   "bpw": 4.25,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:887",
+    "ggml/src/ggml-common.h:460"
+   ]
+  },
+  "Q8_K": {
+   "id": 15,
+   "block": 256,
+   "bytes": 292,
+   "bpw": 9.125,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:895",
+    "ggml/src/ggml-common.h:376"
+   ]
+  },
+  "BF16": {
+   "id": 30,
+   "block": 1,
+   "bytes": 2,
+   "bpw": 16.0,
+   "quantized": false,
+   "cite": [
+    "ggml/src/ggml.c:901"
+   ]
+  },
+  "TQ1_0": {
+   "id": 34,
+   "block": 256,
+   "bytes": 54,
+   "bpw": 1.6875,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:927",
+    "ggml/src/ggml-common.h:281"
+   ]
+  },
+  "TQ2_0": {
+   "id": 35,
+   "block": 256,
+   "bytes": 66,
+   "bpw": 2.0625,
+   "quantized": true,
+   "cite": [
+    "ggml/src/ggml.c:935",
+    "ggml/src/ggml-common.h:288"
+   ]
+  }
+ },
+ "ftypes": {
+  "Q4_0": "Q4_0",
+  "Q4_1": "Q4_1",
+  "Q5_0": "Q5_0",
+  "Q5_1": "Q5_1",
+  "Q8_0": "Q8_0",
+  "F16": "F16",
+  "BF16": "BF16",
+  "F32": "F32",
+  "Q1_0": "Q1_0",
+  "Q2_0": "Q2_0",
+  "MXFP4_MOE": "MXFP4",
+  "Q2_K_S": "Q2_K",
+  "Q2_K": "Q2_K",
+  "IQ3_XS": "IQ3_S",
+  "Q3_K_S": "Q3_K",
+  "Q3_K_M": "Q3_K",
+  "Q3_K_L": "Q3_K",
+  "Q4_K_S": "Q4_K",
+  "Q4_K_M": "Q4_K",
+  "Q5_K_S": "Q5_K",
+  "Q5_K_M": "Q5_K",
+  "Q6_K": "Q6_K",
+  "TQ1_0": "TQ1_0",
+  "TQ2_0": "TQ2_0",
+  "IQ2_XXS": "IQ2_XXS",
+  "IQ2_XS": "IQ2_XS",
+  "IQ2_S": "IQ2_XS",
+  "IQ2_M": "IQ2_S",
+  "IQ3_XXS": "IQ3_XXS",
+  "IQ1_S": "IQ1_S",
+  "IQ1_M": "IQ1_M",
+  "IQ4_NL": "IQ4_NL",
+  "IQ4_XS": "IQ4_XS",
+  "IQ3_S": "IQ3_S",
+  "IQ3_M": "IQ3_S"
+ },
+ "ftype_ids": {
+  "F32": 0,
+  "F16": 1,
+  "Q4_0": 2,
+  "Q4_1": 3,
+  "Q8_0": 7,
+  "Q5_0": 8,
+  "Q5_1": 9,
+  "Q2_K": 10,
+  "Q3_K_S": 11,
+  "Q3_K_M": 12,
+  "Q3_K_L": 13,
+  "Q4_K_S": 14,
+  "Q4_K_M": 15,
+  "Q5_K_S": 16,
+  "Q5_K_M": 17,
+  "Q6_K": 18,
+  "IQ2_XXS": 19,
+  "IQ2_XS": 20,
+  "Q2_K_S": 21,
+  "IQ3_XS": 22,
+  "IQ3_XXS": 23,
+  "IQ1_S": 24,
+  "IQ4_NL": 25,
+  "IQ3_S": 26,
+  "IQ3_M": 27,
+  "IQ2_S": 28,
+  "IQ2_M": 29,
+  "IQ4_XS": 30,
+  "IQ1_M": 31,
+  "BF16": 32,
+  "TQ1_0": 36,
+  "TQ2_0": 37,
+  "MXFP4_MOE": 38,
+  "Q1_0": 40,
+  "Q2_0": 41
+ },
+ "alignment": 32,
+ "allow_rules": [
+  {
+   "op": "min_dims",
+   "n": 2,
+   "arch": null,
+   "line": 307
+  },
+  {
+   "op": "ends_weight",
+   "arch": null,
+   "line": 312
+  },
+  {
+   "op": "not_contains",
+   "s": "_norm.weight",
+   "arch": null,
+   "line": 315
+  },
+  {
+   "op": "not_contains",
+   "s": "ffn_gate_inp.weight",
+   "arch": null,
+   "line": 321
+  },
+  {
+   "op": "not_contains",
+   "s": "ffn_gate_tid2eid.weight",
+   "arch": null,
+   "line": 324
+  },
+  {
+   "op": "not_contains",
+   "s": "engram_gate.weight",
+   "arch": null,
+   "line": 327
+  },
+  {
+   "op": "not_contains",
+   "s": "altup",
+   "arch": null,
+   "line": 330
+  },
+  {
+   "op": "not_contains",
+   "s": "laurel",
+   "arch": null,
+   "line": 331
+  },
+  {
+   "op": "not_contains",
+   "s": "per_layer_model_proj",
+   "arch": null,
+   "line": 334
+  },
+  {
+   "op": "not_contains",
+   "s": "attn_gate.weight",
+   "arch": "limite",
+   "line": 338
+  },
+  {
+   "op": "not_contains",
+   "s": "attn_ve_gate.weight",
+   "arch": "limite",
+   "line": 339
+  },
+  {
+   "op": "not_contains",
+   "s": "mudd_",
+   "arch": "limite",
+   "line": 340
+  },
+  {
+   "op": "not_equal",
+   "s": "position_embd.weight",
+   "arch": null,
+   "line": 344
+  },
+  {
+   "op": "not_equal",
+   "s": "token_types.weight",
+   "arch": null,
+   "line": 345
+  },
+  {
+   "op": "not_contains",
+   "s": "ssm_conv1d",
+   "arch": null,
+   "line": 349
+  },
+  {
+   "op": "not_contains",
+   "s": "shortconv.conv.weight",
+   "arch": null,
+   "line": 350
+  },
+  {
+   "op": "not_contains",
+   "s": "conv2d_spatial.weight",
+   "arch": null,
+   "line": 353
+  },
+  {
+   "op": "not_prefix",
+   "s": "a.conv1d.",
+   "arch": null,
+   "line": 356
+  },
+  {
+   "op": "not_contains",
+   "s": "conv_dw",
+   "arch": null,
+   "line": 357
+  },
+  {
+   "op": "not_prefix",
+   "s": "a.gen.wav.quant.",
+   "arch": null,
+   "line": 358
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer.k_proj.weight",
+   "arch": null,
+   "line": 361
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer.q_proj.weight",
+   "arch": null,
+   "line": 362
+  },
+  {
+   "op": "not_prefix",
+   "s": "depth_mem_",
+   "arch": "metis16",
+   "line": 366
+  },
+  {
+   "op": "not_prefix",
+   "s": "cont_",
+   "arch": "metis16",
+   "line": 367
+  },
+  {
+   "op": "not_contains",
+   "s": "stream_embd",
+   "arch": "metis16",
+   "line": 368
+  },
+  {
+   "op": "not_contains",
+   "s": "attn_pass_lora",
+   "arch": "metis16",
+   "line": 369
+  },
+  {
+   "op": "not_contains",
+   "s": "ffn_exp_embd",
+   "arch": "metis16",
+   "line": 370
+  },
+  {
+   "op": "not_contains",
+   "s": "hc_",
+   "arch": "metis16",
+   "line": 371
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer.attn_q_b",
+   "arch": "kimi-k31",
+   "line": 376
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer.attn_k",
+   "arch": "kimi-k31",
+   "line": 377
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer.proj",
+   "arch": "kimi-k31",
+   "line": 378
+  },
+  {
+   "op": "not_contains",
+   "s": "hc_",
+   "arch": "glm5-next",
+   "line": 383
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer.attn_q_b",
+   "arch": "glm5-next",
+   "line": 384
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer.attn_k",
+   "arch": "glm5-next",
+   "line": 385
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer.proj",
+   "arch": "glm5-next",
+   "line": 386
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer_compressor_gate",
+   "arch": "glm5-next",
+   "line": 387
+  },
+  {
+   "op": "not_contains",
+   "s": "indexer_compressor_ape",
+   "arch": "glm5-next",
+   "line": 388
+  },
+  {
+   "op": "not_contains",
+   "s": "ssm_f_a.weight",
+   "arch": "glm5-next",
+   "line": 389
+  },
+  {
+   "op": "not_contains",
+   "s": "ssm_f_b.weight",
+   "arch": "glm5-next",
+   "line": 390
+  },
+  {
+   "op": "not_contains",
+   "s": "ssm_g_a.weight",
+   "arch": "glm5-next",
+   "line": 391
+  },
+  {
+   "op": "not_contains",
+   "s": "ssm_g_b.weight",
+   "arch": "glm5-next",
+   "line": 392
+  },
+  {
+   "op": "not_contains",
+   "s": "ssm_beta.weight",
+   "arch": "glm5-next",
+   "line": 393
+  },
+  {
+   "op": "not_contains",
+   "s": "attn_kv_a_mqa.weight",
+   "arch": "glm5-next",
+   "line": 394
+  },
+  {
+   "op": "not_contains",
+   "s": "attn_k_b.weight",
+   "arch": "glm5-next",
+   "line": 395
+  },
+  {
+   "op": "not_contains",
+   "s": "attn_v_b.weight",
+   "arch": "glm5-next",
+   "line": 396
+  },
+  {
+   "op": "not_contains",
+   "s": "hc_",
+   "arch": "xing4_0",
+   "line": 402
+  },
+  {
+   "op": "not_prefix",
+   "s": "decision.",
+   "arch": "vllm-decision2",
+   "line": 407
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_first.weight",
+   "arch": null,
+   "line": 411
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_w0.weight",
+   "arch": null,
+   "line": 412
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_w1.weight",
+   "arch": null,
+   "line": 413
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_w2.weight",
+   "arch": null,
+   "line": 414
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_v0.weight",
+   "arch": null,
+   "line": 415
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_v1.weight",
+   "arch": null,
+   "line": 416
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_v2.weight",
+   "arch": null,
+   "line": 417
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_a0.weight",
+   "arch": null,
+   "line": 418
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_a1.weight",
+   "arch": null,
+   "line": 419
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_a2.weight",
+   "arch": null,
+   "line": 420
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_g1.weight",
+   "arch": null,
+   "line": 421
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_g2.weight",
+   "arch": null,
+   "line": 422
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_decay_w1.weight",
+   "arch": null,
+   "line": 423
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_decay_w2.weight",
+   "arch": null,
+   "line": 424
+  },
+  {
+   "op": "not_contains",
+   "s": "time_mix_lerp_fused.weight",
+   "arch": null,
+   "line": 425
+  },
+  {
+   "op": "not_contains",
+   "s": "attn_rel_b.weight",
+   "arch": null,
+   "line": 428
+  },
+  {
+   "op": "not_contains",
+   "s": ".position_embd",
+   "arch": null,
+   "line": 431
+  },
+  {
+   "op": "not_contains",
+   "s": "sam.pos_embd",
+   "arch": null,
+   "line": 432
+  },
+  {
+   "op": "not_contains",
+   "s": "sam.neck.",
+   "arch": null,
+   "line": 433
+  },
+  {
+   "op": "not_contains",
+   "s": "sam.net_",
+   "arch": null,
+   "line": 434
+  },
+  {
+   "op": "not_contains",
+   "s": ".rel_pos",
+   "arch": null,
+   "line": 435
+  },
+  {
+   "op": "not_contains",
+   "s": ".patch_embd",
+   "arch": null,
+   "line": 436
+  },
+  {
+   "op": "not_contains",
+   "s": ".patch_merger",
+   "arch": null,
+   "line": 437
+  },
+  {
+   "op": "not_contains",
+   "s": "a.rvq.codebook",
+   "arch": null,
+   "line": 440
+  },
+  {
+   "op": "not_contains",
+   "s": "mm.a.code_embd",
+   "arch": null,
+   "line": 441
+  }
+ ],
+ "fallback": {
+  "IQ1_S": "IQ4_NL",
+  "IQ1_M": "IQ4_NL",
+  "IQ2_XXS": "IQ4_NL",
+  "IQ2_XS": "IQ4_NL",
+  "IQ2_S": "IQ4_NL",
+  "IQ3_XXS": "IQ4_NL",
+  "IQ3_S": "IQ4_NL",
+  "IQ4_XS": "IQ4_NL",
+  "Q2_0": "Q4_0",
+  "Q2_K": "Q4_0",
+  "Q3_K": "Q4_0",
+  "TQ1_0": "Q4_0",
+  "TQ2_0": "Q4_0",
+  "Q4_K": "Q5_0",
+  "Q5_K": "Q5_1",
+  "Q6_K": "Q8_0"
+ },
+ "type_70b": [
+  {
+   "arch": "deci",
+   "n_layer": 80,
+   "cond": null,
+   "not_n_expert": null,
+   "cite": "src/models/deci.cpp:8"
+  },
+  {
+   "arch": "jais2",
+   "n_layer": 68,
+   "cond": null,
+   "not_n_expert": null,
+   "cite": "src/models/jais2.cpp:8"
+  },
+  {
+   "arch": "llama",
+   "n_layer": 80,
+   "cond": "gqa",
+   "not_n_expert": 8,
+   "cite": "src/models/llama.cpp:28"
+  },
+  {
+   "arch": "llama-embed",
+   "n_layer": 80,
+   "cond": "gqa",
+   "not_n_expert": 8,
+   "cite": "src/models/llama.cpp:28"
+  },
+  {
+   "arch": "olmo",
+   "n_layer": 80,
+   "cond": null,
+   "not_n_expert": null,
+   "cite": "src/models/olmo.cpp:10"
+  },
+  {
+   "arch": "qwen2",
+   "n_layer": 80,
+   "cond": null,
+   "not_n_expert": null,
+   "cite": "src/models/qwen2.cpp:14"
+  }
+ ],
+ "converter": {
+  "requires_f32": [
+   {
+    "key": "FFN_GATE_INP",
+    "template": "blk.{bid}.ffn_gate_inp",
+    "regex": "^blk\\.[0-9]+\\.ffn_gate_inp\\.weight$"
+   },
+   {
+    "key": "FFN_GATE_INP_SHEXP",
+    "template": "blk.{bid}.ffn_gate_inp_shexp",
+    "regex": "^blk\\.[0-9]+\\.ffn_gate_inp_shexp\\.weight$"
+   },
+   {
+    "key": "POS_EMBD",
+    "template": "position_embd",
+    "regex": "^position_embd\\.weight$"
+   },
+   {
+    "key": "TOKEN_TYPES",
+    "template": "token_types",
+    "regex": "^token_types\\.weight$"
+   },
+   {
+    "key": "SSM_CONV1D",
+    "template": "blk.{bid}.ssm_conv1d",
+    "regex": "^blk\\.[0-9]+\\.ssm_conv1d\\.weight$"
+   },
+   {
+    "key": "SHORTCONV_CONV",
+    "template": "blk.{bid}.shortconv.conv",
+    "regex": "^blk\\.[0-9]+\\.shortconv\\.conv\\.weight$"
+   },
+   {
+    "key": "TIME_MIX_FIRST",
+    "template": "blk.{bid}.time_mix_first",
+    "regex": "^blk\\.[0-9]+\\.time_mix_first\\.weight$"
+   },
+   {
+    "key": "TIME_MIX_W1",
+    "template": "blk.{bid}.time_mix_w1",
+    "regex": "^blk\\.[0-9]+\\.time_mix_w1\\.weight$"
+   },
+   {
+    "key": "TIME_MIX_W2",
+    "template": "blk.{bid}.time_mix_w2",
+    "regex": "^blk\\.[0-9]+\\.time_mix_w2\\.weight$"
+   },
+   {
+    "key": "TIME_MIX_DECAY_W1",
+    "template": "blk.{bid}.time_mix_decay_w1",
+    "regex": "^blk\\.[0-9]+\\.time_mix_decay_w1\\.weight$"
+   },
+   {
+    "key": "TIME_MIX_DECAY_W2",
+    "template": "blk.{bid}.time_mix_decay_w2",
+    "regex": "^blk\\.[0-9]+\\.time_mix_decay_w2\\.weight$"
+   },
+   {
+    "key": "TIME_MIX_LERP_FUSED",
+    "template": "blk.{bid}.time_mix_lerp_fused",
+    "regex": "^blk\\.[0-9]+\\.time_mix_lerp_fused\\.weight$"
+   },
+   {
+    "key": "POSNET_NORM1",
+    "template": "posnet.{bid}.norm1",
+    "regex": "^posnet\\.[0-9]+\\.norm1\\.weight$"
+   },
+   {
+    "key": "POSNET_NORM2",
+    "template": "posnet.{bid}.norm2",
+    "regex": "^posnet\\.[0-9]+\\.norm2\\.weight$"
+   },
+   {
+    "key": "V_ENC_EMBD_POS",
+    "template": "v.position_embd",
+    "regex": "^v\\.position_embd\\.weight$"
+   },
+   {
+    "key": "A_ENC_EMBD_POS",
+    "template": "a.position_embd",
+    "regex": "^a\\.position_embd\\.weight$"
+   },
+   {
+    "key": "ALTUP_CORRECT_COEF",
+    "template": "blk.{bid}.altup_correct_coef",
+    "regex": "^blk\\.[0-9]+\\.altup_correct_coef\\.weight$"
+   },
+   {
+    "key": "ALTUP_PREDICT_COEF",
+    "template": "blk.{bid}.altup_predict_coef",
+    "regex": "^blk\\.[0-9]+\\.altup_predict_coef\\.weight$"
+   },
+   {
+    "key": "SSM_CONV1D_Q",
+    "template": "blk.{bid}.ssm_conv1d_q",
+    "regex": "^blk\\.[0-9]+\\.ssm_conv1d_q\\.weight$"
+   },
+   {
+    "key": "SSM_CONV1D_K",
+    "template": "blk.{bid}.ssm_conv1d_k",
+    "regex": "^blk\\.[0-9]+\\.ssm_conv1d_k\\.weight$"
+   },
+   {
+    "key": "SSM_CONV1D_V",
+    "template": "blk.{bid}.ssm_conv1d_v",
+    "regex": "^blk\\.[0-9]+\\.ssm_conv1d_v\\.weight$"
+   },
+   {
+    "key": "INDEXER_PROJ",
+    "template": "blk.{bid}.indexer.proj",
+    "regex": "^blk\\.[0-9]+\\.indexer\\.proj\\.weight$"
+   }
+  ],
+  "weight_suffixes": [
+   ".weight",
+   ".lora_a",
+   ".lora_b"
+  ],
+  "norm_suffix": "_norm.weight",
+  "arch_f32": {
+   "glm5-next": {
+    "rules": [
+     {
+      "prefix": [
+       "blk.",
+       "output_hc"
+      ],
+      "contains": [
+       "hc_attn_",
+       "hc_ffn_",
+       "indexer_compressor_",
+       "ssm_a",
+       "ssm_dt",
+       "exp_probs_b"
+      ]
+     }
+    ],
+    "cite": "conversion/glm.py:577-582"
+   },
+   "limite": {
+    "rules": [
+     {
+      "regex": [
+       "^blk\\.[0-9]+\\.attn_gate\\.weight$",
+       "^blk\\.[0-9]+\\.attn_ve_gate\\.weight$",
+       "^blk\\.[0-9]+\\.mudd_down\\.weight$",
+       "^blk\\.[0-9]+\\.mudd_up\\.weight$"
+      ]
+     }
+    ],
+    "cite": "conversion/limite.py:93-101"
+   },
+   "metis16": {
+    "rules": [
+     {
+      "prefix": [
+       "cont_",
+       "depth_mem_entry_bias",
+       "depth_mem_stream_gate"
+      ]
+     },
+     {
+      "suffix": [
+       "ffn_exp_embd.weight",
+       "ffn_gate_inp.weight",
+       "hc_attn_mix.weight",
+       "hc_attn_read.weight",
+       "hc_attn_write.weight",
+       "hc_ffn_mix.weight",
+       "hc_ffn_read.weight",
+       "hc_ffn_write.weight"
+      ]
+     }
+    ],
+    "cite": "conversion/metis.py:198-204"
+   },
+   "minimax-m3": {
+    "rules": [
+     {
+      "contains": [
+       ".indexer."
+      ]
+     }
+    ],
+    "cite": "conversion/minimax.py:173-176"
+   },
+   "vllm-decision2": {
+    "rules": [
+     {
+      "prefix": [
+       "decision."
+      ]
+     }
+    ],
+    "cite": "conversion/vllm_decision2.py:64-68"
+   },
+   "hy_v4": {
+    "rules": [
+     {
+      "suffix": [
+       "hc_attn_fn.weight",
+       "hc_ffn_fn.weight",
+       "output_hc_fn.weight"
+      ]
+     },
+     {
+      "equal": [
+       "output.weight"
+      ],
+      "flag": "lm_head_fp32"
+     }
+    ],
+    "cite": "conversion/hy_v4.py:205-219"
+   }
+  },
+  "unmodelled": {
+   "deepseek4": "DeepseekV4Model.tensor_force_quant (conversion/deepseek.py)",
+   "deepseek41": "DeepseekV41Model.tensor_force_quant (conversion/deepseek41.py)"
+  }
+ },
+ "citations": {
+  "arch_names": "src/llama-arch.cpp:9",
+  "types": [
+   "ggml/src/ggml.c:639"
+  ],
+  "ftypes": "src/llama-quant.cpp:950-993",
+  "allow_rules": "src/llama-quant.cpp:302-444",
+  "fallback": "src/llama-quant.cpp:451-504",
+  "tensor_name_match_token_embd": "src/llama-quant.cpp:106-109",
+  "tensor_name_match_output_weight": "src/llama-quant.cpp:111-113",
+  "tensor_get_category": "src/llama-quant.cpp:121-163",
+  "tensor_is_expert": "src/llama-quant.cpp:166-169",
+  "category_is_attn_v": "src/llama-quant.cpp:172-176",
+  "llama_tensor_get_type_impl": "src/llama-quant.cpp:507-783",
+  "llama_tensor_get_type": "src/llama-quant.cpp:786-842",
+  "init_quantize_state_counters": "src/llama-quant.cpp:996-1010",
+  "llama_model_quantize_default_params": "src/llama-quant.cpp:1468-1488",
+  "llama_model_quantize_impl": "src/llama-quant.cpp:1016-1462",
+  "use_more_bits": "src/llama-quant.cpp:513-515",
+  "preliminary_loop": "src/llama-quant.cpp:1177",
+  "dry_run_size": "src/llama-quant.cpp:1314",
+  "padding": "src/llama-quant.cpp:1437",
+  "align": "src/llama-quant.cpp:1082",
+  "alignment": "ggml/include/gguf.h:46",
+  "gguf_write_string": "ggml/src/gguf.cpp:1481-1489",
+  "gguf_write_kv": "ggml/src/gguf.cpp:1503-1542",
+  "gguf_write_tensor_meta": "ggml/src/gguf.cpp:1544-1555",
+  "gguf_write_out": "ggml/src/gguf.cpp:1671-1707",
+  "weight_order": "src/llama-model-loader.h:52-63",
+  "n_gqa": "src/llama-hparams.cpp:99-108",
+  "n_layer": "src/llama-hparams.cpp:347-349",
+  "type_70b": "src/llama-model.cpp:43",
+  "tensor_names_py": "gguf-py/gguf/constants.py:1698-2418",
+  "requires_f32": "conversion/base.py:1156-1189",
+  "prepare_tensors": "conversion/base.py:1428-1640",
+  "tensor_force_quant": "conversion/base.py:1191-1199",
+  "quant_error": "gguf-py/gguf/quants.py:192"
+ },
+ "source_sha256": {
+  "llama_ftype_get_default_type": "e191399eb32e65ce996d35fc2de5b5a482269ebee3da6a2894ca10d54561ea81",
+  "tensor_allows_quantization": "9ed1fb8ea6490baf734d37e13c6c08d083521ed34e4daf0d34e1e3e879cc1bdf",
+  "tensor_type_fallback": "bc594ed649e186833360f3e60066cbe419156f569834b229466ea4216160e32b",
+  "tensor_name_match_token_embd": "df1f0a997fbdee4410e4d2d1011d46f52b883cd56c8ec085b6e7be97563abfba",
+  "tensor_name_match_output_weight": "bace817267c062bd7df44dce8ff02805d76bd43be481692fb567b1dccd27e406",
+  "tensor_get_category": "f0701b28c89f6e45912821ccb822f612ba102ad1115aaa496a2821d3b0f11dde",
+  "tensor_is_expert": "3a7a9eecf359903c63b126b62f7ad0bc8cf3eb4c9052c790cc71fcf38e729048",
+  "category_is_attn_v": "a8cda5122484ed98a70e90f3b967d989e4e301e34adf1d0534dea52c6ae37f4e",
+  "llama_tensor_get_type_impl": "d47c522a072e6c8ed563560c54a82fc13bbaac93aa37b7232b6dc25db8d53f59",
+  "llama_tensor_get_type": "4e98f325e9f56762a204940154eec36ae28f91af686352c02196a3c521bfc69d",
+  "init_quantize_state_counters": "2ab797ca74f2f3739fc28bfa3b372f8ca57d1a4b23f141a341b60b9b9a759711",
+  "llama_model_quantize_default_params": "8b00a7ee23e7d71bfb42cd71624aad48a1abb1d628c51749fe79ddf6b12c4092",
+  "gguf_write_string": "2baa655301448f27f7a2157099463c817114a6949054a48b8daaab4542104b55",
+  "gguf_write_kv": "d64fa3f119a64471e3f5cf82e8f6d268bfb80b0d4a1a4049cf752df6d1c85ae0",
+  "gguf_write_tensor_meta": "854aff6ac2936daf9aac8454c5202377b3a90ac85aa31cb3839b40286cd0bfac",
+  "gguf_write_out": "26e7e327d934b992ab706ba505a4561a6c9bc9b50fa81297de1b9e8b0ad5951c",
+  "weight_name_comparer": "ecaa1b25d662d4e266585777c2c985721b31293055f39e56405cd9486cc226af",
+  "n_gqa": "e51c694eb4f1f0352dcfc937af077668da5dcc569849c944b8d3d49ed4ef9cf6",
+  "n_layer": "28e9606fb4449393a1aa372ed11ed39d0f18a5f84439670e29a01d0fb25a387f",
+  "70b:src/models/deci.cpp": "70f7cc800fa840446ad54c253c552ccaccf594cfa372e5ebecfa11a11c75df53",
+  "70b:src/models/jais2.cpp": "b38702d0f8cde1b13c31ffe0cde2cdec004aab31680f4ca9ef18ae590688b189",
+  "70b:src/models/llama.cpp": "7cb73ee636514958b0d13507961ac167302cc52127e2f899ff1fa13cf1241689",
+  "70b:src/models/olmo.cpp": "5e1d7b3db859085809eb70d0e4b2cd40dcb304d7ba227245d7d516e73b111d79",
+  "70b:src/models/qwen2.cpp": "be88c2c2c21a6c2f453bf93af90306a7de1de05c0b84367657679dc0cf1211a9",
+  "converter:_tensor_requires_f32": "fdb0229838fd08273f563dd5e06a1d1eaf95badf253f0d065fb4676088dfc645",
+  "converter:prepare_tensors": "c8012476fc265126e426c79cfa82380162f8dd9c5ff49f13dafb91a22b43b276",
+  "converter:tensor_force_quant": "823fbf078866696e5da0dbbefee7029fee962f9ba59b85b15435576bdd2bb547",
+  "converter:Glm5NextModel": "1b5fbb466f41cd92b47d4cee81378bdf4598f4086b27de8e9039b7094a064bdf",
+  "converter:LimiteModel": "c31dc71082e8597af0ec795a81e38d1469164d51af75bc1a02a9e62dc9713294",
+  "converter:Metis16Model": "b1568c3739d85c9c6fbc3db85bd2f2b57f6888a9f6053ece4855bdfa9485be21",
+  "converter:MiniMaxM3Model": "bf7ad8c8a6bc0a9288af366213f7bfbce9bb82384dfe00c8911dfed249878f60",
+  "converter:VllmDecision2Model": "3307e9c11a24566ab89b7ff67b3d6061aedefc40cc1e13228ba5230c554d71e1",
+  "converter:HYV4Model": "ef6634fd98d90ab13c9adf03f84ca6b53b8ad4a604372407f1717f1a8bb0b146"
+ }
+}

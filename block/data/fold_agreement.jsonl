@@ -1,0 +1,20 @@
+{"model": "Qwen/Qwen3-0.6B", "fold": "self", "top1": 1.0, "kl": 0.0, "ex32": 1.0, "ex64": 1.0, "div": 64.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "Qwen/Qwen3-0.6B", "fold": "qknorm", "top1": 0.154296875, "kl": 7.340194918554907, "ex32": 0.0, "ex64": 0.0, "div": 0.0, "n_prompts": 24, "dtype": "float32", "n_mod": 56, "cv_mean": 0.334571195721688, "cv_max": 1.4236991684404041, "rms_ratio_max": 57.57668955953074}
+{"model": "allenai/OLMo-2-0425-1B", "fold": "self", "top1": 1.0, "kl": 0.0, "ex32": 1.0, "ex64": 1.0, "div": 64.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "allenai/OLMo-2-0425-1B", "fold": "qknorm", "top1": 0.271484375, "kl": 3.421690413756702, "ex32": 0.0, "ex64": 0.0, "div": 0.3333333333333333, "n_prompts": 24, "dtype": "float32", "n_mod": 32, "cv_mean": 0.490388509281469, "cv_max": 1.2403420454980942, "rms_ratio_max": 65.71196798532719}
+{"model": "allenai/OLMo-2-0425-1B", "fold": "postnorm", "top1": 0.14453125, "kl": NaN, "ex32": 0.0, "ex64": 0.0, "div": 0.125, "n_prompts": 24, "dtype": "float32", "n_mod": 32, "cv_mean": 0.8490233731159834, "cv_max": 2.1079326317793248, "rms_ratio_max": 57.38010494715752}
+{"model": "Qwen/Qwen2.5-0.5B", "fold": "self", "top1": 1.0, "kl": 0.0, "ex32": 1.0, "ex64": 1.0, "div": 64.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "Qwen/Qwen2.5-0.5B", "fold": "bias_k", "top1": 0.2955729166666667, "kl": 2.9559040396736065, "ex32": 0.0, "ex64": 0.0, "div": 1.25, "n_prompts": 24, "dtype": "float32"}
+{"model": "Qwen/Qwen2.5-0.5B", "fold": "bias_q", "top1": 0.07096354166666667, "kl": 7.24038429439504, "ex32": 0.0, "ex64": 0.0, "div": 0.041666666666666664, "n_prompts": 24, "dtype": "float32"}
+{"model": "Qwen/Qwen2.5-0.5B", "fold": "bias_v", "top1": 0.0, "kl": 14.390810273880613, "ex32": 0.0, "ex64": 0.0, "div": 0.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "AlexKoff88/gpt-oss-tinystories", "fold": "self", "top1": 1.0, "kl": 0.0, "ex32": 1.0, "ex64": 1.0, "div": 64.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "AlexKoff88/gpt-oss-tinystories", "fold": "sink", "top1": 0.974609375, "kl": 0.0034246096656404944, "ex32": 0.3333333333333333, "ex64": 0.20833333333333334, "div": 24.5, "n_prompts": 24, "dtype": "float32"}
+{"model": "google/gemma-2-2b", "fold": "self", "top1": 1.0, "kl": 0.0, "ex32": 1.0, "ex64": 1.0, "div": 64.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "google/gemma-2-2b", "fold": "softcap", "top1": 0.9973958333333334, "kl": 2.2377484694359793, "ex32": 0.9166666666666666, "ex64": 0.8333333333333334, "div": 58.333333333333336, "n_prompts": 24, "dtype": "float32"}
+{"model": "google/gemma-2-2b", "fold": "postnorm", "top1": 0.8587239583333334, "kl": 0.15542637962674302, "ex32": 0.041666666666666664, "ex64": 0.0, "div": 5.416666666666667, "n_prompts": 24, "dtype": "float32", "n_mod": 52, "cv_mean": 0.24834940225840835, "cv_max": 0.4270488197670013, "rms_ratio_max": 27.125893842446576}
+{"model": "Qwen/Qwen2.5-1.5B", "fold": "self", "top1": 1.0, "kl": 0.0, "ex32": 1.0, "ex64": 1.0, "div": 64.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "Qwen/Qwen2.5-1.5B", "fold": "bias_k", "top1": 0.13346354166666666, "kl": 5.0924528930578195, "ex32": 0.0, "ex64": 0.0, "div": 0.5, "n_prompts": 24, "dtype": "float32"}
+{"model": "Qwen/Qwen2.5-1.5B", "fold": "bias_q", "top1": 0.06510416666666667, "kl": 7.079673109933464, "ex32": 0.0, "ex64": 0.0, "div": 0.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "Qwen/Qwen2.5-1.5B", "fold": "bias_v", "top1": 0.005859375, "kl": 13.860143944780846, "ex32": 0.0, "ex64": 0.0, "div": 0.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "Qwen/Qwen3-1.7B", "fold": "self", "top1": 1.0, "kl": 0.0, "ex32": 1.0, "ex64": 1.0, "div": 64.0, "n_prompts": 24, "dtype": "float32"}
+{"model": "Qwen/Qwen3-1.7B", "fold": "qknorm", "top1": 0.12044270833333333, "kl": 12.830919331432499, "ex32": 0.0, "ex64": 0.0, "div": 0.041666666666666664, "n_prompts": 24, "dtype": "float32", "n_mod": 56, "cv_mean": 0.33074726099061647, "cv_max": 1.2582822779005771, "rms_ratio_max": 84.98611022491373}

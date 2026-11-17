@@ -1,0 +1,219 @@
+{
+  "compiled": "2026-11-14",
+  "note": "Vendor-published peak specs. mem_bw_gbps is decimal GB/s as published. All tensor FLOPS are dense (no structured sparsity): where a vendor lists only the sparse figure, the dense value is half of it and the notes say so. TFLOPS for floating point, TOPS for int8. null means not published / not supported. Apple publishes no FLOPS: the Apple values are derived (cores x 128 FP32 ALUs x 2 FLOP per FMA x GPU clock) from third-party clock figures and are marked derived.",
+  "hardware": [
+    {
+      "id": "h100_sxm",
+      "name": "NVIDIA H100 SXM5 80GB",
+      "vendor": "NVIDIA",
+      "mem_gb": 80,
+      "mem_bw_gbps": 3350,
+      "flops": {
+        "bf16_dense": 989.4,
+        "fp16_dense": 989.4,
+        "fp8_dense": 1978.9,
+        "int8_dense": 1978.9,
+        "fp4_dense": null,
+        "tf32_dense": 494.7,
+        "fp32": 67
+      },
+      "sources": [
+        {"url": "https://www.nvidia.com/en-us/data-center/h100/", "quote": "H100 SXM: FP32 67 teraFLOPS | TF32 Tensor Core* 989 teraFLOPS | BFLOAT16 Tensor Core* 1,979 teraFLOPS | FP16 Tensor Core* 1,979 teraFLOPS | FP8 Tensor Core* 3,958 teraFLOPS | INT8 Tensor Core* 3,958 TOPS | GPU Memory 80GB | GPU Memory Bandwidth 3.35TB/s | * With sparsity"},
+        {"url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html", "quote": "MI300-18: ... Published results on Nvidia H100 SXM (80GB) GPU resulted in ... 66.9 TFLOPs peak theoretical single precision (FP32), 494.7 TFLOPs peak TensorFloat-32 (TF32)*, 989.4 TFLOPS peak theoretical half precision tensor (FP16 Tensor), ... 989.4 TFLOPS peak theoretical Bfloat16 tensor format precision (BF16 Tensor), ... 1,978.9 TFLOPS peak theoretical 8-bit precision (FP8), 1,978.9 TOPs peak theoretical INT8"}
+      ],
+      "notes": "NVIDIA lists tensor rates with sparsity only; dense = half (1,979 -> 989.4, 3,958 -> 1,978.9). Exact dense values 989.4 / 1,978.9 as restated in AMD's MI300-18 footnote."
+    },
+    {
+      "id": "h200_sxm",
+      "name": "NVIDIA H200 SXM 141GB",
+      "vendor": "NVIDIA",
+      "mem_gb": 141,
+      "mem_bw_gbps": 4800,
+      "flops": {
+        "bf16_dense": 989.4,
+        "fp16_dense": 989.4,
+        "fp8_dense": 1978.9,
+        "int8_dense": 1978.9,
+        "fp4_dense": null,
+        "tf32_dense": 494.7,
+        "fp32": 67
+      },
+      "sources": [
+        {"url": "https://www.nvidia.com/en-us/data-center/h200/", "quote": "H200 SXM: FP32 67 TFLOPS | TF32 Tensor Core* 989 TFLOPS | BFLOAT16 Tensor Core* 1,979 TFLOPS | FP16 Tensor Core* 1,979 TFLOPS | FP8 Tensor Core* 3,958 TFLOPS | INT8 Tensor Core* 3,958 TFLOPS | GPU Memory 141GB | GPU Memory Bandwidth 4.8TB/s | * With sparsity"}
+      ],
+      "notes": "Same GH100 compute as H100 SXM; sparse figures halved for dense. Only memory (141 GB HBM3e, 4.8 TB/s) differs."
+    },
+    {
+      "id": "b200",
+      "name": "NVIDIA B200 180GB (DGX/HGX B200, SXM)",
+      "vendor": "NVIDIA",
+      "mem_gb": 180,
+      "mem_bw_gbps": 8000,
+      "flops": {
+        "bf16_dense": 2250,
+        "fp16_dense": 2250,
+        "fp8_dense": 4500,
+        "int8_dense": 4500,
+        "fp4_dense": 9000,
+        "tf32_dense": 1125,
+        "fp32": 75
+      },
+      "sources": [
+        {"url": "https://www.nvidia.com/en-us/data-center/hgx/", "quote": "HGX B200: 8x NVIDIA Blackwell SXM | FP4 Tensor Core 144 PFLOPS | 72 PFLOPS | FP8/FP6 Tensor Core 72 PFLOPS | INT8 Tensor Core 72 POPS | FP16/BF16 Tensor Core 36 PFLOPS | TF32 Tensor Core 18 PFLOPS | FP32 600 TFLOPS | Total Memory 1.4 TB. Footnotes: 1. Specification in Sparse | Dense 2. Specification in Sparse. Dense is 1/2 sparse spec shown."},
+        {"url": "https://www.nvidia.com/en-us/data-center/dgx-b200/", "quote": "GPU: 8x NVIDIA Blackwell GPUs | GPU Memory: 1,440 GB total, 64 TB/s HBM3e bandwidth | FP4 Tensor Core: 144 PFLOPS | 72 PFLOPS* | FP8 Tensor Core: 72 PFLOPS** (*Shown in sparse | dense; **Specification shown in sparse. Dense performance is 1/2 sparse spec shown.)"}
+      ],
+      "notes": "NVIDIA publishes B200 numbers per 8-GPU system; per-GPU = system / 8. Dense = sparse / 2 except FP4 and FP32 which are given directly (FP4 dense 72 PF / 8 = 9 PF; FP32 600 / 8 = 75). Memory 1,440 GB / 8 = 180 GB; bandwidth 64 TB/s / 8 = 8 TB/s."
+    },
+    {
+      "id": "a100_80gb_sxm",
+      "name": "NVIDIA A100 80GB SXM4",
+      "vendor": "NVIDIA",
+      "mem_gb": 80,
+      "mem_bw_gbps": 2039,
+      "flops": {
+        "bf16_dense": 312,
+        "fp16_dense": 312,
+        "fp8_dense": null,
+        "int8_dense": 624,
+        "fp4_dense": null,
+        "tf32_dense": 156,
+        "fp32": 19.5
+      },
+      "sources": [
+        {"url": "https://www.nvidia.com/en-us/data-center/a100/", "quote": "A100 80GB SXM: FP32 19.5 TFLOPS | Tensor Float 32 (TF32) 156 TFLOPS | 312 TFLOPS* | BFLOAT16 Tensor Core 312 TFLOPS | 624 TFLOPS* | FP16 Tensor Core 312 TFLOPS | 624 TFLOPS* | INT8 Tensor Core 624 TOPS | 1248 TOPS* | GPU Memory 80GB HBM2e | GPU Memory Bandwidth 2,039 GB/s | * With sparsity"}
+      ],
+      "notes": "Dense figures published directly (first value). No FP8 support."
+    },
+    {
+      "id": "l40s",
+      "name": "NVIDIA L40S 48GB",
+      "vendor": "NVIDIA",
+      "mem_gb": 48,
+      "mem_bw_gbps": 864,
+      "flops": {
+        "bf16_dense": 362.05,
+        "fp16_dense": 362.05,
+        "fp8_dense": 733,
+        "int8_dense": 733,
+        "fp4_dense": null,
+        "tf32_dense": 183,
+        "fp32": 91.6
+      },
+      "sources": [
+        {"url": "https://www.nvidia.com/en-us/data-center/l40s/", "quote": "FP32 91.6 teraFLOPS | TF32 Tensor Core 183 I 366* | BFLOAT16 Tensor Core 362.05 I 733* | FP16 Tensor Core 362.05 I 733* | FP8 Tensor Core 733 I 1,466* | Peak INT8 Tensor TOPS 733 I 1,466* | GPU Memory 48GB GDDR6 with ECC | Memory Bandwidth 864GB/s | *With Sparsity"}
+      ],
+      "notes": "Dense figures published directly (first value of each pair). Datacenter Ada: BF16/FP16 tensor listed at full rate (no FP16-accumulate split as on GeForce)."
+    },
+    {
+      "id": "rtx_4090",
+      "name": "NVIDIA GeForce RTX 4090 24GB",
+      "vendor": "NVIDIA",
+      "mem_gb": 24,
+      "mem_bw_gbps": 1008,
+      "flops": {
+        "bf16_dense": 165.2,
+        "fp16_dense": 165.2,
+        "fp16_dense_fp16_accumulate": 330.3,
+        "fp8_dense": 330.3,
+        "fp8_dense_fp16_accumulate": 660.6,
+        "int8_dense": 660.6,
+        "fp4_dense": null,
+        "tf32_dense": 82.6,
+        "fp32": 82.6
+      },
+      "sources": [
+        {"url": "https://images.nvidia.com/aem-dam/Solutions/geforce/ada/nvidia-ada-gpu-architecture.pdf", "quote": "RTX 4090: Peak FP32 TFLOPS (non-Tensor) 82.6 | Peak FP8 Tensor TFLOPS with FP16 Accumulate 660.6/1321.2 | Peak FP8 Tensor TFLOPS with FP32 Accumulate 330.3/660.6 | Peak FP16 Tensor TFLOPS with FP16 Accumulate 330.3/660.6 | Peak FP16 Tensor TFLOPS with FP32 Accumulate 165.2/330.4 | Peak BF16 Tensor TFLOPS with FP32 Accumulate 165.2/330.4 | Peak TF32 Tensor TFLOPS 82.6/165.2 | Peak INT8 Tensor TOPS 660.6/1321.2 | Frame Buffer Memory Size 24 GB | Memory Bandwidth 1008 GB/sec (footnote 2: Effective TOPS / TFLOPS using the new Sparsity Feature)"}
+      ],
+      "notes": "Pairs are dense/sparse; dense used. GeForce runs FP32-accumulate tensor math at half the FP16-accumulate rate: bf16_dense / fp16_dense / fp8_dense use the FP32-accumulate rate (what bf16 training/inference kernels use); the FP16-accumulate rates are recorded separately."
+    },
+    {
+      "id": "rtx_5090",
+      "name": "NVIDIA GeForce RTX 5090 32GB",
+      "vendor": "NVIDIA",
+      "mem_gb": 32,
+      "mem_bw_gbps": 1792,
+      "flops": {
+        "bf16_dense": 209.5,
+        "fp16_dense": 209.5,
+        "fp16_dense_fp16_accumulate": 419,
+        "fp8_dense": 419,
+        "fp8_dense_fp16_accumulate": 838,
+        "int8_dense": 838,
+        "fp4_dense": 1676,
+        "tf32_dense": 104.8,
+        "fp32": 104.8
+      },
+      "sources": [
+        {"url": "https://images.nvidia.com/aem-dam/Solutions/geforce/blackwell/nvidia-rtx-blackwell-gpu-architecture.pdf", "quote": "RTX 5090 (Appendix A, Table 3): Peak FP32 TFLOPS (non-Tensor) 104.8 | Peak FP4 Tensor TFLOPS with FP32 Accumulate (FP4 AI TOPS) 1676/3352 | Peak FP8 Tensor TFLOPS with FP16 Accumulate 838/1676 | Peak FP8 Tensor TFLOPS with FP32 Accumulate 419/838 | Peak FP16 Tensor TFLOPS with FP16 Accumulate 419/838 | Peak FP16 Tensor TFLOPS with FP32 Accumulate 209.5/419 | Peak BF16 Tensor TFLOPS with FP32 Accumulate 209.5/419 | Peak TF32 Tensor TFLOPS 104.8/209.5 | Peak INT8 Tensor TOPS 838/1676 | Frame Buffer Memory Size and Type 32 GB GDDR7 | Memory Bandwidth 1792 GB/sec"}
+      ],
+      "notes": "Pairs are dense/sparse; dense used. bf16/fp16/fp8 use the FP32-accumulate rate; FP16-accumulate rates recorded separately. FP4 dense 1676 (3352 is the sparse 'AI TOPS' marketing figure)."
+    },
+    {
+      "id": "m3_max_40c",
+      "name": "Apple M3 Max (16-core CPU, 40-core GPU)",
+      "vendor": "Apple",
+      "mem_gb": 128,
+      "mem_bw_gbps": 400,
+      "flops": {
+        "bf16_dense": 14.31,
+        "fp16_dense": 14.31,
+        "fp8_dense": null,
+        "int8_dense": null,
+        "fp4_dense": null,
+        "fp32": 14.31
+      },
+      "derived": true,
+      "sources": [
+        {"url": "https://support.apple.com/en-us/117736", "quote": "M3 Max with 16-core CPU and 40-core GPU (400GB/s memory bandwidth)"},
+        {"url": "https://en.wikipedia.org/wiki/Apple_M3", "quote": "M3 Max 40-core GPU: 409.6 GB/s, 128 GB; each GPU core contains 16 execution units (EUs) and 128 arithmetic logic units (ALUs)"},
+        {"url": "https://lowendmac.com/1234/apple-silicon-m3-max-chip-specs/", "quote": "GPU Cores: 30 / 40 SIMD EU: 480 / 640 FP32 ALU: 3840 / 5120 GPU Clock: 1398 MHz FP32 (TFLOPS): 10.5 / 14.1"},
+        {"url": "https://github.com/philipturner/metal-benchmarks", "quote": "128 ALUs per GPU core; FFMA16 and FFMA32 both 1 per ALU per cycle (Apple 7/8 GPUs, measured on M1/M2)"}
+      ],
+      "notes": "Apple publishes bandwidth (400 GB/s, used) but no FLOPS. 409.6 GB/s is the LPDDR5-6400 x 512-bit raw figure. Derived FP32 = 40 cores x 128 ALUs x 2 FLOP/FMA x 1.398 GHz = 14.31 TFLOPS (third-party sites list 14.1-14.3; outliers list 16.4 assuming 1.6 GHz). No matrix/tensor units before M5 and FP16 FMA runs at the FP32 rate per metal-benchmarks, so fp16_dense = bf16_dense = fp32 (bf16 has no faster path; this is an upper-bound placeholder, not a published number)."
+    },
+    {
+      "id": "m4_max_40c",
+      "name": "Apple M4 Max (16-core CPU, 40-core GPU)",
+      "vendor": "Apple",
+      "mem_gb": 128,
+      "mem_bw_gbps": 546,
+      "flops": {
+        "bf16_dense": 16.16,
+        "fp16_dense": 16.16,
+        "fp8_dense": null,
+        "int8_dense": null,
+        "fp4_dense": null,
+        "fp32": 16.16
+      },
+      "derived": true,
+      "sources": [
+        {"url": "https://www.apple.com/newsroom/2024/10/apple-introduces-m4-pro-and-m4-max/", "quote": "M4 Max supports up to 128GB of fast unified memory and up to 546GB/s of memory bandwidth ... The GPU has up to 40 cores"},
+        {"url": "https://nanoreview.net/en/gpu/apple-m4-max-gpu-40-core", "quote": "Base Clock 500 MHz, Boost Clock 1578 MHz, Shading Units 5120, FP32 16.2 TFLOPS"},
+        {"url": "https://github.com/philipturner/metal-benchmarks", "quote": "128 ALUs per GPU core; FFMA16 and FFMA32 both 1 per ALU per cycle (Apple 7/8 GPUs, measured on M1/M2)"}
+      ],
+      "notes": "Apple publishes bandwidth (546 GB/s) but no FLOPS. Derived FP32 = 40 x 128 x 2 x 1.578 GHz = 16.16 TFLOPS (1578 MHz is the most-cited third-party clock; other sites list 1.68-1.8 GHz giving 17.2-18.4). fp16/bf16 set equal to fp32 as for M3 Max (no tensor units before M5)."
+    },
+    {
+      "id": "mi300x",
+      "name": "AMD Instinct MI300X OAM 192GB",
+      "vendor": "AMD",
+      "mem_gb": 192,
+      "mem_bw_gbps": 5300,
+      "flops": {
+        "bf16_dense": 1307.4,
+        "fp16_dense": 1307.4,
+        "fp8_dense": 2614.9,
+        "int8_dense": 2614.9,
+        "fp4_dense": null,
+        "tf32_dense": 653.7,
+        "fp32": 163.4
+      },
+      "sources": [
+        {"url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html", "quote": "Peak Single Precision (FP32) Performance 163.4 TFLOPs | Peak Memory Bandwidth 5.3 TB/s"},
+        {"url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html", "quote": "MI300-17: ... MI300X (750W) GPU ... at 2,100 MHz peak boost engine clock resulted in 653.7 TFLOPS peak theoretical TensorFloat-32 (TF32), 1307.4 TFLOPS peak theoretical half precision (FP16), 1307.4 TFLOPS peak theoretical Bfloat16 format precision (BF16), 2614.9 TFLOPS peak theoretical 8-bit precision (FP8), 2614.9 TOPs INT8 ... with sparsity ... 2,614.9 TFLOPS ... (BF16), 5,229.8 TFLOPS ... (FP8)"},
+        {"url": "https://www.amd.com/en/products/accelerators/instinct/mi300/mi300x.html", "quote": "MI300-05A: ... 192 GB HBM3 memory capacity and 5.325 TFLOPS [sic] peak theoretical memory bandwidth performance. MI300X memory bus interface is 8,192 and memory data rate is 5.2 Gbps for total peak memory bandwidth of 5.325 TB/s"}
+      ],
+      "notes": "AMD publishes dense figures directly (sparse is 2x). Bandwidth: headline 5.3 TB/s (used); footnote computes 5.325 TB/s."
+    }
+  ]
+}

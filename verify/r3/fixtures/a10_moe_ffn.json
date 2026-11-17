@@ -1,0 +1,99 @@
+{
+ "gemma4_branch_post_norms": {
+  "detector": "detect_gemma4_branch_post_norms",
+  "flag": {
+   "nvidia/Gemma-4-26B-A4B-NVFP4": "branch_norm",
+   "AEON-7/supergemma4-26b-abliterated-multimodal-nvfp4": "branch_norm",
+   "amd/gemma-4-26B-A4B-it-w4a16-llmcompressor": "branch_norm",
+   "mlx-community/gemma-4-26B-A4B-it-OptiQ-4bit-REAP-14B": "branch_norm",
+   "PixilabAI/Blink-v0.5-26B-A4B": "branch_norm",
+   "zentropi-ai/cope-b-a4b": "branch_norm",
+   "Jlfn/gemma-4-26b-a4b-vq-gguf": "branch_norm",
+   "org2ai/Wald-26B-A4B": "branch_norm",
+   "nvidia/diffusiongemma-26B-A4B-it-NVFP4": "branch_norm",
+   "yifanyu/DiffusionGemma-26B-A4B-it-ORL": "branch_norm"
+  },
+  "not_flag": ["nvidia/Gemma-4-31B-IT-NVFP4", "melcheikh/gemma-4-31B-it-qat-NVFP4-Blackwell",
+               "google/gemma-4-26B-A4B-it-assistant", "google/gemma-4-E2B-it-assistant", "Qwen/Qwen3-30B-A3B"]
+ },
+ "mova_routed_values": {
+  "detector": "detect_mova_routed_values",
+  "flag": {"inception42/Jais-3-MoVA-36B-A4B": [64, 4]},
+  "not_flag": ["IFM/K2-Horizon-375B-A23B", "inception42/Jais-3-375B-A23B", "IFM/K2-Horizon-7B", "IFM/K2-Horizon-32B",
+               "IFM/Jais-ASR"]
+ },
+ "kimi_latent_moe_norm": {
+  "detector": "detect_kimi_latent_moe_norm",
+  "flag": {
+   "nvidia/Kimi-K3-NVFP4": ["sum", 3584],
+   "moonshotai/Kimi-K3.1-Pro": ["sum", 3584],
+   "pipenetwork/Kimi-K3-REAP80-MLX-mxfp4-q8": ["sum", 3584],
+   "mlx-community/Kimi-K3-mlx-reap160-2bit": ["sum", 3584],
+   "baidu/ERNIE-5.5-Flash-Base": ["sum", 2048],
+   "Interchained/Muse-Spark-Open-816B-A42B-GGUF": ["in", 4096],
+   "staccs/Muse-Spark-Open-816B-A42B-lecore-mlx": ["in", 4096]
+  },
+  "not_flag": ["moonshotai/Kimi-Linear-48B-A3B-Instruct", "moonshotai/Kimi-Linear-48B-A3B-Base",
+               "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-BF16", "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+               "baidu/ERNIE-4.5-21B-A3B-PT"]
+ },
+ "expert_output_norm": {
+  "detector": "detect_expert_output_norm",
+  "flag": {"Interchained/Muse-Spark-Open-816B-A42B-GGUF": "input_scaled_rms",
+           "staccs/Muse-Spark-Open-816B-A42B-lecore-mlx": "input_scaled_rms"},
+  "not_flag": ["RadixArk/Muse-Glimmer-q4-MLX", "hweller1/wayfinder-glimmer-30b", "nvidia/Kimi-K3-NVFP4",
+               "Qwen/Qwen3-30B-A3B"]
+ },
+ "identity_experts": {
+  "detector": "detect_identity_experts",
+  "flag": {"meituan-longcat/LongCat-Flash-Chat": 256, "meituan-longcat/LongCat-Flash-Thinking": 256,
+           "meituan-longcat/LongCat-Flash-Thinking-2601": 256, "meituan-longcat/LongCat-2.0": 128,
+           "meituan-longcat/LongCat-Flash-Lite-Sparse": 128},
+  "not_flag": ["deepseek-ai/DeepSeek-V4-Flash", "Qwen/Qwen3-30B-A3B", "openai/gpt-oss-20b"]
+ },
+ "shared_gate_undetected": {
+  "detector": "detect_shared_gate_undetected",
+  "flag": {"AMAImedia/AliceAI-Foundation-80B-A3B-NOESIS-BF16-GGUF": true, "MemTensor/MemT-1.0-Nano": true,
+           "Qwen/Qwen1.5-MoE-A2.7B": true, "Qwen/Qwen3-Next-80B-A3B-Instruct": true,
+           "nvidia/Qwen3.6-35B-A3B-NVFP4": true},
+  "not_flag": ["MemTensor/MemT-1.0-Flash", "Qwen/Qwen3-30B-A3B", "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+               "HIT-SCIR/Chinese-Mixtral-8x7B"]
+ },
+ "shared_expert_code_fixed_unread": {
+  "detector": "detect_shared_expert_code_fixed_unread",
+  "flag": {"lmstudio-community/Llama-4-Scout-17B-16E-MLX-text-8bit": 8192},
+  "not_flag": ["meta-llama/Llama-3.1-8B", "meta-llama/Llama-3.1-70B", "HIT-SCIR/Chinese-Mixtral-8x7B"]
+ },
+ "dense_first_key_unread": {
+  "detector": "detect_dense_first_key_unread",
+  "flag": {"KBlueLeaf/TIPO-v2.1-1B-A200M": 1},
+  "not_flag": ["Qwen/Qwen3-30B-A3B", "deepseek-ai/DeepSeek-V4-Flash", "moonshotai/Kimi-Linear-48B-A3B-Instruct"]
+ },
+ "hierarchical_moe_unread": {
+  "detector": "detect_hierarchical_moe_unread",
+  "flag": {"Yo-Purple/Meditor-2-3.4B-A1.8B-HMoE": [3, 5, 768]},
+  "not_flag": ["Qwen/Qwen3-30B-A3B", "Qwen/Qwen1.5-MoE-A2.7B", "meta-llama/Llama-3.2-3B"]
+ },
+ "arctic_dense_residual_parallel_moe": {
+  "detector": "detect_arctic_dense_residual_parallel_moe",
+  "flag": {"Snowflake/snowflake-arctic-instruct": 7168},
+  "not_flag": ["HIT-SCIR/Chinese-Mixtral-8x7B", "Qwen/Qwen3-30B-A3B", "rombodawg/Everyone-Coder-4x7b-Base"]
+ },
+ "act_clip_order": {
+  "detector": "detect_act_clip_order",
+  "flag": {"stepfun-ai/Step-3.5-Flash": "post", "stepfun-ai/Step-3.5-Flash-Base-Midtrain": "post",
+           "inclusionAI/Ling-3.1-flash": "post", "TensorFold/Ling-3.0-flash-oQ4": "post",
+           "deepseek-ai/DeepSeek-V4-Flash": "pre", "deepseek-ai/DeepSeek-V4.1-Flash": "pre",
+           "local-inference-lab/GLM-5.3-Flash-NVFP4-Spark": "pre", "tencent/Hy4-preview-FP8": "pre",
+           "MemTensor/MemT-1.0-Flash": "pre"},
+  "not_flag": ["openai/gpt-oss-20b", "nvidia/MiniMax-M3-NVFP4", "LGAI-EXAONE/K-EXAONE-2.0-750B-A37B",
+               "rapid-mlx/Ling-3.0-tiny-MLX-4bit", "Qwen/Qwen3-30B-A3B"]
+ },
+ "act_clip_per_layer_list": {
+  "detector": "detect_act_clip_per_layer_list",
+  "flag": {"inclusionAI/Ling-3.1-flash": 10, "Baekpica/Ling-3.1-flash-1019-VQ-GGUF": 10,
+           "TensorFold/Ling-3.0-flash-oQ5": 7, "TensorFold/Ling-3.0-flash-oQ4": 7},
+  "not_flag": ["rapid-mlx/Ling-3.0-tiny-MLX-4bit", "Edge0/Edge0-8B-A1B-preview", "stepfun-ai/Step-3.5-Flash",
+               "deepseek-ai/DeepSeek-V4-Flash"]
+ }
+}

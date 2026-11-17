@@ -1,0 +1,319 @@
+{
+ "baseline / R0": {
+  "alone": {
+   "frontier": 218,
+   "left": []
+  },
+  "on_R0": {
+   "frontier": 194,
+   "left": []
+  }
+ },
+ "qknorm_variants_count": {
+  "": 678,
+  "rms_whole": 14,
+  "rms_head": 197,
+  "ln_head": 6
+ },
+ "correction: q-norm variant must match (rms_head / rms_whole / ln_head)": {
+  "alone": {
+   "frontier": 220,
+   "left": []
+  },
+  "on_R0": {
+   "frontier": 197,
+   "left": []
+  }
+ },
+ "[upper bound] post-only targets free on any post-norm host": {
+  "alone": {
+   "frontier": 217,
+   "left": [
+    "OLMo-2-0325-32B"
+   ]
+  },
+  "on_R0": {
+   "frontier": 193,
+   "left": [
+    "Olmo-3-1125-32B"
+   ]
+  }
+ },
+ "[upper bound] post-norm target wall dropped": {
+  "alone": {
+   "frontier": 212,
+   "left": [
+    "GLM-4-9B-0414",
+    "HyperCLOVAX-SEED-Think-14B",
+    "OLMo-2-0325-32B",
+    "wayfinder-glimmer-30b",
+    "A.X-K1",
+    "GLM-Z1-Rumination-32B-0414"
+   ]
+  },
+  "on_R0": {
+   "frontier": 188,
+   "left": [
+    "Olmo-3-1125-32B",
+    "GLM-4-9B-0414",
+    "HyperCLOVAX-SEED-Think-14B",
+    "wayfinder-glimmer-30b",
+    "A.X-K1",
+    "GLM-Z1-Rumination-32B-0414"
+   ]
+  }
+ },
+ "KV-head packing (head_dim blocks) replaces the KV-head-count rule": {
+  "alone": {
+   "frontier": 214,
+   "left": [
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "jetmoe-8b",
+    "tiny-testing-falcon-alibi"
+   ]
+  },
+  "on_R0": {
+   "frontier": 190,
+   "left": [
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "parler-tts-large-v1",
+    "tiny-testing-falcon-alibi"
+   ]
+  }
+ },
+ "[upper bound] K=V host layers play own-V layers (keqv rule dropped)": {
+  "alone": {
+   "frontier": 218,
+   "left": []
+  },
+  "on_R0": {
+   "frontier": 194,
+   "left": []
+  }
+ },
+ "[upper bound] recurrent family wall dropped (rf target side)": {
+  "alone": {
+   "frontier": 215,
+   "left": [
+    "LFM2.5-1.2B-JP",
+    "Jet-Nemotron-2B"
+   ]
+  },
+  "on_R0": {
+   "frontier": 190,
+   "left": [
+    "LFM2.5-1.2B-JP",
+    "plamo-2-translate",
+    "Jet-Nemotron-2B"
+   ]
+  }
+ },
+ "[upper bound] sink target on a plain host": {
+  "alone": {
+   "frontier": 218,
+   "left": []
+  },
+  "on_R0": {
+   "frontier": 194,
+   "left": []
+  }
+ },
+ "[upper bound] all bias walls dropped": {
+  "alone": {
+   "frontier": 204,
+   "left": [
+    "Seed-OSS-36B-Base",
+    "granite-3b-code-base-2k",
+    "stable-code-3b",
+    "Phi-3.5-MoE-instruct",
+    "GLM-4-9B-0414",
+    "nous-2",
+    "hubble-8b-100b_toks-perturbed-hf",
+    "Qwen1.5-110B",
+    "basal-2.0-4.5B",
+    "clio-v1-legacy",
+    "granite-8b-code-base-4k",
+    "PowerLM-3b",
+    "manaca-1b-base",
+    "polyglot-ko-5.8b"
+   ]
+  },
+  "on_R0": {
+   "frontier": 180,
+   "left": [
+    "Seed-OSS-36B-Base",
+    "granite-3b-code-base-2k",
+    "stable-code-3b",
+    "Phi-3.5-MoE-instruct",
+    "GLM-4-9B-0414",
+    "nous-2",
+    "hubble-8b-100b_toks-perturbed-hf",
+    "Qwen1.5-110B",
+    "basal-2.0-4.5B",
+    "clio-v1-legacy",
+    "granite-8b-code-base-4k",
+    "PowerLM-3b",
+    "Domyn-Small-v1.0",
+    "polyglot-ko-5.8b"
+   ]
+  }
+ },
+ "ignore DSA (context <= index_topk)": {
+  "alone": {
+   "frontier": 213,
+   "left": [
+    "GLM-4.7-Flash",
+    "LongCat-Flash-Chat",
+    "MiniCPM3-4B",
+    "Naive-N0.5-Flash"
+   ]
+  },
+  "on_R0": {
+   "frontier": 186,
+   "left": [
+    "GLM-4.7-Flash",
+    "Moonlight-16B-A3B",
+    "MiniMax-M3-NVFP4",
+    "LongCat-Flash-Chat",
+    "MiniCPM3-4B",
+    "Naive-N0.5-Flash",
+    "kanana-2-30b-a3b-instruct"
+   ]
+  }
+ },
+ "softcap_points": 37,
+ "ignore softcap (already a payable regime)": {
+  "alone": {
+   "frontier": 218,
+   "left": []
+  },
+  "on_R0": {
+   "frontier": 194,
+   "left": []
+  }
+ },
+ "ignore MTP (already free both ways)": {
+  "alone": {
+   "frontier": 218,
+   "left": []
+  },
+  "on_R0": {
+   "frontier": 194,
+   "left": []
+  }
+ },
+ "exclude drafts": {
+  "points_removed": 52,
+  "frontier_drafts": [
+   "Aurora-Spec-Qwen3-Coder-Next-FP8",
+   "GLM-5.3-DFlash2",
+   "Kimi-K3-DFlash",
+   "Kimi-K3-DSpark",
+   "Kimi-K3.1-Dflash2-Preview",
+   "MiniCPM-V-4.7-35B-A3B-DSpark",
+   "Muse-Spark-Open-DFlash2",
+   "Nanbeige4.3-33B-DFlash2",
+   "Qwen3.8-2.4T-A95B-DSpark",
+   "Ripple-65B-Preview-DFlash2-QVB8-5e-3",
+   "gemma-4-31B-it-assistant"
+  ],
+  "alone": {
+   "frontier": 207
+  },
+  "on_R0": {
+   "frontier": 185
+  }
+ },
+ "token splitting k=2 (kv_cap, q_cap, qheads / k)": {
+  "alone": {
+   "frontier": 218,
+   "left": []
+  },
+  "on_R0": {
+   "frontier": 194,
+   "left": []
+  }
+ },
+ "token splitting k=2 (kv_cap, q_cap, qheads / k + kv_heads / k)": {
+  "alone": {
+   "frontier": 214,
+   "left": [
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "jetmoe-8b",
+    "tiny-testing-falcon-alibi"
+   ]
+  },
+  "on_R0": {
+   "frontier": 190,
+   "left": [
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "parler-tts-large-v1",
+    "tiny-testing-falcon-alibi"
+   ]
+  }
+ },
+ "token splitting k=4 (kv_cap, q_cap, qheads / k)": {
+  "alone": {
+   "frontier": 218,
+   "left": []
+  },
+  "on_R0": {
+   "frontier": 194,
+   "left": []
+  }
+ },
+ "token splitting k=4 (kv_cap, q_cap, qheads / k + kv_heads / k)": {
+  "alone": {
+   "frontier": 214,
+   "left": [
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "jetmoe-8b",
+    "tiny-testing-falcon-alibi"
+   ]
+  },
+  "on_R0": {
+   "frontier": 190,
+   "left": [
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "parler-tts-large-v1",
+    "tiny-testing-falcon-alibi"
+   ]
+  }
+ },
+ "token splitting k=8 (kv_cap, q_cap, qheads / k)": {
+  "alone": {
+   "frontier": 218,
+   "left": []
+  },
+  "on_R0": {
+   "frontier": 194,
+   "left": []
+  }
+ },
+ "token splitting k=8 (kv_cap, q_cap, qheads / k + kv_heads / k)": {
+  "alone": {
+   "frontier": 214,
+   "left": [
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "jetmoe-8b",
+    "tiny-testing-falcon-alibi"
+   ]
+  },
+  "on_R0": {
+   "frontier": 190,
+   "left": [
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "parler-tts-large-v1",
+    "tiny-testing-falcon-alibi"
+   ]
+  }
+ }
+}

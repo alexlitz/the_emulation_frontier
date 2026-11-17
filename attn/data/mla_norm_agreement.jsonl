@@ -1,0 +1,2 @@
+{"model": "deepseek-ai/DeepSeek-V2-Lite", "variant": "self", "n_norms": 27, "top1": 1.0, "kl": 0.0, "ex32": 1.0, "ex64": 1.0, "div": 64.0, "n_prompts": 24, "kv_cv_mean": 0.5784866264330143, "kv_cv_max": 1.579531907396424, "q_cv_mean": null}
+{"model": "deepseek-ai/DeepSeek-V2-Lite", "variant": "kv", "n_norms": 27, "top1": 0.8098958333333334, "kl": 0.29257089930718105, "ex32": 0.041666666666666664, "ex64": 0.0, "div": 4.458333333333333, "n_prompts": 24, "kv_cv_mean": 0.5784866264330143, "kv_cv_max": 1.579531907396424, "q_cv_mean": null}

@@ -1,0 +1,107 @@
+{
+ "b_kv_compress_host": {
+  "detector": "detect_b_kv_compress_host",
+  "flag": {
+   "deepseek-ai/DeepSeek-V4-Flash-0731": "compress_ratios",
+   "deepseek-ai/DeepSeek-V4-Pro": "compress_ratios",
+   "deepseek-ai/DeepSeek-V4.1-Flash": "compress_ratios",
+   "deepseek-ai/DeepSeek-V4.1-Flash-1017": "compress_ratios",
+   "baidu/ERNIE-5.5-Flash-Base": "compress_ratios",
+   "MemTensor/MemT-1.0-Flash": "layer_types",
+   "endless-frontier/Fx-Bio": "layer_types",
+   "inference-optimization/DeepSeek-V4-Pro-0.5B-A0.37B": "layer_types"
+  },
+  "not_flag": [
+   "HuggingFaceTB/nanowhale-100m-base",
+   "zai-org/GLM-5.3",
+   "deepseek-ai/DeepSeek-V3",
+   "tencent/Hy4-preview-FP8",
+   "shashanth-27xA9/GLM-5.3-SuperExpert-v2-9.2GB"
+  ]
+ },
+ "b_hash_route_host": {
+  "detector": "detect_b_hash_route_host",
+  "flag": {
+   "deepseek-ai/DeepSeek-V4-Flash-0731": "num_hash_layers",
+   "deepseek-ai/DeepSeek-V4-Flash": "num_hash_layers",
+   "deepseek-ai/DeepSeek-V4-Pro": "num_hash_layers",
+   "deepseek-ai/DeepSeek-V4-Pro-0813": "num_hash_layers",
+   "MemTensor/MemT-1.0-Flash": "mlp_layer_types",
+   "endless-frontier/Fx-Bio": "mlp_layer_types",
+   "inference-optimization/DeepSeek-V4-Pro-0.5B-A0.37B": "mlp_layer_types"
+  },
+  "not_flag": [
+   "HuggingFaceTB/nanowhale-100m-base",
+   "deepseek-ai/DeepSeek-V4.1-Flash",
+   "baidu/ERNIE-5.5-Flash-Base",
+   "zai-org/GLM-5.3",
+   "poolside/Laguna-XS.2",
+   "deepseek-ai/DeepSeek-V3"
+  ]
+ },
+ "b_act_clip_host": {
+  "detector": "detect_b_act_clip_host",
+  "flag": {
+   "deepseek-ai/DeepSeek-V4-Flash-0731": "swiglu_limit",
+   "deepseek-ai/DeepSeek-V4.1-Flash": "swiglu_limit",
+   "MemTensor/MemT-1.0-Flash": "swiglu_limit",
+   "tencent/Hy4-preview-FP8": "swiglu_limit",
+   "shashanth-27xA9/GLM-5.3-SuperExpert-v2-9.2GB": "swiglu_limit",
+   "stepfun-ai/Step-3.5-Flash": "swiglu_limits",
+   "stepfun-ai/Step-3.5-Flash-Base-Midtrain": "swiglu_limits"
+  },
+  "not_flag": [
+   "HuggingFaceTB/nanowhale-100m-base",
+   "openai/gpt-oss-20b",
+   "nvidia/MiniMax-M3-NVFP4",
+   "LGAI-EXAONE/K-EXAONE-2.0-750B-A37B",
+   "LGAI-EXAONE/K-EXAONE-236B-A23B",
+   "zai-org/GLM-5.3"
+  ]
+ },
+ "b_clip_qkv_host": {
+  "detector": "detect_b_clip_qkv_host",
+  "flag": {
+   "allenai/OLMo-1B-0724-hf": "clip_qkv",
+   "allenai/OLMo-7B-0724-hf": "clip_qkv",
+   "allenai/OLMo-7B-0424-hf": "clip_qkv"
+  },
+  "not_flag": [
+   "allenai/OLMo-1B-hf",
+   "allenai/OLMo-7B-0724-Instruct-hf",
+   "allenai/OLMoE-1B-7B-0924",
+   "replit/replit-code-v1-3b",
+   "anas-awadalla/mpt-7b",
+   "allenai/Molmo-7B-D-0924",
+   "allenai/Flex-reddit-2x7B-1T"
+  ]
+ },
+ "b_selfcond_norm_escape": {
+  "detector": "detect_b_selfcond_norm_escape",
+  "flag": {},
+  "not_flag": [
+   "yifanyu/DiffusionGemma-26B-A4B-it-ORL",
+   "nvidia/diffusiongemma-26B-A4B-it-NVFP4",
+   "yifanyu/QwenDLM-4B-ORL",
+   "yifanyu/LLaDA2.1-mini-ORL",
+   "JetLM/SDAR-8B-Chat",
+   "Continuous-Rivals-Discrete/langflow-owt"
+  ],
+  "no_positive": "every selfcond_norm host in the snapshot has a tied head (the escape needs an untied one)"
+ },
+ "b_hash_route_target_learned_host": {
+  "detector": "detect_b_hash_route_target_learned_host",
+  "flag": {
+   "deepseek-ai/DeepSeek-V4-Flash-0731": "sqrtsoftplus",
+   "deepseek-ai/DeepSeek-V4-Pro": "sqrtsoftplus",
+   "MemTensor/MemT-1.0-Flash": "sqrtsoftplus",
+   "endless-frontier/Fx-Bio": "sqrtsoftplus"
+  },
+  "not_flag": [
+   "HuggingFaceTB/nanowhale-100m-base",
+   "deepseek-ai/DeepSeek-V4.1-Flash",
+   "deepseek-ai/DeepSeek-V3",
+   "Qwen/Qwen3-30B-A3B"
+  ]
+ }
+}

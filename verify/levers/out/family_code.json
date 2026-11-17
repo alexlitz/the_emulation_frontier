@@ -1,0 +1,1727 @@
+{
+ "transformers": "5.23.0.dev0",
+ "families": {
+  "Dream": {
+   "code": null,
+   "caps": {}
+  },
+  "Motif": {
+   "code": null,
+   "caps": {}
+  },
+  "None": {
+   "code": null,
+   "caps": {}
+  },
+  "a2d-qwen3": {
+   "code": null,
+   "caps": {}
+  },
+  "aba": {
+   "code": null,
+   "caps": {}
+  },
+  "afmoe": {
+   "code": "models/afmoe/modeling_afmoe.py",
+   "caps": {
+    "act_config": "modeling_afmoe.py:120: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_afmoe.py:137: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_afmoe.py:333: self.sliding_window = config.sliding_window if self.is_local_attention else None",
+    "norm_eps_cfg": "modeling_afmoe.py:335: self.q_norm = AfmoeRMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "alice_ai": {
+   "code": null,
+   "caps": {}
+  },
+  "allgdn": {
+   "code": null,
+   "caps": {}
+  },
+  "apertus": {
+   "code": "models/apertus/modeling_apertus.py",
+   "caps": {
+    "act_config": "modeling_apertus.py:50: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_apertus.py:276: self.attention_layernorm = ApertusRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "apertus1p5_text": {
+   "code": null,
+   "caps": {}
+  },
+  "apriel": {
+   "code": null,
+   "caps": {}
+  },
+  "arcee": {
+   "code": "models/arcee/modeling_arcee.py",
+   "caps": {
+    "act_config": "modeling_arcee.py:57: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_arcee.py:277: self.input_layernorm = ArceeRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "arctic": {
+   "code": null,
+   "caps": {}
+  },
+  "arkasr": {
+   "code": null,
+   "caps": {}
+  },
+  "arloop": {
+   "code": null,
+   "caps": {}
+  },
+  "arloop_baseline": {
+   "code": null,
+   "caps": {}
+  },
+  "axk1": {
+   "code": "models/axk1/modeling_axk1.py",
+   "caps": {
+    "act_config": "modeling_axk1.py:127: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_axk1.py:443: q_pass, q_rot = torch.split(q_states, [self.qk_nope_head_dim, self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_axk1.py:137: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_axk1.py:142: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_axk1.py:230: self.post_mlp_layernorm = AXK1RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "axk2": {
+   "code": "models/axk2/modeling_axk2.py",
+   "caps": {
+    "act_config": "modeling_axk2.py:342: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_axk2.py:250: q_rot, q_pass = torch.split(q, [self.qk_rope_head_dim, self.head_dim - self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_axk2.py:283: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_axk2.py:288: self.num_group = config.n_group",
+    "index_topk": "modeling_axk2.py:205: self.index_topk: int = config.index_topk",
+    "norm_eps_cfg": "modeling_axk2.py:95: self.norm = AXK2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "baichuan": {
+   "code": null,
+   "caps": {}
+  },
+  "bailing_hybrid": {
+   "code": "models/bailing_hybrid/modeling_bailing_hybrid.py",
+   "caps": {
+    "act_config": "modeling_bailing_hybrid.py:156: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_bailing_hybrid.py:365: q_pass, q_rot = torch.split(q_states, [self.qk_nope_head_dim, self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_bailing_hybrid.py:770: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_bailing_hybrid.py:775: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_bailing_hybrid.py:680: self.o_norm = BailingHybridRMSNormGated(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "bailing_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "bamba": {
+   "code": "models/bamba/modeling_bamba.py",
+   "caps": {
+    "act_config": "modeling_bamba.py:606: self.act = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_bamba.py:169: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "norm_eps_cfg": "modeling_bamba.py:847: self.input_layernorm = BambaRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "bananamind2_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "beam": {
+   "code": "models/beam/modeling_beam.py",
+   "caps": {
+    "act_config": "modeling_beam.py:294: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_beam.py:340: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_beam.py:344: self.num_group = config.n_group",
+    "window_cfg": "modeling_beam.py:229: self.sliding_window = config.sliding_window if config.layer_types[layer_idx] == \"sliding_attention\" else None",
+    "softcap_cfg": "modeling_beam.py:635: if self.config.final_logit_softcapping is not None:",
+    "norm_eps_cfg": "modeling_beam.py:227: self.q_norm = BeamRMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "bitsy_parallel": {
+   "code": null,
+   "caps": {}
+  },
+  "bloom": {
+   "code": "models/bloom/modeling_bloom.py",
+   "caps": {
+    "norm_eps_cfg": "modeling_bloom.py:349: self.input_layernorm = LayerNorm(hidden_size, eps=config.layer_norm_epsilon)"
+   }
+  },
+  "bolmo": {
+   "code": null,
+   "caps": {}
+  },
+  "breeze": {
+   "code": null,
+   "caps": {}
+  },
+  "bunny-phi": {
+   "code": null,
+   "caps": {}
+  },
+  "cambrian_qwen": {
+   "code": null,
+   "caps": {}
+  },
+  "ceno": {
+   "code": null,
+   "caps": {}
+  },
+  "chatglm": {
+   "code": null,
+   "caps": {}
+  },
+  "codegen": {
+   "code": "models/codegen/modeling_codegen.py",
+   "caps": {
+    "act_config": "modeling_codegen.py:213: self.act = ACT2FN[config.activation_function]",
+    "partial_rope": "modeling_codegen.py:173: k_pass = key[:, :, :, self.rotary_dim :]",
+    "norm_eps_cfg": "modeling_codegen.py:230: self.ln_1 = nn.LayerNorm(config.n_embd, eps=config.layer_norm_epsilon)"
+   }
+  },
+  "cohere": {
+   "code": "models/cohere/modeling_cohere.py",
+   "caps": {
+    "act_config": "modeling_cohere.py:123: self.act_fn = ACT2FN[config.hidden_act]",
+    "qknorm_switch": "modeling_cohere.py:228: self.use_qk_norm = config.use_qk_norm",
+    "norm_eps_cfg": "modeling_cohere.py:232: hidden_size=(config.num_attention_heads, self.head_dim), eps=config.layer_norm_eps"
+   }
+  },
+  "cohere2": {
+   "code": "models/cohere2/modeling_cohere2.py",
+   "caps": {
+    "act_config": "modeling_cohere2.py:257: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_cohere2.py:190: self.sliding_window = config.sliding_window if config.layer_types[layer_idx] == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_cohere2.py:270: self.input_layernorm = Cohere2LayerNorm(hidden_size=(config.hidden_size), eps=config.layer_norm_eps)"
+   }
+  },
+  "cost_wise_gemma": {
+   "code": null,
+   "caps": {}
+  },
+  "crowd": {
+   "code": null,
+   "caps": {}
+  },
+  "cyrah": {
+   "code": null,
+   "caps": {}
+  },
+  "deci": {
+   "code": null,
+   "caps": {}
+  },
+  "deep": {
+   "code": null,
+   "caps": {}
+  },
+  "deepseek": {
+   "code": null,
+   "caps": {}
+  },
+  "deepseek2": {
+   "code": null,
+   "caps": {}
+  },
+  "deepseek_v2": {
+   "code": "models/deepseek_v2/modeling_deepseek_v2.py",
+   "caps": {
+    "act_config": "modeling_deepseek_v2.py:56: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_deepseek_v2.py:88: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_deepseek_v2.py:94: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_deepseek_v2.py:429: self.input_layernorm = DeepseekV2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "deepseek_v3": {
+   "code": "models/deepseek_v3/modeling_deepseek_v3.py",
+   "caps": {
+    "act_config": "modeling_deepseek_v3.py:113: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_deepseek_v3.py:442: q_pass, q_rot = torch.split(q_states, [self.qk_nope_head_dim, self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_deepseek_v3.py:123: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_deepseek_v3.py:128: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_deepseek_v3.py:497: self.input_layernorm = DeepseekV3RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "deepseek_v32": {
+   "code": "models/deepseek_v32/modeling_deepseek_v32.py",
+   "caps": {
+    "act_config": "modeling_deepseek_v32.py:489: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_deepseek_v32.py:214: q_rot, q_pass = torch.split(q, [self.qk_rope_head_dim, self.head_dim - self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_deepseek_v32.py:499: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_deepseek_v32.py:504: self.num_group = config.n_group",
+    "index_topk": "modeling_deepseek_v32.py:169: self.index_topk: int = config.index_topk",
+    "norm_eps_cfg": "modeling_deepseek_v32.py:687: self.norm = DeepseekV32RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "deepseek_v4": {
+   "code": "models/deepseek_v4/modeling_deepseek_v4.py",
+   "caps": {
+    "act_config": "modeling_deepseek_v4.py:1029: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_deepseek_v4.py:1082: self.top_k = config.num_experts_per_tok",
+    "scoring_switch": "modeling_deepseek_v4.py:1086: self.score_fn = ACT2FN[config.scoring_func]",
+    "index_topk": "modeling_deepseek_v4.py:476: `k = config.index_topk`. Each query then attends only to those `k` of the",
+    "window_cfg": "modeling_deepseek_v4.py:182: super().__init__(sliding_window=config.sliding_window)",
+    "norm_eps_cfg": "modeling_deepseek_v4.py:402: self.kv_norm = DeepseekV4RMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "deepseek_v41_text": {
+   "code": null,
+   "caps": {}
+  },
+  "dhara_ar": {
+   "code": null,
+   "caps": {}
+  },
+  "diffurefill": {
+   "code": null,
+   "caps": {}
+  },
+  "diffusion_gemma_text": {
+   "code": "models/diffusion_gemma/modeling_diffusion_gemma.py",
+   "caps": {
+    "act_config": "modeling_diffusion_gemma.py:499: self.act_fn = ACT2FN[config.hidden_activation]",
+    "window_cfg": "modeling_diffusion_gemma.py:277: self.sliding_window = config.sliding_window if self.is_sliding else None",
+    "softcap_cfg": "modeling_diffusion_gemma.py:1596: self.final_logit_softcapping = config.text_config.final_logit_softcapping",
+    "norm_eps_cfg": "modeling_diffusion_gemma.py:300: self.q_norm = DiffusionGemmaRMSNorm(dim=self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "doge": {
+   "code": "models/doge/modeling_doge.py",
+   "caps": {
+    "act_config": "modeling_doge.py:372: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_doge.py:388: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_doge.py:566: mask_function = create_causal_mask if self.config.sliding_window is None else create_sliding_window_causal_mask",
+    "norm_eps_cfg": "modeling_doge.py:269: self.q_norm = DogeRMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "domynedge": {
+   "code": null,
+   "caps": {}
+  },
+  "dory": {
+   "code": null,
+   "caps": {}
+  },
+  "dots1": {
+   "code": "models/dots1/modeling_dots1.py",
+   "caps": {
+    "act_config": "modeling_dots1.py:264: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_dots1.py:274: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_dots1.py:279: self.num_group = config.n_group",
+    "window_cfg": "modeling_dots1.py:211: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_dots1.py:209: self.q_norm = Dots1RMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "dots3_note": {
+   "code": "models/dots3_note/modeling_dots3_note.py",
+   "caps": {
+    "act_config": "modeling_dots3_note.py:287: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_dots3_note.py:248: q_rot, q_pass = torch.split(q, [self.qk_rope_head_dim, self.head_dim - self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_dots3_note.py:297: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_dots3_note.py:302: self.num_group = config.n_group",
+    "index_topk": "modeling_dots3_note.py:208: self.index_topk: int = config.index_topk",
+    "window_cfg": "modeling_dots3_note.py:495: self.sliding_window = config.sliding_window if config.layer_types[layer_idx] == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_dots3_note.py:470: self.q_a_layernorm = Dots3NoteRMSNorm(self.q_lora_rank, eps=config.rms_norm_eps)"
+   }
+  },
+  "dots_ocr": {
+   "code": null,
+   "caps": {}
+  },
+  "edgerock": {
+   "code": null,
+   "caps": {}
+  },
+  "ernie4_5": {
+   "code": "models/ernie4_5/modeling_ernie4_5.py",
+   "caps": {
+    "act_config": "modeling_ernie4_5.py:100: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_ernie4_5.py:274: self.input_layernorm = Ernie4_5RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "ernie4_5_moe": {
+   "code": "models/ernie4_5_moe/modeling_ernie4_5_moe.py",
+   "caps": {
+    "act_config": "modeling_ernie4_5_moe.py:75: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_ernie4_5_moe.py:340: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_ernie4_5_moe.py:485: self.norm = Ernie4_5_MoeRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "ernie5_5_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "ethoric": {
+   "code": null,
+   "caps": {}
+  },
+  "exaone": {
+   "code": null,
+   "caps": {}
+  },
+  "exaone4": {
+   "code": "models/exaone4/modeling_exaone4.py",
+   "caps": {
+    "act_config": "modeling_exaone4.py:269: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_exaone4.py:199: self.sliding_window = config.sliding_window",
+    "norm_eps_cfg": "modeling_exaone4.py:209: self.q_norm = Exaone4RMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "exaone_moe": {
+   "code": "models/exaone_moe/modeling_exaone_moe.py",
+   "caps": {
+    "act_config": "modeling_exaone_moe.py:219: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_exaone_moe.py:229: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_exaone_moe.py:234: self.num_group = config.n_group",
+    "window_cfg": "modeling_exaone_moe.py:149: self.sliding_window = config.sliding_window",
+    "norm_eps_cfg": "modeling_exaone_moe.py:159: self.q_norm = ExaoneMoeRMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "fabric": {
+   "code": null,
+   "caps": {}
+  },
+  "falcon": {
+   "code": "models/falcon/modeling_falcon.py",
+   "caps": {
+    "parallel_switch": "modeling_falcon.py:555: if not config.parallel_attn:",
+    "norm_eps_cfg": "modeling_falcon.py:556: self.post_attention_layernorm = LayerNorm(hidden_size, eps=config.layer_norm_epsilon)"
+   }
+  },
+  "falcon_h1": {
+   "code": "models/falcon_h1/modeling_falcon_h1.py",
+   "caps": {
+    "act_config": "modeling_falcon_h1.py:608: self.act = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_falcon_h1.py:881: self.input_layernorm = FalconH1RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "falcon_mamba": {
+   "code": "models/falcon_mamba/modeling_falcon_mamba.py",
+   "caps": {
+    "act_config": "modeling_falcon_mamba.py:327: self.act = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_falcon_mamba.py:550: self.norm = FalconMambaRMSNorm(config.hidden_size, eps=config.layer_norm_epsilon)"
+   }
+  },
+  "flashmap": {
+   "code": null,
+   "caps": {}
+  },
+  "flex_olmo": {
+   "code": "models/flex_olmo/modeling_flex_olmo.py",
+   "caps": {
+    "act_config": "modeling_flex_olmo.py:121: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_flex_olmo.py:276: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_flex_olmo.py:356: self.post_attention_layernorm = FlexOlmoRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "flint": {
+   "code": "models/flint/modeling_flint.py",
+   "caps": {
+    "act_config": "modeling_flint.py:74: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_flint.py:84: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_flint.py:262: self.sliding_window = config.sliding_window if config.layer_types[layer_idx] == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_flint.py:260: self.q_norm = FlintRMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "gaggle": {
+   "code": null,
+   "caps": {}
+  },
+  "gemma": {
+   "code": "models/gemma/modeling_gemma.py",
+   "caps": {
+    "act_config": "modeling_gemma.py:92: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_gemma.py:292: self.input_layernorm = GemmaRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "gemma2": {
+   "code": "models/gemma2/modeling_gemma2.py",
+   "caps": {
+    "act_config": "modeling_gemma2.py:77: self.act_fn = ACT2FN[config.hidden_activation]",
+    "window_cfg": "modeling_gemma2.py:238: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "softcap_cfg": "modeling_gemma2.py:237: self.attn_logit_softcapping = self.config.attn_logit_softcapping",
+    "norm_eps_cfg": "modeling_gemma2.py:290: self.input_layernorm = Gemma2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "gemma3_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "gemma3_text": {
+   "code": "models/gemma3/modeling_gemma3.py",
+   "caps": {
+    "act_config": "modeling_gemma3.py:128: self.act_fn = ACT2FN[config.hidden_activation]",
+    "window_cfg": "modeling_gemma3.py:324: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "softcap_cfg": "modeling_gemma3.py:323: self.attn_logit_softcapping = self.config.attn_logit_softcapping",
+    "norm_eps_cfg": "modeling_gemma3.py:327: self.q_norm = Gemma3RMSNorm(dim=config.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "gemma3n_text": {
+   "code": "models/gemma3n/modeling_gemma3n.py",
+   "caps": {
+    "act_config": "modeling_gemma3n.py:958: self.act_fn = ACT2FN[config.hidden_activation]",
+    "window_cfg": "modeling_gemma3n.py:1168: self.sliding_window = config.sliding_window if self.is_sliding else None",
+    "softcap_cfg": "modeling_gemma3n.py:1848: if self.config.final_logit_softcapping is not None:",
+    "norm_eps_cfg": "modeling_gemma3n.py:1182: self.q_norm = Gemma3nRMSNorm(dim=config.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "gemma4": {
+   "code": "models/gemma4/modeling_gemma4.py",
+   "caps": {
+    "act_config": "modeling_gemma4.py:430: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_gemma4.py:1159: self.sliding_window = config.sliding_window if self.is_sliding else None",
+    "softcap_cfg": "modeling_gemma4.py:1927: if self.config.final_logit_softcapping is not None:",
+    "norm_eps_cfg": "modeling_gemma4.py:396: norm_eps=config.rms_norm_eps,"
+   }
+  },
+  "gemma4_text": {
+   "code": "models/gemma4/modeling_gemma4.py",
+   "caps": {
+    "act_config": "modeling_gemma4.py:430: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_gemma4.py:1159: self.sliding_window = config.sliding_window if self.is_sliding else None",
+    "softcap_cfg": "modeling_gemma4.py:1927: if self.config.final_logit_softcapping is not None:",
+    "norm_eps_cfg": "modeling_gemma4.py:396: norm_eps=config.rms_norm_eps,"
+   }
+  },
+  "gemma4_unified_text": {
+   "code": "models/gemma4_unified/modeling_gemma4_unified.py",
+   "caps": {
+    "act_config": "modeling_gemma4_unified.py:454: self.act_fn = ACT2FN[config.hidden_activation]",
+    "window_cfg": "modeling_gemma4_unified.py:339: self.sliding_window = config.sliding_window if self.is_sliding else None",
+    "softcap_cfg": "modeling_gemma4_unified.py:799: if self.config.final_logit_softcapping is not None:",
+    "norm_eps_cfg": "modeling_gemma4_unified.py:357: self.q_norm = Gemma4UnifiedRMSNorm(dim=self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "gla": {
+   "code": null,
+   "caps": {}
+  },
+  "glm": {
+   "code": "models/glm/modeling_glm.py",
+   "caps": {
+    "act_config": "modeling_glm.py:54: self.activation_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_glm.py:185: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "norm_eps_cfg": "modeling_glm.py:292: self.input_layernorm = GlmRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "glm4": {
+   "code": "models/glm4/modeling_glm4.py",
+   "caps": {
+    "act_config": "modeling_glm4.py:55: self.activation_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_glm4.py:183: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "norm_eps_cfg": "modeling_glm4.py:73: self.input_layernorm = Glm4RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "glm4_moe": {
+   "code": "models/glm4_moe/modeling_glm4_moe.py",
+   "caps": {
+    "act_config": "modeling_glm4_moe.py:261: self.act_fn = ACT2FN[config.hidden_act]",
+    "qknorm_switch": "modeling_glm4_moe.py:198: self.use_qk_norm = config.use_qk_norm",
+    "partial_rope": "modeling_glm4_moe.py:161: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "moe_topk": "modeling_glm4_moe.py:271: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_glm4_moe.py:276: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_glm4_moe.py:200: self.q_norm = Glm4MoeRMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "glm4_moe_lite": {
+   "code": "models/glm4_moe_lite/modeling_glm4_moe_lite.py",
+   "caps": {
+    "act_config": "modeling_glm4_moe_lite.py:367: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_glm4_moe_lite.py:315: q_pass, q_rot = torch.split(q_states, [self.qk_nope_head_dim, self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_glm4_moe_lite.py:377: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_glm4_moe_lite.py:382: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_glm4_moe_lite.py:585: self.norm = Glm4MoeLiteRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "glm5_next_text": {
+   "code": "models/glm5_next/modeling_glm5_next.py",
+   "caps": {
+    "act_config": "modeling_glm5_next.py:94: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_glm5_next.py:1192: k_pass = self.kv_a_layernorm(kv_pass).view(batch_size, 1, seq_length, self.kv_lora_rank)",
+    "moe_topk": "modeling_glm5_next.py:147: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_glm5_next.py:152: self.num_group = config.n_group",
+    "index_topk": "modeling_glm5_next.py:795: self.index_topk: int = config.index_topk",
+    "norm_eps_cfg": "modeling_glm5_next.py:276: self.input_norm = Glm5NextTextUnweightedRMSNorm(eps=config.rms_norm_eps)"
+   }
+  },
+  "glm_moe_dsa": {
+   "code": "models/glm_moe_dsa/modeling_glm_moe_dsa.py",
+   "caps": {
+    "act_config": "modeling_glm_moe_dsa.py:462: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_glm_moe_dsa.py:215: q_rot, q_pass = torch.split(q, [self.qk_rope_head_dim, self.head_dim - self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_glm_moe_dsa.py:472: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_glm_moe_dsa.py:477: self.num_group = config.n_group",
+    "index_topk": "modeling_glm_moe_dsa.py:175: self.index_topk: int = config.index_topk",
+    "norm_eps_cfg": "modeling_glm_moe_dsa.py:661: self.norm = GlmMoeDsaRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "gpt2": {
+   "code": "models/gpt2/modeling_gpt2.py",
+   "caps": {
+    "act_config": "modeling_gpt2.py:235: self.act = ACT2FN[config.activation_function]",
+    "norm_eps_cfg": "modeling_gpt2.py:252: self.ln_1 = nn.LayerNorm(hidden_size, eps=config.layer_norm_epsilon)"
+   }
+  },
+  "gpt_bigcode": {
+   "code": "models/gpt_bigcode/modeling_gpt_bigcode.py",
+   "caps": {
+    "act_config": "modeling_gpt_bigcode.py:247: self.act = ACT2FN[config.activation_function]",
+    "norm_eps_cfg": "modeling_gpt_bigcode.py:265: self.ln_1 = nn.LayerNorm(hidden_size, eps=config.layer_norm_epsilon)"
+   }
+  },
+  "gpt_neox": {
+   "code": "models/gpt_neox/modeling_gpt_neox.py",
+   "caps": {
+    "act_config": "modeling_gpt_neox.py:42: self.act = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_gpt_neox.py:130: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "parallel_switch": "modeling_gpt_neox.py:231: self.use_parallel_residual = config.use_parallel_residual",
+    "norm_eps_cfg": "modeling_gpt_neox.py:232: self.input_layernorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)"
+   }
+  },
+  "gpt_neox_japanese": {
+   "code": "models/gpt_neox_japanese/modeling_gpt_neox_japanese.py",
+   "caps": {
+    "act_config": "modeling_gpt_neox_japanese.py:301: self.act = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_gpt_neox_japanese.py:151: self.rotary_ndims = int(self.head_size * partial_rotary_factor)",
+    "norm_eps_cfg": "modeling_gpt_neox_japanese.py:314: self.input_layernorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)"
+   }
+  },
+  "gpt_neox_nope": {
+   "code": null,
+   "caps": {}
+  },
+  "gpt_oss": {
+   "code": "models/gpt_oss/modeling_gpt_oss.py",
+   "caps": {
+    "moe_topk": "modeling_gpt_oss.py:119: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_gpt_oss.py:284: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_gpt_oss.py:336: self.input_layernorm = GptOssRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "gpt_oss_puzzle": {
+   "code": null,
+   "caps": {}
+  },
+  "gptj": {
+   "code": "models/gptj/modeling_gptj.py",
+   "caps": {
+    "act_config": "modeling_gptj.py:372: self.act = ACT2FN[config.activation_function]",
+    "partial_rope": "modeling_gptj.py:199: k_pass = key[:, :, :, self.rotary_dim :]",
+    "norm_eps_cfg": "modeling_gptj.py:387: self.ln_1 = nn.LayerNorm(config.n_embd, eps=config.layer_norm_epsilon)"
+   }
+  },
+  "gpts2": {
+   "code": null,
+   "caps": {}
+  },
+  "gpts3_hybrid": {
+   "code": null,
+   "caps": {}
+  },
+  "gptx2": {
+   "code": null,
+   "caps": {}
+  },
+  "gptx3": {
+   "code": null,
+   "caps": {}
+  },
+  "granite": {
+   "code": "models/granite/modeling_granite.py",
+   "caps": {
+    "act_config": "modeling_granite.py:211: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_granite.py:225: self.input_layernorm = GraniteRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "granite_swa": {
+   "code": "models/granite_swa/modeling_granite_swa.py",
+   "caps": {
+    "act_config": "modeling_granite_swa.py:228: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_granite_swa.py:149: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_granite_swa.py:242: self.input_layernorm = GraniteSWARMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "granite_switch": {
+   "code": null,
+   "caps": {}
+  },
+  "granitemoe": {
+   "code": "models/granitemoe/modeling_granitemoe.py",
+   "caps": {
+    "act_config": "modeling_granitemoe.py:146: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_granitemoe.py:125: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_granitemoe.py:335: self.input_layernorm = GraniteMoeRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "granitemoe_swa": {
+   "code": "models/granitemoe_swa/modeling_granitemoe_swa.py",
+   "caps": {
+    "act_config": "modeling_granitemoe_swa.py:79: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_granitemoe_swa.py:58: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_granitemoe_swa.py:229: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_granitemoe_swa.py:354: self.input_layernorm = GraniteMoeSWARMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "granitemoehybrid": {
+   "code": "models/granitemoehybrid/modeling_granitemoehybrid.py",
+   "caps": {
+    "act_config": "modeling_granitemoehybrid.py:526: self.act = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_granitemoehybrid.py:829: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_granitemoehybrid.py:947: self.input_layernorm = GraniteMoeHybridRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "grug_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "helios": {
+   "code": null,
+   "caps": {}
+  },
+  "helium": {
+   "code": "models/helium/modeling_helium.py",
+   "caps": {
+    "act_config": "modeling_helium.py:119: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_helium.py:274: self.input_layernorm = HeliumRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "hrm_text": {
+   "code": "models/hrm_text/modeling_hrm_text.py",
+   "caps": {
+    "act_config": "modeling_hrm_text.py:72: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_hrm_text.py:239: self.input_layernorm = HrmTextRMSNorm(eps=config.rms_norm_eps)"
+   }
+  },
+  "hulumed_qwen2": {
+   "code": null,
+   "caps": {}
+  },
+  "hulumed_qwen3": {
+   "code": null,
+   "caps": {}
+  },
+  "hunyuan_image_3_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "hunyuan_v1_dense": {
+   "code": "models/hunyuan_v1_dense/modeling_hunyuan_v1_dense.py",
+   "caps": {
+    "act_config": "modeling_hunyuan_v1_dense.py:74: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_hunyuan_v1_dense.py:178: self.query_layernorm = HunYuanDenseV1RMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "hunyuan_v1_moe": {
+   "code": "models/hunyuan_v1_moe/modeling_hunyuan_v1_moe.py",
+   "caps": {
+    "act_config": "modeling_hunyuan_v1_moe.py:74: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_hunyuan_v1_moe.py:229: self.top_k = config.moe_topk if isinstance(config.moe_topk, int) else config.moe_topk[layer_idx]",
+    "norm_eps_cfg": "modeling_hunyuan_v1_moe.py:177: self.query_layernorm = HunYuanMoEV1RMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "hy_v3": {
+   "code": "models/hy_v3/modeling_hy_v3.py",
+   "caps": {
+    "act_config": "modeling_hy_v3.py:121: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_hy_v3.py:273: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_hy_v3.py:374: self.input_layernorm = HYV3RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "hy_v4": {
+   "code": "models/hy_v4/modeling_hy_v4.py",
+   "caps": {
+    "act_config": "modeling_hy_v4.py:492: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_hy_v4.py:224: q_pass, q_rot = torch.split(q, [self.head_dim - self.qk_rope_head_dim, self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_hy_v4.py:502: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_hy_v4.py:507: self.num_group = config.n_group",
+    "index_topk": "modeling_hy_v4.py:178: self.index_topk: int = config.index_topk",
+    "norm_eps_cfg": "modeling_hy_v4.py:183: self.k_norm = nn.LayerNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "hybrid_qwen3": {
+   "code": null,
+   "caps": {}
+  },
+  "hymba": {
+   "code": null,
+   "caps": {}
+  },
+  "hyperclovax": {
+   "code": "models/hyperclovax/modeling_hyperclovax.py",
+   "caps": {
+    "act_config": "modeling_hyperclovax.py:257: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_hyperclovax.py:271: self.input_layernorm = HyperCLOVAXRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "ilama": {
+   "code": null,
+   "caps": {}
+  },
+  "inferno": {
+   "code": null,
+   "caps": {}
+  },
+  "internlm2": {
+   "code": null,
+   "caps": {}
+  },
+  "internlm3": {
+   "code": null,
+   "caps": {}
+  },
+  "internlmxcomposer2": {
+   "code": null,
+   "caps": {}
+  },
+  "interns1_pro_text": {
+   "code": null,
+   "caps": {}
+  },
+  "iquest_q1": {
+   "code": null,
+   "caps": {}
+  },
+  "iquestloopcoder": {
+   "code": null,
+   "caps": {}
+  },
+  "isaac": {
+   "code": null,
+   "caps": {}
+  },
+  "ivme": {
+   "code": null,
+   "caps": {}
+  },
+  "jamba": {
+   "code": "models/jamba/modeling_jamba.py",
+   "caps": {
+    "act_config": "modeling_jamba.py:479: self.act = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_jamba.py:686: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_jamba.py:497: self.dt_layernorm = JambaRMSNorm(self.time_step_rank, eps=config.rms_norm_eps)"
+   }
+  },
+  "jet_nemotron": {
+   "code": null,
+   "caps": {}
+  },
+  "jetmoe": {
+   "code": "models/jetmoe/modeling_jetmoe.py",
+   "caps": {
+    "act_config": "modeling_jetmoe.py:223: self.activation = ACT2FN[config.activation_function]",
+    "moe_topk": "modeling_jetmoe.py:231: top_k=config.num_experts_per_tok,",
+    "norm_eps_cfg": "modeling_jetmoe.py:581: self.norm = JetMoeRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "joyai_llm_flash": {
+   "code": null,
+   "caps": {}
+  },
+  "k2_horizon": {
+   "code": null,
+   "caps": {}
+  },
+  "kanana2_tiny": {
+   "code": null,
+   "caps": {}
+  },
+  "kimi_k2": {
+   "code": null,
+   "caps": {}
+  },
+  "kimi_linear": {
+   "code": "models/kimi_linear/modeling_kimi_linear.py",
+   "caps": {
+    "act_config": "modeling_kimi_linear.py:108: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_kimi_linear.py:721: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_kimi_linear.py:726: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_kimi_linear.py:884: self.norm = KimiLinearRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "klm": {
+   "code": null,
+   "caps": {}
+  },
+  "kohaku": {
+   "code": null,
+   "caps": {}
+  },
+  "koliber": {
+   "code": null,
+   "caps": {}
+  },
+  "kolibri1": {
+   "code": "models/kolibri1/modeling_kolibri1.py",
+   "caps": {
+    "act_config": "modeling_kolibri1.py:218: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_kolibri1.py:268: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_kolibri1.py:149: self.sliding_window = config.sliding_window",
+    "norm_eps_cfg": "modeling_kolibri1.py:158: self.q_norm = Kolibri1RMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "kotodama": {
+   "code": null,
+   "caps": {}
+  },
+  "laguna": {
+   "code": "models/laguna/modeling_laguna.py",
+   "caps": {
+    "act_config": "modeling_laguna.py:139: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_laguna.py:274: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "moe_topk": "modeling_laguna.py:150: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_laguna.py:350: self.sliding_window = config.sliding_window if self.is_local_attention else None",
+    "norm_eps_cfg": "modeling_laguna.py:352: self.q_norm = LagunaRMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "lamed_phi3": {
+   "code": null,
+   "caps": {}
+  },
+  "lfm2": {
+   "code": "models/lfm2/modeling_lfm2.py",
+   "caps": {
+    "norm_eps_cfg": "modeling_lfm2.py:217: self.q_layernorm = Lfm2RMSNorm(self.head_dim, eps=config.norm_eps)"
+   }
+  },
+  "lfm2_moe": {
+   "code": "models/lfm2_moe/modeling_lfm2_moe.py",
+   "caps": {
+    "moe_topk": "modeling_lfm2_moe.py:174: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_lfm2_moe.py:302: self.q_layernorm = Lfm2MoeRMSNorm(self.head_dim, eps=config.norm_eps)"
+   }
+  },
+  "lfm3": {
+   "code": "models/lfm3/modeling_lfm3.py",
+   "caps": {
+    "window_cfg": "modeling_lfm3.py:237: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_lfm3.py:235: self.q_norm = Lfm3RMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "lfm3_rd": {
+   "code": null,
+   "caps": {}
+  },
+  "llada2_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "llama": {
+   "code": "models/llama/modeling_llama.py",
+   "caps": {
+    "act_config": "modeling_llama.py:161: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_llama.py:281: self.input_layernorm = LlamaRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "llama4_text": {
+   "code": "models/llama4/modeling_llama4.py",
+   "caps": {
+    "act_config": "modeling_llama4.py:63: self.act_fn = ACT2FN[config.hidden_act]",
+    "qknorm_switch": "modeling_llama4.py:331: if self.config.use_qk_norm and self.use_rope:",
+    "moe_topk": "modeling_llama4.py:144: self.top_k = config.num_experts_per_tok",
+    "nope_cfg": "modeling_llama4.py:318: self.use_rope = config.no_rope_layers[layer_idx]",
+    "norm_eps_cfg": "modeling_llama4.py:405: self.input_layernorm = Llama4TextRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "llama_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "llava": {
+   "code": "models/llava/modeling_llava.py",
+   "caps": {}
+  },
+  "llava-qwen2": {
+   "code": null,
+   "caps": {}
+  },
+  "llava_mistral": {
+   "code": null,
+   "caps": {}
+  },
+  "llava_qwen2": {
+   "code": null,
+   "caps": {}
+  },
+  "lowonmind": {
+   "code": null,
+   "caps": {}
+  },
+  "magma": {
+   "code": null,
+   "caps": {}
+  },
+  "mamba": {
+   "code": "models/mamba/modeling_mamba.py",
+   "caps": {
+    "act_config": "modeling_mamba.py:312: self.act = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_mamba.py:511: self.norm = MambaRMSNorm(config.hidden_size, eps=config.layer_norm_epsilon)"
+   }
+  },
+  "mask_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "meditor": {
+   "code": null,
+   "caps": {}
+  },
+  "meditor2": {
+   "code": null,
+   "caps": {}
+  },
+  "mellum": {
+   "code": "models/mellum/modeling_mellum.py",
+   "caps": {
+    "act_config": "modeling_mellum.py:283: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_mellum.py:315: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_mellum.py:228: self.sliding_window = config.sliding_window if config.layer_types[layer_idx] == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_mellum.py:226: self.q_norm = MellumRMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "memt_deepseek_v4": {
+   "code": null,
+   "caps": {}
+  },
+  "memt_qwen3_5_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "mima": {
+   "code": null,
+   "caps": {}
+  },
+  "mimo": {
+   "code": null,
+   "caps": {}
+  },
+  "mimo_v2": {
+   "code": "models/mimo_v2_flash/modeling_mimo_v2_flash.py",
+   "caps": {
+    "act_config": "modeling_mimo_v2_flash.py:181: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_mimo_v2_flash.py:275: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "moe_topk": "modeling_mimo_v2_flash.py:132: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_mimo_v2_flash.py:137: self.num_group = config.n_group",
+    "window_cfg": "modeling_mimo_v2_flash.py:358: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_mimo_v2_flash.py:506: self.norm = MiMoV2FlashRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "mimo_v2_flash": {
+   "code": "models/mimo_v2_flash/modeling_mimo_v2_flash.py",
+   "caps": {
+    "act_config": "modeling_mimo_v2_flash.py:181: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_mimo_v2_flash.py:275: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "moe_topk": "modeling_mimo_v2_flash.py:132: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_mimo_v2_flash.py:137: self.num_group = config.n_group",
+    "window_cfg": "modeling_mimo_v2_flash.py:358: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_mimo_v2_flash.py:506: self.norm = MiMoV2FlashRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "ming_v3_asr": {
+   "code": null,
+   "caps": {}
+  },
+  "minicpm": {
+   "code": null,
+   "caps": {}
+  },
+  "minicpm3": {
+   "code": "models/minicpm3/modeling_minicpm3.py",
+   "caps": {
+    "act_config": "modeling_minicpm3.py:135: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_minicpm3.py:325: q_pass, q_rot = torch.split(q_states, [self.qk_nope_head_dim, self.qk_rope_head_dim], dim=-1)",
+    "norm_eps_cfg": "modeling_minicpm3.py:374: self.input_layernorm = MiniCPM3RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "minicpm_sala": {
+   "code": null,
+   "caps": {}
+  },
+  "minimax": {
+   "code": "models/minimax/modeling_minimax.py",
+   "caps": {
+    "act_config": "modeling_minimax.py:134: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_minimax.py:454: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_minimax.py:667: create_causal_mask if self.config.sliding_window is None else create_sliding_window_causal_mask",
+    "norm_eps_cfg": "modeling_minimax.py:534: self.input_layernorm = MiniMaxRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "minimax_m1": {
+   "code": null,
+   "caps": {}
+  },
+  "minimax_m2": {
+   "code": "models/minimax_m2/modeling_minimax_m2.py",
+   "caps": {
+    "act_config": "modeling_minimax_m2.py:77: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_minimax_m2.py:256: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "moe_topk": "modeling_minimax_m2.py:48: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_minimax_m2.py:348: self.input_layernorm = MiniMaxM2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "minimax_m3_vl": {
+   "code": "models/minimax_m3_vl/modeling_minimax_m3_vl.py",
+   "caps": {
+    "act_config": "modeling_minimax_m3_vl.py:1160: self.activation_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_minimax_m3_vl.py:376: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "moe_topk": "modeling_minimax_m3_vl.py:224: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_minimax_m3_vl.py:414: self.q_norm = MiniMaxM3VLRMSNorm(self.head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "minimax_text_01": {
+   "code": null,
+   "caps": {}
+  },
+  "ministral": {
+   "code": "models/ministral/modeling_ministral.py",
+   "caps": {
+    "act_config": "modeling_ministral.py:58: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_ministral.py:154: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_ministral.py:227: self.input_layernorm = MinistralRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "ministral3": {
+   "code": "models/ministral3/modeling_ministral3.py",
+   "caps": {
+    "act_config": "modeling_ministral3.py:185: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_ministral3.py:365: mask_function = create_causal_mask if self.config.sliding_window is None else create_sliding_window_causal_mask",
+    "norm_eps_cfg": "modeling_ministral3.py:219: self.input_layernorm = Ministral3RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "mistral": {
+   "code": "models/mistral/modeling_mistral.py",
+   "caps": {
+    "act_config": "modeling_mistral.py:43: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_mistral.py:353: mask_function = create_causal_mask if self.config.sliding_window is None else create_sliding_window_causal_mask",
+    "norm_eps_cfg": "modeling_mistral.py:207: self.input_layernorm = MistralRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "mistral4": {
+   "code": "models/mistral4/modeling_mistral4.py",
+   "caps": {
+    "act_config": "modeling_mistral4.py:126: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_mistral4.py:457: q_pass, q_rot = torch.split(q_states, [self.qk_nope_head_dim, self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_mistral4.py:136: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_mistral4.py:141: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_mistral4.py:518: self.input_layernorm = Mistral4RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "mistral_large4_text": {
+   "code": "models/mistral_large4/modeling_mistral_large4.py",
+   "caps": {
+    "act_config": "modeling_mistral_large4.py:505: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_mistral_large4.py:250: q_rot, q_pass = torch.split(q, [self.qk_rope_head_dim, self.head_dim - self.qk_rope_head_dim], dim=-1)",
+    "moe_topk": "modeling_mistral_large4.py:517: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_mistral_large4.py:522: self.num_group = config.n_group",
+    "index_topk": "modeling_mistral_large4.py:201: self.index_topk: int = config.index_topk",
+    "nope_cfg": "modeling_mistral_large4.py:209: self.use_rope = config.no_rope_layers[layer_idx]",
+    "norm_eps_cfg": "modeling_mistral_large4.py:356: MistralLarge4RMSNorm(config.kv_lora_rank, eps=config.rms_norm_eps) if not self.is_kv_shared_layer else None"
+   }
+  },
+  "mixtral": {
+   "code": "models/mixtral/modeling_mixtral.py",
+   "caps": {
+    "act_config": "modeling_mixtral.py:66: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_mixtral.py:98: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_mixtral.py:443: mask_function = create_causal_mask if self.config.sliding_window is None else create_sliding_window_causal_mask",
+    "norm_eps_cfg": "modeling_mixtral.py:338: self.input_layernorm = MixtralRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "mm200": {
+   "code": null,
+   "caps": {}
+  },
+  "mobilint-exaone": {
+   "code": null,
+   "caps": {}
+  },
+  "mobilint-exaone4": {
+   "code": null,
+   "caps": {}
+  },
+  "mobilint-llama": {
+   "code": null,
+   "caps": {}
+  },
+  "mobilint-qwen3_vl_text": {
+   "code": null,
+   "caps": {}
+  },
+  "molmo": {
+   "code": null,
+   "caps": {}
+  },
+  "monkeyocrv2": {
+   "code": null,
+   "caps": {}
+  },
+  "moshi": {
+   "code": "models/moshi/modeling_moshi.py",
+   "caps": {
+    "act_config": "modeling_moshi.py:351: self.activation_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_moshi.py:510: self.sliding_window = config.sliding_window",
+    "norm_eps_cfg": "modeling_moshi.py:508: self.input_layernorm = MoshiRMSNorm(self.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "muse_glimmer": {
+   "code": "models/muse_glimmer/modeling_muse_glimmer.py",
+   "caps": {
+    "act_config": "modeling_muse_glimmer.py:151: self.act_fn = ACT2FN[config.hidden_activation]",
+    "window_cfg": "modeling_muse_glimmer.py:310: self.sliding_window = config.sliding_window if self.is_local_attention else None",
+    "softcap_cfg": "modeling_muse_glimmer.py:1179: logits = logits / self.config.text_config.final_logit_softcapping",
+    "norm_eps_cfg": "modeling_muse_glimmer.py:312: self.qk_norm = MuseGlimmerRMSNorm(eps=config.rms_norm_eps, with_scale=False)"
+   }
+  },
+  "muse_glimmer_text": {
+   "code": "models/muse_glimmer/modeling_muse_glimmer.py",
+   "caps": {
+    "act_config": "modeling_muse_glimmer.py:151: self.act_fn = ACT2FN[config.hidden_activation]",
+    "window_cfg": "modeling_muse_glimmer.py:310: self.sliding_window = config.sliding_window if self.is_local_attention else None",
+    "softcap_cfg": "modeling_muse_glimmer.py:1179: logits = logits / self.config.text_config.final_logit_softcapping",
+    "norm_eps_cfg": "modeling_muse_glimmer.py:312: self.qk_norm = MuseGlimmerRMSNorm(eps=config.rms_norm_eps, with_scale=False)"
+   }
+  },
+  "muse_spark_text": {
+   "code": "models/muse_spark/modeling_muse_spark.py",
+   "caps": {
+    "act_config": "modeling_muse_spark.py:174: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_muse_spark.py:184: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_muse_spark.py:378: self.sliding_window = config.sliding_window if self.is_local_attention else None",
+    "softcap_cfg": "modeling_muse_spark.py:1687: logits = logits / self.config.text_config.final_logit_softcapping",
+    "norm_eps_cfg": "modeling_muse_spark.py:258: self.pre_expert_norm = MuseSparkTextCenteredRMSNorm(config.moe_hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "nae1": {
+   "code": null,
+   "caps": {}
+  },
+  "naive_n05_flash": {
+   "code": null,
+   "caps": {}
+  },
+  "nanbeige": {
+   "code": null,
+   "caps": {}
+  },
+  "nanochat_gpt": {
+   "code": null,
+   "caps": {}
+  },
+  "needle": {
+   "code": null,
+   "caps": {}
+  },
+  "nemotron": {
+   "code": "models/nemotron/modeling_nemotron.py",
+   "caps": {
+    "act_config": "modeling_nemotron.py:180: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_nemotron.py:163: # If q_pass/k_pass is empty, rotary pos embedding is applied to all tensor q/k",
+    "norm_eps_cfg": "modeling_nemotron.py:298: self.input_layernorm = NemotronLayerNorm1P(config.hidden_size, eps=config.norm_eps)"
+   }
+  },
+  "nemotron-nas": {
+   "code": null,
+   "caps": {}
+  },
+  "nemotron_h": {
+   "code": "models/nemotron_h/modeling_nemotron_h.py",
+   "caps": {
+    "act_config": "modeling_nemotron_h.py:645: self.act_fn = ACT2FN[config.mlp_hidden_act]",
+    "moe_topk": "modeling_nemotron_h.py:760: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_nemotron_h.py:765: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_nemotron_h.py:442: self.intermediate_size, group_size=self.intermediate_size // self.n_groups, eps=config.layer_norm_epsilon"
+   }
+  },
+  "nemotron_h_puzzle": {
+   "code": null,
+   "caps": {}
+  },
+  "nemotron_labs_diffusion": {
+   "code": null,
+   "caps": {}
+  },
+  "neutrino": {
+   "code": null,
+   "caps": {}
+  },
+  "nextstep": {
+   "code": null,
+   "caps": {}
+  },
+  "nexus": {
+   "code": null,
+   "caps": {}
+  },
+  "olmo": {
+   "code": "models/olmo/modeling_olmo.py",
+   "caps": {
+    "act_config": "modeling_olmo.py:71: self.act_fn = ACT2FN[config.hidden_act]"
+   }
+  },
+  "olmo2": {
+   "code": "models/olmo2/modeling_olmo2.py",
+   "caps": {
+    "act_config": "modeling_olmo2.py:270: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_olmo2.py:284: self.post_attention_layernorm = Olmo2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "olmo3": {
+   "code": "models/olmo3/modeling_olmo3.py",
+   "caps": {
+    "act_config": "modeling_olmo3.py:221: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_olmo3.py:164: self.sliding_window = config.sliding_window if self.attention_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_olmo3.py:235: self.post_attention_layernorm = Olmo3RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "olmo_hybrid": {
+   "code": "models/olmo_hybrid/modeling_olmo_hybrid.py",
+   "caps": {
+    "act_config": "modeling_olmo_hybrid.py:761: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_olmo_hybrid.py:593: self.eps = config.rms_norm_eps"
+   }
+  },
+  "olmoe": {
+   "code": "models/olmoe/modeling_olmoe.py",
+   "caps": {
+    "act_config": "modeling_olmoe.py:119: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_olmoe.py:320: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_olmoe.py:222: self.q_norm = OlmoeRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "opt": {
+   "code": "models/opt/modeling_opt.py",
+   "caps": {
+    "act_config": "modeling_opt.py:193: self.activation_fn = ACT2FN[config.activation_function]"
+   }
+  },
+  "orion": {
+   "code": null,
+   "caps": {}
+  },
+  "ouro": {
+   "code": null,
+   "caps": {}
+  },
+  "param2moe": {
+   "code": null,
+   "caps": {}
+  },
+  "parler_tts_decoder": {
+   "code": null,
+   "caps": {}
+  },
+  "persimmon": {
+   "code": "models/persimmon/modeling_persimmon.py",
+   "caps": {
+    "act_config": "modeling_persimmon.py:145: self.act = ACT2FN[config.hidden_act]",
+    "qknorm_switch": "modeling_persimmon.py:204: self.qk_layernorm = config.qk_layernorm",
+    "partial_rope": "modeling_persimmon.py:194: self.rotary_ndims = int(self.head_dim * config.rope_parameters[\"partial_rotary_factor\"])",
+    "norm_eps_cfg": "modeling_persimmon.py:209: config.hidden_size // self.num_heads, eps=config.layer_norm_eps, elementwise_affine=True"
+   }
+  },
+  "pharia-v1": {
+   "code": null,
+   "caps": {}
+  },
+  "phi": {
+   "code": "models/phi/modeling_phi.py",
+   "caps": {
+    "act_config": "modeling_phi.py:241: self.activation_fn = ACT2FN[config.hidden_act]",
+    "qknorm_switch": "modeling_phi.py:169: self.qk_layernorm = config.qk_layernorm",
+    "partial_rope": "modeling_phi.py:168: self.rotary_ndims = int(self.head_dim * config.rope_parameters[\"partial_rotary_factor\"])",
+    "norm_eps_cfg": "modeling_phi.py:172: config.hidden_size // config.num_attention_heads, eps=config.layer_norm_eps, elementwise_affine=True"
+   }
+  },
+  "phi3": {
+   "code": "models/phi3/modeling_phi3.py",
+   "caps": {
+    "act_config": "modeling_phi3.py:55: self.activation_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_phi3.py:181: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "window_cfg": "modeling_phi3.py:384: mask_function = create_causal_mask if self.config.sliding_window is None else create_sliding_window_causal_mask",
+    "norm_eps_cfg": "modeling_phi3.py:282: self.input_layernorm = Phi3RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "phi3_v": {
+   "code": null,
+   "caps": {}
+  },
+  "phi3small": {
+   "code": null,
+   "caps": {}
+  },
+  "phi4flash": {
+   "code": null,
+   "caps": {}
+  },
+  "phi4mm": {
+   "code": null,
+   "caps": {}
+  },
+  "phimoe": {
+   "code": "models/phimoe/modeling_phimoe.py",
+   "caps": {
+    "act_config": "modeling_phimoe.py:310: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_phimoe.py:467: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_phimoe.py:635: mask_function = create_causal_mask if self.config.sliding_window is None else create_sliding_window_causal_mask",
+    "norm_eps_cfg": "modeling_phimoe.py:528: self.input_layernorm = nn.LayerNorm(config.hidden_size, eps=config.rms_norm_eps, elementwise_affine=True)"
+   }
+  },
+  "pit": {
+   "code": null,
+   "caps": {}
+  },
+  "plamo2": {
+   "code": null,
+   "caps": {}
+  },
+  "plamo2vl": {
+   "code": null,
+   "caps": {}
+  },
+  "plamo3": {
+   "code": null,
+   "caps": {}
+  },
+  "progen": {
+   "code": null,
+   "caps": {}
+  },
+  "quillan_ronin_oni": {
+   "code": null,
+   "caps": {}
+  },
+  "qwen": {
+   "code": null,
+   "caps": {}
+  },
+  "qwen2": {
+   "code": "models/qwen2/modeling_qwen2.py",
+   "caps": {
+    "act_config": "modeling_qwen2.py:43: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_qwen2.py:185: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_qwen2.py:258: self.input_layernorm = Qwen2RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "qwen2_5_vl": {
+   "code": "models/qwen2_5_vl/modeling_qwen2_5_vl.py",
+   "caps": {
+    "act_config": "modeling_qwen2_5_vl.py:87: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_qwen2_5_vl.py:627: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_qwen2_5_vl.py:689: self.input_layernorm = Qwen2_5_VLRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "qwen2_moe": {
+   "code": "models/qwen2_moe/modeling_qwen2_moe.py",
+   "caps": {
+    "act_config": "modeling_qwen2_moe.py:131: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_qwen2_moe.py:313: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_qwen2_moe.py:227: self.sliding_window = config.sliding_window",
+    "norm_eps_cfg": "modeling_qwen2_moe.py:363: self.input_layernorm = Qwen2MoeRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "qwen3": {
+   "code": "models/qwen3/modeling_qwen3.py",
+   "caps": {
+    "act_config": "modeling_qwen3.py:78: self.act_fn = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_qwen3.py:231: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "norm_eps_cfg": "modeling_qwen3.py:229: self.q_norm = Qwen3RMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "qwen35": {
+   "code": null,
+   "caps": {}
+  },
+  "qwen3_5": {
+   "code": "models/qwen3_5/modeling_qwen3_5.py",
+   "caps": {
+    "act_config": "modeling_qwen3_5.py:826: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_qwen3_5.py:692: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "norm_eps_cfg": "modeling_qwen3_5.py:766: self.q_norm = Qwen3_5RMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "qwen3_5_gdn24": {
+   "code": null,
+   "caps": {}
+  },
+  "qwen3_5_moe": {
+   "code": "models/qwen3_5_moe/modeling_qwen3_5_moe.py",
+   "caps": {
+    "act_config": "modeling_qwen3_5_moe.py:824: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_qwen3_5_moe.py:688: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "moe_topk": "modeling_qwen3_5_moe.py:875: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_qwen3_5_moe.py:762: self.q_norm = Qwen3_5MoeRMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "qwen3_5_moe_text": {
+   "code": "models/qwen3_5_moe/modeling_qwen3_5_moe.py",
+   "caps": {
+    "act_config": "modeling_qwen3_5_moe.py:824: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_qwen3_5_moe.py:688: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "moe_topk": "modeling_qwen3_5_moe.py:875: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_qwen3_5_moe.py:762: self.q_norm = Qwen3_5MoeRMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "qwen3_5_text": {
+   "code": "models/qwen3_5/modeling_qwen3_5.py",
+   "caps": {
+    "act_config": "modeling_qwen3_5.py:826: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_qwen3_5.py:692: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "norm_eps_cfg": "modeling_qwen3_5.py:766: self.q_norm = Qwen3_5RMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "qwen3_moe": {
+   "code": "models/qwen3_moe/modeling_qwen3_moe.py",
+   "caps": {
+    "act_config": "modeling_qwen3_moe.py:201: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_qwen3_moe.py:251: self.top_k = config.num_experts_per_tok",
+    "window_cfg": "modeling_qwen3_moe.py:472: mask_function = create_causal_mask if self.config.sliding_window is None else create_sliding_window_causal_mask",
+    "norm_eps_cfg": "modeling_qwen3_moe.py:146: self.q_norm = Qwen3MoeRMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "qwen3_next": {
+   "code": "models/qwen3_next/modeling_qwen3_next.py",
+   "caps": {
+    "act_config": "modeling_qwen3_next.py:781: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_qwen3_next.py:179: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "moe_topk": "modeling_qwen3_next.py:831: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_qwen3_next.py:253: self.q_norm = Qwen3NextRMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "qwen3_vl_moe_text": {
+   "code": "models/qwen3_vl_moe/modeling_qwen3_vl_moe.py",
+   "caps": {
+    "act_config": "modeling_qwen3_vl_moe.py:95: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_qwen3_vl_moe.py:127: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_qwen3_vl_moe.py:255: self.head_dim, eps=config.rms_norm_eps"
+   }
+  },
+  "qwen3_vl_text": {
+   "code": "models/qwen3_vl/modeling_qwen3_vl.py",
+   "caps": {
+    "act_config": "modeling_qwen3_vl.py:79: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_qwen3_vl.py:492: self.q_norm = Qwen3VLTextRMSNorm(self.head_dim, eps=config.rms_norm_eps)  # unlike olmo, only on the head dim!"
+   }
+  },
+  "qwen3loop": {
+   "code": null,
+   "caps": {}
+  },
+  "qwen4_exp": {
+   "code": "models/qwen4_exp/modeling_qwen4_exp.py",
+   "caps": {
+    "act_config": "modeling_qwen4_exp.py:907: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_qwen4_exp.py:957: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_qwen4_exp.py:687: self.q_layernorm = Qwen4ExpTextRMSNorm(self.index_head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "qwen4_exp_text": {
+   "code": "models/qwen4_exp/modeling_qwen4_exp.py",
+   "caps": {
+    "act_config": "modeling_qwen4_exp.py:907: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_qwen4_exp.py:957: self.top_k = config.num_experts_per_tok",
+    "norm_eps_cfg": "modeling_qwen4_exp.py:687: self.q_layernorm = Qwen4ExpTextRMSNorm(self.index_head_dim, eps=config.rms_norm_eps)"
+   }
+  },
+  "recurrent_gemma": {
+   "code": "models/recurrent_gemma/modeling_recurrent_gemma.py",
+   "caps": {
+    "act_config": "modeling_recurrent_gemma.py:410: self.act_fn = ACT2FN[config.hidden_activation]",
+    "partial_rope": "modeling_recurrent_gemma.py:145: q_rot, q_pass = q[..., :rotary_dim], q[..., rotary_dim:]",
+    "window_cfg": "modeling_recurrent_gemma.py:212: self.sliding_window = config.sliding_window",
+    "norm_eps_cfg": "modeling_recurrent_gemma.py:495: self.temporal_pre_norm = RecurrentGemmaRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "rwkv": {
+   "code": "models/rwkv/modeling_rwkv.py",
+   "caps": {
+    "norm_eps_cfg": "modeling_rwkv.py:332: self.pre_ln = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_epsilon)"
+   }
+  },
+  "rwkv5": {
+   "code": null,
+   "caps": {}
+  },
+  "rwkv7": {
+   "code": null,
+   "caps": {}
+  },
+  "sarvam_mla": {
+   "code": null,
+   "caps": {}
+  },
+  "sarvam_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "sdar": {
+   "code": null,
+   "caps": {}
+  },
+  "sdar_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "seed_oss": {
+   "code": "models/seed_oss/modeling_seed_oss.py",
+   "caps": {
+    "act_config": "modeling_seed_oss.py:77: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_seed_oss.py:235: self.input_layernorm = SeedOssRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "simulvoice_runtime_probe": {
+   "code": null,
+   "caps": {}
+  },
+  "smollm3": {
+   "code": "models/smollm3/modeling_smollm3.py",
+   "caps": {
+    "act_config": "modeling_smollm3.py:272: self.act_fn = ACT2FN[config.hidden_act]",
+    "nope_cfg": "modeling_smollm3.py:192: self.use_rope = config.no_rope_layers[layer_idx]",
+    "window_cfg": "modeling_smollm3.py:194: config.sliding_window",
+    "norm_eps_cfg": "modeling_smollm3.py:287: self.input_layernorm = SmolLM3RMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "sn38-nanochrono": {
+   "code": null,
+   "caps": {}
+  },
+  "solar_open": {
+   "code": "models/solar_open/modeling_solar_open.py",
+   "caps": {
+    "act_config": "modeling_solar_open.py:94: self.act_fn = ACT2FN[config.hidden_act]",
+    "moe_topk": "modeling_solar_open.py:104: self.top_k = config.num_experts_per_tok",
+    "router_group_cfg": "modeling_solar_open.py:109: self.num_group = config.n_group",
+    "norm_eps_cfg": "modeling_solar_open.py:50: self.input_layernorm = SolarOpenRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "solar_open2": {
+   "code": null,
+   "caps": {}
+  },
+  "spark2_5": {
+   "code": null,
+   "caps": {}
+  },
+  "spatiallm_llama": {
+   "code": null,
+   "caps": {}
+  },
+  "spatiallm_qwen": {
+   "code": null,
+   "caps": {}
+  },
+  "stablelm": {
+   "code": "models/stablelm/modeling_stablelm.py",
+   "caps": {
+    "act_config": "modeling_stablelm.py:149: self.act_fn = ACT2FN[config.hidden_act]",
+    "qknorm_switch": "modeling_stablelm.py:244: self.qk_layernorm = config.qk_layernorm",
+    "partial_rope": "modeling_stablelm.py:230: self.rotary_ndims = int(self.head_dim * config.rope_parameters[\"partial_rotary_factor\"])",
+    "parallel_switch": "modeling_stablelm.py:322: self.use_parallel_residual = config.use_parallel_residual",
+    "norm_eps_cfg": "modeling_stablelm.py:246: self.q_layernorm = StableLmLayerNormPerHead(self.head_dim, self.num_heads, eps=config.layer_norm_eps)"
+   }
+  },
+  "stablelm_epoch": {
+   "code": null,
+   "caps": {}
+  },
+  "starcoder2": {
+   "code": "models/starcoder2/modeling_starcoder2.py",
+   "caps": {
+    "act_config": "modeling_starcoder2.py:58: self.act = ACT2FN[config.hidden_act]",
+    "window_cfg": "modeling_starcoder2.py:356: mask_function = create_causal_mask if self.config.sliding_window is None else create_sliding_window_causal_mask",
+    "norm_eps_cfg": "modeling_starcoder2.py:210: self.input_layernorm = nn.LayerNorm(config.hidden_size, eps=config.norm_epsilon)"
+   }
+  },
+  "step3_text": {
+   "code": null,
+   "caps": {}
+  },
+  "step3p5": {
+   "code": null,
+   "caps": {}
+  },
+  "step_audio_2": {
+   "code": null,
+   "caps": {}
+  },
+  "sundial": {
+   "code": null,
+   "caps": {}
+  },
+  "tinymixtral": {
+   "code": null,
+   "caps": {}
+  },
+  "tpu_llama": {
+   "code": null,
+   "caps": {}
+  },
+  "typhoon2audio": {
+   "code": null,
+   "caps": {}
+  },
+  "vaultgemma": {
+   "code": "models/vaultgemma/modeling_vaultgemma.py",
+   "caps": {
+    "act_config": "modeling_vaultgemma.py:74: self.act_fn = ACT2FN[config.hidden_activation]",
+    "window_cfg": "modeling_vaultgemma.py:188: self.sliding_window = config.sliding_window if self.layer_type == \"sliding_attention\" else None",
+    "softcap_cfg": "modeling_vaultgemma.py:187: self.attn_logit_softcapping = self.config.attn_logit_softcapping",
+    "norm_eps_cfg": "modeling_vaultgemma.py:240: self.input_layernorm = VaultGemmaRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "videollama3_qwen2": {
+   "code": null,
+   "caps": {}
+  },
+  "viuai": {
+   "code": null,
+   "caps": {}
+  },
+  "xing4_0": {
+   "code": null,
+   "caps": {}
+  },
+  "youtu": {
+   "code": "models/youtu/modeling_youtu.py",
+   "caps": {
+    "act_config": "modeling_youtu.py:128: self.act_fn = ACT2FN[config.hidden_act]",
+    "partial_rope": "modeling_youtu.py:352: q_pass, q_rot = torch.split(q_states, [self.qk_nope_head_dim, self.qk_rope_head_dim], dim=-1)",
+    "norm_eps_cfg": "modeling_youtu.py:403: self.input_layernorm = YoutuRMSNorm(config.hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "youtu_vita_text": {
+   "code": null,
+   "caps": {}
+  },
+  "youtu_vl": {
+   "code": null,
+   "caps": {}
+  },
+  "youtu_vl_moe": {
+   "code": null,
+   "caps": {}
+  },
+  "zamba": {
+   "code": "models/zamba/modeling_zamba.py",
+   "caps": {
+    "act_config": "modeling_zamba.py:627: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_zamba.py:640: self.input_layernorm = ZambaRMSNorm(config.attention_hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "zamba2": {
+   "code": "models/zamba2/modeling_zamba2.py",
+   "caps": {
+    "act_config": "modeling_zamba2.py:884: self.act_fn = ACT2FN[config.hidden_act]",
+    "norm_eps_cfg": "modeling_zamba2.py:918: self.input_layernorm = Zamba2RMSNorm(config.attention_hidden_size, eps=config.rms_norm_eps)"
+   }
+  },
+  "zaqeris_axiom": {
+   "code": null,
+   "caps": {}
+  },
+  "zaya1_vl": {
+   "code": null,
+   "caps": {}
+  }
+ }
+}

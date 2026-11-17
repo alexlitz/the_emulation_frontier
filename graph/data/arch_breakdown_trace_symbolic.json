@@ -1,0 +1,2579 @@
+{
+"apertus": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "10485760*s27",
+"trace": "10485760*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1048576*s27",
+"trace": "1048576*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "swiss-ai/Apertus-8B-Instruct-2509",
+"seconds": 20.1
+}
+},
+"arcee": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "arcee-ai/AFM-4.5B",
+"seconds": 17.0
+}
+},
+"biogpt": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "4194304*s27",
+"trace": "4194304*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "microsoft/biogpt",
+"seconds": 14.4
+}
+},
+"bloom": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "67108864*s27",
+"trace": "67108864*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "1048576*s27",
+"trace": "1048576*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "134217728*s27",
+"trace": "134217728*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "bigscience/bloomz-560m",
+"seconds": 14.6
+}
+},
+"codegen": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "67108864*s27",
+"trace": "67108864*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "1048576*s27",
+"trace": "1048576*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "134217728*s27",
+"trace": "134217728*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "Salesforce/codegen2-16B_P",
+"seconds": 18.8
+}
+},
+"cohere": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "16777216*s27",
+"trace": "16777216*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1572864*s27",
+"trace": "1572864*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "NLPark/AnFeng_v3_Avocet",
+"seconds": 15.3
+}
+},
+"cohere2": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "saidutta69/c4ai-command-r7b-12-2024-heretic",
+"seconds": 29.3
+}
+},
+"ctrl": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "10240*s27**2",
+"trace": "10240*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "6553600*s27",
+"trace": "6553600*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "327680*s27",
+"trace": "327680*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "655360*s27",
+"trace": "655360*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "Salesforce/ctrl",
+"seconds": 10.1
+}
+},
+"doge": {
+"errors": [
+{
+"error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+"repo": "SmallDoge/Doge-320M"
+}
+],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "3147776*s27",
+"trace": "3147776*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+2048
+]
+}
+],
+"repo": "SmallDoge/Doge-20M",
+"seconds": 20.6
+}
+},
+"ernie4_5": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "baidu/ERNIE-4.5-0.3B-PT",
+"seconds": 15.9
+}
+},
+"exaone4": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "LGAI-EXAONE/EXAONE-4.0-32B",
+"seconds": 30.8
+}
+},
+"falcon": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "2621440*s27",
+"trace": "2621440*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "8388608*s27",
+"trace": "8388608*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "tiiuae/falcon-7b",
+"seconds": 12.6
+}
+},
+"gemma": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "16777216*s27",
+"trace": "16777216*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "google/gemma-7b",
+"seconds": 12.8
+}
+},
+"gemma2": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "12582912*s27",
+"trace": "12582912*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "12582912*s27",
+"trace": "12582912*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "hugging-quants/gemma-2-9b-it-AWQ-INT4",
+"seconds": 36.5
+}
+},
+"gemma3": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "12582912*s27",
+"trace": "12582912*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "12582912*s27",
+"trace": "12582912*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "chbae624/vllm-translategemma-12b-it",
+"seconds": 38.0
+}
+},
+"gemma3_text": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "12582912*s27",
+"trace": "12582912*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "12582912*s27",
+"trace": "12582912*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "cjvt/GaMS3-12B-Instruct",
+"seconds": 36.8
+}
+},
+"glm": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "zai-org/glm-4-9b-chat-hf",
+"seconds": 16.2
+}
+},
+"glm4": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "zai-org/GLM-Z1-32B-0414",
+"seconds": 17.6
+}
+},
+"gpt2": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "4194304*s27",
+"trace": "4194304*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "8388608*s27",
+"trace": "8388608*s27"
+}
+},
+"range": [
+2,
+1024
+]
+}
+],
+"repo": "openai-community/gpt2",
+"seconds": 11.9
+}
+},
+"gpt_neo": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "4194304*s27",
+"trace": "4194304*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "8388608*s27",
+"trace": "8388608*s27"
+}
+},
+"range": [
+2,
+2048
+]
+}
+],
+"repo": "EleutherAI/gpt-neo-125m",
+"seconds": 12.5
+}
+},
+"gpt_neox": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "4194304*s27",
+"trace": "4194304*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "EleutherAI/pythia-160m",
+"seconds": 11.9
+}
+},
+"gpt_neox_japanese": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "10240*s27**2",
+"trace": "10240*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "6553600*s27",
+"trace": "6553600*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "327680*s27",
+"trace": "327680*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "13107200*s27",
+"trace": "13107200*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "abeja/gpt-neox-japanese-2.7b",
+"seconds": 12.2
+}
+},
+"gptj": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "67108864*s27",
+"trace": "67108864*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "1048576*s27",
+"trace": "1048576*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "134217728*s27",
+"trace": "134217728*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "EleutherAI/gpt-j-6b",
+"seconds": 22.0
+}
+},
+"granite": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "2621440*s27",
+"trace": "2621440*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "ibm-granite/granite-4.1-3b",
+"seconds": 13.6
+}
+},
+"helium": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "16777216*s27",
+"trace": "16777216*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1572864*s27",
+"trace": "1572864*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "kyutai/helium-1-preview-2b",
+"seconds": 14.6
+}
+},
+"idefics3": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "6144*s27**2",
+"trace": "6144*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "2097152*s27",
+"trace": "2097152*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "ibm-granite/granite-docling-258M",
+"seconds": 14.8
+}
+},
+"llama": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "dphn/dolphin-2.9.1-yi-1.5-34b",
+"seconds": 15.6
+}
+},
+"llama4": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"moe.experts": {
+"equal": true,
+"formula": "12582912*s27",
+"trace": "12582912*s27"
+},
+"moe.router": {
+"equal": true,
+"formula": "65536*s27",
+"trace": "65536*s27"
+},
+"moe.shared": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"moe.experts": {
+"equal": true,
+"formula": "12582912*s27",
+"trace": "12582912*s27"
+},
+"moe.router": {
+"equal": true,
+"formula": "65536*s27",
+"trace": "65536*s27"
+},
+"moe.shared": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "lmstudio-community/Llama-4-Scout-17B-16E-MLX-text-8bit",
+"seconds": 45.4
+}
+},
+"ministral": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "saidutta69/Ministral-8B-Instruct-heretic",
+"seconds": 28.1
+}
+},
+"mistral": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "mistralai/Mistral-7B-Instruct-v0.2",
+"seconds": 15.5
+}
+},
+"mistral3": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "RedHatAI/Mistral-Small-3.2-24B-Instruct-2506-NVFP4",
+"seconds": 15.8
+}
+},
+"mpt": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "640*s27**2",
+"trace": "640*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "40960*s27",
+"trace": "40960*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "32768*s27",
+"trace": "32768*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "81920*s27",
+"trace": "81920*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "explosion-testing/mpt-test",
+"seconds": 8.3
+}
+},
+"nemotron": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "12288*s27**2",
+"trace": "12288*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "4194304*s27",
+"trace": "4194304*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "nvidia/Nemotron-Mini-4B-Instruct",
+"seconds": 17.6
+}
+},
+"olmo": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "16777216*s27",
+"trace": "16777216*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1572864*s27",
+"trace": "1572864*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "allenai/OLMo-1B-hf",
+"seconds": 12.5
+}
+},
+"olmo2": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "16777216*s27",
+"trace": "16777216*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1572864*s27",
+"trace": "1572864*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "allenai/OLMo-2-0425-1B",
+"seconds": 15.0
+}
+},
+"olmo3": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "16777216*s27",
+"trace": "16777216*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1572864*s27",
+"trace": "1572864*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "16777216*s27",
+"trace": "16777216*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1572864*s27",
+"trace": "1572864*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "allenai/Olmo-3-7B-Instruct",
+"seconds": 29.5
+}
+},
+"opt": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"other": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "4194304*s27",
+"trace": "4194304*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1048576*s27",
+"trace": "1048576*s27"
+},
+"other": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "facebook/opt-125m",
+"seconds": 11.7
+}
+},
+"persimmon": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "4194304*s27",
+"trace": "4194304*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "adept/persimmon-8b-base",
+"seconds": 13.5
+}
+},
+"phi": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "10240*s27**2",
+"trace": "10240*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "6553600*s27",
+"trace": "6553600*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "327680*s27",
+"trace": "327680*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "655360*s27",
+"trace": "655360*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "microsoft/phi-2",
+"seconds": 14.5
+}
+},
+"phi3": {
+"errors": [
+{
+"error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+"repo": "microsoft/Phi-3.5-mini-instruct"
+},
+{
+"error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+"repo": "microsoft/Phi-4-mini-instruct"
+}
+],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "12288*s27**2",
+"trace": "12288*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "9437184*s27",
+"trace": "9437184*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "393216*s27",
+"trace": "393216*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1179648*s27",
+"trace": "1179648*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "12288*s27**2",
+"trace": "12288*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "9437184*s27",
+"trace": "9437184*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "393216*s27",
+"trace": "393216*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1179648*s27",
+"trace": "1179648*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "microsoft/Phi-3-mini-4k-instruct",
+"seconds": 30.6
+}
+},
+"qwen2": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "10485760*s27",
+"trace": "10485760*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1572864*s27",
+"trace": "1572864*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "Qwen/Qwen2.5-7B-Instruct",
+"seconds": 15.0
+}
+},
+"qwen2_5_vl": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "10485760*s27",
+"trace": "10485760*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1572864*s27",
+"trace": "1572864*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "nvidia/Qwen2.5-VL-7B-Instruct-NVFP4",
+"seconds": 21.0
+}
+},
+"qwen3": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "6291456*s27",
+"trace": "6291456*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "Qwen/Qwen3-0.6B",
+"seconds": 16.2
+}
+},
+"qwen3_vl": {
+"errors": [
+{
+"error": "AttributeError: 'NoneType' object has no attribute 'get'",
+"repo": "DreamFast/Qwen3-VL-8B-Heretic-1.3.0"
+}
+],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "RedHatAI/Qwen3-VL-32B-Instruct-NVFP4",
+"seconds": 20.9
+}
+},
+"qwen3_vl_moe": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"moe.experts": {
+"equal": true,
+"formula": "100663296*s27",
+"trace": "100663296*s27"
+},
+"moe.router": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "QuantTrio/Qwen3-VL-30B-A3B-Instruct-AWQ",
+"seconds": 23.1
+}
+},
+"seed_oss": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "5242880*s27",
+"trace": "5242880*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "ByteDance-Seed/Seed-OSS-36B-Instruct",
+"seconds": 14.2
+}
+},
+"smollm3": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "10485760*s27",
+"trace": "10485760*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1572864*s27",
+"trace": "1572864*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "HuggingFaceTB/SmolLM3-3B",
+"seconds": 15.9
+}
+},
+"stablelm": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "10240*s27**2",
+"trace": "10240*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "6553600*s27",
+"trace": "6553600*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "327680*s27",
+"trace": "327680*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "983040*s27",
+"trace": "983040*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "stabilityai/stablelm-zephyr-3b",
+"seconds": 14.0
+}
+},
+"starcoder2": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "10485760*s27",
+"trace": "10485760*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1048576*s27",
+"trace": "1048576*s27"
+}
+},
+"range": [
+2,
+6
+]
+},
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "16384*s27**2",
+"trace": "16384*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "10485760*s27",
+"trace": "10485760*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "524288*s27",
+"trace": "524288*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1048576*s27",
+"trace": "1048576*s27"
+}
+},
+"range": [
+7,
+null
+]
+}
+],
+"repo": "bigcode/starcoder2-3b",
+"seconds": 26.0
+}
+},
+"vaultgemma": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "32768*s27**2",
+"trace": "32768*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "16777216*s27",
+"trace": "16777216*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "786432*s27",
+"trace": "786432*s27"
+}
+},
+"range": [
+2,
+null
+]
+}
+],
+"repo": "google/vaultgemma-1b",
+"seconds": 15.0
+}
+},
+"xglm": {
+"errors": [],
+"proof": {
+"all_equal": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"regimes": [
+{
+"buckets": {
+"attn.core": {
+"equal": true,
+"formula": "8192*s27**2",
+"trace": "8192*s27**2"
+},
+"attn.proj": {
+"equal": true,
+"formula": "4194304*s27",
+"trace": "4194304*s27"
+},
+"lm_head": {
+"equal": true,
+"formula": "262144*s27",
+"trace": "262144*s27"
+},
+"mlp": {
+"equal": true,
+"formula": "1048576*s27",
+"trace": "1048576*s27"
+}
+},
+"range": [
+2,
+2048
+]
+}
+],
+"repo": "facebook/xglm-564M",
+"seconds": 11.2
+}
+}
+}

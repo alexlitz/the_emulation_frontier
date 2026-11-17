@@ -1,0 +1,133 @@
+{
+  "qknorm_always_type_missing": "qknorm_by_code_unlisted",
+  "qknorm_code_fixed_unflagged": "qknorm_by_code_unlisted",
+  "qknorm_code_unread": "qknorm_by_code_unlisted",
+  "qknorm_type_unlisted": "qknorm_by_code_unlisted",
+  "qknorm_undetected": "qknorm_by_code_unlisted",
+  "qknorm_string_flag": "qknorm_by_code_unlisted",
+  "family_subclass_type_unlisted": "qknorm_by_code_unlisted",
+
+  "out_gate_type_missing": "out_gate_by_code_unlisted",
+  "out_gate_code_fixed_unflagged": "out_gate_by_code_unlisted",
+  "out_gate_undetected": "out_gate_by_code_unlisted",
+
+  "out_gate_granularity": "out_gate_headwise",
+  "out_gate_softplus": "out_gate_activation",
+
+  "tie_default_unread": "tie_default_unread",
+  "tie_default_remote_config": "tie_default_unread",
+  "tied_default_missed": "tie_default_unread",
+  "no_model_type_class_default": "tie_default_unread",
+  "cfrd_tied_lm_head_by_code": "tie_default_unread",
+
+  "swa_key_unread": "sliding_window_keys_unread",
+  "swa_window_key_unread": "sliding_window_keys_unread",
+  "swa_pattern_unread": "sliding_window_keys_unread",
+  "jet_swa_window_unread": "sliding_window_keys_unread",
+  "mpt_attn_config_sliding_window": "sliding_window_keys_unread",
+
+  "attention_head_dim_unread": "head_dim_key_unread",
+  "head_dim_alias_unread": "head_dim_key_unread",
+  "kv_channels_head_dim_unread": "head_dim_key_unread",
+
+  "per_layer_head_counts": "per_layer_head_shapes",
+  "per_variant_kv_heads": "per_layer_head_shapes",
+  "per_layer_head_dim": "per_layer_head_shapes",
+
+  "renorm_fixed_unlisted": "renorm_by_code_unlisted",
+  "renorm_fixed_key_ignored": "renorm_by_code_unlisted",
+  "route_norm_key_unread": "renorm_by_code_unlisted",
+
+  "router_bias_key_unread": "router_bias_unread",
+  "router_bias_code_default": "router_bias_unread",
+  "router_bias_code_fixed_unlisted": "router_bias_unread",
+  "remote_router_sigmoid_bias_unlisted": "router_bias_unread",
+  "sigmoid_router_type_missing": "router_score_unread",
+  "router_score_config_unread": "router_score_unread",
+
+  "token_id_hash_route_unflagged": "hash_route_by_code",
+  "hash_route_unflagged": "hash_route_by_code",
+
+  "xsa_value_projection": "xsa_self_value_projection",
+  "symplectic_rope_warp": "content_warped_rope",
+  "canon_conv_residual": "canon_conv_layers",
+  "canon_layers": "canon_conv_layers",
+
+  "bias_qkv_code_unflagged": "bias_qkv_by_code_unlisted",
+  "bias_qkv_type_missing": "bias_qkv_by_code_unlisted",
+  "wrapped_qwen2_bias_qkv_missed": "bias_qkv_by_code_unlisted",
+  "bias_out_type_missing": "bias_out_by_code_unlisted",
+  "bias_out_unlisted": "bias_out_by_code_unlisted",
+
+  "attn_res_code_fixed_unflagged": "attn_res_keys_unread",
+  "attn_res_key_unread": "attn_res_keys_unread",
+  "value_residual_unflagged": "value_emb_keys_unread",
+  "value_emb_key_unread": "value_emb_keys_unread",
+  "engram_key_unread": "ngram_memory_unread",
+  "ngram_memory_unflagged": "ngram_memory_unread",
+
+  "emb_norm_unflagged": "embedding_norm",
+  "embedding_norm_unflagged": "embedding_norm",
+  "bloom_word_embeddings_layernorm": "embedding_norm",
+
+  "eos_document_reset": "eos_document_mask",
+  "doc_mask_on_eos": "eos_document_mask",
+  "prefix_lm_bidirectional_prompt": "prefix_lm_mask",
+  "mpt_prefix_lm": "prefix_lm_mask",
+
+  "hybrid_layer_list_unread": "hybrid_layer_schedule_unread",
+  "attention_every_unread": "hybrid_layer_schedule_unread",
+  "no_model_type_bailing_v3_hybrid": "hybrid_layer_schedule_unread",
+
+  "layer_rope_theta_unread": "nope_layer_keys_unread",
+  "nope_layers_key_unread": "nope_layer_keys_unread",
+
+  "rope_head_dim_unread": "partial_rope_keys_unread",
+  "rope_pct_key_unread": "partial_rope_keys_unread",
+  "rope_per_layer_lists_missed": "partial_rope_keys_unread",
+
+  "qwen1_dynamic_ntk": "dynamic_ntk_in_context",
+  "dynamic_ntk_by_code": "dynamic_ntk_in_context",
+  "qwen1_logn_attn": "position_query_temperature",
+  "nope_attn_temperature_tuning": "position_query_temperature",
+  "llama4_scaling_beta_unread": "position_query_temperature",
+  "llama4_scaling_beta_qtemp": "position_query_temperature",
+  "pos_query_temperature": "position_query_temperature",
+
+  "inter_key_unread": "ffn_width_keys_unread",
+  "inter_default_by_code": "ffn_width_keys_unread",
+  "ffn_mult_width_unread": "ffn_width_keys_unread",
+  "dense_width_key_unread": "ffn_width_keys_unread",
+  "expert_width_key_unread": "ffn_width_keys_unread",
+  "glu_half_width_unlisted": "ffn_width_keys_unread",
+
+  "loop_count_key_unread": "loop_depth_unread",
+  "lfm3rd_loop_depth_miscount": "loop_depth_unread",
+  "cfrd_folded_recurrence": "loop_depth_unread",
+
+  "hc_comb_orientation": "hyper_conn_variant",
+
+  "glm_superexpert_mismatched_body": "remote_code_not_config_family",
+  "quillan_native_core_unread": "remote_code_not_config_family",
+
+  "cfrd_chunk_attention_memory": "memory_attention",
+  "chunk_memory_attention": "memory_attention",
+
+  "sandwich_norm_unread": "norm_placement_keys_unread",
+  "norm_after_post_only": "norm_placement_keys_unread",
+  "post_only_block_type_unread": "norm_placement_keys_unread",
+  "minimax_postln_stream": "norm_placement_keys_unread",
+
+  "timeseries_not_lm": "not_a_causal_lm",
+  "reranker_score_head": "not_a_causal_lm",
+
+  "qknorm_free_fixed_gain": "qknorm_fixed_gain",
+  "qk_sharpen_scale_unread": "qknorm_fixed_gain",
+
+  "nanochat_port_unlisted": "nanochat_port_unlisted",
+  "relu2_mlp_type_unlisted": "nanochat_port_unlisted",
+
+  "falcon_alibi_inv_sqrt_hd": "falcon_alibi_slope_scale",
+
+  "cyrah_attn_impl_gqa_read_as_mla": "cyrah_attn_impl_unread"
+}

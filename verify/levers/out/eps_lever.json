@@ -1,0 +1,51 @@
+[
+ {
+  "check": "Qwen3 host (qk-norm off) == Llama target",
+  "dtype": "torch.float32",
+  "E": 1099511.627776,
+  "max_abs_diff": 1.7881393432617188e-07,
+  "max_logit": 0.6572237610816956
+ },
+ {
+  "check": "Gemma-2 host (post-norms off, softcap None) == Gemma target",
+  "dtype": "torch.float32",
+  "E": 1099511.627776,
+  "max_abs_diff": 2.384185791015625e-07,
+  "max_logit": 1.468368649482727
+ },
+ {
+  "check": "weight-free RMS norm, linear regime == x / sqrt(E)",
+  "dtype": "torch.float32",
+  "E": 1099511627776.0,
+  "max_abs_diff": 0.0,
+  "max_logit": null
+ },
+ {
+  "check": "Qwen3 host (qk-norm off) == Llama target",
+  "dtype": "torch.float64",
+  "E": 1099511.627776,
+  "max_abs_diff": 5.889544713033601e-08,
+  "max_logit": 0.5603701640506472
+ },
+ {
+  "check": "Gemma-2 host (post-norms off, softcap None) == Gemma target",
+  "dtype": "torch.float64",
+  "E": 1099511.627776,
+  "max_abs_diff": 9.564812808449119e-08,
+  "max_logit": 1.4900721732729627
+ },
+ {
+  "check": "weight-free RMS norm, linear regime == x / sqrt(E)",
+  "dtype": "torch.float64",
+  "E": 1099511627776.0,
+  "max_abs_diff": 3.910574442045345e-07,
+  "max_logit": null
+ },
+ {
+  "check": "reference: Llama target fp32 vs fp64 (rounding scale)",
+  "dtype": "-",
+  "E": null,
+  "max_abs_diff": 2.0735095518364943e-07,
+  "max_logit": null
+ }
+]

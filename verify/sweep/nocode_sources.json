@@ -1,0 +1,1875 @@
+{
+ "SMT": {
+  "status": "code",
+  "found": "[official, reference] https://github.com/antoniorv6/SMT/tree/20d8240c47b4a1851e9a5aa5a0ca3d0ddbc16da8/smt_model",
+  "parent": "trocr (vision-encoder-decoder with a post-LN transformer decoder)",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:SMT@antoniorv6",
+    "source": "antoniorv6/SMT smt_model @20d8240c",
+    "files": [
+     "SMT/gh__antoniorv6__SMT/smt_model/modeling_smt.py",
+     "SMT/gh__antoniorv6__SMT/smt_model/configuration_smt.py"
+    ],
+    "entry": [
+     "SMTModelForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Image-to-sequence model, not a decoder-only LM: ConvNeXt encoder (transformers ConvNextModel, 3 stages hidden [64,128,256], depths [3,3,9], modeling_smt.py:345-348) + 8-layer transformer decoder. Decoder: nn.Embedding(out_categories, d_model) with no scale (:307, 322); fixed 1D sinusoidal PE with INTERLEAVED sin/cos (pe[:,0::2]=sin, pe[:,1::2]=cos) added (:47-74, 323); POST-LN layers: x = LN(x + SelfAttn(x)); x = LN(x + CrossAttn(x)); x = LN(x + FFN(x)) with 3 separate LayerNorms (eps 1e-5) (:200-256); FFN = Linear(bias) -> ReLU -> Linear(bias), dim_ff=256 (:207-214); attention: separate q/k/v/out Linear with bias, scale d_head^-0.5, SDPA with attn_mask=~triu causal mask (:76-198); cross-attention quirk: KEYS come from encoder features + 2D sinusoidal PE (pos2D), VALUES from the raw encoder features without PE (:369-382, 238-244, 15-44); no final LayerNorm; vocab_projection Linear WITH bias, untied (:311, 333). No KV cache: predict() re-runs the full decoder each step (:400-416). There is no text-only path: the decoder always cross-attends to image features.",
+  "engine_vs_reference": "no engine port",
+  "config_match": "Snapshot keys d_model=256, dim_ff=256, in_channels=1, maxh=256, maxw=3056, maxlen=1277, num_attn_heads=4, num_dec_layers=8, out_categories=20578, padding_token=0, i2w/w2i, out_dir, use_flash_attn match configuration_smt.py:6-25. Caveat: SMTConfig.__init__ takes 'attn_heads' (default 4) and assigns self.num_attn_heads = attn_heads, never calls super().__init__ and drops **kwargs (configuration_smt.py:6-25); the snapshot's num_attn_heads=4 equals the default so it is consistent. It also hard-sets architectures=['SMT'] whereas the snapshot says ['SMTModelForCausalLM'].",
+  "tried": [
+   "HF PRAIG/smt-grandstaff @fd3d512a: config.json + model.safetensors only, no .py, no auto_map, auto-generated README",
+   "GitHub search 'SMT sheet music transformer' -> antoniorv6/SMT (fetched master @20d8240c), also antoniorv6/SMT-plusplus (not fetched; SMT++ is a later variant)",
+   "grep SMTModelForCausalLM in _repos vllm/sglang/llama.cpp: none"
+  ]
+ },
+ "amber": {
+  "status": "code",
+  "found": "TheBloke/AmberChat-GGUF quantises LLM360/AmberChat, whose config.json is LlamaForCausalLM / llama (LLM360/Amber likewise)",
+  "parent": "llama",
+  "sweep": [
+   {
+    "variant": "tf5:llama",
+    "source": "LLM360/AmberChat config.json: LlamaForCausalLM",
+    "wrapper": true
+   }
+  ],
+  "tried": [
+   "GGUF README base_model",
+   "LLM360/AmberChat and LLM360/Amber config.json"
+  ]
+ },
+ "apertus1p5": {
+  "status": "wrapper",
+  "found": "[github, reference] https://github.com/swiss-ai/transformers/tree/0c5e12f18a5ff5c93cb1ef755aebbd557e26e884/src/transformers/models/apertus1p5; [github] https://github.com/swiss-ai/vllm/tree/b84ba28e5ed19c08e09a9f2561451001b65aaa0e/vllm/model_executor/models/apertus_mm.py; [hub-sibling] https://huggingface.co/swiss-ai/Apertus-v1.5-8B-base (1e28c426548b1853c11e9dbd386e27accbdad19f)",
+  "parent": "apertus",
+  "inner": "apertus",
+  "sweep": [
+   {
+    "variant": "tf5:apertus",
+    "source": "inner LM: Apertus1p5TextModel == transformers ApertusModel",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:apertus1p5@swiss-ai-transformers",
+    "source": "swiss-ai/transformers fork models/apertus1p5 @0c5e12f1 (pinned by the model card)",
+    "files": [
+     "apertus1p5/gh__swiss-ai__transformers/modeling_apertus1p5.py",
+     "apertus1p5/gh__swiss-ai__transformers/configuration_apertus1p5.py"
+    ],
+    "entry": [
+     "Apertus1p5ForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Wrapper: text tower = Apertus1p5TextModel (== ApertusModel, see apertus1p5_text) under model.language_model, plus lm_head of text_config.output_vocab_size rows (modeling_apertus1p5.py:1043-1046). Images/audio are converted to DISCRETE codes by a VQ image tokenizer (Chameleon-style VQVAE encoder) and a WavTokenizer encoder, offset by image_token_offset/audio_token_offset and embedded with the same text embedding table, then masked_scatter'ed into the image/audio placeholder positions (modular_apertus1p5.py:566-659,704-765). For text-only input nothing is added: forward = ApertusModel + pruned lm_head. No logit/embedding scaling.",
+  "engine_vs_reference": "swiss-ai vLLM: stock ApertusModel + pruned head (apertus_mm.py:441-474); same.",
+  "config_match": "Snapshot outer config (apertus1p5) has text_config (apertus1p5_text), vision_config (apertus1p5_vision_tokenizer), audio_config (wavtokenizer), image/audio token ids and offsets - all read by the reference. text_config keys post_norm/qk_norm unused.",
+  "tried": [
+   "see apertus1p5_text: grep _repos (apertus only), Hub swiss-ai + community repos, swiss-ai/transformers and swiss-ai/vllm forks pinned in the card (fetched)"
+  ]
+ },
+ "apertus1p5_text": {
+  "same_as": "apertus1p5"
+ },
+ "beam": {
+  "status": "code",
+  "found": "transformers main models/beam (modular, added after 5.18; reference: the official reflection/Beam-1.0-501B-A23B ships config only); engine ports SGLang beam.py, vLLM vllm/models/beam, llama.cpp src/models/beam.cpp",
+  "parent": "modular: Qwen3-MoE skeleton + DeepSeek-V3 router + OLMo-3 norm + DeepSeek-V3.2 layer",
+  "sweep": [
+   {
+    "variant": "tfmain:beam",
+    "source": "transformers main 029045ca87 models/beam (modular)"
+   }
+  ],
+  "engine_vs_reference": "SGLang / vLLM / llama.cpp reproduce depth-scaled residuals, the head-wise sigmoid output gate, NoPE + scalable-softmax query scaling on full layers and the logit softcap; they fuse norm + residual and apply routed_scaling inside top-k / experts (bf16 rounding); llama.cpp defaults the softcap to 0 when a GGUF lacks the key.",
+  "tried": [
+   "Hub author reflection: Beam-1.0-501B-A23B (+NVFP4 / FP8 / DFlash2): no .py, no auto_map",
+   "transformers main: models/beam",
+   "SGLang, vLLM, llama.cpp ports"
+  ]
+ },
+ "breeze": {
+  "status": "code",
+  "found": "[official, reference] https://github.com/breezeblue-ai/breeze-tts/tree/daa6cb2efe5471f09369229f322d20bb956cb3c3 (linked from the BreezeBlue/Breeze-TTS-2 model card as 'PyTorch inference code'); [hub-sibling] https://huggingface.co/BreezeBlue/Breeze-TTS-2 (3e28c5151381a722f1d8661b4118c298caa77aa4)",
+  "parent": "csm",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:breeze@breezeblue-ai",
+    "source": "breezeblue-ai/breeze-tts @daa6cb2e",
+    "files": [
+     "breeze/gh__breezeblue-ai__breeze-tts/models/breeze.py",
+     "breeze/gh__breezeblue-ai__breeze-tts/models/breeze_backbone_factory.py",
+     "breeze/gh__breezeblue-ai__breeze-tts/models/breeze_config.py",
+     "breeze/gh__breezeblue-ai__breeze-tts/models/breeze_base_config.py"
+    ],
+    "entry": [
+     "BreezeForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Text-to-speech model forked from transformers' CSM (Sesame): backbone predicts codebook 0 per Mimi frame, depth decoder predicts codebooks 1..15. Class layout and math copied from modeling_csm (BreezeRMSNorm/Attention/DecoderLayer = Llama-style, breeze.py:120-431; depth decoder 464-601; per-codebook head 604-640; backbone embeddings sum of per-codebook audio embeddings 775-805). Differences from csm:\n- Backbone layers are NOT the Llama-style Breeze layers: backbone_model_type='qwen3' makes BreezeBackboneFactory build transformers Qwen3DecoderLayer/Qwen3RMSNorm/Qwen3RotaryEmbedding from the bundled backbone_config (qk-norm, rope theta 1e6, rms eps 1e-6, 28 layers, 2048 hidden) (breeze_backbone_factory.py:48-62, 151-181, 203-305). Top-level rope_scaling llama3/rms_norm_eps 1e-5 are then unused by the backbone.\n- Text conditioning: text tokens are not embedded by an embedding table; they are encoded per segment by a frozen T5Gemma2 text encoder (26 layers, 1152 hidden, bidirectional; t5gemma2_compat.py:589+) and projected with a bias-free Linear(1152->2048) (text_encoder_proj_type 'linear', breeze.py:1001-1006; 1352-1460, 1462-1542). Non-text, non-audio positions get zero embeddings (1452-1458); embed_text_tokens is only used when no text encoder (1578). Optional DimFusion per-layer injection into the second half of the hidden state (factory:266-288) is off for this config (layer_projs None).\n- Audio positions: sum of 16 codebook embeddings (audio_embed_size 2048, optional projector) (775-805); audio EOS frame = embedding of all-codebook_eos_token_id frame (1611-1625).\n- lm_head has vocab_size+1 outputs: extra backbone EOS class (breeze.py:919-923).\n- Depth decoder: embeddings in audio_embed_size with optional backbone_hidden_state_projector, then inputs_embeds_projector (breeze.py:472-496, 563-575); llama3-scaled rope on 16 positions (config). Embeddings tied with backbone audio embeddings (913-916).\n- Codec (Mimi) and text encoder are sub-modules but not part of the per-step LM forward.",
+  "engine_vs_reference": "No engine port found. The repo's own CUDA-graph / fast streaming paths (models/cudagraph/*, models/fast_streaming.py) re-implement the same graph for speed; not compared in detail.",
+  "config_match": "Snapshot keys match BreezeConfig + extra kwargs the code reads via getattr: backbone_model_type, backbone_config, audio_embed_size, text_encoder_config, text_encoder_proj_type, codec_config, depth_decoder_config. Read with defaults but absent from snapshot: text_encoder_feature_layer_idx (-1), text_encoder_dimfusion_* (defaults). Present but unused by the forward: backbone_flavor, decoder_flavor, backbone_model_name_or_path (null), text_encoder_lora_config (merged_into_base=true), text_encoder_special_tokens_config (enabled=false), text_encoder_bucket_max_length_ratio, depth_header_loss_weight (loss only).",
+  "tried": [
+   "HF api BreezeBlue/Breeze-TTS-2: no .py, no auto_map; drbaph/Breeze-TTS-2-comfyui is a repack of the same config",
+   "model card -> github.com/breezeblue-ai/breeze-tts (codeload main @daa6cb2e)",
+   "grep _repos vllm/sglang/mlx-lm/llama.cpp/transformers-main: no breeze",
+   "compared against transformers 5.18 models/csm/modeling_csm.py (~/.cache/upstream_refs/transformers-5.18.0)"
+  ]
+ },
+ "cambrian_qwen": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/cambrian-mllm/cambrian-s/tree/058b1b4c96846a229d1c9bb69da6ecf5ceee4a6b/cambrian/model; [official, reference] https://github.com/ZitengWangNYU/Scale-RAE/tree/dab38002b4b42c2d2262776785276d410599a443/scale_rae/model",
+  "parent": "qwen2",
+  "inner": "qwen2",
+  "sweep": [
+   {
+    "variant": "tf5:qwen2",
+    "source": "inner LM: transformers Qwen2ForCausalLM",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:cambrian_qwen@cambrian-s",
+    "source": "cambrian-mllm/cambrian-s @058b1b4c (wrapper class)",
+    "files": [
+     "cambrian_qwen/gh__cambrian-mllm__cambrian-s/cambrian/model/language_model/cambrian_qwen2.py",
+     "cambrian_qwen/gh__cambrian-mllm__cambrian-s/cambrian/model/cambrian_arch.py"
+    ],
+    "entry": [
+     "CambrianQwenForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Text-only forward = Qwen2ForCausalLM of transformers ~4.37-4.39, with these wrapper details:\n- __init__ forces config.rope_scaling = None (cambrian_qwen2.py:312-313; scale_rae_qwen2.py:385-386) and builds a bias-free lm_head (cambrian_qwen2.py:316; scale_rae_qwen2.py:389). Snapshot configs already have rope_scaling null.\n- logits are cast to float32 (cambrian_qwen2.py:450-451; scale_rae_qwen2.py:760,771).\n- CambrianQwenModel.forward is the old Qwen2Model.forward copied in (cambrian_qwen2.py:52-303; scale_rae_qwen2.py:171-~330): position_ids = arange(past_len, past_len+T) (101-108), embed_tokens without scaling (110-111). The eager path builds the 4D mask with sliding_window=config.sliding_window regardless of use_sliding_window (cambrian_qwen2.py:141-147; scale_rae_qwen2.py ~262-268), as transformers 4.37 Qwen2 did; sdpa/flash paths have no window. Windows are 131072 / 32768 >= max_position_embeddings, so no effect within context.\n- SVA cross-attention hook after each decoder layer runs only if not connector_only and vision features are passed (cambrian_qwen2.py:186-277); all three snapshot configs set connector_only=true.\n- prepare_inputs_labels_for_multimodal[_for_generation] returns inputs unchanged when images is None or T==1 (cambrian_arch.py:384-385, 487-488; scale_rae_arch.py:510-511).\n- Extra params off the text path: image_newline (cambrian_arch.py:196), optional nfp_head (training-only loss, cambrian_qwen2.py:452-457; nfp_head null in configs), Scale-RAE vision_head + diffusion decoder used only for image generation (scale_rae_qwen2.py:774+ under decoding=True).\nVocab: Scale-RAE models have 151667 rows (Qwen2.5 tokenizer + added image tokens, resized table, 1.5B ties embeddings), Cambrian-S 152064 (base).",
+  "engine_vs_reference": "No engine port found (vllm-main, sglang-main, mlx-lm-main, llama.cpp: no cambrian).",
+  "config_match": "Text keys are a full Qwen2Config (CambrianQwenConfig / ScaleRAEQwenConfig subclass Qwen2Config). Extra keys (connector_only, image_position, mm_*, vision_*, start/stride_of_vision_sampler_layers, anyres_*, diffusion_* / ddt_* / aux_regression*, etc.) are read only by the vision / generation paths. rope_scaling in config is ignored (forced None).",
+  "tried": [
+   "cambrian-mllm/cambrian (Cambrian-1, 539ffc3) tree: language_model has cohere/gemma/llama/mistral/phi3 but no qwen",
+   "cambrian-mllm/cambrian-s (058b1b4): cambrian_qwen2.py found",
+   "GitHub search Scale-RAE -> ZitengWangNYU/Scale-RAE (dab3800): scale_rae_qwen2.py registers cambrian_qwen",
+   "HF nyu-visionx/Cambrian-S-7B @556e72f and Scale-RAE-Qwen1.5B_DiT2.4B @4acb951 siblings: no .py",
+   "vllm-main, sglang-main, mlx-lm-main, llama.cpp grep cambrian: none"
+  ]
+ },
+ "cdm_moe_holographic": {
+  "status": "code",
+  "found": "[official, reference] https://huggingface.co/DuoNeural/Lattice-4D-Holographic-253M-Poincare-Instruct (585aa8428728e98779568f931eace5d3e6c01499) cdm_lm_distill_v4d_holographic.py; [github] https://github.com/DuoNeural/Lattice-CDM/tree/e2bf6abb6dbef0a8497ca1d5fdcb6820b4b94f5e (scripts/cdm_lm_distill_v4d_holographic.py, cdm-gguf/llama-cdm.patch)",
+  "parent": "gpt2",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:cdm_moe_holo@DuoNeural",
+    "source": "DuoNeural/Lattice-4D-Holographic-253M-Poincare-Instruct cdm_lm_distill_v4d_holographic.py @585aa842",
+    "files": [
+     "cdm_moe_holographic/hub__DuoNeural__Lattice-4D-Holographic-253M-Poincare-Instruct/cdm_lm_distill_v4d_holographic.py"
+    ],
+    "entry": [
+     "CDMMoELM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Same CDM-MoE v3 model as cdm_moe_poincare (cdm_lm_distill_v4d_holographic.py:307-726 is identical to cdm_lm_distill_qwen27b.py:315-730 except one addition): GPT-2-like pre-LN decoder, tok+learned pos embed + embed LayerNorm, nn.MultiheadAttention, tied lm_head; FFN = dense soft MoE of 4 SwiGLU experts weighted by softmax over K=8 slots of -poincare_dist(exp_map(normalize(h)*0.3), slots)*temp with learned curvature c in (0.25,4), optional inter-layer telepathy prior (off at telepathy_scale=0).\n- Only difference: CDMMoELM(curvature_per_layer=...) initialises each layer's curvature from an AdS ladder (--ads-init/--ads-curvatures, :1028-1030); since c is learned (theta_c is a weight), the forward pass is unchanged.\n- Must call with training=False to avoid EMA slot updates.",
+  "engine_vs_reference": "Author's llama.cpp patch reproduces the forward (acosh via log form; frozen effective per-layer curvature/temperature); see cdm_moe_poincare.",
+  "config_match": "Code reads vocab_size, d_model, n_layers, n_heads, num_experts, K, d_ff, max_seq_len as CLI args. Config 'manifold' = geometry arg ('poincare'). ads_zone_depth/ads_curvature_ir/ads_curvature_uv describe the init ladder only; crystal_k (128) and dhp_floor (0.2) are training-schedule args, not in the forward. No telepathy/beta_tele/learn_curvature keys in this config -> code defaults (use_telepathy=True, beta_tele=0.5, learn_curvature=True).",
+  "tried": [
+   "Hub repo file list (cdm_lm_distill_v4d_holographic.py present)",
+   "github.com/DuoNeural/Lattice-CDM (identical script + llama.cpp patch)",
+   "upstream engines: none"
+  ]
+ },
+ "cdm_moe_poincare": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/DuoNeural/Lattice-CDM/blob/e2bf6abb6dbef0a8497ca1d5fdcb6820b4b94f5e/scripts/cdm_lm_distill_qwen27b.py (+ scripts/eval_l7_hermes_suite.py, scripts/launch_qwen35_4b_lattice7.sh); [llama.cpp] https://github.com/DuoNeural/Lattice-CDM/blob/e2bf6abb/cdm-gguf/llama-cdm.patch (against llama.cpp d663dd3f3af4e7aa3ccbcd7f756c6692eb104577)",
+  "parent": "gpt2",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:cdm_moe@DuoNeural-Lattice-CDM",
+    "source": "DuoNeural/Lattice-CDM scripts/cdm_lm_distill_qwen27b.py @e2bf6abb",
+    "files": [
+     "cdm_moe_poincare/github__DuoNeural__Lattice-CDM/cdm_lm_distill_qwen27b.py"
+    ],
+    "entry": [
+     "CDMMoELM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "GPT-2-like pre-LN decoder whose FFN is a soft MoE routed by hyperbolic distance to learned slot centroids (cdm_lm_distill_qwen27b.py).\n- Embedding: tok_embed + learned pos_embed (max_seq 512), then an extra embed LayerNorm (use_embed_norm=True), dropout (:620-660). lm_head tied to tok_embed (:640-641); final LayerNorm. LayerNorm eps 1e-5 default.\n- Attention: torch nn.MultiheadAttention (fused biased in_proj, biased out_proj), bool causal mask, no RoPE (:574-607).\n- Router (DualGeometryCDMRouter :315-530): x_tan = normalize(h)*0.3, x_hyp = clip_to_ball(exp_map_0(x_tan,c)); K=8 slots s_hyp = clip_to_ball(exp_map_0(slots_tangent,c)) (slots are a BUFFER updated by EMA when training=True); logits = -poincare_dist(x_hyp,s_hyp,c)*exp(clamp(log_temp,log .5,log 20)); c = 0.25+3.75*sigmoid(theta_c) (learned); + beta_tele*telepathy_scale*(prev_layer_gate @ W_tele) (layers>0; telepathy_scale defaults to 0 at inference, so it is OFF in the author's eval); softmax over K, slot probs summed into 4 experts via slot_to_expert = k % 4 (:389-470).\n- Experts: SwiGLU down(silu(gate x)*up x), no bias, d_ff 3072; ALL experts evaluated, weighted sum (dense soft MoE) (:532-572). No shared expert.\n- Residual: x + attn(LN1 x); x + moe(LN2 x).\n- Pitfall: forward(training=True, the default) mutates slot buffers (EMA) even in eval(); inference must pass training=False (ARCHITECTURE_AUDIT.md:69).",
+  "engine_vs_reference": "llama-cdm.patch (cdm.cpp graph) reproduces the reference: embed norm, MHA, LayerNorm, normalize*0.3 -> exp map -> ball clip, acosh distance via log(arg+sqrt(arg^2-1)) (small fp32 differences vs torch.acosh per ARCHITECTURE_AUDIT.md:71), per-layer frozen effective curvature/temperature/telepathy beta stored as GGUF metadata, softmax over slots, slot->expert mapping matmul, dense expert sum. Telepathy beta is an export-time choice (audit :15: 'Default forward scale=0 disables telepathy; baseline and exported graph must agree explicitly').",
+  "config_match": "Snapshot keys = Hub config written by eval_l7_hermes_suite.py. Code reads (as constructor args) vocab_size, d_model, n_layers, n_heads, num_experts, K, d_ff, max_seq_len(max_seq), geometry, curvature (init only; learned theta_c in weights), learn_curvature, telepathy(use_telepathy), beta_tele. tie_word_embeddings is always true in code. Descriptive-only keys: step, total_steps, val_bpb, teacher, octa_cap (training status: all 8 layers' tau* hit cap), parameters, torch_dtype. Code args not in config: dropout, use_embed_norm (True), c_min/c_max (0.25/4), runtime telepathy_scale.",
+  "tried": [
+   "Hub DuoNeural/Lattice-7-Hermes-CDM-Poincare-Instruct files + all 8 commits (no .py)",
+   "DuoNeural Hub org (250 repos: CDM siblings with .py: Lattice-1..4, Sub-Lattice, 4D-Holographic, FC-CDM, 4E-Lorentz)",
+   "model card link github.com/DuoNeural/Lattice-CDM (main e2bf6abb): scripts + cdm-gguf llama.cpp patch",
+   "upstream vllm/sglang/llama.cpp/mlx-lm/transformers: none"
+  ]
+ },
+ "cdm_moe_poincare_fc": {
+  "status": "code",
+  "found": "[official, reference] https://huggingface.co/DuoNeural/FC-CDM-Poincare-7L-108M (15c13a9c60bfcd715cf228a9afec4f51ed638c86) cdm_lm_distill_fc.py; [github] https://github.com/DuoNeural/Lattice-CDM/tree/e2bf6abb6dbef0a8497ca1d5fdcb6820b4b94f5e (scripts/cdm_lm_distill_fc.py, cdm-gguf/llama-cdm.patch)",
+  "parent": "gpt2",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:cdm_moe_fc@DuoNeural",
+    "source": "DuoNeural/FC-CDM-Poincare-7L-108M cdm_lm_distill_fc.py @15c13a9c",
+    "files": [
+     "cdm_moe_poincare_fc/hub__DuoNeural__FC-CDM-Poincare-7L-108M/cdm_lm_distill_fc.py"
+    ],
+    "entry": [
+     "CDMMoELM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Same CDM-MoE v3 model as cdm_moe_poincare (see that entry): GPT-2-like pre-LN decoder with tok+learned pos embed + embed LayerNorm, nn.MultiheadAttention, tied lm_head, FFN = dense soft MoE of 4 SwiGLU experts weighted by softmax over K=8 slots of negative Poincare distance * temperature (learned curvature), optional telepathy prior (off at telepathy_scale=0).\n- Differences of cdm_lm_distill_fc.py:328-780 vs the qwen27b script: router additionally supports geometry 'klein' (klein_dist on clipped ball coords) and 'spherical' (unit-sphere distance) (:340-450); tau_star buffers float32 instead of float64 (training-only). With manifold='poincare' (this config) the forward is identical.\n- d_ff=1024 here. Must call with training=False to avoid EMA slot updates.",
+  "engine_vs_reference": "Author's llama.cpp patch supports poincare/lorentz/klein-like geometry ids (cdm.geometry) and reproduces the forward; see cdm_moe_poincare.",
+  "config_match": "Code reads vocab_size, d_model, n_layers, n_heads, num_experts, K, d_ff, max_seq_len and geometry (= config 'manifold') as CLI args. crystal_k (128), step, val_bpb, teacher are training/descriptive. No telepathy/learn_curvature keys -> code defaults (use_telepathy=True, beta_tele=0.5, learn_curvature=True). No tie key; code always ties.",
+  "tried": [
+   "Hub repo file list (cdm_lm_distill_fc.py present)",
+   "github.com/DuoNeural/Lattice-CDM",
+   "upstream engines: none"
+  ]
+ },
+ "decoder-only sparse transformer": {
+  "status": "code",
+  "found": "[official, reference] https://huggingface.co/shreyansh-programmer/Intelligence_OS_1p5B (df5e930b8a0505aaade776167efc95f8b5b53938) model.py",
+  "parent": "mixtral",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:intelligence_os@shreyansh",
+    "source": "shreyansh-programmer/Intelligence_OS_1p5B model.py @df5e930b",
+    "files": [
+     "decoder-only_sparse_transformer/hub__shreyansh-programmer__Intelligence_OS_1p5B/model.py"
+    ],
+    "entry": [
+     "IntelligenceOS"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Mixtral-like sparse MoE decoder (GQA 16q/4kv, head_dim 128, 4 SwiGLU experts top-2, tied embeddings). Differences vs transformers mixtral:\n- RMSNorm: variance in fp32 but the normalised product x*rsqrt(var+eps) is done in the input dtype, then *weight (model.py:95-100); eps 1e-5 hard-coded (model.py:27).\n- RoPE: interleaved/GPT-J pairing (even/odd elements rotated, model.py:115-135), not rotate_half; theta 10000 hard-coded (model.py:103); full head_dim.\n- Attention: no biases, SDPA causal, default 1/sqrt(head_dim) scale, KV heads expanded by repeat_interleave (same as HF repeat_kv) (model.py:137-187).\n- MoE: router Linear no bias, fp32 logits, top-2 on logits then softmax over the 2 selected logits (model.py:225-228) = Mixtral softmax->topk->renormalise; optional 'adaptive_routing' (off by default) drops the 2nd expert when p1>=0.8 (model.py:231-236). No shared expert, no jitter, no aux-loss in forward.\n- Every layer MoE; final RMSNorm; lm_head = F.linear(x, token_embedding.weight) (tied, model.py:341-345). No embedding/logit scaling.",
+  "engine_vs_reference": "n/a",
+  "config_match": "config.json is descriptive only (keys d_model, n_layers, n_query_heads, n_key_value_heads, head_dim, n_experts_per_layer, top_k_experts, expert_hidden, max_sequence_length, tied_embeddings ...); ModelConfig field names differ (n_q_heads, n_kv_heads, n_experts, max_seq_len, rms_eps, adaptive_routing, single_expert_confidence, tied_embeddings) and the code never loads config.json. Values agree (2048/26/16/4/128/4/2/1792/4096). rms_eps, rope theta and adaptive_routing are not in the config.",
+  "tried": [
+   "Hub repo file list (model.py present)",
+   "author's other Hub repos (only this model; one unrelated space)",
+   "author's GitHub repos (none related)"
+  ]
+ },
+ "deepj-prism": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/KirstenAli/DeepJ (master 15af84c2c2f1f013cf04ac512ec369c06caa5c4a), Java",
+  "parent": "deepseek_v2",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:deepj-prism@KirstenAli-DeepJ",
+    "source": "KirstenAli/DeepJ @15af84c2 (Java; hand-transcribed hunk in nocode_manual.jsonl)",
+    "files": [
+     "deepj-prism/github__KirstenAli__DeepJ/nn/transformer/prism/DeepJPrism.java",
+     "deepj-prism/github__KirstenAli__DeepJ/layers/transformer/attention/MultiHeadLatentAttention.java",
+     "deepj-prism/github__KirstenAli__DeepJ/layers/transformer/blocks/DeepJPrismTransformerBlock.java"
+    ],
+    "manual": true
+   }
+  ],
+  "forward_vs_parent": "Llama-style decoder with a simplified MLA attention (low-rank Q and joint low-rank KV, no decoupled RoPE head, no latent norms):\n- Embedding (no scaling, no learned positions) -> n_layers blocks -> final RMSNorm -> output Linear WITH bias (layers/Linear.java:21), untied (DeepJPrism.java:31-49).\n- Block: x + MLA(RMSNorm(x)); x + SwiGLU(RMSNorm(x)); residualScale 1 (AbstractTransformerBlock.java:20-23,44-53).\n- RMSNorm eps 1e-6, gamma init 1 (RMSNorm1D.java:11,22).\n- MLA (MultiHeadLatentAttention.java): q = (x Wdq[d,q_rank]) Wuq[q_rank,d]; c = x Wdkv[d,kv_rank]; k = c Wuk; v = c Wuv; no biases, no norm on the latents (unlike DeepSeek-V2 q_a_layernorm/kv_a_layernorm); full MHA n_heads, head_dim = d_model/n_heads; RoPE on the whole q/k head dims (no nope/rope split); causal softmax with scale 1/sqrt(head_dim); output Wo [d,d] no bias.\n- RoPE: base 10000, inv_freq 10000^(-2i/head_dim), INTERLEAVED adjacent pairs (CpuNdPosition.rotary halfSplit=false), not rotate_half.\n- SwiGLU with biased gate/up/down projections (DeepJPrismTransformerBlock passes bias=true, SwiGLULayer.java:30-42).",
+  "engine_vs_reference": "n/a (Java reference only).",
+  "config_match": "Configs (deepj-tinystories, frisky-90m) keys d_model, n_heads, n_layers, d_ff, q_rank, kv_rank, max_seq_len, vocab_size map 1:1 onto DeepJPrismConfig/builder fields; init_scale and grad_clip_norm are training-only; checkpoint/tokenizer format versions describe model.dj; frisky-90m adds prompt_format. No eps/rope-base keys (hard-coded 1e-6 / 10000).",
+  "tried": [
+   "Hub netsrik/deepj-tinystories + frisky-90m files and commits (no .py)",
+   "netsrik Hub/GitHub (only 2 unrelated GitHub repos)",
+   "model card link github.com/KirstenAli/DeepJ tarball"
+  ]
+ },
+ "deepnarra_paham_experimental": {
+  "status": "code",
+  "found": "[official, reference] https://huggingface.co/DeepNarra/Paham-Experimental (64d3ec8f3a4bd865e034ac5773576777927a7299) Paham_Experimental_GGUF_Trainer.ipynb; [official] https://huggingface.co/DeepNarra/Paham-Experimental (64d3ec8f) paham_experimental_architecture.py",
+  "parent": "gpt2",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:paham@DeepNarra",
+    "source": "DeepNarra/Paham-Experimental training notebook (cell 1, as text) @64d3ec8f",
+    "files": [
+     "deepnarra_paham_experimental/hub__DeepNarra__Paham-Experimental/notebook_cell1.py.txt"
+    ],
+    "entry": [
+     "StandalonePahamExperimentalModel"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Notebook StandalonePahamExperimentalModel (notebook_cell1.py.txt:835-1045): GPT-2-like pre-LN decoder with a hierarchical top-1 MoE; none of the config's advertised 'Lyapunov GLA + DSA' attention, MTP or latent space exists in the code.\n- Embedding: tok_embeddings + learned pos_embeddings (:1037-1038), lm_head tied to tok_embeddings (:983-985), final nn.LayerNorm (:982).\n- Attention: nn.MultiheadAttention (biased fused in_proj, out_proj) with causal float mask, no RoPE (:852,873-880).\n- FFN per layer: h = h + shared_out + 0.1*expert_out (:937). Shared expert: down(silu(up(LN2(h)))) with up 768->1536, down wrapped in a LoRA sidecar adding (alpha/r)*B(A x), alpha/r=2 (:855-857, 786-833).\n- Routed: two softmax routers (23 macro, 4 micro) with bias; expert = (argmax_macro*4+argmax_micro) % 92; expert = silu(x@up)@down (no gate projection, no biases); gate = p/p.detach() == 1 in forward (straight-through), capacity 8x/min 1024 with drops (:882-935). Cell 5 copy omits the STE gate (same forward values).\n- LayerNorm eps 1e-5 default.",
+  "engine_vs_reference": "The repo's GGUFs are written by the notebook's own GGUF writer (notebook_cell1.py.txt:562-720) under a custom architecture; no llama.cpp support was found.",
+  "config_match": "config.json is mostly descriptive (strings like hybrid_attention, elastic_gears, three_tier_continuum). The code never reads it; it takes vocab_size/hidden_size/num_layers/num_heads from notebook constants (HIDDEN_SIZE 768, NUM_LAYERS 4 or 8, :1877-1908) or from checkpoint tensor shapes (cell 5 :449-455). num_key_value_heads=4 and intermediate_size=2048 in the config do not match the code (MHA with 8 heads; expert hidden 2*hidden=1536). max_position_embeddings 2097152 vs code max_seq_len max(2048, 2*SEQ_LEN).",
+  "tried": [
+   "Hub DeepNarra/Paham-Experimental file list (.py + .ipynb)",
+   "author's other Hub repos (Hiraya*, Narra, Mako, Paham: no .py)",
+   "GitHub user DeepNarra (404; README links github.com/DeepNarra but no repo found)",
+   "search for paham_architecture.py: not published"
+  ]
+ },
+ "deepseek_v41": {
+  "status": "code",
+  "found": "official reference deepseek-ai/DeepSeek-V4.1-Flash inference/model.py (rev 7872f01b); engine port SGLang deepseek_v4.py + configs/deepseek_v41.py (084a5e9aae)",
+  "parent": "deepseek_v4: the official DeepSeek-V4-Flash inference/model.py (the same reference code base, one release earlier)",
+  "sources": [
+   {
+    "kind": "official",
+    "reference": true,
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/tree/7872f01b1d1fe23eabc4c98b48bffcef5a386062/inference",
+    "files": [
+     "deepseek_v41/hub__deepseek-ai__DeepSeek-V4.1-Flash/inference/model.py",
+     "deepseek_v41/hub__deepseek-ai__DeepSeek-V4.1-Flash/inference/kernel.py",
+     "deepseek_v41/hub__deepseek-ai__DeepSeek-V4.1-Flash/config.json"
+    ],
+    "note": "same model_type deepseek_v41 / text_config deepseek_v41_text and the same keys as the snapshot configs (all are quants of this repo or of -1017)"
+   },
+   {
+    "kind": "official-parent",
+    "reference": true,
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash (inference/model.py at main, fetched 2026-11-13)",
+    "files": [
+     "deepseek_v41/hub__deepseek-ai__DeepSeek-V4-Flash/inference/model.py",
+     "deepseek_v41/hub__deepseek-ai__DeepSeek-V4-Flash/inference/kernel.py"
+    ],
+    "note": "the V4 reference the diff is taken against"
+   },
+   {
+    "kind": "sglang",
+    "reference": false,
+    "url": "https://github.com/sgl-project/sglang/blob/084a5e9aae/python/sglang/srt/models/deepseek_v4.py",
+    "files": [
+     "_repos/sglang-main/python/sglang/srt/models/deepseek_v4.py",
+     "_repos/sglang-main/python/sglang/srt/configs/deepseek_v41.py"
+    ],
+    "note": "engine port shared with V4; DeepseekV41Config sets hc_pre_from_prev_sublayer = True and q_head_norm = False, the two changes the reference diff shows"
+   }
+  ],
+  "sweep": [
+   {
+    "variant": "ext:deepseek_v41@official",
+    "source": "deepseek-ai/DeepSeek-V4.1-Flash inference/model.py (official)",
+    "files": [
+     "deepseek_v41/hub__deepseek-ai__DeepSeek-V4.1-Flash/inference/model.py"
+    ],
+    "parent_files": [
+     "deepseek_v41/hub__deepseek-ai__DeepSeek-V4-Flash/inference/model.py"
+    ],
+    "entry": [
+     "Transformer"
+    ]
+   }
+  ],
+  "engine_vs_reference": "SGLang agrees with the reference on every forward change (q_head_norm False, previous-sublayer hc pre-mix, kv / index source layers, candidate blocks, engram); it fuses norms / RoPE / quantisation and runs fp8 / fp4 kernels. kernel.py V4 -> V4.1: quantisation scales (E4M3 scales for the compressed-KV fp4 quant), fp8 GEMM block size 32 / 128, and sparse_attn's running max starts at -1e30 instead of -inf (a row with no valid key gives 0, not NaN): none changes the fp32 function on a row with a key.",
+  "tried": [
+   "Hub: deepseek-ai/DeepSeek-V4.1-Flash and -1017 (no auto_map, no modeling_*.py; inference/ reference code)",
+   "transformers 5.18 and main (deepseek_v4 only, no deepseek_v41)",
+   "vLLM main (no deepseek_v41)",
+   "SGLang main (deepseek_v4.py serves both)"
+  ]
+ },
+ "deepseek_v41_text": {
+  "same_as": "deepseek_v41"
+ },
+ "delta_net": {
+  "status": "code",
+  "found": "fla-org/flash-linear-attention fla/models/delta_net (+ fla/layers/delta_net.py) at 3920dd68e7; fla-hub/delta_net-1.3B-100B is that library's checkpoint",
+  "parent": "pool similarity",
+  "sweep": [
+   {
+    "variant": "ext:delta_net@fla",
+    "source": "fla-org/flash-linear-attention fla/models/delta_net @3920dd68e7",
+    "files": [
+     "delta_net/fla/modeling_delta_net.py",
+     "delta_net/fla/configuration_delta_net.py",
+     "delta_net/fla/delta_net.py",
+     "delta_net/fla/mlp.py",
+     "delta_net/fla/modeling_utils.py"
+    ],
+    "entry": [
+     "DeltaNetForCausalLM"
+    ]
+   }
+  ],
+  "tried": [
+   "fla-hub/delta_net-1.3B-100B: config only",
+   "fla-org/flash-linear-attention main"
+  ]
+ },
+ "dense": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/inclusionAI/Ming-3.0-tts/tree/a39b80660b (modeling_bailingmm.py, configuration_bailingmm.py); [github] https://github.com/inclusionAI/Ming-omni-tts/tree/200a1562e3 (modeling_bailingmm.py)",
+  "parent": "qwen2",
+  "inner": "qwen2",
+  "sweep": [
+   {
+    "variant": "tf5:qwen2",
+    "source": "inner LM: transformers Qwen2ForCausalLM",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:dense@ming-3.0-tts",
+    "source": "inclusionAI/Ming-3.0-tts @a39b8066 (wrapper class)",
+    "files": [
+     "dense/gh__inclusionAI__Ming-3.0-tts/modeling_bailingmm.py",
+     "dense/gh__inclusionAI__Ming-3.0-tts/configuration_bailingmm.py"
+    ],
+    "entry": [
+     "BailingMMNativeForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Text forward is the stock transformers Qwen2ForCausalLM built from llm_config (gh__inclusionAI__Ming-3.0-tts/modeling_bailingmm.py:8, :45). The wrapper adds nothing inside the LM: no extra embedding rows (vocab 151936 = Qwen2.5), no embedding/logit scales, lm_head is the inner tied Qwen2 head (_tied_weights_keys 'model.lm_head.weight' :30; get/set_output_embeddings delegate :78-88). Positions are plain 1D cumsum(attention_mask)-1 for 'dense' (:336, :388) and +1 per decode step (:450); no M-RoPE (get_rope_index only used by the MoE variant). Extra non-LM modules: spk_head Linear(192->hidden) and linear_proj_audio Aggregator (VAE latent patch -> hidden) whose outputs overwrite reserved rows of inputs_embeds (:310-318, :446); FlowLoss DiT head reads hidden_states[-1][:, -1] (:419-436); stop_head Linear(hidden->2) (:64, :440). For a text-only token sequence the computation is exactly Qwen2ForCausalLM.",
+  "engine_vs_reference": "No engine port of the 'dense' Ming-3.0-tts found (vLLM ming_v3_asr.py and sglang bailing_mm*.py are other Ming variants).",
+  "config_match": "Snapshot llm_config is a full Qwen2Config dict (Qwen2ForCausalLM, 24 layers, hidden 896, tie_word_embeddings true, use_sliding_window false), exactly what Qwen2Config.from_dict reads. The wrapper reads ditar_config.patch_size/history_patch_size, aggregator_config, audio_tokenizer_config.enc_kwargs.latent_dim; all present. mlp_depth is in the snapshot but not read by modeling_bailingmm.py.",
+  "tried": [
+   "Hub inclusionAI/Ming-3.0-tts-0.5B siblings (no .py despite auto_map)",
+   "model card links -> GitHub inclusionAI/Ming-3.0-tts (found), inclusionAI/Ming-omni-tts (found)",
+   "grep vllm-main/sglang-main for bailing/ming (only MoE/ASR/VL variants)"
+  ]
+ },
+ "detikzify": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/potamides/DeTikZify/tree/13ac429925f0125ce5117676450134f400499d0d/detikzify/model",
+  "parent": "idefics3",
+  "inner": "llama",
+  "sweep": [
+   {
+    "variant": "tf5:llama",
+    "source": "inner LM: transformers LlamaModel (Idefics3-style wrapper)",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:detikzify@potamides",
+    "source": "potamides/DeTikZify @13ac4299 (wrapper class)",
+    "files": [
+     "detikzify/gh__potamides__DeTikZify/model/modeling_detikzify.py",
+     "detikzify/gh__potamides__DeTikZify/model/configuration_detikzify.py"
+    ],
+    "entry": [
+     "DetikzifyForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Adapted from transformers Idefics3 (modeling_detikzify.py:15-16). Text path: DetikzifyModel.text_model = AutoModel.from_config(text_config) i.e. a stock LlamaModel (:127); input embeddings are the Llama embed_tokens (:226); text model called with inputs_embeds, attention_mask, position_ids unchanged (:251-260); lm_head = separate nn.Linear(hidden, vocab, bias=False) at the top level (:282), untied (tie_word_embeddings=False, configuration_detikzify.py:87), logits upcast to float (:358-359). => For text-only input it is exactly LlamaForCausalLM (llama3 rope scaling from text_config); no extra embedding rows, scales or position changes. Multimodal only: SigLIP features -> pixel-shuffle-like concatenate of concat_factor=3 consecutive patch tokens (:79-81) -> Linear(vision_hidden*3 -> text_hidden, bias=False) (:62-70) -> scattered into positions where input_ids == image_token_id 128005 (a reserved Llama-3 special token, no new rows) (:165-179, 242-249). Optional CrossAttentionAdapterMixin (adapter/modeling_adapter.py:398-536) adds cross-attn layers via forward hooks only when init/load_cross_attn_adapter is called; not part of the checkpoint's default forward.",
+  "engine_vs_reference": "no engine port",
+  "config_match": "Snapshot top keys (concat_factor=3, image_token_id=128005, text_config llama, vision_config siglip, tie_word_embeddings=false, use_cache) are exactly what configuration_detikzify.py:80-120 reads. text_config is a full LlamaConfig (rope_scaling llama3, rope_theta 5e5, rms_norm_eps 1e-5, vocab 128256).",
+  "tried": [
+   "HF nllg/detikzify-v2-8b siblings: no .py / no auto_map",
+   "GitHub potamides/DeTikZify main @13ac4299 (fetched detikzify/model)",
+   "no vllm/sglang/llama.cpp port (grep detikzify in _repos: none)"
+  ]
+ },
+ "diffurefill": {
+  "status": "code",
+  "found": "[hub-sibling, reference] https://huggingface.co/Asilarkness/DiffuRefill-1B-base (9a57d8a9db3be27c084760a45c9a05d4adf66108) modeling_diffurefill.py; [official] https://huggingface.co/Asilarkness/DiffuRefill-1B (4710e5913c853a5b04c556c42721d54fd6d3c442) config.json/README.md",
+  "parent": "llama",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:diffurefill@Asilarkness-base",
+    "source": "Asilarkness/DiffuRefill-1B-base modeling_diffurefill.py @9a57d8a9 (sibling repo of the snapshot's DiffuRefill-1B)",
+    "files": [
+     "diffurefill/hub__Asilarkness__DiffuRefill-1B-base/modeling_diffurefill.py"
+    ],
+    "entry": [
+     "DiffuRefill"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Llama-shaped encoder used as a masked-diffusion (MDLM) denoiser (modeling_diffurefill.py:21-92):\n- Attention is BIDIRECTIONAL: SDPA without causal mask (:51) (training additionally used a per-document block mask when packing).\n- Fused qkv Linear (no bias), MHA 16 heads (no GQA), head_dim 128, default 1/sqrt(dh) scale, no qk-norm (:37,47-51).\n- RoPE interleaved/GPT-J pairing (x[...,::2], x[...,1::2]) base 10000, applied to q,k (:21-29), not rotate_half.\n- Norm: torch nn.RMSNorm with eps=None -> torch.finfo(dtype).eps (not 1e-5/1e-6), weight init 1 (:36,39,64).\n- SwiGLU MLP w2(silu(w1 h)*w3 h), no bias (:40-54); pre-norm residuals.\n- No embedding scaling; output head tied: F.linear(nf(x), tok.weight) (:92). Mask id = vocab-1, pad id = vocab-2.\n- Generation is iterative unmasking, not autoregressive (:95-127).",
+  "engine_vs_reference": "n/a",
+  "config_match": "Snapshot config (DiffuRefill-1B) uses HF-style names hidden_size 2048, num_hidden_layers 18, num_attention_heads 16, num_key_value_heads 16, head_dim 128, intermediate_size 5632, rope_theta 10000, vocab_size 73760, mask/pad ids, tie_word_embeddings - values equal the module's dim/layers/heads/ff/vocab_size; the module's from_pretrained reads the -base config keys (vocab_size, dim, layers, heads, ff, max_len), which the snapshot config lacks. Snapshot weights are DiLoCo .pt checkpoints (global_*.pt) whose state-dict names come from the unpublished big_common.py and may differ from this module's (tok, blocks.N.{n1,qkv,o,n2,w1,w2,w3}, nf).",
+  "tried": [
+   "Hub Asilarkness/DiffuRefill-1B file list + all 1773 commits (no .py ever)",
+   "Asilarkness Hub repos (DiffuRefill-1B-base has modeling_diffurefill.py; tinystories-diff-ar, slm-diloco no code)",
+   "GitHub user Asilarkness: 404"
+  ]
+ },
+ "dory": {
+  "status": "code",
+  "found": "[vllm, reference] https://github.com/vllm-project/vllm/blob/cfd86e4320/vllm/model_executor/models/dory.py + vllm/transformers_utils/configs/dory.py (merged via PR #60149, merge commit 75fc05a53a, 2026-10-25); [transformers-main] https://github.com/huggingface/transformers/pull/50099 (OPEN, not merged; head shan18/transformers@fcc6924dfbac964f00787859b568c867ef5ad4cb) src/transformers/models/dory/; [mlx-lm] https://huggingface.co/mlx-community/NVIDIA-Nemotron-Labs-Dory1.0-4B-MLX-8bit/blob/99a6fbaa903a6981b10db06465c5578bda6b7fe3/support/mlx-lm/dory.py (= ml-explore/mlx-lm PR #1988, fork rev 6fb10761eb, open); [llama.cpp] https://github.com/brianchmielNV/llama.cpp/blob/ab0ffa188bbc3be15ce8e5d3f1278ba5224f4358/src/models/dory.cpp (ggml-org/llama.cpp PR #30306, open; not in master b79696f1f5); [hub-sibling] https://huggingface.co/yujiepan/dory-1.0-tiny-random (a1c0aa10b5) vllm_dory.py + configuration_dory.py (tiny-random/dory-1.0 is identical); [hub-sibling] https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16 (ee517dd388)",
+  "parent": "llama",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:dory@transformers-pr50099",
+    "source": "transformers PR #50099 (open) models/dory @fcc6924d; vLLM dory.py (merged) agrees",
+    "files": [
+     "dory/transformers-pr50099/modeling_dory.py",
+     "dory/transformers-pr50099/configuration_dory.py"
+    ],
+    "entry": [
+     "DoryForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "No transformers parent: nGPT (normalized transformer) + looped latent-recurrent depth. vs llama, citing vllm/dory.py (V) and transformers PR modeling_dory.py (T):\n- NO RMSNorm anywhere; every norm is unit-L2 justnorm x*rsqrt(sum(x^2)+1e-6) in fp32 (V:35-42; T:50-61 DoryL2Norm), including the final norm (T:636; in V the last slerp output is already unit-norm).\n- V: each physical layer is ONE sublayer, attention or MLP, per the 72-entry layer_types (V:200-221). T folds each (attn, mlp) pair into one Gemma2 sandwich layer (T:439-484) - equivalent math.\n- Residual = nGPT interpolation on the sphere: h = norm(norm(h) + |alpha*ngpt_alpha_init/initializer_range| * (norm(out) - norm(h))), per-channel alpha (V:45-51, 208, 223-229; T:468-483).\n- Attention: GQA 16q/4kv, head_dim 256, no bias, scale 1/sqrt(head_dim) (V:122; T:407). qk-norm: k = norm(k), q = norm(q) * (sqk*sqrt(head_dim)/init_std)^2 per channel (V:142-150 applies it after RoPE; T:377-384 L2-norms before RoPE and scales after - same, RoPE is norm-preserving). RoPE neox full-rotary, theta per layer type (sliding 1e4, full 1e7) (V:101-107). SWA window 1024 on sliding layers (V:126-130). Sigmoid output gate: out * sigmoid(g_proj(x) * (s_gate*sqrt(g0)/init_std)^2), g0 = attention_output_gate_logit_scale_init or sqrt(hidden) (V:94-99,157-159; T:357,413), then L2-norm over all heads before o_proj (V:160; T:414).\n- MLP: SwiGLU with g *= suv_gate*sqrt(hidden), u *= suv_up*sqrt(hidden), silu(g)*u, L2-norm before down_proj (V:185-197; T:434-436).\n- Loop (V:255-280; T:606-634): input layers (16 sublayers) once; input_h = h; for n_recurrent_loops (2; card allows 1-4): h = norm(state + input_h) (input reinjection), run the 40 shared recurrent sublayers, state = norm(h); then 16 output sublayers. KV cache per loop by default (V:109-133); 'last_loop' mode overwrites one cache (V:152-155) and changes outputs for earlier tokens.\n- No embedding scale; untied lm_head; logits *= logit_scale/initializer_range per vocab entry in fp32 (V:309, 324-330; T:487-497). initializer_range (0.0177) is an inference-time constant scaling every nGPT parameter.",
+  "engine_vs_reference": "transformers PR vs vLLM: same math (layer pairing, norm-before-rope for k/q are equivalent reorderings; gate scale hardcoded hidden**0.25 (T:357) equals vLLM's default when attention_output_gate_logit_scale_init is null, which it is in every released config). mlx dory.py and llama.cpp dory.cpp mirror vLLM: RoPE then qk justnorm with sqk^2 (mlx 84-87,160-162; cpp 158-165), gate (mlx 90-93; cpp 166-171), suv MLP (mlx 96-100; cpp 147-152), slerp with |alpha| (mlx 72-76; cpp 174-177), loop reinjection + norm of loop output (mlx 302-316; cpp 142-144,178-180), logit_scale/init_std (mlx 321-324; cpp 189). Differences: mlx casts scaled logits back to bf16 (mlx 324); llama.cpp uses ggml l2_norm (eps semantics may differ slightly) and caps n_loops<=4 (cpp 30). yujiepan vllm_dory.py = TP-sharded copy of vLLM.",
+  "config_match": "All four snapshot entries (netprojects/nemotron-dory1.0-4b-mlx-8bit, vladimir94/dory-1.0-4b-ane-coreml, nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-MXFP8, ProCreations/Dory-Beam-4B) carry exactly the vLLM DoryConfig fields (config_dory.py:15-39): 72 layer_types incl. 'mlp', n_input/recurrent/output 16/40/16, n_recurrent_loops 2, ngpt_alpha_init 0.05, initializer_range 0.0177, attention_output_gate_logit_scale_init null, sliding_window 1024, per-type rope_parameters. netprojects-mlx and ProCreations lack recurrent_kv_cache_mode (defaults 'per_loop'). Extra: quantization/quantization_config (MLX affine 8-bit; compressed-tensors MXFP8), dtype. The transformers PR config converts this 72-entry layout into 36 paired layers in __post_init__ and does not read attention_output_gate_logit_scale_init (hardcoded default).",
+  "tried": [
+   "grep _repos: vllm-main has model_executor/models/dory.py + transformers_utils/configs/dory.py (+ registry); sglang, mlx-lm main, llama.cpp master, transformers-main@029045ca87: no dory",
+   "Hub search 'dory' + author=nvidia: nvidia Dory1.0-4B BF16/GGUF/NVFP4/MXFP8 ship no .py and no auto_map",
+   "GitHub search transformers PRs 'dory': #50099 'Add Dory model support' (open) fetched from shan18/transformers@fcc6924d; #50166 modular example (closed)",
+   "vllm PR #60149: merged 2026-10-25 (the shared clone has it)",
+   "mlx-community/...-MLX-8bit support/mlx-lm/dory.py (mlx-lm PR #1988, open) fetched",
+   "tiny-random/dory-1.0 and yujiepan/dory-1.0-tiny-random ship vllm_dory.py plugin (fetched yujiepan copy)",
+   "ggml-org/llama.cpp PR #30306 (open) -> brianchmielNV/llama.cpp@ab0ffa18 src/models/dory.cpp + conversion/dory.py fetched",
+   "vladimir94 coreml, litert-community, avgrocketman llamacpp-dory-t4: compiled artifacts only",
+   "no NVIDIA reference GitHub repo found (Megatron-LM training code for Dory not public)"
+  ]
+ },
+ "dots3_note": {
+  "status": "code",
+  "found": "transformers main models/dots3_note (modular, added after 5.18); engine port SGLang dots3.py",
+  "parent": "modular (see the inventory parent)",
+  "sweep": [
+   {
+    "variant": "tfmain:dots3_note",
+    "source": "transformers main 029045ca87 models/dots3_note (modular)"
+   }
+  ],
+  "tried": [
+   "Hub dots-studio/dots3-note-prev: no auto_map",
+   "transformers main: models/dots3_note",
+   "SGLang dots3.py / dots3_nextn.py"
+  ]
+ },
+ "ernie5_5_moe": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/baidu/vLLM-ERNIE (main, pushed 2026-11-11) src/vllm_ernie/models/ernie5_5/; [sglang] https://github.com/sgl-project/sglang/blob/084a5e9aae/python/sglang/srt/models/ernie55.py; [hub-sibling] https://huggingface.co/baidu/ERNIE-5.5-Flash-Base (028544b2ffceea189b2d8768ed2b9d09b06f2343)",
+  "parent": "deepseek_v4",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:ernie5_5@baidu-vLLM-ERNIE",
+    "source": "baidu/vLLM-ERNIE src/vllm_ernie/models/ernie5_5 (official vLLM plugin, main 2026-11-11; no HF reference)",
+    "files": [
+     "ernie5_5_moe/gh__baidu__vLLM-ERNIE/model.py",
+     "ernie5_5_moe/gh__baidu__vLLM-ERNIE/attention.py",
+     "ernie5_5_moe/gh__baidu__vLLM-ERNIE/moe.py",
+     "ernie5_5_moe/gh__baidu__vLLM-ERNIE/mhc.py",
+     "ernie5_5_moe/gh__baidu__vLLM-ERNIE/config.py",
+     "ernie5_5_moe/vllm_layers/activation.py"
+    ],
+    "entry": [
+     "Ernie5_5ForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "DeepSeek-V4-style hybrid (mHC residual streams, HCA compressed attention with grouped low-rank output, DSA-MLA layers) with ERNIE additions:\n- Layer mix: compress_ratios[i] <= 0 (-2) -> MLA+DSA layer (6 of 43), else HCA with ratio 128 (config.py:153-157; sglang ernie55.py:704-707). HCA uses YaRN at compress_rope_theta; MLA/DSA and its indexer use plain RoPE at rope_theta (config.py:184-189; sglang ernie55.py:371-372).\n- DSA layers attend over indexer top-k (index_topk=2048) PLUS the last sliding_window=128 tokens (attention.py:310-345, 917-926), with a learnable per-head attention sink folded into the softmax denominator (attention.py:405-451, 838; sglang ernie55.py:377-379).\n- Low-rank gated attention: output gate sigmoid(o_gate(q_lora_latent)) computed from the normed q-LoRA latent, not hidden_states. HCA: gate is per o_lora group, applied between wo_a and wo_b (attention.py:216-235; sglang ernie55.py:268-291,346-349). MLA: gate over num_heads*v_head_dim before wo_b (attention.py:887,904; sglang 384-406,421-422).\n- VHA post-mix over heads: o <- (I + V U^T) o, rank num_heads/4, applied to the attention output before the o-projection in every layer (attention.py:110-147,229-231,903; sglang ernie55.py:175-218).\n- Per-head QK-norm on the HCA q (fused_q_norm_rope; sglang 280-291).\n- Activation SiTU-GLU everywhere: beta*tanh(g/beta)*sigmoid(g) * linear_beta*tanh(u/linear_beta), beta=4, linear_beta=25 (vllm_layers/activation.py:184-191; moe.py:56-58), instead of DSv4's clamped SwiGLU.\n- Layer 0 dense MLP (first_k_dense_replace=1). Latent MoE: experts run in moe_latent_size=2048: fc1_latent_proj -> experts -> latent_norm RMSNorm -> fc2_latent_proj; one shared expert (moe_intermediate_size) on the full hidden state, added unscaled (moe.py:91-103,214-223; sglang ernie55.py:556-612).\n- Multi-router: two sigmoid routers (gate.weight, gate.weight_1); scores = sigmoid(l0)+sigmoid(l1); top-10 of 512 on scores + e_score_correction_bias; weights = gathered unbiased scores, renormalised (norm_topk_prob), then multiplied by a learnable per-expert scale (routed_scaling_factor_param) instead of a fixed routed_scaling_factor; no group limiting, no hash routing (moe.py:66-88,214-223; sglang 498-523 multi_router_topk).\n- mHC hc_mult=4 with Sinkhorn (20 iters), embedding broadcast to 4 streams, hc_head collapse + final RMSNorm, as in DSv4 (model.py:220-275,368-423; sglang 676-700,880-931); sglang sets hc_post_mult_value=2.0 (config_ernie55.py:152).\n- MultiMax output head: l + t0*relu(r0-l) + t1*relu(l-r1) + t2*relu(r2-l)^2 + t3*relu(l-r3)^2 with learned r,t (4 each), fp32 logits (model.py:85-101,754; sglang 933-944; config.py:127-128).\n- ECHO: MTP reuses the last backbone layer (num_nextn_predict_layers=1, mtp_shared_last_layer); not on the main forward path.",
+  "engine_vs_reference": "sglang and vLLM-ERNIE implement the same math. sglang folds VHA into an [H,H] matrix (exact) and optionally (env SGLANG_OPT_ERNIE5_5_FUSE_INEXACT) fuses VHA into the fp8 wo_a quant and the input RMSNorm into mhc_pre, both documented as not bit-exact (sglang ernie55.py:309-315,672-673); its sigmoid gate uses round_sigmoid=True; router GEMM in bf16 with fp32 output (sglang 498-508). No HF-transformers reference exists.",
+  "config_match": "Snapshot config is the official baidu config (fp8 quantization_config). Code reads compress_ratios, hybrid_mla_* (MLA dims), hc_mult/hc_eps/hc_sinkhorn_iters, activation_situ_beta/linear_beta, moe_latent_size, n_routed_experts, num_experts_per_tok, norm_topk_prob, moe_split_feature_routing, routed_scaling_factor_learnable, index_topk/index_head_dim/index_n_heads, sliding_window, compress_rope_theta, rope_scaling (yarn), o_groups/o_lora_rank, multimax - all present. compress_ratios has 44 entries (43 layers + 1 MTP). hc_post_mult_value is not in the config (sglang hardcodes 2.0). use_mla=false, qk_nope_head_dim=448, head_dim=512 describe the HCA layers; csa_dense_mode, use_fast_hadamard, moe_token_dispatcher_type are training/engine flags.",
+  "tried": [
+   "grep _repos: sglang-main models/ernie55.py (+nextn, dspark, configs/ernie55.py) found; vllm-main: none (served via the baidu/vLLM-ERNIE plugin); mlx-lm, llama.cpp: none; transformers-main: no ernie5_5 module (ernie, ernie4_5* only)",
+   "Hub: baidu/ERNIE-5.5-Flash-Base, -BF16, ml-resources/ERNIE-5.5-Flash-Base: no .py, no auto_map",
+   "orcarouter/ERNIE-5.5-Flash-Base-abliterated-MLX lists ernie5_5_moe.py (MLX port) but the download returns HTTP 401 (gated); not fetched",
+   "GitHub baidu/vLLM-ERNIE (linked from the model card): fetched tarball of main"
+  ]
+ },
+ "florence2_language": {
+  "status": "wrapper",
+  "found": "[hub-sibling, reference] https://huggingface.co/microsoft/Florence-2-base/tree/5ca5edf5bd017b9919c05d08aebef5e4c7ac3bac; [transformers-main] https://github.com/huggingface/transformers/tree/029045ca87/src/transformers/models/florence2",
+  "parent": "bart",
+  "inner": "bart",
+  "sweep": [
+   {
+    "variant": "tf5:bart",
+    "source": "inner LM: Florence-2's BART-style encoder-decoder language model",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:florence2@microsoft-Florence-2-base",
+    "source": "microsoft/Florence-2-base remote code @5ca5edf5",
+    "files": [
+     "florence2_language/hub__microsoft__Florence-2-base/modeling_florence2.py",
+     "florence2_language/hub__microsoft__Florence-2-base/configuration_florence2.py"
+    ],
+    "entry": [
+     "Florence2LanguageForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Text model is a verbatim copy of BART (classes 'Copied from transformers.models.bart' renamed Florence2*): post-LN encoder/decoder layers (hub modeling_florence2.py:1224-1292, 1294-1413), learned positional embedding with offset 2 (:699-718), Florence2ScaledWordEmbedding with embed_scale=sqrt(d_model) only if scale_embedding (snapshot: false) (:721-731, 1477, 1661), layernorm_embedding after embed+pos (:1493, 1575, 1678, 1838), lm_head tied to shared embeddings + final_logits_bias buffer added to logits (:2063-2073, 2157-2158). No added rows, scales or positions vs BART. Only multimodal addition (outside text-only forward): DaViT image features -> x @ image_projection -> image_proj_norm LayerNorm (:2598-2641) concatenated BEFORE the task-prefix token embeddings as encoder inputs_embeds (:2644-2664, 2736). Text-only input => plain BartForConditionalGeneration.",
+  "engine_vs_reference": "transformers-main port is weight-renamed but numerically the same BART text path (converter just relabels model_type). vLLM registry.py mentions Florence2 but no model file in the fetched vllm-main tree.",
+  "config_match": "text_config (model_type florence2_language) keys = BartConfig keys (d_model, encoder/decoder_layers, *_attention_heads, *_ffn_dim, max_position_embeddings=1024, scale_embedding=false, activation_function=gelu, vocab_size=51289, tie_word_embeddings=true) plus legacy BART keys add_bias_logits/add_final_layer_norm/normalize_before (all false, not read by either implementation). Top config keys projection_dim, num_image_tokens=577, vision_config(davit) match configuration_florence2.py:272-330.",
+  "tried": [
+   "HF microsoft/Florence-2-base @5ca5edf5: modeling_florence2.py + configuration_florence2.py (fetched)",
+   "_repos/transformers-main models/florence2 (copied)",
+   "grep florence in _repos/vllm-main, sglang-main: only vllm registry.py entry, no model file"
+  ]
+ },
+ "funaudiochat": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/FunAudioLLM/Fun-Audio-Chat/tree/7000b00511 funaudiochat/{modeling_funaudiochat.py,configuration_funaudiochat.py,processing_funaudiochat.py,register.py}; [vllm] https://github.com/vllm-project/vllm/blob/cfd86e4320/vllm/model_executor/models/funaudiochat.py (+ vllm/transformers_utils/configs/funaudiochat.py)",
+  "parent": "qwen3",
+  "inner": "qwen3",
+  "sweep": [
+   {
+    "variant": "tf5:qwen3",
+    "source": "inner LM: AutoModelForCausalLM(text_config) = Qwen3ForCausalLM",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:funaudiochat@FunAudioLLM",
+    "source": "FunAudioLLM/Fun-Audio-Chat @7000b005 (wrapper class)",
+    "files": [
+     "funaudiochat/gh__FunAudioLLM__Fun-Audio-Chat/modeling_funaudiochat.py",
+     "funaudiochat/gh__FunAudioLLM__Fun-Audio-Chat/configuration_funaudiochat.py"
+    ],
+    "entry": [
+     "FunAudioChatForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Inner LM is stock transformers Qwen3ForCausalLM built from text_config (gh__FunAudioLLM__Fun-Audio-Chat/modeling_funaudiochat.py:782); input/output embeddings delegate to it (:808-818), and forward just calls self.language_model(inputs_embeds=..., position_ids=...) (:1101-1111). No extra text embedding rows (vocab 151936; audio specials 151669-151673 are inside the Qwen vocab), no embedding or logit scales, positions passed through unchanged (plain 1D RoPE, rope_theta 5e6), lm_head = Qwen3 lm_head (untied: text_config lacks tie_word_embeddings -> Qwen3Config default False). Additions are only on audio paths: at <|audio|> (audio_token_index) positions the embedding row is REPLACED via masked_scatter (:1062) by discrete speech-token features (group_size=5 tokens pooled), optionally fused with continuous Whisper-style features, and averaged with the aligned text embedding (text+audio)/2 (:1045); during speech generation decode steps feed (text_emb+audio_emb)/2 instead of the text embedding (:1206-1207). The audio_invert_tower (CRQ Qwen3 decoder, own lm_head over 6565 codes) reads hidden_states[-1] after the LM (:1114-1130). For text-only input the computation is exactly Qwen3ForCausalLM.",
+  "engine_vs_reference": "vLLM matches the reference text path (same Qwen3 LM, same masked replacement of audio-token embeddings) but omits speech output (audio_invert_tower) entirely; no fused/approximated changes to the LM.",
+  "config_match": "Snapshot text_config is a full Qwen3 dict (model_type qwen3, 36 layers, hidden 4096, rope_theta 5e6) plus custom keys audio_bos_index/audio_eos_index/sil_index read by the wrapper (:1028, :1200). audio_config keys (codebook_size, group_size, crq_transformer_config, enable_audio_invert_tower, continuous_features_mode, output_dim...) are read by the encoder/decoder classes. No mismatch found.",
+  "tried": [
+   "Hub FunAudioLLM/Fun-Audio-Chat-8B siblings (no .py, no auto_map)",
+   "model card -> GitHub FunAudioLLM/Fun-Audio-Chat (found)",
+   "vllm-main funaudiochat.py (found)",
+   "sglang-main (none)",
+   "transformers-main (none)"
+  ]
+ },
+ "geodesic_mesh_pyramid_v7_2": {
+  "status": "code",
+  "found": "[official, reference] https://huggingface.co/SentinelHub/R-08-v7.2 (6078efe16c28aa57f2e331e24648f8df29160033)",
+  "parent": "none (novel; closest gpt2)",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:r08@SentinelHub",
+    "source": "SentinelHub/R-08-v7.2 (the repo's own files) @6078efe1",
+    "files": [
+     "geodesic_mesh_pyramid_v7_2/hub__SentinelHub__R-08-v7.2/modeling_geodesic.py",
+     "geodesic_mesh_pyramid_v7_2/hub__SentinelHub__R-08-v7.2/geodesic_stages_v7_2_model.py",
+     "geodesic_mesh_pyramid_v7_2/hub__SentinelHub__R-08-v7.2/geodesic_stages_model.py",
+     "geodesic_mesh_pyramid_v7_2/hub__SentinelHub__R-08-v7.2/geodesic_network.py"
+    ],
+    "entry": [
+     "R08Model"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Not a transformer LM variant; three-tokenizer cascade over a geodesic icosahedral mesh (geodesic_stages_v7_2_model.py:134-242, base CascadeMeshModel geodesic_stages_model.py:545-1555).\n- Inputs are three aligned id streams (pezzi=subword pieces 1251, parole=words 17908, unioni=word unions 20006) from its own tokenizer (modeling_geodesic.py:58-88).\n- h = emb_v1(pezzi)*emb_scale + learned pos_emb; n_attn_layers-1 attention blocks; stage 1 hash-routed walk over mesh faces (bank1) + regional pyramid hub (12 icosahedron regions, d 128->512) 'descend'; causal depthwise Conv1D k=4 (zero-init residual) between stages; stage 2/3 fuse LayerNorm(proj(h)) + LayerNorm(emb_v2/emb_v3) and repeat walk/descend (:166-219).\n- Output: LN-weighted sum of the 3 stage outputs, last attention block, final norm, 'watchman' module (licence/ethics gate that also transforms h), lm_head over the pezzi vocab, logit soft-cap 30*tanh(logits/30) (:220-242).",
+  "engine_vs_reference": "n/a",
+  "config_match": "R08Model.from_pretrained reads vocab_pezzi/parole/unioni, d_model, mesh_topology.frequency, n_attn_layers, n_heads, max_seq_len, routing.{compass_spiral,router_v6,hash_routing,no_walk}, pyramid_center. regional_pyramid and causal_convolutions_1d blocks are descriptive (hard-coded in CascadeMeshModelV7_2). Walk params are hard-coded (max_hops=1, exit_threshold 0.85). Benchmarks/licence keys are descriptive.",
+  "tried": [
+   "Hub SentinelHub/R-08-v7.2 file list (code present)",
+   "SentinelHub org (R-08, R-08-v7.2a, R-08-Transformer-Baseline, gpTommy tokenizers)",
+   "GitHub Thomasseri/R-08-v7.2 tree (same files)"
+  ]
+ },
+ "gla": {
+  "status": "code",
+  "found": "fla-org/flash-linear-attention fla/models/gla (+ fla/layers/gla.py, fla/modules/mlp.py, fla/models/modeling_utils.py) at 3920dd68e7; fla-hub/gla-1.3B-100B is that library's checkpoint (config only, no auto_map)",
+  "parent": "pool similarity (FLA GLAForCausalLM: Llama-style blocks with the GatedLinearAttention mixer)",
+  "sweep": [
+   {
+    "variant": "ext:gla@fla",
+    "source": "fla-org/flash-linear-attention fla/models/gla @3920dd68e7",
+    "files": [
+     "gla/fla/modeling_gla.py",
+     "gla/fla/configuration_gla.py",
+     "gla/fla/gla.py",
+     "gla/fla/mlp.py",
+     "gla/fla/modeling_utils.py"
+    ],
+    "entry": [
+     "GLAForCausalLM"
+    ]
+   }
+  ],
+  "engine_vs_reference": "fla is the reference (the checkpoint's own library); its chunk / fused_recurrent kernels compute the same recurrence (fused kernels, not approximations)",
+  "tried": [
+   "fla-hub/gla-1.3B-100B: config only",
+   "fla-org/flash-linear-attention main"
+  ]
+ },
+ "granite_switch": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/generative-computing/granite-switch/tree/67116deb8e5b190dd1822ae6c7200f1314242b82/src/granite_switch; [llama.cpp] https://github.com/ggml-org/llama.cpp/blob/b79696f1f5/src/models/granite-switch.cpp; [hub-sibling] https://huggingface.co/ibm-granite/granite-switch-4.1-8b (fb4aa7877e13e5fe09ca328713dc1db72a3f93ce)",
+  "parent": "granitemoehybrid",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:granite_switch@generative-computing",
+    "source": "generative-computing/granite-switch src/granite_switch @67116deb",
+    "files": [
+     "granite_switch/gh__generative-computing__granite-switch/modeling_granite_switch.py",
+     "granite_switch/gh__generative-computing__granite-switch/config.py",
+     "granite_switch/gh__generative-computing__granite-switch/lora.py",
+     "granite_switch/gh__generative-computing__granite-switch/granite_switch_model.py",
+     "granite_switch/gh__generative-computing__granite-switch/arch.py"
+    ],
+    "entry": [
+     "GraniteSwitchForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Granite 4.1 dense base (granitemoehybrid config with all layer_types full_attention, num_local_experts=0, dense shared_mlp) plus per-token switched LoRA adapters chosen by in-sequence control tokens:\n- Base path identical to GraniteMoeHybrid attention layers: embeddings * embedding_multiplier (modeling_granite_switch.py:673), attention scale = attention_multiplier (lora.py:375), residual + out*residual_multiplier after attn and MLP (modeling:212,218), dense SwiGLU shared_mlp (GraniteMoeHybridMLP, modeling:82-84), final RMSNorm, logits / logits_scaling (modeling:880), tied embeddings, RoPE when position_embedding_type=='rope' (modeling:464-466).\n- Decoder layer count = num_hidden_layers - switch.num_cache_layers (=2): config num_hidden_layers=42 gives 40 transformer layers; the 2 extra are KV-cache slots of the switch (modeling:439-441; multi.py:331-334). Treating the config as plain granitemoehybrid would build 2 extra layers.\n- Switch (MultiSwitch, multi.py:120-600): a parameter-free attention engine over input_ids: counting head + memory head with Kerdock codes * ms_memory_gain (28) as keys and adapter id as value; the causal softmax retrieves the most recent control token's adapter id; round + clamp[0,num_adapters] -> adapter_indices (multi.py:583-588). Control token ids are then rewritten to adapter_substitute_token_ids before embedding (multi.py:592-597; modeling:645-672).\n- Switched LoRA: qkv_proj, o_proj, shared_mlp input/output linears get + B_a(A_a x) for the token's adapter a>0 (lora_B pre-scaled by alpha/rank; adapter 0 = base, no delta) (lora.py:23-170,172-349,394-430,662-703).\n- With no control tokens in the input every adapter index is 0, so the forward reduces exactly to the base Granite 4.1 dense model on 40 layers (control/substitute ids only matter if those tokens occur).\n- Optional paths off in all snapshot configs: dual_stream Shadow Residual layer (SRSwitchDecoderLayer, modeling:232-340), probe heads (adapter_kinds probe), MoE experts.",
+  "engine_vs_reference": "llama.cpp replaces the coded Kerdock counting/memory switch with a single 1-dim router head: Q=1, K=+gain for an adapter token else -gain, V=slot, kq_scale=1, then clamp/round (granite-switch.cpp:149-180,262-288). For a single control token in context this recovers the same slot; with several distinct control tokens visible it averages slots (the reference retrieves the latest via codes), so outputs can differ. Base Granite math (embedding scale, residual scale, attention scale, logit scale 1/f_logit_scale, SwiGLU) matches (granite-switch.cpp:250-253,325,369-370,392-415). LoRA deltas via mul_mat_id per token (194-220,355-357).",
+  "config_match": "Snapshot configs (4 ibm-granite repos) are the official configs. Reference reads num_adapters, adapter_token_ids, adapter_substitute_token_ids, adapter_ranks, max_lora_rank, lora_target_modules, ms_* (code type/m/head dims/memory gain), dual_stream, plus granitemoehybrid keys (embedding_multiplier, attention_multiplier, residual_multiplier, logits_scaling, shared_intermediate_size, num_local_experts, layer_types, rope_parameters). mamba_* and asr_* keys are present but unused for an all-attention base / text forward. num_hidden_layers includes the 2 switch cache slots (42 -> 40 layers; 66 -> 64 for 30b).",
+  "tried": [
+   "grep _repos: llama.cpp src/models/granite-switch.cpp (+ llama-arch, gguf constants); vllm-main, sglang-main, mlx-lm, transformers-main: none (transformers-main has granite, granitemoehybrid etc. only)",
+   "Hub search 'granite-switch': ibm-granite 4.1 3b/8b/30b (+preview, GGUF), community quants/mirrors (barha ONNX, netprojects MLX, batiai GGUF): none ship modeling .py / auto_map",
+   "GitHub generative-computing/granite-switch (model card link): fetched hf/ + vllm backend"
+  ]
+ },
+ "grt": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/MatterWaveAI/transformers/tree/5de95c74cb50e1aaae1972d67452151712c62964/src/transformers/models/grt (branch feat/grt-complete; also branches add-grt-model 9fb723a1, feat/grt-mor a444a9ab); [llama.cpp] https://github.com/MatterWaveAI/llama.cpp/blob/4f7177c87b283165cda8198db9b8600d0744a0fe/src/models/grt.cpp (branch grt) + conversion/grt.py; [vllm] https://github.com/MatterWaveAI/vllm/tree/3a4ebfc04c835dbe6684668e6d5be25593a49d49 (branch grt); [paper] https://huggingface.co/MatterWaveAI/grt-30m GRT_Whitepaper.pdf (not downloaded)",
+  "parent": "llama",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:grt@MatterWaveAI-transformers",
+    "source": "MatterWaveAI/transformers fork (branch feat/grt-complete) models/grt @5de95c74",
+    "files": [
+     "grt/github__MatterWaveAI__transformers/modeling_grt.py",
+     "grt/github__MatterWaveAI__transformers/configuration_grt.py"
+    ],
+    "entry": [
+     "GRTForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Novel 'Geometric Rotation Transformer': no weight matrices; every projection is a chain of content-modulated Givens rotations. Only the attention plumbing (causal SDPA, KV cache, scale head_dim**-0.5) is llama-like (modeling_grt.py:336-453).\n- Embedding: token = exp(clamp(log_magnitude,-5,5)) * interleaved (cos,sin) of hidden/2 learned phase angles (:124-176).\n- Position: learnable log-frequency ladder (base pos_freq_base), interleaved-pair rotation applied ONCE to the embedding stream before block 0 (rope_placement='stream', default) (:178-221, 1163-1168); 'qk' option rotates per-head q/k instead.\n- Norm: PearlNorm = x / sqrt(mean over pairs of (x_2i^2+x_2i+1^2) + 1e-8) * scale (no mean-centering, RMS of pair radii = sqrt(2)*RMS) (:57-73).\n- Attention: Q/K/V/O are per-head chains of n_qkv_rotations stages: butterfly permutation, angle = base + tanh(normalised Cl(2,0) features @ coupling), rotate pairs, multiply by softplus(scales), un-permute (:263-334, 336-453). MHA, no GQA, no qk-norm.\n- Cross-head mixer block (n_mixer_rotations) as an extra pre-normed residual branch (:456-597).\n- FFN: zero-pad to intermediate_size, rotation chain, RadialGELU (pair scaled by gelu(r)/r, erf GELU), rotation chain, truncate (:614-751); MoR (grt-30m-mor): ffn_n_experts=4 rotation chains mixed by a rotational cosine router, dense softmax when mor_top_k None.\n- Residuals: x + g*branch with g = 0.55+0.45*tanh(raw) ('bounded_depth') for attn, mixer, ffn (:753-840); optional peri-LN / per-block PearlNorm (off in configs).\n- Final PearlNorm; lm head = cosine similarity of L2-normalised hidden with unit (cos,sin)/sqrt(hidden/2) table (phase angles tied to the input embedding), times softplus(output_scale) (:842-944, 1192-1253).",
+  "engine_vs_reference": "Fork llama.cpp grt.cpp re-implements the same chains with ggml ops, hard-codes the reference epsilons (feature-norm 1e-6 attn / 1e-2 mixer, gelu 1e-8, head 1e-6; grt.cpp:3-7), uses erf GELU, and folds the residual gates into the last stage scales at conversion (grt.cpp:321). No MoR support. vLLM fork just uses the Transformers backend.",
+  "config_match": "All snapshot keys (3 repos) are GRTConfig fields except architectures/dtype/transformers_version. grt-30m-mor adds ffn_n_experts=4, mor_mode 'direct', mor_router_mode 'rotational', mor_split_routers false, mor_top_k null - all read by GRTFeedForward. rope_placement is absent from the configs -> default 'stream'. Config default is_causal not present -> True.",
+  "tried": [
+   "Hub MatterWaveAI/grt-30m{,-chat,-mor} files and all commits (no .py ever)",
+   "MatterWaveAI Hub org (47 repos, no .py)",
+   "GitHub org MatterWaveAI: forks transformers (branches add-grt-model, feat/grt-*), llama.cpp (grt, grt-vl), vllm (grt), sglang (no grt branch found among first 100)",
+   "upstream _repos transformers-main/vllm/sglang/llama.cpp/mlx-lm: no grt"
+  ]
+ },
+ "grug_moe": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/marin-community/marin/blob/acd9b1193678436b3c6b714b06f297ace586c50c/vendor/skyrl/skyrl-train/skyrl_train/models/grug_moe.py (+ experiments/grug/moe/model.py, lib/levanter/src/levanter/grug/grug_moe.py); [github, reference] https://github.com/marin-community/vllm/blob/3a136f6c439affd5dc6588c577c3b7cc0b99b2c8/vllm/model_executor/models/grugmoe.py (+ vllm/transformers_utils/configs/grugmoe.py); [hub-sibling] https://huggingface.co/open-athena/Marin-Snowball-67B-A2B-v0.1-MLX-4bit (ecfe5bfacd); [hub-sibling] https://huggingface.co/open-athena/Snowflake-d512-Base-262K-2026.10.19 (557d177660), https://huggingface.co/open-athena/Marin-Snowball-67B-A2B-v0.1 (adc0078a19)",
+  "parent": "qwen3_moe",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:grug_moe@marin-skyrl",
+    "source": "marin-community/marin vendor/skyrl/skyrl-train/skyrl_train/models/grug_moe.py @acd9b119 (torch; the Marin vLLM fork grugmoe.py agrees)",
+    "files": [
+     "grug_moe/gh__marin-community__marin/skyrl_train_models_grug_moe.py"
+    ],
+    "entry": [
+     "GrugMoeForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "MoE transformer with many Grug-specific pieces (cites: V = marin vllm grugmoe.py, S = skyrl_train_models_grug_moe.py, M = grug_moe_mlx.py):\n- Embedding: h = GatedNorm(RMSNorm(embed(x))) (V:1317, S:974); final: GatedNorm(RMSNorm(h)) before untied lm_head (V:1335, S:991). GatedNorm(x) = x * sigmoid(up(silu(down(x)))) with rank-128 bottleneck (V:512-545, S:402-410).\n- Block: a_in = GatedNorm(RMSNorm(x)); x += attn(a_in); m_in = GatedNorm(RMSNorm(x)); x += MoE(m_in) + shared_expert(m_in) (V:1204-1224, S:839-860). RMSNorm eps 1e-5, weighted.\n- Layer types: full attention on every global_every=4th layer and the last layer, else sliding window 2048 (window includes current token) (config_grugmoe.py:24-36; S:778,802).\n- Attention: GQA 20/5, head_dim 128; q and k RMS-normalised WITHOUT weight (eps 1e-6) (V:97-101,1080-1088; S:728-729); RoPE on the first HALF of head_dim (partial 0.5, neox-style within that half) on sliding layers only, full layers are NoPE (disable_long_rope) (V:1025-1033,1089-1090,1134; S:680-701,731); q multiplied by qk_mult=1.75 (x qk_mult_long_scale on full layers) with softmax scale head_dim**-0.5 (V:1091,1034-1043; S:732).\n- XSA: subtract from each head output its projection onto the current token's (GQA-aligned) value vector: o -= (o.v/(|v|^2+1e-6)) v (V:1046-1061; S:743-745).\n- Per-head output gate 2*sigmoid(attn_gate(a_in)) before o_proj (V:1062-1064; S:746).\n- MoE: 256 experts top-4, SiLU GLU experts; router fp32 linear with a separate bias used ONLY for selection (top-k on logits+bias); weights = sigmoid(unbiased logits of selected) renormalised to sum 2.5 (w * 2.5/(sum+1e-9)) (V:593-637, S:506-560); one always-on dense SwiGLU shared expert (2560) added unscaled.\n- Optional (off for these schema-v1 checkpoints): log-scaling of q on global layers, short conv, latent experts, PKO, split local/global kv heads (V:1092-1100; config_grugmoe.py).",
+  "engine_vs_reference": "Marin vLLM fork, the skyrl torch model and the MLX port compute the same v1 forward; MLX folds qk_mult into the SDPA scale and computes XSA/gate in fp32 (M Attention.__call__); vLLM CUDA path uses fused MoE kernels, CPU path is an einsum reference (V:736-774). MLX parity vs vLLM: top-1 0.9937 on decisive positions (MLX README).",
+  "config_match": "Snapshot configs carry both naming schemes (hidden_size/hidden_dim, num_layers/num_hidden_layers, num_experts/num_local_experts, etc.); several snapshot entries (Grug-67B-...-2026.09.2x, snowball-...-qk175) lack global_every, disable_long_rope, disable_pko, qk_mult_long_scale, sconv*, rope_fused, shared_expert_intermediate_dim aliases - vLLM defaults (global_every=4, disable_long_rope=True, disable_pko=True, qk_mult_long_scale=1, sconv=False) reproduce the v0.1 values (V:227-238,305,326). qk_mult is present in all; grugmoe_artifact_schema_version absent => 1. latent_dim/local_kv_heads/global_kv_heads null.",
+  "tried": [
+   "grep _repos (vllm-main, sglang-main, mlx-lm-main, llama.cpp, transformers-main): no grug",
+   "Hub: open-athena org (~95 repos) all grug_moe with no auto_map; only .py files: MLX-4bit grug_moe_mlx.py (fetched), Snowflake-* export.py (fetched one), dr-doom source/antidoom_*.py (data scripts, not model)",
+   "Hub search 'grug': other 'grug' repos are unrelated finetunes (qwen/gemma/phi/gpt2); penfever/laion grug-67b repos are grug_moe without code",
+   "GitHub marin-community/vllm (fork, main): grugmoe.py + config fetched",
+   "GitHub marin-community/marin (main acd9b119): vendor/skyrl torch model, experiments/grug/moe/model.py, levanter grug_moe.py fetched; also has experiments/mlx_export/grug_moe_mlx.py, tests/vllm/*grugmoe* (not fetched)"
+  ]
+ },
+ "helios": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/darknecrocities/Helios/tree/2358c44711ad670e72a49149314814efa05a4d4f/helios/model (main; identical to branch 'pretrained' 5a9016eb for transformer.py); [hub-sibling] https://huggingface.co/Darknecrocities/Helios (dc58e9d1cb)",
+  "parent": "llama",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:helios@darknecrocities",
+    "source": "darknecrocities/Helios helios/model @2358c447 (linked from the card)",
+    "files": [
+     "helios/gh__darknecrocities__Helios/helios/model/transformer.py",
+     "helios/gh__darknecrocities__Helios/helios/model/transformer_block.py",
+     "helios/gh__darknecrocities__Helios/helios/model/attention.py",
+     "helios/gh__darknecrocities__Helios/helios/model/rotary_embedding.py",
+     "helios/gh__darknecrocities__Helios/helios/model/feed_forward.py",
+     "helios/gh__darknecrocities__Helios/helios/model/normalization.py",
+     "helios/gh__darknecrocities__Helios/helios/model/config.py"
+    ],
+    "entry": [
+     "HeliosForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Plain Llama: embed -> N x [h = x + Attn(RMSNorm(x)); out = h + SwiGLU(RMSNorm(h))] -> RMSNorm -> lm_head tied to embeddings (transformer.py:30-40,139-148; transformer_block.py). RMSNorm in fp32, (x_hat).to(dtype) * weight, eps 1e-5 (normalization.py). GQA via SDPA with is_causal, scale head_dim**-0.5 (attention.py:250-290); non-interleaved rotate_half RoPE with theta=rope_theta over full head_dim (rotary_embedding.py:9-50,84,112); Dynamic-NTK base rescaling only beyond max_seq_len (rotary_embedding.py:98-106). SwiGLU silu(gate)*up, no bias (feed_forward.py). No embedding/logit scaling, no qk-norm. Vision (multimodal.py) not on the text path.",
+  "engine_vs_reference": "No engine ports.",
+  "config_match": "MISMATCH: HeliosConfig is a dataclass with d_model, n_layers, n_heads, n_kv_heads, d_ffn, max_seq_len, rope_theta, rope_scaling_factor (config.py:30-50); from_dict keeps only those field names (config.py:151-163). The snapshot config uses HF names (hidden_size 4096, num_hidden_layers 32, num_attention_heads 32, num_key_value_heads 8, intermediate_size 11008, max_position_embeddings 262144), which this code would silently drop (falling back to 288-d defaults). The HF-key values equal the flagship_6b preset (config.py:369-386: d_model 4096, 32 layers, d_ffn 11008, rope_theta 1e7), so mapping hidden_size->d_model, num_hidden_layers->n_layers, num_attention_heads->n_heads, num_key_value_heads->n_kv_heads, intermediate_size->d_ffn, max_position_embeddings->max_seq_len gives the intended model = LlamaForCausalLM with tie_word_embeddings=True. Extra keys (capabilities, vision_config, developer...) unused for text.",
+  "tried": [
+   "grep _repos: no helios",
+   "Hub search 'helios' (171 repos): only Darknecrocities/Helios has model_type helios; respinosamena/Helios-Nova* are model_type helios_nova (different); none ship helios code",
+   "GitHub darknecrocities/Helios (card link): helios/model fetched (main 2358c447; previous-round copy verified identical to main)"
+  ]
+ },
+ "hgrn_bit": {
+  "status": "code",
+  "found": "ridgerchu/matmulfreellm mmfreelm/models/hgrn_bit + layers/hgrn_bit.py + ops/fusedbitnet.py at 8222c15363 (the MMfreeLM paper code; ridger/MMfreeLM-370M is its checkpoint)",
+  "parent": "pool similarity (HGRN-2-style gated recurrence with ternary BitLinear projections)",
+  "sweep": [
+   {
+    "variant": "ext:hgrn_bit@matmulfreellm",
+    "source": "ridgerchu/matmulfreellm @8222c15363",
+    "files": [
+     "hgrn_bit/gh__ridgerchu__matmulfreellm/modeling_hgrn_bit.py",
+     "hgrn_bit/gh__ridgerchu__matmulfreellm/configuration_hgrn_bit.py",
+     "hgrn_bit/gh__ridgerchu__matmulfreellm/hgrn_bit.py",
+     "hgrn_bit/gh__ridgerchu__matmulfreellm/fusedbitnet.py"
+    ],
+    "entry": [
+     "HGRNBitForCausalLM"
+    ]
+   }
+  ],
+  "tried": [
+   "ridger/MMfreeLM-370M: config only",
+   "ridgerchu/matmulfreellm master (the model card links it)"
+  ]
+ },
+ "higgs_multimodal_qwen3": {
+  "status": "wrapper",
+  "found": "[vllm] https://github.com/vllm-project/vllm-omni/tree/2c148ceb13 vllm_omni/model_executor/models/higgs_audio_v3/higgs_audio_v3_talker.py, vllm_omni/transformers_utils/configs/higgs_audio_v3.py; [sglang] https://github.com/sgl-project/sglang-omni/tree/df7bc688cd sglang_omni/models/higgs_tts/{model.py,modeling.py,hf_config.py,weight_loader.py}",
+  "parent": "qwen3",
+  "inner": "qwen3",
+  "sweep": [
+   {
+    "variant": "tf5:qwen3",
+    "source": "inner LM: Qwen3 backbone (vllm-omni / sglang-omni ports)",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:higgs@vllm-omni",
+    "source": "vllm-project/vllm-omni higgs_audio_v3 @2c148ceb (engine port; no reference)",
+    "files": [
+     "higgs_multimodal_qwen3/gh__vllm-project__vllm-omni/higgs_audio_v3_talker.py",
+     "higgs_multimodal_qwen3/gh__vllm-project__vllm-omni/higgs_audio_v3.py"
+    ],
+    "entry": [
+     "HiggsAudioV3TalkerForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "No official (Boson) reference code is public for v3: the Hub repo ships no .py, boson-ai/higgs-audio is v2 (Llama + DualFFN, also transformers-main higgs_audio_v2), so the two engine ports are the only sources. Both agree: the text forward is plain Qwen3 (vllm higgs_audio_v3_talker.py:189 Qwen3Model; :6 'No DualFFN'; sglang model.py:106 Qwen3ForCausalLM). Checkpoint tensor names differ only by prefix (tied.embedding.text_embedding -> model.embed_tokens, body.layers -> model.layers, body.norm -> model.norm, tied.head.text_head -> lm_head; talker.py:56-61, sglang model.py:30-35). lm_head = text embedding when text_config.tie_word_embeddings (true in snapshot; talker.py:196-203). No extra text embedding rows (vocab 151936), no embedding/logit scales, positions are the ordinary 1D Qwen3 RoPE positions (talker.py:598-610). Added non-text paths: a fused multi-codebook embedding [8*1026, D] whose per-frame sum REPLACES (not adds to) the embedding row at <|audio|> continuation / ref-audio placeholder positions (talker.py:67-84, :586-591, :886-923; sglang modeling.py:15-34, model.py:520-533), and a tied fused codebook head [D -> 8x1026] applied to the final hidden state (talker.py:86-97, :1520). For text-only input the computation is exactly Qwen3ForCausalLM.",
+  "engine_vs_reference": "No reference exists; vLLM-omni and SGLang-omni ports are structurally identical (same prefix map, same fused embed/head). vLLM optionally runs the MLPs in a captured CUDA graph (talker.py:616-704), numerically identical.",
+  "config_match": "Snapshot keys (_hidden_size, _vocab_size, audio_encoder_config{num_codebooks 8, vocab_size 1026, out_dim 2560, tie_word_embeddings, use_delay_pattern}, audio_token_id -100, text_config qwen3 with rope_parameters) match higgs_audio_v3.py. The port also reads optional keys absent from the snapshot with defaults (sample_rate, frame_rate, audio_stream_bos/eos_id, tts_token_id etc. resolved from tokenizer). text_config has rope_parameters (5.x style) and no rope_theta; the vLLM config sets rope_theta=1e6 when missing (higgs_audio_v3.py:35-36), matching rope_parameters.rope_theta=1000000.",
+  "tried": [
+   "Hub bosonai/higgs-tts-3-4b siblings (no .py, no auto_map)",
+   "model card links -> vllm-project/vllm-omni (found), sgl-project/sglang-omni (found)",
+   "boson-ai/higgs-audio GitHub (v2 only, no v3/qwen3)",
+   "transformers-main (higgs_audio_v2 / higgs_audio_v2_tokenizer only)",
+   "vllm-main, sglang-main (no higgs_multimodal_qwen3)"
+  ]
+ },
+ "hybrid_qwen3": {
+  "status": "code",
+  "found": "[official, reference] https://github.com/awslabs/hybrid-model-factory/tree/a0a2ddce8c5d6e3fef2a4ba365e528c66d82a83d/training/src/hmf/model/hybrid_zoo (linked from the model card as 'GitHub: Hybrid Model Factory'); [github] https://github.com/awslabs/hybrid-model-factory/tree/a0a2ddce8c5d6e3fef2a4ba365e528c66d82a83d/vllm-inference/src/primed_vllm; [hub-sibling] https://huggingface.co/amazon/GKA-primed-HQwen3-8B-Instruct (9f119d67ffad5728aad04894165ba4fcc651acdc)",
+  "parent": "qwen3",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:hybrid_qwen3@awslabs-hmf",
+    "source": "awslabs/hybrid-model-factory hybrid_zoo @a0a2ddce",
+    "files": [
+     "hybrid_qwen3/gh__awslabs__hybrid-model-factory/training/src/hmf/model/hybrid_zoo/models/hybrid_qwen3/modeling_hybrid_qwen3.py",
+     "hybrid_qwen3/gh__awslabs__hybrid-model-factory/training/src/hmf/model/hybrid_zoo/models/hybrid_qwen3/configuration_hybrid_qwen3.py",
+     "hybrid_qwen3/gh__awslabs__hybrid-model-factory/training/src/hmf/model/hybrid_zoo/layers/gated_kalmanet/gka.py",
+     "hybrid_qwen3/gh__awslabs__hybrid-model-factory/training/src/hmf/model/hybrid_zoo/layers/gated_kalmanet/modules.py",
+     "hybrid_qwen3/gh__awslabs__hybrid-model-factory/training/src/hmf/model/hybrid_zoo/layers/gated_kalmanet/ops/chebyshev/gka_chebyshev_solve.py"
+    ],
+    "entry": [
+     "HybridQwen3ForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "GKA = Gated KalmaNet (not 'gated kalman attention'). Qwen3-8B with 18 of 36 layers' attention replaced by a GKA mixer (layer_types '*'=Qwen3 attention, 'GKA'=GKA; models/utils.py:7-35).\n- Attention ('*') layers, RMSNorm, SwiGLU MLP, embeddings, final norm, untied lm_head: copied Qwen3 (modeling_hybrid_qwen3.py:85-118, 257-330 q_norm/k_norm per head, 417-461, 1177-1300). RoPE theta 5e6 default.\n- GKA decoder layer: same pre-norm residual skeleton, seq_mixer = GatedKalmaNetLayer (modeling:523-584, 630-638; modules.py:17-96).\n- GKA mixer (gka.py:333-722): q/k/v = Linear (no bias) -> causal depthwise conv1d k=4 + SiLU each (438-468); GQA k/v repeat 8->32 heads (485-489); q,k L2-normalised with eps 1e-6 added to the norm (497-504); beta = sigmoid(b_proj(x)) (bias) scales k and v by (beta+1e-6) (507-511); alpha = sigmoid(alpha_proj(x)) (514-517); decay g = -exp(A_log)*softplus(a_proj(x)+dt_bias) used for both the k-v state and the k-k covariance (520-527).\n- Solver (gka_chebyshev_solve.py:150-163): x_t solves (H_t + lambda I) x = q_t with H_t = sum decayed k k^T, by 30 Chebyshev iterations, lambda = ridge_strength(0.02) * ||H_t||_F (adaptive; chebyshev_iteration.py:167-190, solve.py:228-231); q' = q + alpha*(x - q); output o = simple GLA(q', k, v, g, scale=head_dim^-0.5) i.e. sum_i exp(cumdecay) (q'.k_i) v_i.\n- Output: per-head gated RMSNorm o_norm(o, g_proj(x)) (FusedRMSNormGated, SiLU gate, eps 1e-6) -> o_proj (gka.py:700-710).\n- Exact output depends on num_iter (iterative solve, not closed-form); padded tokens' NaN outputs zeroed (692-697).",
+  "engine_vs_reference": "vLLM plugin (primed_gka_layer.py) computes the same math: alpha/beta sigmoid (1134-1148), gated RMSNorm norm_before_gate (736-740), L2 norm + beta in fused prefill/decode kernels (1177-1178), same Chebyshev Frobenius-relative ridge. Differences are fusion (one merged projection GEMM) and kernel numerics.",
+  "config_match": "Snapshot keys match HybridQwen3Config: hybrid_override_pattern, layer_types ('*'/'GKA'), gka_config dict (bp_lambda, chunk_size, conv_size, gla_rescale, head_dim, hidden_size, norm_eps, num_iter, num_*_heads, ridge_strength, solver_type, use_alpha_connection, use_beta_gate, use_forgetting_gate(_kk), use_gate, use_v_conv). gka_config lacks kv_proj_rank / kv_learnable_residual (default None/False -> plain repeat). Note layer_types values are not standard transformers names.",
+  "tried": [
+   "HF api amazon/GKA-primed-HQwen3-8B-Instruct: no .py, no auto_map",
+   "model card -> github.com/awslabs/hybrid-model-factory (codeload tarball main @a0a2ddce), found training hybrid_zoo/models/hybrid_qwen3 + layers/gated_kalmanet and vllm-inference/primed_vllm",
+   "amazon-science GitHub not needed (code lives under awslabs)",
+   "grep _repos vllm/sglang/mlx-lm/llama.cpp/transformers-main: no hybrid_qwen3"
+  ]
+ },
+ "ibm-granite-code": {
+  "status": "code",
+  "found": "SanctumAI/granite-3b-code-instruct-GGUF quantises ibm-granite/granite-3b-code-instruct (base ibm-granite/granite-3b-code-base): config.json LlamaForCausalLM with attention_bias / mlp_bias true; GGUF architecture llama",
+  "parent": "llama",
+  "sweep": [
+   {
+    "variant": "tf5:llama",
+    "source": "ibm-granite/granite-3b-code-instruct config.json: LlamaForCausalLM (attention_bias, mlp_bias)",
+    "wrapper": true
+   }
+  ],
+  "tried": [
+   "Hub API gguf.architecture and cardData.base_model",
+   "ibm-granite/granite-3b-code-instruct(-2k) / -base config.json"
+  ]
+ },
+ "iquest_q1": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/IQuestLab/vllm-iquest-q1/tree/cf13cab2406112afc5638c4c2352cb9fe96cf14b/src/vllm_iquest_q1; [sglang] https://github.com/sgl-project/sglang/blob/084a5e9aae/python/sglang/srt/models/iquest_q1.py (upstream of sglang PR #41590 cited by the card); [hub-sibling] https://huggingface.co/IQuestLab/IQuest-Q1 (5c21b0630586ef77d38cff1094b8cf37a417fcd8)",
+  "parent": "qwen3_moe",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:iquest_q1@IQuestLab-vllm",
+    "source": "IQuestLab/vllm-iquest-q1 @cf13cab2 (official vLLM plugin; no HF reference)",
+    "files": [
+     "iquest_q1/gh__IQuestLab__vllm-iquest-q1/model.py",
+     "iquest_q1/gh__IQuestLab__vllm-iquest-q1/attention.py",
+     "iquest_q1/gh__IQuestLab__vllm-iquest-q1/configs.py"
+    ],
+    "entry": [
+     "IQuestQ1ForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Qwen3-MoE-like (GQA 48/8, head_dim 128, per-head q/k RMSNorm, softmax top-8 of 256 renormalised, no shared expert, fp32 router), with:\n- Layer types: first_layers_types + hybrid_layers_types_block*num_hybrid_layers_block + last_layers_types = [full] + [full,swa,swa,swa]*21 + [full]*3 (88 layers); sliding layers window 4096 and RoPE theta swa_rope_theta=1e4, full layers rope_theta=1e6 (vllm model.py:70-101,286-307; sglang config_iquest_q1.py:74-80, iquest_q1.py:340-364).\n- Partial RoPE: rotary_dim=32 of head_dim 128 (partial_rotary_factor 0.25), neox style (vllm model.py:279-282,312-320; sglang 349-361).\n- Learned zero-value attention sink per KV head: an extra key sink_k (not rotated) with zero value; out *= 1/(1+exp(q.sink_k*scale - lse)) i.e. softmax over [logits, q.sink_k*scale] (vllm attention.py:66-89; test_sink_attention.py:254-272; sglang iquest_q1.py:53-125,375-380,421-423).\n- Sandwich/post norms: attn_out_norm on attention output scaled by attn_out_scale; FFN output scaled by ffn_out_scale=0.5388 (layer 0 uses first_layer_* scales=1 and an extra ffn_out_norm) (vllm model.py:480-506; sglang 491-529).\n- Unusual residual for layers > 0: the residual is REPLACED by the normalised input: h = norm(x) + attn_out_norm(attn(norm(x)))*s_a; out = h + mlp(ffn_norm(h))*s_f. Layer 0 keeps the raw residual x (vllm model.py:487-505; sglang 430-446,499-521).\n- Layer 0 is dense SiLU MLP with dense_intermediate_size=12288 (mlp_only_layers=[0]); other layers MoE with intermediate_size=1536 (vllm 177-214,440-445; sglang 242-276,445-447).\n- Router: fp32 linear, softmax, top-k, renormalise (vllm model.py:124-174; sglang 189-239).\n- Scale head_dim**-0.5 unless softmax_scale set (sglang 304-308). logit_scale=1.0 applied in LogitsProcessor; lm_head in fp32 (enable_lm_head_fp32) (vllm 798-805; sglang 772). embed_scale (1.0) not read by either engine. Untied embeddings.",
+  "engine_vs_reference": "sglang and the IQuestLab vLLM plugin compute the same forward (same residual quirk, sink formula, window/theta logic; sglang passes window sliding_window-1 = its exclusive convention). The sglang sink kernel keeps the reference reduction order for head_dim 128 (iquest_q1.py:98-103). No HF-transformers reference.",
+  "config_match": "Snapshot config = official config. Code reads first_layers_types, hybrid_layers_types_block, num_hybrid_layers_block, last_layers_types, use_hybrid_layers, sliding_window, swa_rope_theta, rope_theta, rotary_dim, no_rope_layers, enable_sink_attention, attn_out_scale/ffn_out_scale/first_layer_*, mlp_only_layers, dense_intermediate_size, intermediate_size, num_experts, num_experts_per_tok, softmax_scale, logit_scale, enable_lm_head_fp32, moe_router_dtype, shared_kv_* - all present. embed_scale, fuse_sink_attention, use_over_encoding (false; sglang rejects true) unused. No layer_types key in the snapshot (derived).",
+  "tried": [
+   "grep _repos: sglang-main iquest_q1.py/_mtp/config (already in iquest_q1/sglang, identical); vllm-main iquest_loopcoder.py is IQuest-Coder Loop, a different model; mlx-lm, llama.cpp, transformers-main: none (transformers-main has iquestcoder, unrelated)",
+   "Hub: IQuestLab org (25 repos): IQuest-Q1 only Q1 repo, no .py",
+   "GitHub IQuestLab/IQuest-Q1: README/docker only; IQuestLab/vllm-iquest-q1: fetched"
+  ]
+ },
+ "kolibri1": {
+  "status": "code",
+  "found": "transformers main models/kolibri1 (modular, added after 5.18; the official Aleph-Alpha/Kolibri-1 ships config only, transformers_version 5.20); engine port llama.cpp src/models/kolibri1.cpp",
+  "parent": "modular: Qwen3-MoE config / experts + EXAONE-4 attention + GLM-4 sandwich layer + DeepSeek-V3 shared-expert block",
+  "sweep": [
+   {
+    "variant": "tfmain:kolibri1",
+    "source": "transformers main 029045ca87 models/kolibri1 (modular)"
+   }
+  ],
+  "engine_vs_reference": "llama.cpp kolibri1.cpp matches (q / k norm then RoPE only on sliding layers, sandwich norms, selection on logits + bias, weights from the unbiased logits, ungated shared expert); no approximation beyond quantisation.",
+  "tried": [
+   "Hub search kolibri: Aleph-Alpha/Kolibri-1 and -BF16 (no .py, no auto_map)",
+   "transformers main: models/kolibri1",
+   "llama.cpp kolibri1.cpp; vLLM registry maps it to the generic Transformers backend; MLX-LM none"
+  ]
+ },
+ "kronlstm": {
+  "status": "code",
+  "found": "NX-AI/KronLSTM (GitHub, FLA fork) fla/models/kronlstm + fla/layers/kronlstm.py at 3d800c9a15; appvoid/linear is a small KronLSTM checkpoint with the same config keys (NX-AI/KronLSTM-1.5B-100B is the official one)",
+  "parent": "pool similarity",
+  "sweep": [
+   {
+    "variant": "ext:kronlstm@NX-AI",
+    "source": "NX-AI/KronLSTM @3d800c9a15",
+    "files": [
+     "kronlstm/gh__NX-AI__KronLSTM/modeling_kronlstm.py",
+     "kronlstm/gh__NX-AI__KronLSTM/configuration_kronlstm.py",
+     "kronlstm/gh__NX-AI__KronLSTM/kronlstm.py"
+    ],
+    "entry": [
+     "KronLSTMForCausalLM"
+    ]
+   }
+  ],
+  "tried": [
+   "appvoid/linear: config / README only",
+   "Hub search kronlstm: NX-AI/KronLSTM-1.5B-100B, -SWA",
+   "GitHub code search kronlstm: NX-AI/KronLSTM"
+  ]
+ },
+ "liquid-former": {
+  "status": "missing",
+  "found": "[official] https://huggingface.co/reaperdoesntknow/DNA-50M (50251bef), /DNA-175M (23d515a9)",
+  "parent": "unknown",
+  "inner": null,
+  "sweep": [],
+  "forward_vs_parent": "Unknown (no code). Config keys (chaos_scale, cry_* crystalline heads/layers, gnn_n_heads/gnn_num_layers, memory_size, n_thought_heads, freeze_thres, gas_thres, maha_init, metric) point to the author's 'liquid/crystalline processor + GNN' modules also described in the Symbiotic-LLM card.",
+  "engine_vs_reference": "n/a",
+  "config_match": "n/a",
+  "tried": [
+   "Hub DNA-50M/DNA-175M files and full commit histories (no .py ever)",
+   "all 72 reaperdoesntknow model repos and 1 space",
+   "GitHub user reaperdoesntknow: 404",
+   "upstream engines: none"
+  ]
+ },
+ "llava_llama": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/NVlabs/VILA/tree/0f1426e8da9181e6e6653e10bc15f62d515fa2f6/llava/model; [github] https://github.com/haotian-liu/LLaVA/tree/c121f0432da27facab705978f83c4ada465e46fd/llava/model",
+  "parent": "llama",
+  "inner": "llama",
+  "sweep": [
+   {
+    "variant": "tf5:llama",
+    "source": "inner LM: transformers LlamaForCausalLM (VILA llm/ subfolder)",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:llava_llama@NVlabs-VILA",
+    "source": "NVlabs/VILA llava/model @0f1426e8 (wrapper class)",
+    "files": [
+     "llava_llama/gh__NVlabs__VILA/llava/model/language_model/llava_llama.py",
+     "llava_llama/gh__NVlabs__VILA/llava/model/llava_arch.py",
+     "llava_llama/gh__NVlabs__VILA/llava/model/configuration_llava.py"
+    ],
+    "entry": [
+     "LlavaLlamaModel"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Nothing added to the text-only forward. VILA LlavaLlamaModel.forward embeds via self.llm.model.embed_tokens (llava_arch.py:429) inside _embed, then calls self.llm(inputs_embeds=..., position_ids=position_ids, ...) (llava_llama.py:122-141), where self.llm is AutoModelForCausalLM.from_pretrained(<repo>/llm) = transformers LlamaForCausalLM (language_model/builder.py:177-180).\nFor text only, _embed strips padding by attention_mask, fuses no media, and re-pads (llava_arch.py:446-490); truncation only in training (llava_arch.py:522). Packing / repack only in training or force_packing (llava_llama.py:125-132). position_ids passed through (None -> Llama default).\nRoPE: context_length_extension sets linear rope_scaling only if model_max_length > max_position_embeddings (language_model/builder.py:54-61); VILA1.5-3b has both 4096, so no scaling.\nvocab_size attribute is llm.vocab_size + NUM_EXTRA_TOKENS (llava_arch.py:77) but the llm's embedding / lm_head are not resized (llm/config vocab 32000, tie false).\nOriginal haotian LLaVA LlavaLlamaForCausalLM likewise returns inputs unchanged when images is None (haotian llava_arch.py:150-151) and keeps Llama's lm_head (llava_llama.py:49); its only extra non-text param is image_newline (llava_arch.py:37-40).",
+  "engine_vs_reference": "No engine port of VILA 1.5 LlavaLlamaModel found (sglang has nvila.py / nvila_lite.py for NVILA, different format). The LM itself is plain llama in every engine.",
+  "config_match": "Outer VILA config keys (llm_cfg, mm_projector_cfg, vision_tower_cfg, model_dtype, image_aspect_ratio, interpolate_mode, drop_path_rate, mm_* , s2*) are read by configuration_llava.py / llava_arch.py init_vlm (get_model_config). Text hyper-parameters live in llm_cfg / llm/config.json (llama, hidden 2560, 32 layers, 20 heads, vocab 32000, rope_theta 1e4, max_pos 4096). Outer hidden_size 2560 duplicates llm_cfg.",
+  "tried": [
+   "NVlabs/VILA main (0f1426e) llava/model via GitHub API tree + raw",
+   "haotian-liu/LLaVA main tarball",
+   "HF Efficient-Large-Model/VILA1.5-3b siblings @42d1dda: no .py (llm/, mm_projector/, vision_tower/ subfolders)",
+   "vllm-main, sglang-main, mlx-lm-main, llama.cpp grep LlavaLlamaModel/llava_llama: only sglang LlavaLlamaForCausalLM (haotian format) and nvila*.py"
+  ]
+ },
+ "llava_mistral": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/haotian-liu/LLaVA/tree/c121f0432da27facab705978f83c4ada465e46fd/llava/model; [github, reference] https://github.com/microsoft/LLaVA-Med/tree/30697ca50b5c29a8e955c99330b259776aef27b9/llava/model; [sglang] https://github.com/sgl-project/sglang/blob/084a5e9aae/python/sglang/srt/models/llava.py",
+  "parent": "mistral",
+  "inner": "mistral",
+  "sweep": [
+   {
+    "variant": "tf5:mistral",
+    "source": "inner LM: transformers MistralForCausalLM",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:llava_mistral@haotian-liu-LLaVA",
+    "source": "haotian-liu/LLaVA llava/model @c121f043 (wrapper class)",
+    "files": [
+     "llava_mistral/gh__haotian-liu__LLaVA/llava/model/language_model/llava_mistral.py",
+     "llava_mistral/gh__haotian-liu__LLaVA/llava/model/llava_arch.py"
+    ],
+    "entry": [
+     "LlavaMistralForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Nothing added to the text-only forward. LlavaMistralForCausalLM subclasses MistralForCausalLM, builds a plain LlavaMistralModel(MistralModel) + bias-free lm_head (llava_mistral.py:42-49) and forward just calls prepare_inputs_labels_for_multimodal then super().forward (llava_mistral.py:73-102).\nprepare_inputs_labels_for_multimodal returns the inputs unchanged (inputs_embeds=None) when images is None or seq len 1 (llava_arch.py:150-151), so position_ids, mask and embedding are exactly Mistral's. generate() without images uses embed_tokens(inputs) as inputs_embeds (llava_mistral.py:135), the same lookup.\nExtra params (not on the text path): vision_tower, mm_projector, and image_newline when mm_patch_merge_type contains 'unpad' (llava_arch.py:33-40; v1.6 configs use spatial_unpad). No embedding scale, no extra positions, no lm_head change.\nExtra embedding rows only if mm_use_im_patch_token / mm_use_im_start_end (training-time resize, llava_arch.py:326-333); all snapshot configs set both false, so vocab is the base vocab (32000; Nous-Hermes-2-Vision has 32002 from its OpenHermes ChatML base).\nAttention follows the transformers MistralModel of the version used: sliding_window=null for the v1.6 / LLaVA-Med configs, 4096 for Nous-Hermes-2-Vision (Mistral-7B-v0.1 base, transformers 4.34.1).",
+  "engine_vs_reference": "sglang wraps its own MistralForCausalLM (fused kernels); text path identical in math.",
+  "config_match": "Text keys are a full MistralConfig (LlavaMistralConfig subclasses it, llava_mistral.py:31). Extra mm_* / image_* / tune_* / freeze_* keys are read only by the vision path (llava_arch.py:33-40, builders). LLaVA-Med configs add feature_outs, img_size, segtok_posembed, vision_backbone, proj_vis_to_txt_tokens, prompt_segtok_w_instruct, tune_vision_tokenizer, vision_tokenizer_lr that neither LLaVA nor LLaVA-Med's released code reads for the LM. billborkowski GGUF repo config mirrors NousResearch/Nous-Hermes-2-Vision (mm_vision_tower SigLIP), same wrapper.",
+  "tried": [
+   "haotian-liu/LLaVA main tarball (c121f04) llava/model/",
+   "microsoft/LLaVA-Med main (30697ca) llava/model via raw.githubusercontent",
+   "sglang-main grep LlavaMistral: models/llava.py",
+   "vllm-main, mlx-lm-main, llama.cpp convert_hf_to_gguf.py grep llava_mistral: none",
+   "HF liuhaotian/llava-v1.6-mistral-7b siblings @f13b625: no .py"
+  ]
+ },
+ "lumina_next": {
+  "status": "code",
+  "found": "jacopof/lumina-next-135m ships modeling_lumina_next.py + rope_yarn.py in the repo (no auto_map)",
+  "parent": "pool similarity (a Llama-style GQA decoder with YaRN)",
+  "sweep": [
+   {
+    "variant": "ext:lumina_next@jacopof",
+    "source": "jacopof/lumina-next-135m modeling_lumina_next.py (main)",
+    "files": [
+     "lumina_next/hub__jacopof__lumina-next-135m/modeling_lumina_next.py",
+     "lumina_next/hub__jacopof__lumina-next-135m/rope_yarn.py"
+    ],
+    "entry": [
+     "LuminaNextForCausalLM"
+    ]
+   }
+  ],
+  "tried": [
+   "the repo's own files"
+  ]
+ },
+ "mistral_large4": {
+  "status": "code",
+  "found": "transformers main models/mistral_large4 (modular, added after 5.18); engine port llama.cpp src/models/mistral-large4.cpp",
+  "parent": "modular (see the inventory parent)",
+  "sweep": [
+   {
+    "variant": "tfmain:mistral_large4",
+    "source": "transformers main 029045ca87 models/mistral_large4 (modular)"
+   }
+  ],
+  "tried": [
+   "Hub: the snapshot repos are mlx-community quants (no auto_map)",
+   "transformers main: models/mistral_large4",
+   "llama.cpp mistral-large4.cpp"
+  ]
+ },
+ "mistral_large4_text": {
+  "same_as": "mistral_large4"
+ },
+ "moa_metric": {
+  "status": "missing",
+  "found": "[official] https://huggingface.co/reaperdoesntknow/MoA-400M (6a09156f), MoA-150M (dc7b3276), MoA-100M (42da17b0), MoA-155M (258135f0), DiscoverLM-70M (36319386), Discovery (38dc2a9b), Discovered",
+  "parent": "unknown",
+  "inner": null,
+  "sweep": [],
+  "forward_vs_parent": "Unknown (no code). Config keys (metric, maha_init, learn_radius, alpha_init, lr_rank, conv_kernel, mqa_q_heads, n_branches, router/feature gates, discrepancy_modulation, energy_amplification) suggest a metric-attention (Mahalanobis/radius) mixture-of-attention model with conv mixer; the same author's later TameLM code (tamelm_two_axis, reaperdoesntknow/TameLM) shares only the BlackHoleRoPE discrepancy/energy components, not this architecture.",
+  "engine_vs_reference": "n/a",
+  "config_match": "n/a",
+  "tried": [
+   "Hub file lists + full commit histories of all 6 snapshot repos and Discovered",
+   "all 72 reaperdoesntknow model repos (code only in GPT-X2-125M-CIx-Long-Context (gptx2) and TameLM/delta/echo/Echo_R (tamelm_two_axis))",
+   "space reaperdoesntknow/DualMind-Demo (app.py only)",
+   "GitHub user reaperdoesntknow: 404",
+   "web/Hub search MoAMetricLM: nothing",
+   "upstream engines: none"
+  ]
+ },
+ "mol_llama": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/DongkiKim95/Mol-LLaMA/tree/3f3a69e471 models/mol_llama.py, models/mol_llama_encoder.py, models/blending_module/blending_module.py, utils/configuration_mol_llama.py, playground.py",
+  "parent": "llama",
+  "inner": "llama",
+  "sweep": [
+   {
+    "variant": "tf5:llama",
+    "source": "inner LM: transformers LlamaForCausalLM (+ PEFT LoRA)",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:mol_llama@DongkiKim95",
+    "source": "DongkiKim95/Mol-LLaMA @3f3a69e4 (wrapper class)",
+    "files": [
+     "mol_llama/gh__DongkiKim95__Mol-LLaMA/mol_llama.py",
+     "mol_llama/gh__DongkiKim95__Mol-LLaMA/configuration_mol_llama.py"
+    ],
+    "entry": [
+     "MolLLaMA"
+    ]
+   }
+  ],
+  "forward_vs_parent": "The LM is not stored as a config: MolLLaMA loads meta-llama/Llama-3.1-8B-Instruct weights via LlamaForCausalLM.from_pretrained(config.llm_config.llm_model) (gh__DongkiKim95__Mol-LLaMA/mol_llama.py:65-69), so the text forward is stock Llama-3.1 (llama3 rope scaling etc. from that repo's config). The wrapper adds: (1) resize_token_embeddings(len(tokenizer)) (:72): 2 extra rows in embed_tokens AND lm_head, ids 128256 '[PAD]' and 128257 '<mol>' (Hub tokenizer_config.json; added in stage2.py:58-59), so vocab 128258; (2) a PEFT LoRA (r=8, alpha=32, dropout 0.1) on q/k/v/o/gate/up/down of every layer (:74-81), i.e. W + (alpha/r)*B@A = W + 4*B@A; no modules_to_save, so embed/lm_head are not LoRA-trained; (3) llm_proj Linear(Qformer hidden -> 4096) whose outputs REPLACE the embedding rows at <mol> positions (8 query tokens per molecule) (:83-84, :105-108, :146-149). No embedding/logit scales, no position changes (positions come from Llama defaults via attention_mask). For text-only input (no <mol>) the computation is Llama-3.1-8B-Instruct with LoRA deltas merged and 2 extra vocab rows. Caveat: PreTrainedModel _keys_to_ignore_on_load_missing includes r'llm.' (:35-39) and the Hub model.safetensors is only 344 MB, too small to contain the 128258x4096 embedding/lm_head (~1 GB each in bf16); so the 2 added rows are probably whatever resize_token_embeddings initialises (transformers mean-resizing samples them randomly), and whether the LoRA weights are in the file could not be checked without reading weight headers (not done).",
+  "engine_vs_reference": "No engine port found.",
+  "config_match": "Snapshot keys = exactly MolLLaMAConfig's sub-configs. The LM architecture keys are absent from the snapshot (they live in meta-llama/Llama-3.1-8B-Instruct/config.json, referenced by llm_config.llm_model); vocab_size is a constructor argument (len(tokenizer)=128258), not a config key.",
+  "tried": [
+   "Hub DongkiKim/Mol-Llama-3.1-8B-Instruct siblings (no .py; tokenizer_config added tokens 128256 [PAD], 128257 <mol>)",
+   "model card -> GitHub DongkiKim95/Mol-LLaMA (found)",
+   "vllm-main / sglang-main / transformers-main (none)"
+  ]
+ },
+ "multi_modality": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/deepseek-ai/Janus/tree/1daa72fa40 janus/models/{modeling_vlm.py,projector.py,clip_encoder.py,siglip_vit.py,vq_model.py}; [sglang] https://github.com/sgl-project/sglang/blob/084a5e9aae/python/sglang/srt/models/deepseek_janus_pro.py (+ srt/configs/janus_pro.py)",
+  "parent": "llama",
+  "inner": "llama",
+  "sweep": [
+   {
+    "variant": "tf5:llama",
+    "source": "inner LM: transformers LlamaForCausalLM (Janus)",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:multi_modality@deepseek-Janus",
+    "source": "deepseek-ai/Janus janus/models @1daa72fa (wrapper class)",
+    "files": [
+     "multi_modality/gh__deepseek-ai__Janus/modeling_vlm.py"
+    ],
+    "entry": [
+     "MultiModalityCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "The text model is the stock transformers LlamaForCausalLM built from language_config (gh__deepseek-ai__Janus/modeling_vlm.py:27, :218-219). MultiModalityCausalLM defines no forward of its own; text inference calls model.language_model directly (the kiel-3-Omni card does model.language_model.generate). No extra text embedding rows in code, no embedding/logit scales, plain 1D positions, lm_head = Llama lm_head (tie_word_embeddings false). Additions are outside the text path: prepare_inputs_embeds REPLACES embedding rows at image positions with aligner(SigLIP-L features) (:221-260, replacement at :258); image generation uses separate gen_embed (16384x8) + gen_aligner MLP into hidden size (:211-213, :262-263) and a separate gen_head (vision_head: Linear-GELU-Linear to 16384 image tokens, :36-51) applied to LM hidden states in place of lm_head. For text-only input the computation is exactly LlamaForCausalLM.",
+  "engine_vs_reference": "SGLang port uses its own LlamaForCausalLM for the same text path; it only implements understanding, not image generation. No numerical differences in the LM.",
+  "config_match": "All snapshot keys are read by MultiModalityConfig (:159-180). language_config is a 5.x-style Llama dict (rope_parameters, head_dim, num_key_value_heads 16, vocab_size 102400) consumed by LlamaConfig. Caveat: the kiel-3-Omni model card claims a vocab expansion to 104448 (+2048 EnCodec tokens) 'baked into the weights', but config.language_config.vocab_size is 102400 (Janus-Pro-1B value); cannot verify without reading weight shapes (not downloaded). Hub repo also has adapter_config.json (LoRA r=16 over q/k/v/o/gate/up/down, base kiel2/Kiel-2.1-Omni) beside a merged model.safetensors.",
+  "tried": [
+   "Hub kiel2/kiel-3-Omni siblings (no .py, no auto_map; README uses janus package)",
+   "Hub kiel2/Kiel-2.1-Omni (base_model deepseek-ai/Janus-Pro-1B)",
+   "GitHub deepseek-ai/Janus (found)",
+   "sglang-main deepseek_janus_pro.py (found)",
+   "vllm-main (no janus)",
+   "transformers-main models/janus (different model_type 'janus', HF-converted Janus; not the multi_modality layout)"
+  ]
+ },
+ "muse_spark": {
+  "status": "code",
+  "found": "transformers main models/muse_spark (modular, added after 5.18); engine ports SGLang muse_spark.py, MLX-LM muse_spark.py",
+  "parent": "modular (see the inventory parent)",
+  "sweep": [
+   {
+    "variant": "tfmain:muse_spark",
+    "source": "transformers main 029045ca87 models/muse_spark (modular)"
+   }
+  ],
+  "tried": [
+   "Hub: the snapshot repos are GGUF / MLX quants (no auto_map)",
+   "transformers main: models/muse_spark",
+   "SGLang muse_spark.py, MLX-LM muse_spark.py"
+  ]
+ },
+ "muse_spark_text": {
+  "same_as": "muse_spark"
+ },
+ "nae1": {
+  "status": "code",
+  "found": "[official, reference] https://huggingface.co/Subject-Emu-5259/NeuralAI-Nae1 @043b6e68 model/nae1_model.py + model/nae1_config.py (shipped in the repo without an auto_map; the root config says LlamaForCausalLM, the checkpoint configs Nae1ForCausalLM; the repo GGUF is architecture stablelm)",
+  "parent": "llama with affine LayerNorm (StableLM-style norms)",
+  "sweep": [
+   {
+    "variant": "ext:nae1@Subject-Emu-5259",
+    "source": "Subject-Emu-5259/NeuralAI-Nae1 model/nae1_model.py @043b6e68",
+    "files": [
+     "nae1/hub__Subject-Emu-5259__NeuralAI-Nae1/model/nae1_model.py",
+     "nae1/hub__Subject-Emu-5259__NeuralAI-Nae1/model/nae1_config.py"
+    ],
+    "entry": [
+     "Nae1ForCausalLM"
+    ]
+   }
+  ],
+  "tried": [
+   "Hub repo file list: model/nae1_model.py, nae1_config.py, a stablelm GGUF"
+  ]
+ },
+ "needle": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/cactus-compute/cactus/tree/ae1a8dee463912d383b49cd319f2a5cdc8690f91/cactus/model (cactus-compute/needle README: 'Cactus Needle has moved to cactus-compute/cactus'; needle3 card: 'Source code'); [hub-sibling] https://huggingface.co/kenpeter123/x-small (3d101dd121); [hub-sibling] https://huggingface.co/Cactus-Compute/needle-hf (main); [hub-sibling] https://huggingface.co/Cactus-Compute/needle3 (c95d25b4efa1e9601e785d92438e4ade0dbddbf8), https://huggingface.co/Cactus-Compute/needle2 (main)",
+  "parent": "llama (distant; no close transformers parent)",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:needle@cactus-compute",
+    "source": "cactus-compute/cactus cactus/model/architecture.py @ae1a8dee (JAX / Flax reference)",
+    "files": [
+     "needle/gh__cactus-compute__cactus/architecture.py",
+     "needle/gh__cactus-compute__cactus/config.py"
+    ],
+    "entry": [
+     "SimpleAttentionNetwork"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Simple Attention Network (cites architecture.py):\n- Embedding * sqrt(d_model) (668,699); tied output head, optionally truncated to out_vocab, fp32 logits (717-728); no final lm_head matrix.\n- Norms: zero-centred RMSNorm (1+scale)*x/rms, eps 1e-6 (25-34).\n- mHC residual: 4 lanes (stream broadcast x->[B,T,4,D]); per layer: nx=RMS(flatten lanes); h_pre=sigmoid(a_pre*nx@phi_pre+b_pre+lane offset), layer input u=sum h_pre*lanes; h_post=2*sigmoid(...); lanes <- Sinkhorn(20 iters)(a_res*nx@phi_res+b_res) @ lanes + h_post*(Block(u)-u) (121-126,404-421,480-494); output = mean over lanes then final ZC-RMSNorm (541-548). Fixed lane offsets pre_off=8*onehot(l mod 4)-4, post_off=-4*(1-onehot).\n- Block: optional Engram injection at engram sites: x += sigmoid(rms(x).rms(k_e)/sqrt(d)) * v_e, where (k_e,v_e) come from hashed 2/3-gram lookup tables (hash heads, slots 18432, sub_dim 128) -> key/value projections, value passed through a 4-tap dilated causal conv (97-160,349-353,684-695). Then x = x + sigmoid(attn_gate_scalar) * ZCNorm_post(Attn(ZCNorm(x))) (360-364); x = x + HadamardMLP(ZCNorm(x)) (366-370).\n- Attention: GQA 12/2, qk_head_dim 48, v_head_dim 64; q/k/v each pass a 3-tap depthwise causal conv over time (184-202); per-head ZC-RMSNorm on q,k (208-209); split-half RoPE over the full qk head dim, theta 1e5 (56-70); scale 1/sqrt(qk_head_dim) (223,246); output gate sigmoid(gate_proj(x_in)) per channel before out_proj (257-260). Sliding window 1024 on all layers except global_layers 4,9,14,19 (full causal) (470-477,396-397).\n- HadamardMLP (no dense FFN): pad to power of 2, z = H3( d4 * ... ) with three Kronecker-factored Walsh-Hadamard transforms (learned factors initialised to Walsh), diagonal scales d1..d4, bias b2, fixed seeded permutations, SiLU, and a rank-8 softmax conditioning cond = 1 + softmax(x@V)@U (298-329).\n- Extra probe heads (confidence/router/embedding) are off the LM path (552-660).",
+  "engine_vs_reference": "Deployment runs the custom 'cact' C++/WASM Cactus engine with 2-4-bit cactus-quants (no readable source for it in these repos); architecture_mlx.py is the MLX port in the same repo. Not compared.",
+  "config_match": "Hub config.json is descriptive (hidden_size, num_hidden_layers, qk_head_dim, value_head_dim, extras.engram/global_attention_layers/qkv_conv_taps/mhc_lanes, kv_window, quantization) and is not read by the code; the JAX TransformerConfig uses d_model/num_layers/num_heads/num_kv_heads/engram_layers/global_layers/... The needle3 snapshot values match TransformerConfig defaults. needle2 (engine 2.0.4: 27 layers, 512-d, head_dim 64, sliding 256 with no global layers listed, engram sites [2,15], slots 8192, conv_dilation 3, no qkv conv) corresponds to the legacy path of the same code (config.py legacy attn_dim branch sets sliding_window=0/global_layers=() unless given) - the current file still implements it via qkv_conv_taps=0, global_layers=(), but the exact needle2 code revision was not pinned.",
+  "tried": [
+   "grep _repos: no needle architecture (only unrelated 'needle' words)",
+   "Hub search 'needle' + author Cactus-Compute: needle2/needle3 + many re-uploads (NeedleForToolCalling, no .py); Cactus-Compute/needle-hf has modeling_needle.py but for needle v1 (encoder-decoder); Blankyy/needle-mlx ships model.py (NeedleForCausalLM, v1-era MLX, not fetched); kenpeter123/x-small (san) torch port (already under san/)",
+   "GitHub cactus-compute/needle (README only: moved) -> cactus-compute/cactus cactus/model fetched",
+   "HF API rate-limited once (retried)"
+  ]
+ },
+ "neurobrain": {
+  "status": "missing",
+  "found": "[official] https://huggingface.co/peterpeter8585/nuerobrain (a1293506716ac6f5c05c7c14248cf7a87afb4a29) config.json + safetensors header",
+  "parent": "llama",
+  "inner": null,
+  "sweep": [],
+  "forward_vs_parent": "Unknown (no code). From the config/tensor names: a small (hidden 256, 6 layers, 8q/4kv heads) multimodal decoder with cross-attention to a memory/sensory stream, dense MLP with learnable activation, rms_eps 1e-6, tied embeddings; fast_weights=false, homeostasis=0.0, visual_hierarchy=false in this checkpoint.",
+  "engine_vs_reference": "n/a",
+  "config_match": "n/a (no code). Config keys: audio_patch, fast_weights, fw_heads, gate_keep, homeostasis, img_size, intermediate_ratio, k_frac, mem_slots, mlp_type, n_mels, patch, rms_eps, video_frames, visual_hierarchy + standard llama keys.",
+  "tried": [
+   "Hub peterpeter8585/nuerobrain files and all 25 commits (no .py ever)",
+   "all 27 peterpeter8585 model repos (no .py) and 45 spaces (no NeuroBrain code by name; spaces are unrelated try-on/TTS/chat apps)",
+   "GitHub user peterpeter8585: 404",
+   "Hub/web search 'NeuroBrainForCausalLM', 'neurobrain' (only unrelated GitHub projects dreamer2664/neurobrain, murphys7017/NeuroBrain)",
+   "upstream engines: none"
+  ]
+ },
+ "neutrino": {
+  "status": "code",
+  "found": "neuralcrew/neutrino-instruct is a GGUF / Ollama release (Hub gguf architecture llama) whose config.json and params.json are Mistral-7B-v0.3's (32 layers, 4096, GQA 32/8, vocab 32768, rope_theta 1e6, sliding_window null): the forward is transformers Mistral",
+  "parent": "mistral",
+  "sweep": [
+   {
+    "variant": "tf5:mistral",
+    "source": "config.json / params.json = Mistral-7B-v0.3 shape; GGUF architecture llama",
+    "wrapper": true
+   }
+  ],
+  "tried": [
+   "Hub neuralcrew/neutrino-instruct files (config.json, params.json, metadata.json, no .py)",
+   "base_model neuralcrew/neutrino (GGUF, no code)"
+  ]
+ },
+ "parler_tts": {
+  "status": "code",
+  "found": "[official, reference] https://github.com/huggingface/parler-tts/tree/d108732cd57788ec86bc857d99a6cabd66663d68/parler_tts",
+  "parent": "musicgen",
+  "inner": "parler_tts_decoder",
+  "sweep": [
+   {
+    "variant": "ext:parler_tts@huggingface",
+    "source": "huggingface/parler-tts @d108732c",
+    "files": [
+     "parler_tts/gh__huggingface__parler-tts/modeling_parler_tts.py",
+     "parler_tts/gh__huggingface__parler-tts/configuration_parler_tts.py"
+    ],
+    "entry": [
+     "ParlerTTSForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Top model ParlerTTSForConditionalGeneration (modeling_parler_tts.py:2306) = MusicGen-style enc-dec: T5 encoder (flan-t5-{base,large,xl}) on the voice DESCRIPTION -> optional enc_to_dec_proj Linear when T5 d_model != decoder hidden (:2386-2391, 2781-2786) -> encoder states multiplied by attention_mask (:2788) -> cross-attention in each decoder layer. Additions over musicgen: embed_prompts = nn.Embedding(config.vocab_size, decoder.hidden_size) over the TRANSCRIPT tokens (:2394-2395, 2767); with prompt_cross_attention=False (all snapshot configs) these are prepended to the decoder's codebook-sum embeddings (:1436-1439, 3033-3043); with True they get sinusoidal positions and are concatenated to the T5 encoder states for cross-attn (:2396-2401, 2790-2808). Audio codec is DAC (dac_wrapper/modeling_dac.py) instead of EnCodec; only used to encode/decode codes, not in the logit forward. Delay-pattern masking of the 9 codebooks (:214-290) is generation-time input construction as in musicgen. Decoder: Decoder = MusicGen decoder (pre-LN BART-style, LayerNorm eps 1e-5, GELU fc1/fc2 bias=False, attn bias=False, q scaled by head_dim^-0.5 before QK, sum of num_codebooks=9 codebook embeddings of size vocab+1, final LayerNorm, 9 separate lm_heads). Differences vs transformers musicgen/modeling_musicgen.py: (1) GQA: k/v_proj sized num_key_value_heads*head_dim + repeat_kv, separate num_cross_attention_key_value_heads for cross-attn (gh__huggingface__parler-tts/modeling_parler_tts.py:439-490, 945-976); snapshot configs have kv_heads == heads, so numerically MHA. (2) optional RoPE (rope_embeddings, rope_theta) replacing sinusoidal positions, applied to self-attn q/k AND to the cross-attn query (modeling_parler_tts.py:514-541, 1358-1371, 1506-1534); all snapshot configs have rope_embeddings=False/absent -> sinusoidal path (cos-then-sin concat, tensor2tensor form, :327-370) added to inputs_embeds (:1506-1511), identical to musicgen. (3) prompt_hidden_states (transcript tokens embedded by the top model's embed_prompts) are concatenated BEFORE the audio-code embeddings in the decoder input sequence and get positions 0..P-1 (:1436-1439, 1511), i.e. a text prefix in the same causal stream. (4) use_fused_lm_heads: one Linear(hidden, vocab*num_codebooks) reshaped to (B,T,K,V) instead of K Linear heads (:1834-1840, 1917-1920); mini/multilingual v1.1 set it True. (5) embed_scale is computed but never used (:1350), same as musicgen. No layer scaling, no logit scale.",
+  "engine_vs_reference": "no engine port found",
+  "config_match": "Snapshot decoder configs (model_type parler_tts_decoder) keys vocab_size=1088, hidden_size, ffn_dim, num_hidden_layers, num_attention_heads, num_key_value_heads, num_cross_attention_key_value_heads, num_codebooks=9, max_position_embeddings=4096, rope_embeddings=False, rope_theta, scale_embedding=False, use_fused_lm_heads (v1.1 only), codebook_weights, cross_attention_implementation_strategy, activation_function=gelu, dropout, layerdrop all match configuration_parler_tts.py:104-170. parler_tts_mini_v0.1 lacks num_key_value_heads / num_cross_attention_key_value_heads / rope_embeddings / rope_theta -> defaults (kv=heads, rope off), configuration_parler_tts.py:108-148. Top config keys (text_encoder t5, audio_encoder dac, decoder, prompt_cross_attention, vocab_size 32128 or 90714 for multilingual) match configuration_parler_tts.py:237-275; v0.1 lacks prompt_cross_attention (default False). No layer_norm_eps key: LayerNorm uses torch default 1e-5.",
+  "tried": [
+   "HF repo parler-tts/parler-tts-mini-v1 @0392b945: no .py besides handler.py, no auto_map",
+   "grep 'parler' in _repos/{vllm-main,sglang-main,mlx-lm-main,llama.cpp-master}: no hits",
+   "transformers-main has no parler_tts module; musicgen (models/musicgen/modeling_musicgen.py) used as parent",
+   "GitHub huggingface/parler-tts main @d108732c: official code (fetched)"
+  ]
+ },
+ "parler_tts_decoder": {
+  "status": "code",
+  "found": "[official, reference] https://github.com/huggingface/parler-tts/tree/d108732cd57788ec86bc857d99a6cabd66663d68/parler_tts",
+  "parent": "musicgen",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:parler_tts@huggingface",
+    "source": "huggingface/parler-tts @d108732c",
+    "files": [
+     "parler_tts/gh__huggingface__parler-tts/modeling_parler_tts.py",
+     "parler_tts/gh__huggingface__parler-tts/configuration_parler_tts.py"
+    ],
+    "entry": [
+     "ParlerTTSForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Decoder = MusicGen decoder (pre-LN BART-style, LayerNorm eps 1e-5, GELU fc1/fc2 bias=False, attn bias=False, q scaled by head_dim^-0.5 before QK, sum of num_codebooks=9 codebook embeddings of size vocab+1, final LayerNorm, 9 separate lm_heads). Differences vs transformers musicgen/modeling_musicgen.py: (1) GQA: k/v_proj sized num_key_value_heads*head_dim + repeat_kv, separate num_cross_attention_key_value_heads for cross-attn (gh__huggingface__parler-tts/modeling_parler_tts.py:439-490, 945-976); snapshot configs have kv_heads == heads, so numerically MHA. (2) optional RoPE (rope_embeddings, rope_theta) replacing sinusoidal positions, applied to self-attn q/k AND to the cross-attn query (modeling_parler_tts.py:514-541, 1358-1371, 1506-1534); all snapshot configs have rope_embeddings=False/absent -> sinusoidal path (cos-then-sin concat, tensor2tensor form, :327-370) added to inputs_embeds (:1506-1511), identical to musicgen. (3) prompt_hidden_states (transcript tokens embedded by the top model's embed_prompts) are concatenated BEFORE the audio-code embeddings in the decoder input sequence and get positions 0..P-1 (:1436-1439, 1511), i.e. a text prefix in the same causal stream. (4) use_fused_lm_heads: one Linear(hidden, vocab*num_codebooks) reshaped to (B,T,K,V) instead of K Linear heads (:1834-1840, 1917-1920); mini/multilingual v1.1 set it True. (5) embed_scale is computed but never used (:1350), same as musicgen. No layer scaling, no logit scale.",
+  "engine_vs_reference": "no engine port found",
+  "config_match": "Snapshot decoder configs (model_type parler_tts_decoder) keys vocab_size=1088, hidden_size, ffn_dim, num_hidden_layers, num_attention_heads, num_key_value_heads, num_cross_attention_key_value_heads, num_codebooks=9, max_position_embeddings=4096, rope_embeddings=False, rope_theta, scale_embedding=False, use_fused_lm_heads (v1.1 only), codebook_weights, cross_attention_implementation_strategy, activation_function=gelu, dropout, layerdrop all match configuration_parler_tts.py:104-170. parler_tts_mini_v0.1 lacks num_key_value_heads / num_cross_attention_key_value_heads / rope_embeddings / rope_theta -> defaults (kv=heads, rope off), configuration_parler_tts.py:108-148. Top config keys (text_encoder t5, audio_encoder dac, decoder, prompt_cross_attention, vocab_size 32128 or 90714 for multilingual) match configuration_parler_tts.py:237-275; v0.1 lacks prompt_cross_attention (default False). No layer_norm_eps key: LayerNorm uses torch default 1e-5.",
+  "tried": [
+   "HF repo parler-tts/parler-tts-mini-v1 @0392b945: no .py besides handler.py, no auto_map",
+   "grep 'parler' in _repos/{vllm-main,sglang-main,mlx-lm-main,llama.cpp-master}: no hits",
+   "transformers-main has no parler_tts module; musicgen (models/musicgen/modeling_musicgen.py) used as parent",
+   "GitHub huggingface/parler-tts main @d108732c: official code (fetched)"
+  ]
+ },
+ "phi-msft": {
+  "status": "code",
+  "found": "jartine/phi-2-llamafile packs microsoft/phi-2; model_type phi-msft is microsoft/phi-2's remote code between 2023-12-13 and 2024-01-08 (modeling_phi.py at rev 834565c), replaced by model_type phi (transformers Phi) on 2024-01-11",
+  "parent": "phi (transformers): the same parallel block with partial rotary, written as MHA / ParallelBlock / CausalLMHead",
+  "sweep": [
+   {
+    "variant": "ext:phi-msft@microsoft-phi-2-834565c",
+    "source": "microsoft/phi-2 modeling_phi.py @834565c (model_type phi-msft)",
+    "files": [
+     "phi-msft/hub__microsoft__phi-2@834565c/modeling_phi.py",
+     "phi-msft/hub__microsoft__phi-2@834565c/configuration_phi.py"
+    ],
+    "entry": [
+     "PhiForCausalLM"
+    ]
+   }
+  ],
+  "tried": [
+   "llamafile README base_model microsoft/phi-2",
+   "microsoft/phi-2 commit history: config.json model_type per revision (phi-msft at 40b720d .. 834565c)"
+  ]
+ },
+ "prism_hadamard_qwen35": {
+  "status": "wrapper",
+  "found": "[official, reference] https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-mlx-2bit/tree/24b5937a4a104a44f790b6ccbd0c79b6fabd4299 (runtime/ = the 'requires_runtime' named by the snapshot config); [llama.cpp] https://github.com/ggml-org/llama.cpp/tree/b79696f1f5/src; [mlx-lm] https://github.com/ml-explore/mlx-lm/blob/56230fa02b/mlx_lm/models/qwen3_5.py",
+  "parent": "qwen3_5_text",
+  "inner": "qwen3_5_text",
+  "sweep": [
+   {
+    "variant": "tf5:qwen3_5",
+    "source": "inner LM: Qwen3.5 text model (mlx_lm qwen3_5.TextModel with packed Hadamard-rotated weights)",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:prism_hadamard@prism-ml-runtime",
+    "source": "prism-ml/Ternary-Bonsai-2-27B-mlx-2bit runtime/ @24b5937a",
+    "files": [
+     "prism_hadamard_qwen35/hub__prism-ml__Ternary-Bonsai-2-27B-mlx-2bit/runtime/runtime.py",
+     "prism_hadamard_qwen35/hub__prism-ml__Ternary-Bonsai-2-27B-mlx-2bit/runtime/codec.py"
+    ],
+    "entry": [
+     "Packed"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Pure re-parameterisation of qwen3_5_text (exact up to fp and the 2-bit quantisation). text_config is a plain qwen3_5_text config and the model is mlx_lm qwen3_5 TextModel (runtime.py:11,141; artifact.py:86).\nFolded linear weights store W_f = W*D*H (D = +/-1 sign vector per input width, H = normalized Sylvester-Walsh-Hadamard in blocks of 512 or 1024) (llama-model.cpp:2266-2267).\nAt each folded matmul the input is sign-flipped then block-Hadamard rotated, then quantized_matmul (runtime.py:16-28 fwht, 60-70 Packed.__call__; llama-graph.cpp:1621-1650 build_hadamard_input, called from build_lora_mm at 1688/1769).\nFolded set (hadamard.json weight_names): q/k/v/o, linear_attn in_proj_qkv / in_proj_z / out_proj, mlp gate/up/down, lm_head. in_proj_a/b, norms, conv1d, A_log, dt_bias are untouched.\nToken embedding is a latent table: after the row lookup apply the inverse h = s*(H z) (runtime.py:43-59; llama-graph.cpp:2727-2733; only token_embd allowed as inverse table).\nSince H*H=I and D*D=I, W_f(H(Dx)) = Wx: logits equal the base model's for the dequantised W. No extra embedding rows, scales, positions or heads; MTP disabled (components.mtp=false).\nVersion 2 / tied_output (Glimpse-C1-2B, tie_word_embeddings=true) reuses the latent embedding as output head with the forward transform (llama-model.cpp:2325-2334).\nGDN out_proj: value heads were folded in grouped order; llama.cpp permutes the activation tiled->grouped (llama-model.h:713-733, llama-graph.cpp:1636-1643), the MLX runtime pre-permutes the weights instead (runtime.py:171-192; config gdn_activation_layout='grouped').",
+  "engine_vs_reference": "Same exact rotation: llama.cpp materialises a dense block H matrix in f32 (llama-model.cpp ~2420-2433) and matmuls; MLX uses mx.hadamard_transform in fp32 (runtime.py:20-25). Only differences: GDN head-order handling (activation vs weight permutation) and fp rounding.",
+  "config_match": "Outer keys (schema_version, modules[path,block,embedding,dtype], quantization{bits:2,group_size:128}, hadamard_config, tensor_namespace, gdn_activation_layout, components, base_model_type, tied_output) are what artifact.py / vision_artifact.py read (artifact.py:80-115, vision_artifact.py:20-57). Snapshot schema_version=2 but artifact.py:82 accepts only 1. text_config is a standard qwen3_5_text config (mrope_section, partial_rotary_factor 0.25, attn_output_gate, linear_* keys). Signs and block metadata live in hadamard.json and '<path>.signs' tensors, not in config.json. Module block is 1024 for the 27B and 512 for Glimpse-C1-2B.",
+  "tried": [
+   "llama.cpp-master grep prism/hadamard: found llama-model.cpp/.h, llama-graph.cpp, llama-arch, llama-context, gguf-py constants.py:566-575",
+   "mlx-lm-main, vllm-main, sglang-main grep prism: nothing relevant (vllm openvla.py hit unrelated)",
+   "HF API prism-ml/Ternary-Bonsai-2-27B-mlx-2bit siblings: runtime/*.py present, downloaded as text",
+   "Glimpse-Dictation/Glimpse-C1-2B siblings: no .py (config, README, safetensors, adapter only)"
+  ]
+ },
+ "qwen35": {
+  "status": "code",
+  "found": "[tf-old, reference] transformers 5.18.0 wheel text (~/.cache/upstream_refs/transformers-5.18.0/transformers/models/qwen3_5/); [llama.cpp] https://github.com/ggml-org/llama.cpp/blob/b79696f1f5/src/models/qwen35.cpp; [official] https://huggingface.co/Qwen/Qwen3.5-4B/blob/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a/config.json; [hub-sibling] https://huggingface.co/JeffGreen311/Eve-V2-Unleashed-Qwen3.5-8B-Liberated-4K-4B-Merged (ff7502d8853fc000b22480594c48396db7568609)",
+  "parent": "qwen3_5_text",
+  "inner": "qwen3_5_text",
+  "sweep": [
+   {
+    "variant": "tf5:qwen3_5",
+    "source": "llama.cpp's name for Qwen3.5 (GGUF re-upload of Qwen/Qwen3.5-4B): transformers qwen3_5",
+    "wrapper": true
+   }
+  ],
+  "forward_vs_parent": "Same architecture as transformers qwen3_5_text (Qwen3.5-4B); nothing differs. For reference, qwen3_5 vs qwen3_next (its parent): hybrid 3 Gated-DeltaNet : 1 gated full-attention layer (layer_types; decoder chooses linear_attn vs self_attn, modeling_qwen3_5.py:864-869, 888-896); GDN: causal conv1d, l2-normed q/k, beta=sigmoid(b), g=-exp(A_log)*softplus(a+dt_bias) (616-618, 633/646), output RMSNormGated (norm then *silu(z), plain weight, 217-233, 658); full attention q_proj doubled with sigmoid output gate (760, 786, 817), per-head q/k RMSNorm (772, 791); RMSNorm uses (1+w) in fp32 (840-853); RoPE partial 0.25 of head_dim with interleaved MRoPE sections [11,11,10] (142-215); dense SwiGLU MLP (869) rather than qwen3_next's MoE. MTP head (mtp_num_hidden_layers=1) is not part of the main forward.",
+  "engine_vs_reference": "llama.cpp qwen35.cpp reproduces the same graph (sigmoid attn gate qwen35.cpp:345-348, q/k norm 312-317, beta sigmoid 400, softplus(alpha+dt) decay 403+, gated norm 275-280); conversion folds the (1+w) RMSNorm offset into the GGUF weights. The GGUF here is Q4_K_M quantised.",
+  "config_match": "Snapshot config is hand-written and only partly matches Qwen3.5-4B: hidden 2560, layers 32, heads 16, intermediate 9216, rms_eps 1e-6, rope_theta 1e7, max_pos 262144 match; num_key_value_heads 16 is WRONG (real 4); vocab 248064 vs 248320; ssm_config uses GGUF names: group_count 16 = linear_num_key_heads, state_size 128 = linear_key/value_head_dim, time_step_rank 32 = linear_num_value_heads, inner_size 4096 = 32*128, conv_kernel 4 = linear_conv_kernel_dim, full_attention_interval 4. Missing keys the code reads: head_dim (256), layer_types, linear_* keys, attn_output_gate, partial_rotary_factor 0.25, mrope_section/mrope_interleaved, tie_word_embeddings, mtp_*. quantization_config {gguf Q4_K_M} is informational.",
+  "tried": [
+   "Hub JeffGreen311/Eve-V2-Unleashed-... @ff7502d8 siblings: gguf, README, config.json only; auto_map points to nonexistent class module",
+   "card base_model Qwen/Qwen3.5-4B (+ Qwen/Qwen3-8B persona source, not weight-merged per README:345) -> fetched config.json @851bf6e8",
+   "transformers 5.18 has qwen3_5 (upstream_refs/transformers-5.18.0); transformers-main copy differs slightly, 5.18 used",
+   "llama.cpp src/models/qwen35.cpp (b79696f1f5)",
+   "grep _repos for qwen35ForCausalLM / 'qwen35' python model: none in vllm/sglang/mlx-lm under that name (they register qwen3_5)"
+  ]
+ },
+ "qwen3_8": {
+  "status": "code",
+  "found": "[tf-old, reference] transformers 5.18.0 wheel text (~/.cache/upstream_refs/transformers-5.18.0/transformers/models/qwen3_5/); [official] https://huggingface.co/Qwen/Qwen3.8-27B/blob/37561816e66b5b9153b1b64c10968c18c1e6f4a0/config.json ; https://huggingface.co/DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1/blob/787cfccf045de473dd25848d9ac65c44aa74adc6/config.json; [hub-sibling] https://huggingface.co/Schestex/Qwen3.8-27B-ColdFusion-NVFP4-NInfer (55cd8666d194f800a2c9713fef598cdb8e5b970a); [github] https://github.com/Neroued/ninfer/tree/d49296868dcc17bd478ec185f0d3a801bcc0bf56 (NOT fetched)",
+  "parent": "qwen3_5_text",
+  "inner": "qwen3_5_text",
+  "sweep": [
+   {
+    "variant": "tf5:qwen3_5",
+    "source": "NInfer's name for Qwen3.8-27B (model_type qwen3_5): transformers qwen3_5",
+    "wrapper": true
+   }
+  ],
+  "forward_vs_parent": "Same architecture as transformers qwen3_5_text (Qwen3.5/3.8 dense hybrid); no forward differences, only size (27B: 64 layers, 48 GDN value heads, 24/4 attention heads, untied lm_head). See qwen35 entry for the qwen3_5 vs qwen3_next description (modeling_qwen3_5.py:217-233 gated norm, 616-618 GDN gates, 760/786/817 sigmoid-gated attention, 840-853 (1+w) RMSNorm, 142-215 partial interleaved MRoPE). Config has output_gate_type 'swish' (GDN output gate = silu, matches Qwen3_5RMSNormGated activation 'silu', 222). The NInfer artifact also bundles MTP and a DFlash2 speculative draft (qwen3-type 5-layer drafter) that do not change the target model's logits; NVFP4/FP8/Q4-6 group quantisation of weights does.",
+  "engine_vs_reference": "The only engine for this artifact is NInfer (C++/CUDA, not fetched); per the conversion json it stores weights as NVFP4 (112 tensors), FP8 row-scaled (146), Q4/Q5/Q6 group-64 and W8G32 formats and an FP8-encoded embedding (MAXABS_BF16S_RECIP_E4M3FN_RNE_V1), so its numerics are a quantised approximation of the BF16 reference.",
+  "config_match": "The snapshot config.json is artifact metadata only (artifact_file, artifact_format, artifact_size_bytes, base_model, build, calibration, model_type, quantization, sha256); it has none of the keys qwen3_5 reads. All architecture keys come from the base Qwen/Qwen3.8-27B (or DavidAU) config.json, which matches Qwen3_5Config/Qwen3_5TextConfig (output_gate_type is an extra key not read by 5.18's Qwen3_5TextConfig as a named field).",
+  "tried": [
+   "Hub Schestex/Qwen3.8-27B-ColdFusion-NVFP4-NInfer @55cd8666 siblings: README, config.json, .ninfer x3 (binary, not downloaded), conversion.json (fetched)",
+   "author=Schestex: also ThinkingCap-Qwen3.8-27B-NInfer (same format)",
+   "Qwen/Qwen3.8-27B @37561816 and DavidAU/Qwen3.8-27B-Cold-Fusion-GAIN-V1.1 @787cfccf: config.json model_type qwen3_5, no .py",
+   "GitHub search 'ninfer' -> Neroued/ninfer; tree listing @d49296868d obtained via API; raw file downloads refused by sandbox (not retried)",
+   "transformers 5.18 qwen3_5 (shared with qwen35)"
+  ]
+ },
+ "qwen3_tts": {
+  "status": "code",
+  "found": "[official, reference] https://github.com/QwenLM/Qwen3-TTS/tree/022e286b98 qwen_tts/core/models/{modeling_qwen3_tts.py,configuration_qwen3_tts.py,processing_qwen3_tts.py}; [github] https://github.com/ggroup-ai-lab/gwen-tts/tree/f0f24d8636 inference.py; [vllm] https://github.com/vllm-project/vllm-omni/tree/2c148ceb13 vllm_omni/model_executor/models/qwen3_tts/{qwen3_tts_talker.py,qwen3_tts_code_predictor_vllm.py,configuration_qwen3_tts.py}; [sglang] https://github.com/sgl-project/sglang-omni/tree/df7bc688cd sglang_omni/models/qwen3_tts/{sglang_model.py,config.py}",
+  "parent": "qwen3",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:qwen3_tts@QwenLM",
+    "source": "QwenLM/Qwen3-TTS qwen_tts/core/models @022e286b",
+    "files": [
+     "qwen3_tts/gh__QwenLM__Qwen3-TTS/modeling_qwen3_tts.py",
+     "qwen3_tts/gh__QwenLM__Qwen3-TTS/configuration_qwen3_tts.py"
+    ],
+    "entry": [
+     "Qwen3TTSForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Talker decoder = Qwen3 decoder: GQA attention with per-head q_norm/k_norm RMSNorm (gh__QwenLM__Qwen3-TTS/modeling_qwen3_tts.py:752-757, :774-775), SwiGLU MLP (:842-855), pre-norm RMSNorm layers (:1348-1357), final norm (:1437). Differences: (1) RoPE is M-RoPE interleaved, mrope_section [24,20,20] (:526-558, :660-723, :778-779), but get_rope_index feeds the SAME 1D position (cumsum(mask)-1) to all 3 sections (:1795-1800), so it equals plain 1D RoPE (vLLM port uses plain Qwen3Model, confirming). (2) Token embedding is codec_embedding [3072 x 1024] (:1441); text tokens use a separate text_embedding [151936 x 2048] (:1442) followed by text_projection = 2-layer MLP 2048->2048->1024 with bias and SiLU (:808-817, :1575-1577); prompts sum projected text embeddings with codec embeddings (:1978-2231). (3) Output head is codec_head Linear(1024->3072, untied, :1579, :1727), no text lm_head. (4) At each decode step the next input embedding = sum of the 16 codebook embeddings (group 0 from talker codec_embedding, groups 1-15 from code_predictor) + projected trailing text embedding or tts_pad embed (:1683-1700). (5) code_predictor = 5-layer Qwen3 decoder (plain 1D RoPE, Qwen3TTSDecoderLayer :961) with 15 per-group embeddings and 15 per-group lm_heads, input via small_to_mtp_projection (Identity when hidden sizes equal) (:1015-1036, :1160-1176, :1289-1299). Speaker encoder is an ECAPA-TDNN (:311). No embedding/logit scales.",
+  "engine_vs_reference": "vLLM-omni replaces the M-RoPE talker with plain 1D-RoPE Qwen3Model; identical in effect because all three M-RoPE position streams are equal. Code predictor has fused/cached CUDA-graph variants (not diffed).",
+  "config_match": "Snapshot keys match configuration_qwen3_tts.py: top level (tts_model_type, tts_model_size, tts_bos/eos/pad_token_id, im_start/end, assistant_token_id, tokenizer_type, speaker_encoder_config, talker_config); talker_config (codec_* ids, codec_language_id, spk_id, spk_is_dialect, text_hidden_size 2048, text_vocab_size 151936, vocab_size 3072, num_code_groups 16, position_id_per_seconds, rope_scaling{interleaved, mrope_section}); code_predictor_config (5 layers, vocab 2048 per group). No missing keys found.",
+  "tried": [
+   "Hub g-group-ai-lab/gwen-tts-0.6B siblings (no .py)",
+   "card base_model Qwen/Qwen3-TTS-12Hz-0.6B-Base",
+   "GitHub ggroup-ai-lab/gwen-tts (inference script only)",
+   "GitHub QwenLM/Qwen3-TTS (found)",
+   "vllm-project/vllm-omni qwen3_tts (found)",
+   "sgl-project/sglang-omni qwen3_tts (found)",
+   "transformers-main (no qwen3_tts)",
+   "vllm-main / sglang-main (no qwen3_tts)"
+  ]
+ },
+ "qwen3loop": {
+  "status": "code",
+  "found": "[official, reference] https://huggingface.co/Lordnyx/qwen3loop-0.6b-sft-deep-supervision-v1/tree/ae27a4a9b1b58950dfab5e2e5b5cf6129bba2829/engine/qwen3loop_python; [official] same revision, engine/qwen3loop_python/modeling_qwen3loop_minimal.py; [official] same revision, engine/llamacpp_patch/",
+  "parent": "qwen3",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:qwen3loop@Lordnyx",
+    "source": "Lordnyx/qwen3loop-0.6b-sft-deep-supervision-v1 engine/qwen3loop_python @ae27a4a9",
+    "files": [
+     "qwen3loop/hub__Lordnyx__qwen3loop-0.6b-sft-deep-supervision-v1/engine/qwen3loop_python/modeling_qwen3loop.py",
+     "qwen3loop/hub__Lordnyx__qwen3loop-0.6b-sft-deep-supervision-v1/engine/qwen3loop_python/configuration_qwen3loop.py"
+    ],
+    "entry": [
+     "Qwen3LoopForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Stock Qwen3 layers (Qwen3Attention/MLP/RMSNorm/rotary reused unchanged, modeling_qwen3loop.py:17-22, 78-83); only the layer schedule differs:\n- With the snapshot config (enable_double_loop_split=true, loop_middle_layers=14, 28 layers) get_num_loops()=1 (89-91) and the execution order is LoopSplit (37-75, 97-103): prefix layers 0..6 once, middle layers 7..20 repeated middle_repeats=(28+14)//14=3 times, suffix 21..27 once = 56 layer executions with shared weights (README 26-30 confirms 7+14x3+7).\n- Each execution gets its own KV-cache slot (virtual_layer_idx = execution_idx, 216-224), so it is exactly an unrolled 56-layer Qwen3 with tied layer weights; same position_ids/RoPE for every execution (204), causal mask per original layer type (226; all full_attention).\n- Final norm: skip_loop_final_norm=false -> self.norm after each pass (262-263); with num_loops=1 that is the single standard final norm. (Without LoopSplit, num_loops passes over the full stack with the final RMSNorm applied between passes, 208-266; loop_loss_weights would then set num_loops=len+1=3, 92-94 -- not active here.)\n- loop_share_kv=true raises NotImplementedError (153-163); false in snapshot.\n- Causal LM: new untied nn.Linear lm_head (300) but post_init ties it when tie_word_embeddings=true (snapshot true); logits = lm_head(final hidden) (338-340). loop_loss_weights only weight the deep-supervision training loss (343-360).",
+  "engine_vs_reference": "No engine port of this checkpoint; the repo ships unrolled 56-layer GGUFs (stock qwen3 arch) plus a llama.cpp patch written for a different qwen35 looped model.",
+  "config_match": "Snapshot config keys = Qwen3Config keys + num_loops, skip_loop_final_norm, enable_double_loop_split, loop_middle_layers, loop_share_kv, loop_loss_weights, all read by Qwen3LoopConfig (configuration_qwen3loop.py:45-69) and Qwen3LoopModel. Nothing read is missing. Note num_loops=2 and loop_loss_weights=[0.4,1.0] are present but ignored for the forward when enable_double_loop_split=true.",
+  "tried": [
+   "Hub Lordnyx/qwen3loop-0.6b-sft-deep-supervision-v1 @ae27a4a9 siblings (engine/qwen3loop_python/*.py, engine/llamacpp_patch, hotfix notes; fetched in previous round, revision confirmed this round)",
+   "vllm/sglang/mlx-lm/llama.cpp/transformers-main: no qwen3loop"
+  ]
+ },
+ "san": {
+  "status": "code",
+  "found": "kenpeter123/x-small ships san_model.py (SimpleAttentionNetwork, its card: 'a PyTorch port of needle') and san_triton.py in the repo, no auto_map",
+  "parent": "pool similarity",
+  "sweep": [
+   {
+    "variant": "ext:san@kenpeter123-x-small",
+    "source": "kenpeter123/x-small san_model.py (main)",
+    "files": [
+     "san/hub__kenpeter123__x-small/san_model.py"
+    ],
+    "entry": [
+     "SimpleAttentionNetwork"
+    ]
+   }
+  ],
+  "tried": [
+   "the repo's own files (san_model.py, load_example.py)"
+  ]
+ },
+ "sn38-nanochrono": {
+  "status": "code",
+  "found": "[github, reference] https://github.com/chronollm/sn38/tree/1c093d44492851081686ac43c2a966888ed4c3df/sn38/architectures/nanochrono",
+  "parent": "gemma2",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:nanochrono@chronollm-sn38",
+    "source": "chronollm/sn38 sn38/architectures/nanochrono @1c093d44",
+    "files": [
+     "sn38-nanochrono/github__chronollm__sn38/modeling_nanochrono.py",
+     "sn38-nanochrono/github__chronollm__sn38/configuration_nanochrono.py"
+    ],
+    "entry": [
+     "NanochronoForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "modded-nanoGPT-style decoder (modeling_nanochrono.py):\n- All norms are parameter-free F.rms_norm with default eps (no weights) (:12-13): on embeddings, pre-attn, pre-MLP, q/k, final.\n- Embedding is RMS-normed, then a 'token-shift' mix: x_t += mix_scale*sigmoid(mix_gate(x_t[:24])) * x_{t-1} (:170-178).\n- Per layer: x = residual_scales[i]*x + skip_scales[i]*h0 (h0 = mixed embedding) before each block (:186-187); after layer tap_layer=14 the output is saved and x -= tap_scale*tap at the end (:191-194).\n- Attention: MHA (14 q = 14 kv heads, head_dim 128), no biases; RoPE half-split with theta 1e5 but rotation sign reversed vs HF (x1*cos + x2*sin, x2*cos - x1*sin) (:16-19,141-147); RoPE applied BEFORE qk RMSNorm; q and k each multiplied by attention_multiplier 1.2 (effective logit scale 1.44/sqrt(128)) (:50-53); SDPA default scale.\n- Value embeddings on aux_layers (odd layers): v += 3*sigmoid(g_proj(x[:12]))[per kv head] * aux_embed[i](ids) (:36-48, 124-126,189).\n- Sliding window 512 on 'sliding_attention' layers (pattern 3 sliding : 1 full); mask (row-col) <= window, i.e. window+1 keys (:75-80, 135-138).\n- MLP: down(relu(up x)^2), no gate, no bias (:86-93).\n- Untied lm_head; logits in fp32 soft-capped 15*tanh(logits/15) (:244-247).",
+  "engine_vs_reference": "n/a",
+  "config_match": "Snapshot keys = NanochronoConfig fields exactly (attention_multiplier, aux_gate_dim, aux_layers, final_logit_softcapping, layer_types, mix_gate_dim, sliding_window, tap_layer, rope_theta ...) plus dtype/transformers_version. All read by the code. Values match the config defaults (2.02B).",
+  "tried": [
+   "Hub kingbear329/sn38-r16-c12-step687-alpha05 (+ r17-a2, r18-y2011-a) files and commits: no .py",
+   "Hub search 'nanochrono'/'sn38'/'chrono': no repo with nanochrono code",
+   "web search -> ChronoLLM = Bittensor SN38 -> github.com/chronollm/sn38 (sn38/architectures/nanochrono)"
+  ]
+ },
+ "solar": {
+  "status": "code",
+  "found": "GGUF quants of SOLAR-10.7B fine-tunes (fblgit/LUNA-SOLARkrautLM-Instruct, DopeorNope/You_can_cry_Snowman-13B, kyujinpy/SOLAR-Platypus-10.7B-v2, VAGOsolutions/SauerkrautLM-SOLAR-Instruct, kyujinpy/Sakura-SOLAR-Instruct): every base config.json is LlamaForCausalLM / model_type llama (upstage/SOLAR-10.7B-v1.0 likewise); 'solar' is TheBloke's model_type card tag",
+  "parent": "llama",
+  "sweep": [
+   {
+    "variant": "tf5:llama",
+    "source": "base models' config.json: LlamaForCausalLM",
+    "wrapper": true
+   }
+  ],
+  "tried": [
+   "GGUF README base_model for all 5",
+   "the bases' config.json (architectures / model_type / auto_map)",
+   "upstage/SOLAR-10.7B-v1.0"
+  ]
+ },
+ "spatiallm_llama": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/manycore-research/SpatialLM/blob/8913c44d84a450c53e9340b13317f8cf7144a738/spatiallm/model/spatiallm_llama.py",
+  "parent": "llama",
+  "inner": "llama",
+  "sweep": [
+   {
+    "variant": "tf5:llama",
+    "source": "inner LM: transformers LlamaModel",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:spatiallm_llama@manycore",
+    "source": "manycore-research/SpatialLM @8913c44d (wrapper class)",
+    "files": [
+     "spatiallm_llama/gh__manycore-research__SpatialLM/spatiallm/model/spatiallm_llama.py"
+    ],
+    "entry": [
+     "SpatialLMLlamaForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Nothing added to the text-only forward. SpatialLMLlamaForCausalLM subclasses LlamaForCausalLM with a stock LlamaModel and bias-free lm_head (spatiallm_llama.py:37-44); extra modules point_backbone + point_proj (46-90) are used only when point_clouds is given (202-206).\nText path: inputs_embeds = model.embed_tokens(input_ids) (199-200), then self.model(inputs_embeds=..., position_ids passed through) (294-305); no embedding scale, no position changes.\nlm_head: same as transformers 4.46 LlamaForCausalLM incl. pretraining_tp split (308-316) and logits = lm_head(hidden[:, -num_logits_to_keep:]) without float upcast (318-319); num_logits_to_keep=0 means all positions.\nPoint tokens <|point_start|>/<|point_end|>/<|point_pad|> use existing reserved ids 128011-128013 inside the 128256 vocab (no added rows). tie_word_embeddings=true ties lm_head to embed_tokens via post_init.\nRoPE is the config's llama3 scaling (factor 32, orig 8192), as in Llama-3.2-1B.",
+  "engine_vs_reference": "No engine port found.",
+  "config_match": "Text keys are a full LlamaConfig. Extra keys point_backbone, point_config, projector, point_start/end/token_id are read at spatiallm_llama.py:46-94. No missing keys.",
+  "tried": [
+   "manycore-research/SpatialLM GitHub (8913c44) spatiallm/model/",
+   "HF manycore-research/SpatialLM-Llama-1B siblings @0a4c5f3: no .py",
+   "vllm-main, sglang-main, mlx-lm-main, llama.cpp grep spatiallm: none"
+  ]
+ },
+ "spatiallm_qwen": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/manycore-research/SpatialLM/blob/8913c44d84a450c53e9340b13317f8cf7144a738/spatiallm/model/spatiallm_qwen.py",
+  "parent": "qwen2",
+  "inner": "qwen2",
+  "sweep": [
+   {
+    "variant": "tf5:qwen2",
+    "source": "inner LM: transformers Qwen2Model",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:spatiallm_qwen@manycore",
+    "source": "manycore-research/SpatialLM @8913c44d (wrapper class)",
+    "files": [
+     "spatiallm_qwen/gh__manycore-research__SpatialLM/spatiallm/model/spatiallm_qwen.py"
+    ],
+    "entry": [
+     "SpatialLMQwenForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Nothing added to the text-only forward. SpatialLMQwenForCausalLM subclasses Qwen2ForCausalLM with a stock Qwen2Model and bias-free lm_head (spatiallm_qwen.py:37-44); point_backbone + point_proj (46-90) run only when point_clouds is given (202-206).\nText path: inputs_embeds = model.embed_tokens(input_ids) (199-200), then self.model(inputs_embeds=..., position_ids passed through) (294-305). logits = lm_head(hidden[:, -num_logits_to_keep:]) with no float upcast (308-309), as in transformers 4.46 Qwen2ForCausalLM.\nPoint tokens reuse existing Qwen2 ids 151652-151654 (vision_start/end/pad slots) inside the 151936 vocab; no added rows. tie_word_embeddings=true (Qwen2.5-0.5B style). sliding_window null, use_sliding_window false.",
+  "engine_vs_reference": "No engine port found.",
+  "config_match": "Text keys are a full Qwen2Config. Extra keys point_backbone, point_config, projector, point_start/end/token_id are read at spatiallm_qwen.py:46-94. No missing keys.",
+  "tried": [
+   "manycore-research/SpatialLM GitHub (8913c44) spatiallm/model/",
+   "HF manycore-research/SpatialLM1.1-Qwen-0.5B siblings @b3ae9ad: no .py",
+   "vllm-main, sglang-main, mlx-lm-main, llama.cpp grep spatiallm: none"
+  ]
+ },
+ "swarm_agi": {
+  "status": "missing",
+  "found": "[official] https://huggingface.co/reaperdoesntknow/SharperSwarm (b30c6a7470f138c1c1b808d5ce5cd83f86b67fd0), /SAGI (b8cfce9c), /CasualSwarms (17fc9257)",
+  "parent": "llama",
+  "inner": null,
+  "sweep": [],
+  "forward_vs_parent": "Unknown (no code). Tensor names suggest llama blocks modulated by a 'swarm' controller (swarm_bias on attention, swarm_gate on the MLP).",
+  "engine_vs_reference": "n/a",
+  "config_match": "n/a",
+  "tried": [
+   "Hub SharperSwarm/SAGI/CasualSwarms/S-AGI file lists and all ~170 commits each (no .py ever; uploaded with push_to_hub without code)",
+   "all 72 reaperdoesntknow model repos (only GPT-X2-125M (gptx2) and TameLM/delta/echo/Echo_R (tamelm_two_axis) ship .py - unrelated archs)",
+   "reaperdoesntknow space DualMind-Demo (app.py only)",
+   "GitHub user reaperdoesntknow: 404; README quick-starts only use AutoModelForCausalLM",
+   "upstream engines: none"
+  ]
+ },
+ "symbiotic-llm": {
+  "status": "missing",
+  "found": "[official] https://huggingface.co/reaperdoesntknow/Symbiotic-Beta (af66aac2e2b450a9dd0fd7594583d6d97dffaa04) config + safetensors header",
+  "parent": "qwen2",
+  "inner": null,
+  "sweep": [],
+  "forward_vs_parent": "Unknown (no code). Hybrid: a custom 16-layer, d=2048, 32-head transformer (vocab 37524, rope_base 1e6, rms eps 1e-6) fused with a frozen Qwen2.5-0.5B 'exocortex' through gated projections and extra symbolic modules; the qwen2 part would match transformers qwen2, the outer model is undocumented.",
+  "engine_vs_reference": "n/a",
+  "config_match": "n/a",
+  "tried": [
+   "Hub Symbiotic-Beta files + all 181 commits (no .py ever)",
+   "siblings Symbiotic-1B, Symbiotic-8B, Symiotic-14B (no .py)",
+   "all 72 reaperdoesntknow model repos and the DualMind-Demo space",
+   "GitHub user reaperdoesntknow: 404",
+   "upstream engines: none"
+  ]
+ },
+ "tamelm": {
+  "status": "missing",
+  "found": "[official] https://huggingface.co/reaperdoesntknow/TameForCasualLM (fb26d269a781ce2e368170266952e08fe69ad277); [hub-sibling] https://huggingface.co/reaperdoesntknow/TameLM (modeling_tamelm.py, 2671 lines), /delta, /echo, /Echo_R (identical 1846-line modeling_tamelm.py)",
+  "parent": "unknown",
+  "inner": null,
+  "sweep": [],
+  "forward_vs_parent": "Unknown for model_type 'tamelm' (no code). The README describes 'TAMELM-AFMoER with Blackhole Rope': multiscale (fast/mid/slow) clocks, fuzzy expert routers and a vortex RoPE; only the vortex RoPE survives in the later tamelm_two_axis code (BlackHoleRoPE: per-position learned vortex strength/phase shift/radial warp, energy factor clamp [0.1,10]).",
+  "engine_vs_reference": "n/a",
+  "config_match": "tamelm_two_axis code reads embed_dim, num_layers, num_experts, max_seq_len, vocab_size, tie_word_embeddings and its own keys; snapshot keys k_*, n_nodes, n_scales, n_steps, phase_dim, expert_dim, ff_dim, alpha/beta/dt, lambda_*, use_learned_adj, use_multiscale, sparsity_ratio have no counterpart.",
+  "tried": [
+   "Hub TameForCasualLM files + all 174 commits (no .py)",
+   "author's repos with modeling_tamelm.py: TameLM, delta, echo, Echo_R (tamelm_two_axis, different arch)",
+   "all 72 reaperdoesntknow model repos, DualMind-Demo space",
+   "GitHub user reaperdoesntknow: 404",
+   "upstream engines: none"
+  ]
+ },
+ "transformer": {
+  "status": "code",
+  "found": "fla-org/flash-linear-attention fla/models/transformer (+ fla/layers/attn.py) at 3920dd68e7; fla-hub/transformer-1.3B-100B is that library's softmax baseline",
+  "parent": "pool similarity (a Llama-style transformer)",
+  "sweep": [
+   {
+    "variant": "ext:transformer@fla",
+    "source": "fla-org/flash-linear-attention fla/models/transformer @3920dd68e7",
+    "files": [
+     "transformer/fla/modeling_transformer.py",
+     "transformer/fla/configuration_transformer.py",
+     "transformer/fla/attn.py",
+     "transformer/fla/mlp.py",
+     "transformer/fla/modeling_utils.py"
+    ],
+    "entry": [
+     "TransformerForCausalLM"
+    ]
+   }
+  ],
+  "tried": [
+   "fla-hub/transformer-1.3B-100B: config only",
+   "fla-org/flash-linear-attention main"
+  ]
+ },
+ "vexion_gpt": {
+  "status": "code",
+  "found": "[official, reference] https://huggingface.co/DZER-Studios/Vexion-gpt-medium (116facb6cc9ceeaf87306ceed14b7e234ce3b923) model.py + generate_base.py; [github, reference] https://github.com/DZER-STUDIOS/Vexion-gpt (153301c105a09e55907fdd559a456f5e20783209) model.py; [hub-sibling] https://huggingface.co/DZER-Studios/Create_Vexion-gpt , /Vexion-gpt-nano , /Vexion-gpt-large",
+  "parent": "gpt2",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:vexion_gpt@DZER-Studios",
+    "source": "DZER-Studios/Vexion-gpt-medium model.py @116facb6",
+    "files": [
+     "vexion_gpt/hub__DZER-Studios__Vexion-gpt-medium/model.py"
+    ],
+    "entry": [
+     "GPT"
+    ]
+   }
+  ],
+  "forward_vs_parent": "nanoGPT/GPT-2 clone. Pre-LN blocks x+attn(ln_1(x)); x+mlp(ln_2(x)) (model.py:126-129); LayerNorm with default eps 1e-5 and bias (model.py:121,123,141); learned absolute wpe added to wte (model.py:168-173); fused c_attn qkv with bias, SDPA causal, scale 1/sqrt(head_dim) (model.py:86-116); MLP c_fc -> GELU -> c_proj with biases (model.py:57-79); final ln_f, lm_head without bias, tied to wte (model.py:144-146).\nDifferences from transformers gpt2: nn.Linear weights (out,in) instead of Conv1D (in,out) (transpose on conversion); activation is exact erf GELU in the Hub medium/nano model.py:63 vs gelu_new (tanh) in GPT-2 - but the author's training code (GitHub model.py:64, Hub large) uses GELU(approximate='tanh') = gpt2's gelu_new, so the weights were most likely trained with tanh GELU; no scale_attn_by_inverse_layer_idx / reorder; no attention-mask/padding support; no KV cache.",
+  "engine_vs_reference": "n/a (no engine port). Note the internal inconsistency exact-GELU (medium inference model.py) vs tanh-GELU (training model.py).",
+  "config_match": "Snapshot keys = config.json keys. GPTConfig.from_json keeps only dataclass fields: vocab_size, hidden_size, num_hidden_layers, num_attention_heads, max_position_embeddings, intermediate_size, hidden_act, initializer_range, layer_norm_eps, pad/bos/eos, model_type, architectures, transformers_version; drops use_cache. layer_norm_eps is read into the config but never passed to nn.LayerNorm (default 1e-5 equals the configured value). tie_word_embeddings absent from config -> default False, ignored by the medium model.py (always tied).",
+  "tried": [
+   "Hub DZER-Studios/Vexion-gpt-medium file list (model.py, generate_base.py)",
+   "author's Hub repos: Vexion-gpt-nano, Vexion-gpt-large, Create_Vexion-gpt, Vexion-LM, Create_Vexion-LM",
+   "GitHub DZER-STUDIOS/Vexion-gpt tarball"
+  ]
+ },
+ "viuai": {
+  "status": "code",
+  "found": "[official, reference] https://huggingface.co/ViuAI/ViuAI-500M/tree/8c5dc8d835931be482744dbc61ea1f1289ee75de/code",
+  "parent": "qwen3",
+  "inner": null,
+  "sweep": [
+   {
+    "variant": "ext:viuai@ViuAI",
+    "source": "ViuAI/ViuAI-500M code/model.py @8c5dc8d8",
+    "files": [
+     "viuai/hub__ViuAI__ViuAI-500M/code/model.py",
+     "viuai/hub__ViuAI__ViuAI-500M/code/config.py"
+    ],
+    "entry": [
+     "ViuAI"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Dense GQA decoder that is Qwen3 except for the RoPE layout:\n- RMSNorm: fp32 normalise, cast to input dtype, then * weight (model.py:14-18) = Qwen3RMSNorm; eps norm_eps=1e-5 everywhere incl. q/k norms (57-58, 131, 133, 159).\n- Attention: q/k/v/o no bias (51-54); per-head q_norm/k_norm on head_dim BEFORE RoPE (67) like Qwen3; head_dim = d_model/n_heads = 64; SDPA default scale 1/sqrt(head_dim), causal, GQA 20q/4kv (81-109).\n- RoPE: INTERLEAVED (GPT-J / complex-pair) layout, pairs x[...,::2], x[...,1::2] rotated and re-interleaved (34-36), theta 1e4, no scaling (20-24) -- differs from Qwen3's rotate_half (half-split) layout; equivalent to Qwen3 after permuting q/k_proj output rows (and q_norm/k_norm weights) per head.\n- MLP: SwiGLU down(silu(gate)*up), no bias (117-126).\n- Block: pre-norm residual x+attn(norm(x)), x+ffn(norm(x)) (143-144); dropout 0 at inference.\n- No embedding scale; final RMSNorm then tied lm_head (head.weight = tok_emb.weight) (159-161, 274). NEFTune noise only in training (188-200).",
+  "engine_vs_reference": "No engine ports found.",
+  "config_match": "Hub config.json uses HF names (hidden_size 1280, num_hidden_layers 24, num_attention_heads 20, num_key_value_heads 4, intermediate_size 3456, max_position_embeddings 2048, rope_theta 1e4, rms_norm_eps 1e-5, tie_word_embeddings true, vocab 64003) which map 1:1 onto ViuAIConfig (d_model, n_layers, n_heads, n_kv_heads, ffn_hidden, context_length, rope_theta, norm_eps); the code does not read config.json itself. head_dim not in config (derived 64). Code-only fields (z_loss_weight, use_checkpoint, dropouts, neftune_alpha, ce_chunk) are training-only.",
+  "tried": [
+   "Hub ViuAI/ViuAI-500M @8c5dc8d8 siblings: code/model.py, code/config.py (fetched in previous round); author=ViuAI other repos: ViuRec, Sarus-500M, ViuTranslate, ViuMini-Dense-360M, ViuAI_TTS_200M, Viu-1.5B-MoE, ViuAI-1M, ViuAI-10M (not needed)",
+   "vllm/sglang/mlx-lm/llama.cpp/transformers-main: no viuai"
+  ]
+ },
+ "vlx_seek_1_5": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/om-ai-lab/VLX-Seek/tree/ee5d2a60d0c861158bbe623667c75fac753c8af1/vlx_seek/models/vlx_seek_1_5 (linked from the omlab/VLX-Seek-1.5-10B model card); [hub-sibling] https://huggingface.co/omlab/VLX-Seek-1.5-10B (6d1925f932ee6f0a8790b15420f403ee8f8e8f6a); [transformers-main, reference] transformers 5.18 models/qwen3_5 (~/.cache/upstream_refs/transformers-5.18.0/transformers/models/qwen3_5/modeling_qwen3_5.py)",
+  "parent": "qwen3_5",
+  "inner": "qwen3_5_text",
+  "sweep": [
+   {
+    "variant": "tf5:qwen3_5",
+    "source": "inner LM: transformers Qwen3_5TextModel",
+    "wrapper": true
+   },
+   {
+    "variant": "ext:vlx_seek_1_5@om-ai-lab",
+    "source": "om-ai-lab/VLX-Seek @ee5d2a60 (wrapper class)",
+    "files": [
+     "vlx_seek_1_5/gh__om-ai-lab__VLX-Seek/vlx_seek/models/vlx_seek_1_5/language_model/modeling_vlx_seek_1_5.py",
+     "vlx_seek_1_5/gh__om-ai-lab__VLX-Seek/vlx_seek/models/vlx_seek_1_5/omchat_arch.py"
+    ],
+    "entry": [
+     "VLXSeek1_5ForCausalLM"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Text forward is exactly transformers' Qwen3.5 text model: VLXSeek1_5Model builds language_model = Qwen3_5TextModel._from_config(config.text_config) (modeling_vlx_seek_1_5.py:36) and calls it with inputs_embeds/position_ids unchanged (303-311); VLXSeek1_5ForCausalLM applies an untied bias-free lm_head(text hidden -> vocab 248182) to the last hidden state (329, 471-474), the same as Qwen3_5ForConditionalGeneration. The config class is Qwen3_5Config with only model_type changed (23-27).\nWhat the wrapper adds is input-side only: the stock Qwen3.5 vision tower is replaced (self.visual=None, 35) by an OmChat/LLaVA-style vision tower + mm_projector ('identity') whose features are masked_scatter'ed into image-token positions (41-63, 161-171); object/region tokens get RoI features from a C-RADIOv4 aux tower via object_vp_extractor + mm_projector_aux, written into VLX_SEEK_1_5_OBJECT_FEATURE_TOKEN_INDEX positions (65-133, 180-221); convert_input_ids expands image placeholders to T*H*W/4 tokens (338-428). Position ids come from Qwen3.5's compute_3d_position_ids (interleaved MRoPE, partial rotary 0.25) (293-301). Training-only 0*dummy feature terms (223-280) do not change values. For text-only input the forward equals Qwen3_5ForCausalLM on text_config.",
+  "engine_vs_reference": "No engine port of the wrapper; inner qwen3_5_text is supported by vLLM/SGLang/llama.cpp/MLX as Qwen3.5. Repo ships NPU fla shims (npu_fla*.py) for Ascend, not compared.",
+  "config_match": "text_config is a standard qwen3_5_text config (32 layers, 3:1 linear/full, attn_output_gate, head_dim 256, linear heads 16k/32v, mrope interleaved [11,11,10], partial_rotary 0.25, mtp_num_hidden_layers 1 — MTP weights unused by the forward). Outer keys (mm_*, vision_tower*, aux_image_*, delay_load, vision_aux_config) are read by omchat_arch.py builders for the vision side only.",
+  "tried": [
+   "HF api omlab/VLX-Seek-1.5-10B: no .py, no auto_map",
+   "model card -> github.com/om-ai-lab/VLX-Seek (codeload main @ee5d2a60)",
+   "grep _repos vllm/sglang/mlx-lm/llama.cpp/transformers-main: no vlx_seek"
+  ]
+ },
+ "voice": {
+  "status": "wrapper",
+  "found": "[hub-sibling, reference] https://huggingface.co/Wiself/Voice/tree/3aa179a139b5d754f6fe238f79899c05df0b958d",
+  "parent": "gemma4",
+  "inner": "gemma4",
+  "sweep": [
+   {
+    "variant": "tf5:gemma4",
+    "source": "a voice-merge tool over google/gemma-4-26B-A4B-it GGUFs: the model is Gemma-4",
+    "wrapper": true
+   }
+  ],
+  "forward_vs_parent": "The model run after `voice cast` is the unmodified base architecture (Gemma 4 26B-A4B MoE, transformers-main models/gemma4; llama.cpp arch read from the GGUF, vlib/compute.py:867-871) served by `llama serve -m` (README.md:58). The tool only replaces tensor VALUES: default cast routes the voice into the same-named tensor, else into output.weight, else token_embd.weight (vlib/compute.py:873-901), quantising the head to Q8_0 and leaving every other tensor untouched (README.md:63). Only structural change: `--speak` writes the voice to output.weight and, when the target GGUF is tied (only token_embd.weight present), INVENTS a separate output.weight, i.e. unties the LM head (vlib/compute.py:804-864). Delta voices add a difference tensor to the target (vlib/delta.py) and DELLA/chorus merges (vlib/della.py) are offline weight merges. No extra embedding rows, scales, positions or layers.",
+  "engine_vs_reference": "n/a (no forward code; runtime is llama.cpp gemma4)",
+  "config_match": "The snapshot config has only model_type/voice_tool/version/library_name: no architecture keys at all, so no forward can be built from it. The real config is the base gemma4 one (google/gemma-4-26B-A4B-it) or the GGUF metadata of the cast target.",
+  "tried": [
+   "HF Wiself/Voice @3aa179a1 siblings: only CLI .py/.md/benchmark files, no weights, no modeling code (fetched .py/.md text)",
+   "README/DOCS: tool that bakes a 'voice' head into a GGUF; base google/gemma-4-26B-A4B-it",
+   "transformers-main models/gemma4 exists (inner LM)"
+  ]
+ },
+ "yi": {
+  "status": "code",
+  "found": "the snapshot GGUFs are quants of Yi-34B-200K merges: 4 of 5 bases (brucethemoose/*) are LlamaForCausalLM (Llama code), zzlgreat/deepsex-34b is YiForCausalLM remote code, identical to the original 01-ai/Yi-34B modeling_yi.py (rev 47da718, 2023-11-01, before 01-ai converted Yi to the Llama format)",
+  "parent": "llama (Yi = Llama with ln1 / ln2 names)",
+  "sweep": [
+   {
+    "variant": "ext:yi@01-ai-Yi-34B-47da718",
+    "source": "01-ai/Yi-34B modeling_yi.py @47da718 (= zzlgreat/deepsex-34b)",
+    "files": [
+     "yi/hub__01-ai__Yi-34B@47da718/modeling_yi.py",
+     "yi/hub__01-ai__Yi-34B@47da718/configuration_yi.py"
+    ],
+    "entry": [
+     "YiForCausalLM"
+    ]
+   },
+   {
+    "variant": "tf5:llama",
+    "source": "base models' config.json: LlamaForCausalLM",
+    "wrapper": true
+   }
+  ],
+  "tried": [
+   "GGUF repos: README base_model -> brucethemoose/* (LlamaForCausalLM), zzlgreat/deepsex-34b (YiForCausalLM + modeling_yi.py)",
+   "01-ai/Yi-34B commit history: modeling_yi.py present in the first upload (47da718), removed when the repo moved to LlamaForCausalLM",
+   "transformers 4.28-4.55 / 5.18: no yi module"
+  ]
+ },
+ "zaya1_vl": {
+  "status": "wrapper",
+  "found": "[official, reference] https://github.com/Zyphra/transformers/tree/5d10c38a767f43c6e99e712bc006af4e12fd2625/src/transformers/models/zaya1_vl (branch zaya1-vl, fork of transformers v4.57.1; linked from the model card); [transformers-main] https://github.com/huggingface/transformers/tree/029045ca87/src/transformers/models/zaya (also in 5.18); [hub-sibling] https://huggingface.co/Zyphra/ZAYA1-VL-8B (2967258fbdfdf8c9358dc52b3451db24fe45dfcd)",
+  "parent": "zaya",
+  "inner": "zaya",
+  "sweep": [
+   {
+    "variant": "ext:zaya1_vl@Zyphra-transformers",
+    "source": "Zyphra/transformers branch zaya1-vl models/zaya1_vl @5d10c38a (fork of 4.57.1)",
+    "files": [
+     "zaya1_vl/gh__Zyphra__transformers/modeling_zaya1_vl.py",
+     "zaya1_vl/gh__Zyphra__transformers/configuration_zaya1_vl.py"
+    ],
+    "entry": [
+     "Zaya1VLForConditionalGeneration"
+    ]
+   }
+  ],
+  "forward_vs_parent": "Text decoder = legacy ZAYA1 (inner 'zaya', transformers-main models/zaya) with the same math: CCA attention (q/k linear -> 2-stage causal depthwise+grouped conv over time + (q+k)/2 mean residual, v = [val_proj1(x_t), val_proj2(x_{t-1})], per-head L2 norm to sqrt(head_dim), k *= learned temp) (modeling_zaya1_vl.py:676-895), partial RoPE 0.5 (64 of 128 dims), theta 1e6 from rotary_base (configuration:99,158-170; modeling_zaya1_vl.py:904-928), GQA 8q/2kv, scale 1/sqrt(head_dim) (modeling_zaya1_vl.py:1030); ResidualScaling (h+b)*s and (res+b)*s before each add, none on residual for layer 0 (modeling_zaya1_vl.py:1512-1531, 1435-1443); MoE: 16 SwiGLU experts top-1 + MoD skip class, router = down_proj 2048->256 + EDA (prev router state * scale, layers>0) + RMSNorm + 3-layer GELU MLP, softmax, argmax of probs+balancing_biases (skip bias -1), expert output * prob (modeling_zaya1_vl.py:1534-1662, 1862-1950); final res_scale + final_norm (modeling_zaya1_vl.py:2423-2432); tied lm_head, no logit scale (modeling_zaya1_vl.py:2753-2757, 2850).\nWhat the VL wrapper adds to the text forward:\n- Image features: Qwen2.5-VL ViT (32 blocks, merger out 2048 = LM hidden, no extra projector) replace <image> token embeddings via masked_scatter (modeling_zaya1_vl.py:2751, 2812-2836).\n- Vision-only LoRA: image_mask = (input_ids == image_token_id) is threaded to every layer; on image-token positions only, low-rank addends are added to q, k (rank 8) (modeling_zaya1_vl.py:787-792), v1/v2 (modeling_zaya1_vl.py:870-877), o_proj output (modeling_zaya1_vl.py:1050-1053), and in every expert to fc1 output and fc2 output (rank 32) (modeling_zaya1_vl.py:1755-1758, 1794-1797, routed through the sort in 1916-1930). Router ignores image_mask. Text tokens (and all decode steps / text-only prompts, where mask is None) follow the plain ZAYA1 path exactly.\n- Positions are plain 1D cache positions (no M-RoPE) (modeling_zaya1_vl.py:2365-2369).\nDifferences vs the transformers-main zaya port (legacy semantics kept here): (a) MoD skip tokens get expert_output = normed_hidden * p_skip (identity path) (modeling_zaya1_vl.py:1934, 1946), whereas transformers-main zeroes them (modeling_zaya.py:561-563, 600-601); SGLang zaya.py:1179-1187 matches the legacy identity path; (b) residual stream not forced to fp32 (config residual_in_fp32=false) vs fp32 in main (modeling_zaya.py:455, 761); (c) router RMSNorm eps 1e-6 (layernorm_epsilon default, modeling_zaya1_vl.py:1583) vs rms_norm_eps 1e-5 in main; router MLP under CUDA bf16 autocast (modeling_zaya1_vl.py:1640); (d) q/k norm without clamp_min (modeling_zaya1_vl.py:883-887) vs clamp_min(finfo.eps) (modeling_zaya.py:272-277).",
+  "engine_vs_reference": "No engine port of zaya1_vl (vLLM/SGLang/llama.cpp/mlx-lm have text 'zaya' only; 1bit-MONSTER GGUF repo has README only). For the inner text model, SGLang zaya.py keeps the legacy MoD identity path; vLLM zaya.py:387-389 and transformers-main zero skip tokens.",
+  "config_match": "Snapshot config (Zyphra/ZAYA1-VL-8B) = Zaya1VLConfig fields (configuration_zaya1_vl.py:60-118): cca, num_query_groups (must equal num_key_value_heads), ffn_hidden_size 4096 (gated -> 2048 intermediate), num_experts 16, moe_router_topk 1, zaya_mlp_expansion 256, zaya_use_mod/eda, scale_residual_merge, residual_in_fp32 false, fused_add_norm false, norm_epsilon 1e-5, rotary_base 1e6 (-> rope_theta), vision_lora + ranks 8/32, image_token_id 262147, vision_config (qwen2_5_vl). Snapshot keys not read by the code: rope_pct (code uses partial_rotary_factor default 0.5 - same value), ar_threshold, apply_rope_fusion, use_rope_scaling, temporal_patch_size, padding_side, projector_hidden_act (stored, unused), clamp_temp (stored, unused). Code reads cca_time0/cca_time1 (default 2/2), layernorm_epsilon (absent -> 1e-6 for router norm), initializer_range, swa_layers - absent from snapshot, defaults apply. Config differs from transformers-main ZayaConfig names (rms_norm_eps, num_experts_per_tok, router_hidden_size, rope_parameters, layer_types), so it is not directly loadable by models/zaya.",
+  "tried": [
+   "Hub: Zyphra/ZAYA1-VL-8B (no .py, no auto_map; card -> github Zyphra/transformers branch zaya1-vl); quantised VL repos OsaurusAI MXFP4, JANGQ-AI JANGTQ4/JANGTQ_K (configs only), 1bit-MONSTER GGUF (README only); Zyphra/ZAYA1-8B-legacy (no .py)",
+   "GitHub API Zyphra/transformers branch zaya1-vl @5d10c38a (2026-05-09): models/zaya1_vl/ fetched (only zaya dir on that branch)",
+   "_repos grep: transformers-main/vllm/sglang have text 'zaya' only, nothing for zaya1_vl; llama.cpp, mlx-lm: none"
+  ]
+ }
+}

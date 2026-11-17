@@ -1,0 +1,530 @@
+{
+ "chain": [
+  {
+   "step": "headline",
+   "frontier": 218
+  },
+  {
+   "step": "R0: window + eps (rules as stated)",
+   "frontier": 194
+  },
+  {
+   "step": "R0 + drafts / assistants excluded",
+   "frontier": 185
+  },
+  {
+   "step": "+ (c) numeric scalars",
+   "frontier": 163
+  },
+  {
+   "step": "+ (a) every shape-preserving config value",
+   "frontier": 153
+  },
+  {
+   "step": "+ DSA ignored (context <= index_topk)",
+   "frontier": 150
+  }
+ ],
+ "loo_on_R0": [
+  {
+   "rule": "cat:act",
+   "frontier": 179,
+   "left": [
+    "MiniCPM-V-4.7-35B-A3B-DSpark",
+    "codeparrot",
+    "DanTagGen-beta",
+    "Kimi-K3-DFlash",
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "llm-jp-3-980m",
+    "falcon-11B",
+    "parler-tts-large-v1"
+   ]
+  },
+  {
+   "rule": "rot_gate",
+   "frontier": 182,
+   "left": [
+    "Laguna-S-2.1",
+    "MiniCPM-V-4.7-35B-A3B-DSpark",
+    "Fx-Bio",
+    "Phi-3.5-MoE-instruct",
+    "HyperCLOVAX-SEED-Think-14B",
+    "llm-jp-3-980m",
+    "Mellum2-12B-A2.5B-Base",
+    "LFM3-1.7B-Frontier-SmartAgent"
+   ]
+  },
+  {
+   "rule": "ffn_active",
+   "frontier": 184,
+   "left": [
+    "delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft",
+    "LFM2.5-1.2B-JP",
+    "Moonlight-16B-A3B",
+    "WizardLM-2-8x22B",
+    "MioTTS-2.6B",
+    "LFM2-8B-A1B",
+    "Qwen3.8-Flash-Next-HTR",
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF"
+   ]
+  },
+  {
+   "rule": "feat:bias_out:target",
+   "frontier": 185,
+   "left": [
+    "granite-3b-code-base-2k",
+    "stable-code-3b",
+    "nous-2",
+    "hubble-8b-100b_toks-perturbed-hf",
+    "basal-2.0-4.5B",
+    "clio-v1-legacy",
+    "granite-8b-code-base-4k",
+    "PowerLM-3b"
+   ]
+  },
+  {
+   "rule": "cat:pos",
+   "frontier": 186,
+   "left": [
+    "codeparrot",
+    "really-tiny-falcon-testing",
+    "opt-66b",
+    "plamo-3-translate-2b",
+    "kanana-2-1.3b-instruct",
+    "granite-20b-code-base-8k",
+    "ruGPT-3.5-13B-GGUF",
+    "gerpt2"
+   ]
+  },
+  {
+   "rule": "cat:qknorm",
+   "frontier": 186,
+   "left": [
+    "Intern-S1",
+    "Kimi-K3-DSpark",
+    "delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft",
+    "MiniCPM-V-4.7-35B-A3B-DSpark",
+    "Kimi-K3-DFlash",
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "LLaDA2.2-mini",
+    "HunyuanImage-3.0"
+   ]
+  },
+  {
+   "rule": "feat:bias_qkv:target",
+   "frontier": 187,
+   "left": [
+    "Seed-OSS-36B-Base",
+    "Phi-3.5-MoE-instruct",
+    "GLM-4-9B-0414",
+    "nous-2",
+    "Qwen1.5-110B",
+    "granite-8b-code-base-4k",
+    "polyglot-ko-5.8b"
+   ]
+  },
+  {
+   "rule": "ffn_total",
+   "frontier": 187,
+   "left": [
+    "WizardLM-2-8x22B",
+    "Solar-Open2-250B",
+    "Ling-3.1-flash",
+    "Intern-S1-Pro",
+    "IQuest-Q1",
+    "Qwen3.8-Flash-Next-125B-A5B-INT4-AutoRound",
+    "snowflake-arctic-instruct"
+   ]
+  },
+  {
+   "rule": "feat:dsa:host",
+   "frontier": 188,
+   "left": [
+    "MAI-DS-R1",
+    "GLM-4.7-Flash",
+    "Moonlight-16B-A3B",
+    "LongCat-Flash-Chat",
+    "MiniCPM3-4B",
+    "kanana-2-30b-a3b-instruct"
+   ]
+  },
+  {
+   "rule": "feat:out_gate:target",
+   "frontier": 188,
+   "left": [
+    "Laguna-M.1",
+    "A.X-K2-NVFP4",
+    "Solar-Open2-250B",
+    "Laplace-1-Vector",
+    "Jais-3-MoVA-36B-A4B",
+    "Whittle-Next-27B-A3B"
+   ]
+  },
+  {
+   "rule": "feat:post_norm:target",
+   "frontier": 188,
+   "left": [
+    "Olmo-3-1125-32B",
+    "GLM-4-9B-0414",
+    "HyperCLOVAX-SEED-Think-14B",
+    "wayfinder-glimmer-30b",
+    "A.X-K1",
+    "GLM-Z1-Rumination-32B-0414"
+   ]
+  },
+  {
+   "rule": "cat:gen",
+   "frontier": 190,
+   "left": [
+    "gte-Qwen2-7B-instruct",
+    "Nemotron-Labs-Diffusion-14B",
+    "LLaDA2.2-mini",
+    "GLM-5.3-DFlash2"
+   ]
+  },
+  {
+   "rule": "feat:rf:target",
+   "frontier": 190,
+   "left": [
+    "LFM2.5-1.2B-JP",
+    "plamo-2-translate",
+    "Jet-Nemotron-2B"
+   ]
+  },
+  {
+   "rule": "feat:tied_emb:host",
+   "frontier": 190,
+   "left": [
+    "stable-code-3b",
+    "nous-2",
+    "hubble-8b-100b_toks-perturbed-hf",
+    "gerpt2"
+   ]
+  },
+  {
+   "rule": "mla_latents",
+   "frontier": 190,
+   "left": [
+    "Kimi-Linear-48B-A3B-Base",
+    "Moonlight-16B-A3B",
+    "kanana-2-30b-a3b-instruct",
+    "Ling-3.0-flash-oQ4"
+   ]
+  },
+  {
+   "rule": "kv_heads",
+   "frontier": 190,
+   "left": [
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "parler-tts-large-v1",
+    "tiny-testing-falcon-alibi"
+   ]
+  },
+  {
+   "rule": "hidden",
+   "frontier": 190,
+   "left": [
+    "HyperCLOVAX-SEED-Think-14B",
+    "wayfinder-glimmer-30b",
+    "Kimi-K3-DFlash",
+    "Muse-Spark-Open-DFlash2"
+   ]
+  },
+  {
+   "rule": "feat:dsa:target",
+   "frontier": 191,
+   "left": [
+    "DeepSeek-V3.2",
+    "MiniMax-M3-NVFP4",
+    "Naive-N0.5-Flash"
+   ]
+  },
+  {
+   "rule": "feat:hyper_conn:target",
+   "frontier": 192,
+   "left": [
+    "Xing4.0-29B-Intent",
+    "Hy4-preview-FP8"
+   ]
+  },
+  {
+   "rule": "feat:router_group:host",
+   "frontier": 192,
+   "left": [
+    "MiniCPM3-4B",
+    "SmolLM3-3B-GSM8K-SFT"
+   ]
+  },
+  {
+   "rule": "feat:switch_lora:target",
+   "frontier": 192,
+   "left": [
+    "granite-switch-4.1-30b",
+    "granite-switch-4.1-3b-preview"
+   ]
+  },
+  {
+   "rule": "feat:attn_res:target",
+   "frontier": 193,
+   "left": [
+    "kotodama-tsumugi-1b"
+   ]
+  },
+  {
+   "rule": "feat:nope_layers:host",
+   "frontier": 193,
+   "left": [
+    "wayfinder-glimmer-30b"
+   ]
+  },
+  {
+   "rule": "feat:post_norm:host",
+   "frontier": 193,
+   "left": [
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF"
+   ]
+  },
+  {
+   "rule": "feat:router_bias:target",
+   "frontier": 193,
+   "left": [
+    "Jais-3-MoVA-36B-A4B"
+   ]
+  },
+  {
+   "rule": "feat:router_sigmoid:target",
+   "frontier": 193,
+   "left": [
+    "NVIDIA-Nemotron-3.5-Bolt-74B-A9B-MLX-IQ2"
+   ]
+  },
+  {
+   "rule": "feat:value_emb:target",
+   "frontier": 193,
+   "left": [
+    "gaggle-nanochat-pretrained-climbmix-20260924"
+   ]
+  },
+  {
+   "rule": "nonplain:mixer",
+   "frontier": 193,
+   "left": [
+    "Qwen3.8-27B-Longbook27-v2"
+   ]
+  },
+  {
+   "rule": "mla_wall",
+   "frontier": 193,
+   "left": [
+    "MiniCPM3-4B"
+   ]
+  },
+  {
+   "rule": "moe_dense_top1",
+   "frontier": 193,
+   "left": [
+    "Yi-34Bx2-MoE-60B"
+   ]
+  },
+  {
+   "rule": "norm_mirror",
+   "frontier": 193,
+   "left": [
+    "Kimi-K3-DFlash"
+   ]
+  },
+  {
+   "rule": "cat:norm",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "cat:softcap",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "cat:sink",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "cat:mtp",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "feat:attn_res:host",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "feat:engram:target",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "feat:hyper_conn:host",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "feat:nope_layers:target",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "feat:ple:target",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "feat:router_group:target",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "feat:shared_gate:target",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "feat:vnorm:target",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "feat:vnorm:host",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "nonplain:cla",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "keqv_caps",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "kv_cap",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "mla_penalty",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "q_cap",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "qheads",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "head_dim",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "depth_eff",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "depth_param",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "par_carry",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "alibi_rope",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "kinds_eff",
+   "frontier": 194,
+   "left": []
+  },
+  {
+   "rule": "kinds_param",
+   "frontier": 194,
+   "left": []
+  }
+ ],
+ "greedy_on_R0": [
+  {
+   "drop": "cat:act",
+   "frontier": 179,
+   "freed": 15
+  },
+  {
+   "drop": "feat:bias_out:target",
+   "frontier": 166,
+   "freed": 13
+  },
+  {
+   "drop": "cat:qknorm",
+   "frontier": 158,
+   "freed": 8
+  },
+  {
+   "drop": "rot_gate",
+   "frontier": 150,
+   "freed": 8
+  },
+  {
+   "drop": "feat:post_norm:target",
+   "frontier": 142,
+   "freed": 8
+  },
+  {
+   "drop": "feat:rf:target",
+   "frontier": 134,
+   "freed": 8
+  },
+  {
+   "drop": "kv_heads",
+   "frontier": 127,
+   "freed": 7
+  },
+  {
+   "drop": "cat:gen",
+   "frontier": 121,
+   "freed": 6
+  },
+  {
+   "drop": "feat:dsa:host",
+   "frontier": 115,
+   "freed": 6
+  },
+  {
+   "drop": "feat:out_gate:target",
+   "frontier": 109,
+   "freed": 6
+  },
+  {
+   "drop": "feat:bias_qkv:target",
+   "frontier": 105,
+   "freed": 4
+  },
+  {
+   "drop": "feat:router_group:host",
+   "frontier": 101,
+   "freed": 4
+  }
+ ]
+}

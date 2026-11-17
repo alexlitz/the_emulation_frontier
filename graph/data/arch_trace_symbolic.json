@@ -1,0 +1,1803 @@
+{
+ "apertus": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 12058624*s27",
+     "flops_trace": "16384*s27**2 + 12058624*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "swiss-ai/Apertus-8B-Instruct-2509",
+   "seconds": 29.8
+  }
+ },
+ "arcee": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6029312*s27",
+     "flops_trace": "16384*s27**2 + 6029312*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "arcee-ai/AFM-4.5B",
+   "seconds": 18.5
+  }
+ },
+ "bamba": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "ibm-ai-platform/Bamba-9B-v1"
+   }
+  ]
+ },
+ "biogpt": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 4980736*s27",
+     "flops_trace": "8192*s27**2 + 4980736*s27",
+     "kv_equal": true,
+     "kv_formula": "4096*s27",
+     "kv_trace": "4096*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "microsoft/biogpt",
+   "seconds": 26.1
+  }
+ },
+ "bloom": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 202375168*s27",
+     "flops_trace": "32768*s27**2 + 202375168*s27",
+     "kv_equal": true,
+     "kv_formula": "16384*s27",
+     "kv_trace": "16384*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "bigscience/bloomz-560m",
+   "seconds": 16.2
+  }
+ },
+ "codegen": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 202375168*s27",
+     "flops_trace": "32768*s27**2 + 202375168*s27",
+     "kv_equal": true,
+     "kv_formula": "16384*s27",
+     "kv_trace": "16384*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "Salesforce/codegen2-16B_P",
+   "seconds": 29.1
+  }
+ },
+ "cohere": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 18874368*s27",
+     "flops_trace": "16384*s27**2 + 18874368*s27",
+     "kv_equal": true,
+     "kv_formula": "8192*s27",
+     "kv_trace": "8192*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "NLPark/AnFeng_v3_Avocet",
+   "seconds": 17.3
+  }
+ },
+ "cohere2": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "128*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "512*s27 + 10752",
+     "kv_trace": "512*s27 + 10752",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "saidutta69/c4ai-command-r7b-12-2024-heretic",
+   "seconds": 48.1
+  }
+ },
+ "ctrl": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "10240*s27**2 + 7536640*s27",
+     "flops_trace": "10240*s27**2 + 7536640*s27",
+     "kv_equal": true,
+     "kv_formula": "5120*s27",
+     "kv_trace": "5120*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "Salesforce/ctrl",
+   "seconds": 15.5
+  }
+ },
+ "deepseek_v2": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "deepseek-ai/DeepSeek-V2-Lite"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "RedHatAI/DeepSeek-V2.5-1210-FP8"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "deepseek-ai/DeepSeek-V2-Chat"
+   }
+  ]
+ },
+ "deepseek_v3": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression u0 > 0 (unhinted: u0 > 0).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (transformers/models/deepseek_v3/modeling_deepseek_v3",
+    "repo": "deepseek-ai/DeepSeek-R1"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression u0 > 0 (unhinted: u0 > 0).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (transformers/models/deepseek_v3/modeling_deepseek_v3",
+    "repo": "nvidia/Kimi-K2-Thinking-NVFP4"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression u0 > 0 (unhinted: u0 > 0).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (transformers/models/deepseek_v3/modeling_deepseek_v3",
+    "repo": "moonshotai/Moonlight-16B-A3B-Instruct"
+   }
+  ]
+ },
+ "doge": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "SmallDoge/Doge-320M"
+   }
+  ],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 4196352*s27",
+     "flops_trace": "8192*s27**2 + 4196352*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      2048
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "SmallDoge/Doge-20M",
+   "seconds": 30.2
+  }
+ },
+ "dots1": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression u0 > 0 (unhinted: u0 > 0).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (transformers/models/dots1/modeling_dots1.py:295 in m",
+    "repo": "rednote-hilab/dots.llm1.base"
+   }
+  ]
+ },
+ "ernie4_5": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "baidu/ERNIE-4.5-0.3B-PT",
+   "seconds": 26.8
+  }
+ },
+ "ernie4_5_moe": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "baidu/ERNIE-4.5-21B-A3B-Thinking"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "baidu/ERNIE-4.5-21B-A3B-PT"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "lmstudio-community/ERNIE-4.5-21B-A3B-MLX-4bit"
+   }
+  ]
+ },
+ "exaone4": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "128*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "512*s27 + 10752",
+     "kv_trace": "512*s27 + 10752",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "LGAI-EXAONE/EXAONE-4.0-32B",
+   "seconds": 51.5
+  }
+ },
+ "falcon": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 11272192*s27",
+     "flops_trace": "8192*s27**2 + 11272192*s27",
+     "kv_equal": true,
+     "kv_formula": "1024*s27",
+     "kv_trace": "1024*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "64*s27"
+    }
+   ],
+   "repo": "tiiuae/falcon-7b",
+   "seconds": 21.9
+  }
+ },
+ "falcon_h1": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "tiiuae/Falcon-H1-0.5B-Base"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "tiiuae/Falcon-H1-3B-Instruct"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "tiiuae/Falcon-H1-7B-Instruct"
+   }
+  ]
+ },
+ "falcon_mamba": {
+  "errors": [
+   {
+    "error": "AttributeError: 'FalconMambaCausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "tiiuae/falcon-mamba-tiny-dev"
+   },
+   {
+    "error": "AttributeError: 'FalconMambaCausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "tiiuae/falcon-mamba-7b"
+   },
+   {
+    "error": "AttributeError: 'FalconMambaCausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "tiiuae/falcon-mamba-7b-instruct"
+   }
+  ]
+ },
+ "flex_olmo": {
+  "errors": [
+   {
+    "error": "ValueError: expected one symbol, got {u29, u37, u7, u36, u2, u31, u55, u49, u50, u18, u33, u13, u45, u34, u43, u8, u30, s27, u0, u10, u46, u24, u41, u51, u35, u52, u3, u40, u21, u9, u19, u4, u44, u26, u27, u6, u28, u22, u1, u39, u47, u15, u54, u14, u23, u20, u53, u12, u32, u16, u5, u38, u17, u25, u4",
+    "repo": "allenai/FlexOlmo-7x7B-1T"
+   },
+   {
+    "error": "ValueError: expected one symbol, got {u7, u4, u2, u6, u3, u1, u13, u15, u14, u8, u12, u5, s27, u0, u10, u11, u9}",
+    "repo": "allenai/Flex-reddit-2x7B-1T"
+   },
+   {
+    "error": "ValueError: expected one symbol, got {u7, u4, u2, u6, u3, u1, u13, u15, u14, u8, u12, u5, s27, u0, u10, u11, u9}",
+    "repo": "allenai/BAR-2x7B-Code"
+   }
+  ]
+ },
+ "gemma": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 17825792*s27",
+     "flops_trace": "32768*s27**2 + 17825792*s27",
+     "kv_equal": true,
+     "kv_formula": "16384*s27",
+     "kv_trace": "16384*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "256*s27"
+    }
+   ],
+   "repo": "google/gemma-7b",
+   "seconds": 16.6
+  }
+ },
+ "gemma2": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 13631488*s27",
+     "flops_trace": "32768*s27**2 + 13631488*s27",
+     "kv_equal": true,
+     "kv_formula": "8192*s27",
+     "kv_trace": "8192*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "256*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 13631488*s27",
+     "flops_trace": "32768*s27**2 + 13631488*s27",
+     "kv_equal": true,
+     "kv_formula": "4096*s27 + 28672",
+     "kv_trace": "4096*s27 + 28672",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "256*s27"
+    }
+   ],
+   "repo": "hugging-quants/gemma-2-9b-it-AWQ-INT4",
+   "seconds": 66.3
+  }
+ },
+ "gemma3": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 13631488*s27",
+     "flops_trace": "32768*s27**2 + 13631488*s27",
+     "kv_equal": true,
+     "kv_formula": "8192*s27",
+     "kv_trace": "8192*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "512*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 13631488*s27",
+     "flops_trace": "32768*s27**2 + 13631488*s27",
+     "kv_equal": true,
+     "kv_formula": "1024*s27 + 50176",
+     "kv_trace": "1024*s27 + 50176",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "512*s27"
+    }
+   ],
+   "repo": "chbae624/vllm-translategemma-12b-it",
+   "seconds": 64.7
+  }
+ },
+ "gemma3_text": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 13631488*s27",
+     "flops_trace": "32768*s27**2 + 13631488*s27",
+     "kv_equal": true,
+     "kv_formula": "8192*s27",
+     "kv_trace": "8192*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "512*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 13631488*s27",
+     "flops_trace": "32768*s27**2 + 13631488*s27",
+     "kv_equal": true,
+     "kv_formula": "1024*s27 + 50176",
+     "kv_trace": "1024*s27 + 50176",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "512*s27"
+    }
+   ],
+   "repo": "cjvt/GaMS3-12B-Instruct",
+   "seconds": 62.9
+  }
+ },
+ "glm": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "64*s27"
+    }
+   ],
+   "repo": "zai-org/glm-4-9b-chat-hf",
+   "seconds": 27.9
+  }
+ },
+ "glm4": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "64*s27"
+    }
+   ],
+   "repo": "zai-org/GLM-Z1-32B-0414",
+   "seconds": 25.8
+  }
+ },
+ "glm4_moe": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression u0 > 0 (unhinted: u0 > 0).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (transformers/models/glm4_moe/modeling_glm4_moe.py:32",
+    "repo": "zai-org/GLM-4.5-Air"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression u0 > 0 (unhinted: u0 > 0).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (transformers/models/glm4_moe/modeling_glm4_moe.py:32",
+    "repo": "zai-org/GLM-4.5"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression u0 > 0 (unhinted: u0 > 0).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (transformers/models/glm4_moe/modeling_glm4_moe.py:32",
+    "repo": "zai-org/GLM-4.7"
+   }
+  ]
+ },
+ "gpt2": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 12845056*s27",
+     "flops_trace": "8192*s27**2 + 12845056*s27",
+     "kv_equal": true,
+     "kv_formula": "4096*s27",
+     "kv_trace": "4096*s27",
+     "range": [
+      2,
+      1024
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "openai-community/gpt2",
+   "seconds": 19.1
+  }
+ },
+ "gpt_bigcode": {
+  "errors": [
+   {
+    "error": "AttributeError: 'EncoderDecoderCache' object has no attribute 'layers'",
+    "repo": "bigcode/tiny_starcoder_py"
+   },
+   {
+    "error": "AttributeError: 'EncoderDecoderCache' object has no attribute 'layers'",
+    "repo": "bigcode/gpt_bigcode-santacoder"
+   },
+   {
+    "error": "AttributeError: 'EncoderDecoderCache' object has no attribute 'layers'",
+    "repo": "defog/sqlcoder2"
+   }
+  ]
+ },
+ "gpt_neo": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 12845056*s27",
+     "flops_trace": "8192*s27**2 + 12845056*s27",
+     "kv_equal": true,
+     "kv_formula": "4096*s27",
+     "kv_trace": "4096*s27",
+     "range": [
+      2,
+      2048
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "EleutherAI/gpt-neo-125m",
+   "seconds": 19.9
+  }
+ },
+ "gpt_neox": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 4980736*s27",
+     "flops_trace": "8192*s27**2 + 4980736*s27",
+     "kv_equal": true,
+     "kv_formula": "4096*s27",
+     "kv_trace": "4096*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "16*s27"
+    }
+   ],
+   "repo": "EleutherAI/pythia-160m",
+   "seconds": 14.2
+  }
+ },
+ "gpt_neox_japanese": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "10240*s27**2 + 19988480*s27",
+     "flops_trace": "10240*s27**2 + 19988480*s27",
+     "kv_equal": true,
+     "kv_formula": "5120*s27",
+     "kv_trace": "5120*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "80*s27"
+    }
+   ],
+   "repo": "abeja/gpt-neox-japanese-2.7b",
+   "seconds": 20.5
+  }
+ },
+ "gpt_oss": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "openai/gpt-oss-20b"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "openai/gpt-oss-120b"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "mlx-community/gpt-oss-20b-MXFP4-Q8"
+   }
+  ]
+ },
+ "gptj": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 202375168*s27",
+     "flops_trace": "32768*s27**2 + 202375168*s27",
+     "kv_equal": true,
+     "kv_formula": "16384*s27",
+     "kv_trace": "16384*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "EleutherAI/gpt-j-6b",
+   "seconds": 28.1
+  }
+ },
+ "granite": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 3670016*s27",
+     "flops_trace": "8192*s27**2 + 3670016*s27",
+     "kv_equal": true,
+     "kv_formula": "1024*s27",
+     "kv_trace": "1024*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "64*s27"
+    }
+   ],
+   "repo": "ibm-granite/granite-4.1-3b",
+   "seconds": 20.7
+  }
+ },
+ "granitemoe": {
+  "errors": [
+   {
+    "error": "ValueError: expected one symbol, got {u243, u29, u121, u37, u58, u95, u215, u116, u218, u217, u60, u8, u85, u188, u219, u35, u21, u110, u191, u128, u186, u147, u80, u22, u176, u20, u289, u241, u297, u88, u280, u162, u123, u180, u308, u299, u223, u115, u101, u81, u252, u50, u18, u206, u273, u71, u194",
+    "repo": "ibm-granite/granite-3.1-3b-a800m-instruct"
+   },
+   {
+    "error": "ValueError: expected one symbol, got {u243, u29, u121, u37, u58, u95, u215, u116, u218, u217, u60, u8, u85, u188, u219, u35, u21, u110, u191, u128, u186, u147, u80, u22, u176, u20, u289, u241, u297, u88, u280, u162, u123, u180, u308, u299, u223, u115, u101, u81, u252, u50, u18, u206, u273, u71, u194",
+    "repo": "ibm-research/PowerMoE-3b"
+   },
+   {
+    "error": "ValueError: expected one symbol, got {u243, u29, u121, u37, u58, u95, u215, u116, u218, u217, u60, u8, u85, u188, u219, u35, u21, u110, u191, u128, u186, u147, u80, u22, u176, u20, u241, u88, u162, u123, u180, u223, u115, u101, u81, u252, u50, u18, u206, u71, u194, u242, u43, u214, u9, u44, u86, u98",
+    "repo": "ibm-granite/granite-3.1-1b-a400m-instruct"
+   }
+  ]
+ },
+ "granitemoehybrid": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "ibm-granite/granite-4.0-1b"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "desert-ant-labs/title"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "ibm-granite/granite-4.0-h-tiny"
+   }
+  ]
+ },
+ "helium": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 18874368*s27",
+     "flops_trace": "16384*s27**2 + 18874368*s27",
+     "kv_equal": true,
+     "kv_formula": "8192*s27",
+     "kv_trace": "8192*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "kyutai/helium-1-preview-2b",
+   "seconds": 30.2
+  }
+ },
+ "hunyuan_v1_dense": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "tencent/Hy-MT2-7B"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "tencent/Hy-MT2-1.8B"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "tencent/Hunyuan-7B-Instruct"
+   }
+  ]
+ },
+ "hunyuan_v1_moe": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "tencent/Hunyuan-A13B-Instruct"
+   }
+  ]
+ },
+ "idefics3": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "6144*s27**2 + 3145728*s27",
+     "flops_trace": "6144*s27**2 + 3145728*s27",
+     "kv_equal": true,
+     "kv_formula": "1024*s27",
+     "kv_trace": "1024*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "64*s27"
+    }
+   ],
+   "repo": "ibm-granite/granite-docling-258M",
+   "seconds": 26.5
+  }
+ },
+ "jamba": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u1, 1) (unhinted: Eq(u1, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "ai21labs/AI21-Jamba-Reasoning-3B"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u1, 1) (unhinted: Eq(u1, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "ai21labs/Jamba-v0.1"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u1, 1) (unhinted: Eq(u1, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "microsoft/Dayhoff-3b-GR-HM-c"
+   }
+  ]
+ },
+ "jetmoe": {
+  "errors": [
+   {
+    "error": "ValueError: expected one symbol, got {u37, u121, u29, u61, u58, u62, u36, u95, u55, u113, u116, u60, u34, u82, u8, u30, u75, u10, u46, u85, u35, u21, u40, u110, u26, u80, u22, u127, u20, u12, u87, u88, u123, u115, u102, u101, u81, u49, u50, u18, u125, u69, u71, u45, u43, u118, u24, u51, u74, u65, u9",
+    "repo": "jetmoe/jetmoe-8b"
+   }
+  ]
+ },
+ "lfm2": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "LiquidAI/LFM2.5-230M-Base"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "lmstudio-community/LFM2.5-1.2B-Instruct-MLX-6bit"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "Aratako/MioTTS-2.6B"
+   }
+  ]
+ },
+ "llama": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "dphn/dolphin-2.9.1-yi-1.5-34b",
+   "seconds": 20.0
+  }
+ },
+ "llama4": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 18939904*s27",
+     "flops_trace": "16384*s27**2 + 18939904*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "128*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 18939904*s27",
+     "flops_trace": "16384*s27**2 + 18939904*s27",
+     "kv_equal": true,
+     "kv_formula": "512*s27 + 10752",
+     "kv_trace": "512*s27 + 10752",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "lmstudio-community/Llama-4-Scout-17B-16E-MLX-text-8bit",
+   "seconds": 69.0
+  }
+ },
+ "mamba": {
+  "errors": [
+   {
+    "error": "AttributeError: 'MambaCausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "state-spaces/mamba-130m-hf"
+   },
+   {
+    "error": "AttributeError: 'MambaCausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "state-spaces/mamba-2.8b-hf"
+   },
+   {
+    "error": "AttributeError: 'MambaCausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "state-spaces/mamba-1.4b-hf"
+   }
+  ]
+ },
+ "minimax": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "MiniMaxAI/MiniMax-Text-01-hf"
+   }
+  ]
+ },
+ "ministral": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "128*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "512*s27 + 10752",
+     "kv_trace": "512*s27 + 10752",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "saidutta69/Ministral-8B-Instruct-heretic",
+   "seconds": 44.9
+  }
+ },
+ "mistral": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "mistralai/Mistral-7B-Instruct-v0.2",
+   "seconds": 18.4
+  }
+ },
+ "mistral3": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "RedHatAI/Mistral-Small-3.2-24B-Instruct-2506-NVFP4",
+   "seconds": 20.5
+  }
+ },
+ "mixtral": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "ggml-org/stories15M_MOE"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "MaziyarPanahi/Mixtral-8x22B-v0.1-GGUF"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "mixtao/MixTAO-7Bx2-MoE-v8.1"
+   }
+  ]
+ },
+ "moshi": {
+  "errors": [
+   {
+    "error": "TypeError: expected Tensor as element 0 in argument 0, but got NoneType",
+    "repo": "kmhf/hf-moshika"
+   }
+  ]
+ },
+ "mpt": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "640*s27**2 + 155648*s27",
+     "flops_trace": "640*s27**2 + 155648*s27",
+     "kv_equal": true,
+     "kv_formula": "320*s27",
+     "kv_trace": "320*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "explosion-testing/mpt-test",
+   "seconds": 11.5
+  }
+ },
+ "nemotron": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "12288*s27**2 + 4980736*s27",
+     "flops_trace": "12288*s27**2 + 4980736*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "64*s27"
+    }
+   ],
+   "repo": "nvidia/Nemotron-Mini-4B-Instruct",
+   "seconds": 21.7
+  }
+ },
+ "olmo": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 18874368*s27",
+     "flops_trace": "16384*s27**2 + 18874368*s27",
+     "kv_equal": true,
+     "kv_formula": "8192*s27",
+     "kv_trace": "8192*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "allenai/OLMo-1B-hf",
+   "seconds": 20.2
+  }
+ },
+ "olmo2": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 18874368*s27",
+     "flops_trace": "16384*s27**2 + 18874368*s27",
+     "kv_equal": true,
+     "kv_formula": "8192*s27",
+     "kv_trace": "8192*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "allenai/OLMo-2-0425-1B",
+   "seconds": 23.8
+  }
+ },
+ "olmo3": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 18874368*s27",
+     "flops_trace": "16384*s27**2 + 18874368*s27",
+     "kv_equal": true,
+     "kv_formula": "8192*s27",
+     "kv_trace": "8192*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "256*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 18874368*s27",
+     "flops_trace": "16384*s27**2 + 18874368*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27 + 43008",
+     "kv_trace": "2048*s27 + 43008",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "256*s27"
+    }
+   ],
+   "repo": "allenai/Olmo-3-7B-Instruct",
+   "seconds": 45.6
+  }
+ },
+ "olmoe": {
+  "errors": [
+   {
+    "error": "ValueError: expected one symbol, got {u510, u37, u121, u329, u502, u381, u60, u410, u390, u219, u35, u21, u110, u191, u334, u445, u147, u441, u22, u320, u400, u453, u377, u440, u88, u162, u123, u180, u299, u223, u115, u451, u411, u81, u273, u206, u71, u194, u328, u43, u214, u288, u9, u44, u347, u96,",
+    "repo": "allenai/OLMoE-1B-7B-0924"
+   }
+  ]
+ },
+ "openai-gpt": {
+  "errors": [
+   {
+    "error": "AttributeError: 'CausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "openai-community/openai-gpt"
+   }
+  ]
+ },
+ "opt": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 6815744*s27",
+     "flops_trace": "8192*s27**2 + 6815744*s27",
+     "kv_equal": true,
+     "kv_formula": "4096*s27",
+     "kv_trace": "4096*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "facebook/opt-125m",
+   "seconds": 19.5
+  }
+ },
+ "persimmon": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 4980736*s27",
+     "flops_trace": "8192*s27**2 + 4980736*s27",
+     "kv_equal": true,
+     "kv_formula": "4096*s27",
+     "kv_trace": "4096*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "32*s27"
+    }
+   ],
+   "repo": "adept/persimmon-8b-base",
+   "seconds": 14.5
+  }
+ },
+ "phi": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "10240*s27**2 + 7536640*s27",
+     "flops_trace": "10240*s27**2 + 7536640*s27",
+     "kv_equal": true,
+     "kv_formula": "5120*s27",
+     "kv_trace": "5120*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "32*s27"
+    }
+   ],
+   "repo": "microsoft/phi-2",
+   "seconds": 14.1
+  }
+ },
+ "phi3": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "microsoft/Phi-3.5-mini-instruct"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "microsoft/Phi-4-mini-instruct"
+   }
+  ],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "12288*s27**2 + 11010048*s27",
+     "flops_trace": "12288*s27**2 + 11010048*s27",
+     "kv_equal": true,
+     "kv_formula": "6144*s27",
+     "kv_trace": "6144*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "96*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "12288*s27**2 + 11010048*s27",
+     "flops_trace": "12288*s27**2 + 11010048*s27",
+     "kv_equal": true,
+     "kv_formula": "43008",
+     "kv_trace": "43008",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "96*s27"
+    }
+   ],
+   "repo": "microsoft/Phi-3-mini-4k-instruct",
+   "seconds": 29.1
+  }
+ },
+ "phimoe": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u1, 0) (unhinted: Eq(u1, 0)).  (Size-like symbols: u1)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (transformers/models/phimoe/modeling_phimoe.py:",
+    "repo": "microsoft/Phi-tiny-MoE-instruct"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "microsoft/Phi-3.5-MoE-instruct"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u1, 0) (unhinted: Eq(u1, 0)).  (Size-like symbols: u1)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (transformers/models/phimoe/modeling_phimoe.py:",
+    "repo": "microsoft/Phi-mini-MoE-instruct"
+   }
+  ]
+ },
+ "qwen2": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 12582912*s27",
+     "flops_trace": "16384*s27**2 + 12582912*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "Qwen/Qwen2.5-7B-Instruct",
+   "seconds": 22.7
+  }
+ },
+ "qwen2_5_vl": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 12582912*s27",
+     "flops_trace": "16384*s27**2 + 12582912*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "384*s27"
+    }
+   ],
+   "repo": "nvidia/Qwen2.5-VL-7B-Instruct-NVFP4",
+   "seconds": 21.8
+  }
+ },
+ "qwen2_moe": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "Qwen/Qwen1.5-MoE-A2.7B"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "Qwen/Qwen1.5-MoE-A2.7B-Chat"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "Qwen/Qwen2-57B-A14B-Instruct"
+   }
+  ]
+ },
+ "qwen3": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 7340032*s27",
+     "flops_trace": "16384*s27**2 + 7340032*s27",
+     "kv_equal": true,
+     "kv_formula": "4096*s27",
+     "kv_trace": "4096*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "Qwen/Qwen3-0.6B",
+   "seconds": 19.3
+  }
+ },
+ "qwen3_moe": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "Qwen/Qwen3-30B-A3B"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 0) (unhinted: Eq(u0, 0)).  (Size-like symbols: u0)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_refs/__init__.py:4188 in unbind)\nFor more inf",
+    "repo": "Qwen/Qwen3-235B-A22B"
+   }
+  ]
+ },
+ "qwen3_next": {
+  "errors": [
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "Qwen/Qwen3-Coder-Next"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "Qwen/Qwen3-Next-80B-A3B-Instruct"
+   },
+   {
+    "error": "GuardOnDataDependentSymNode: Could not guard on data-dependent expression Eq(u0, 1) (unhinted: Eq(u0, 1)).  (Size-like symbols: none)\n\nconsider using data-dependent friendly APIs such as guard_or_false, guard_or_true and statically_known_true.\nCaused by: (_export/non_strict_utils.py:1139 in __torch_",
+    "repo": "lmstudio-community/Qwen3-Next-80B-A3B-Instruct-MLX-6bit"
+   }
+  ]
+ },
+ "qwen3_vl": {
+  "errors": [
+   {
+    "error": "AttributeError: 'NoneType' object has no attribute 'get'",
+    "repo": "DreamFast/Qwen3-VL-8B-Heretic-1.3.0"
+   }
+  ],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "384*s27"
+    }
+   ],
+   "repo": "RedHatAI/Qwen3-VL-32B-Instruct-NVFP4",
+   "seconds": 25.4
+  }
+ },
+ "qwen3_vl_moe": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 106692608*s27",
+     "flops_trace": "16384*s27**2 + 106692608*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "384*s27"
+    }
+   ],
+   "repo": "QuantTrio/Qwen3-VL-30B-A3B-Instruct-AWQ",
+   "seconds": 21.7
+  }
+ },
+ "recurrent_gemma": {
+  "errors": [
+   {
+    "error": "AttributeError: 'CausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "google/recurrentgemma-2b-it"
+   },
+   {
+    "error": "AttributeError: 'CausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "google/recurrentgemma-2b"
+   }
+  ]
+ },
+ "rwkv": {
+  "errors": [
+   {
+    "error": "AttributeError: 'RwkvCausalLMOutput' object has no attribute 'past_key_values'",
+    "repo": "RWKV/rwkv-4-169m-pile"
+   }
+  ]
+ },
+ "seed_oss": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 6291456*s27",
+     "flops_trace": "16384*s27**2 + 6291456*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "ByteDance-Seed/Seed-OSS-36B-Instruct",
+   "seconds": 17.1
+  }
+ },
+ "smollm3": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 12582912*s27",
+     "flops_trace": "16384*s27**2 + 12582912*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "HuggingFaceTB/SmolLM3-3B",
+   "seconds": 13.9
+  }
+ },
+ "stablelm": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "10240*s27**2 + 7864320*s27",
+     "flops_trace": "10240*s27**2 + 7864320*s27",
+     "kv_equal": true,
+     "kv_formula": "5120*s27",
+     "kv_trace": "5120*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "20*s27"
+    }
+   ],
+   "repo": "stabilityai/stablelm-zephyr-3b",
+   "seconds": 23.4
+  }
+ },
+ "starcoder2": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 12058624*s27",
+     "flops_trace": "16384*s27**2 + 12058624*s27",
+     "kv_equal": true,
+     "kv_formula": "2048*s27",
+     "kv_trace": "2048*s27",
+     "range": [
+      2,
+      6
+     ],
+     "rope": "128*s27"
+    },
+    {
+     "flops_equal": true,
+     "flops_formula": "16384*s27**2 + 12058624*s27",
+     "flops_trace": "16384*s27**2 + 12058624*s27",
+     "kv_equal": true,
+     "kv_formula": "14336",
+     "kv_trace": "14336",
+     "range": [
+      7,
+      null
+     ],
+     "rope": "128*s27"
+    }
+   ],
+   "repo": "bigcode/starcoder2-3b",
+   "seconds": 26.8
+  }
+ },
+ "vaultgemma": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "32768*s27**2 + 17825792*s27",
+     "flops_trace": "32768*s27**2 + 17825792*s27",
+     "kv_equal": true,
+     "kv_formula": "16384*s27",
+     "kv_trace": "16384*s27",
+     "range": [
+      2,
+      null
+     ],
+     "rope": "256*s27"
+    }
+   ],
+   "repo": "google/vaultgemma-1b",
+   "seconds": 12.8
+  }
+ },
+ "xglm": {
+  "errors": [],
+  "proof": {
+   "flops_equal": true,
+   "kv_equal": true,
+   "regimes": [
+    {
+     "flops_equal": true,
+     "flops_formula": "8192*s27**2 + 5505024*s27",
+     "flops_trace": "8192*s27**2 + 5505024*s27",
+     "kv_equal": true,
+     "kv_formula": "4096*s27",
+     "kv_trace": "4096*s27",
+     "range": [
+      2,
+      2048
+     ],
+     "rope": "0"
+    }
+   ],
+   "repo": "facebook/xglm-564M",
+   "seconds": 9.8
+  }
+ },
+ "zamba": {
+  "errors": [
+   {
+    "error": "AttributeError: 'NoneType' object has no attribute 'layers'",
+    "repo": "Zyphra/Zamba-7B-v1"
+   }
+  ]
+ },
+ "zamba2": {
+  "errors": [
+   {
+    "error": "AttributeError: 'Zamba2HybridDynamicCache' object has no attribute 'layers'",
+    "repo": "Zyphra/Zamba2-7B-Instruct"
+   },
+   {
+    "error": "AttributeError: 'Zamba2HybridDynamicCache' object has no attribute 'layers'",
+    "repo": "Zyphra/Zamba2-1.2B-instruct"
+   },
+   {
+    "error": "AttributeError: 'Zamba2HybridDynamicCache' object has no attribute 'layers'",
+    "repo": "Zyphra/Zamba2-2.7B"
+   }
+  ]
+ }
+}

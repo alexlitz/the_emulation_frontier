@@ -1,0 +1,10 @@
+A token split MHA<-MQA, k=n=4, 1 layer(s), no norm             torch.float32  max|d| = 4.768e-07  max_abs_value=3.40e+00
+A token split MHA<-MQA, k=n=4, 2 layer(s), no norm             torch.float32  max|d| = 1.017e+00  max_abs_value=4.97e+00
+A token split MHA<-MQA, k=n=4, 1 layer(s), RMS pre-norm        torch.float32  max|d| = 4.768e-07  max_abs_value=3.67e+00
+A token split MHA<-MQA, k=n=4, 2 layer(s), RMS pre-norm        torch.float32  max|d| = 9.765e-01  max_abs_value=4.30e+00
+A token split MHA<-MQA, k=n=4, 1 layer(s), no norm             torch.float64  max|d| = 8.882e-16  max_abs_value=3.73e+00
+A token split MHA<-MQA, k=n=4, 2 layer(s), no norm             torch.float64  max|d| = 2.160e+00  max_abs_value=5.24e+00
+A token split MHA<-MQA, k=n=4, 1 layer(s), RMS pre-norm        torch.float64  max|d| = 8.882e-16  max_abs_value=4.01e+00
+A token split MHA<-MQA, k=n=4, 2 layer(s), RMS pre-norm        torch.float64  max|d| = 1.513e+00  max_abs_value=4.01e+00
+B bias head: output - o_bias                                   torch.float32  max|d| = 7.451e-09  weight_off_start=0.00e+00  prenorm_drift=2.38e-07
+C KV-head packing GQA(2 KV) <- 1 KV head of 2x head_dim, RoPE  torch.float64  max|d| = 4.441e-16

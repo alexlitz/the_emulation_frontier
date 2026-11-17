@@ -1,0 +1,29 @@
+{
+ "setup": {
+  "d": 16,
+  "E": 4,
+  "ew": 8,
+  "eps_t": 1e-05,
+  "B": 3.0,
+  "dr": 0.05,
+  "dc": 0.003,
+  "n_strong": 10000,
+  "n_top_only": 3000,
+  "dtype": "float64"
+ },
+ "exact_strong_margin": {
+  "max_abs_err": 5.329070518200751e-15,
+  "max_rel_err_of_update": 1.1560513100671574e-14,
+  "max_extra_channel_err": 1.734723475976807e-18
+ },
+ "naive_carry_strong_margin": {
+  "max_abs_err": 12.705281949597879,
+  "max_rel_err_of_update": 0.999186201279269,
+  "max_extra_channel_err": 0.0
+ },
+ "exact_top_only_margin": {
+  "max_abs_err": 0.0037056878533441306,
+  "max_rel_err_of_update": 0.0015902795542652249,
+  "max_extra_channel_err": 3.5690285072730726e-06
+ }
+}

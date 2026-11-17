@@ -1,0 +1,226 @@
+{"id": "5db0e79ad738", "label": "IRRELEVANT", "slot": "", "reason": "QuickGELU x*sigmoid(1.702x) is built only for the vision tower (image_mlp_activations='quick_gelu'); the text decoder uses activation_type swiglu"}
+{"id": "8785e1235df6", "label": "IRRELEVANT", "slot": "", "reason": "Residual wrapper used only in the image projector (OLMoVisionBackbone, L1279), not in the text decoder"}
+{"id": "85c92473970b", "label": "IRRELEVANT", "slot": "", "reason": "Residual x + f(x) used only in the image projector MLP, not in the text decoder"}
+{"id": "8b1f92459409", "label": "IRRELEVANT", "slot": "", "reason": "rotary cache warm-up in __init__; no math"}
+{"id": "31c7e4997f7c", "label": "MAPPED", "slot": "pos=rope", "reason": "standard RoPE application; MolmoForCausalLM fixes rope_impl='llama' (rotate_half), and interleave would be a q/k channel permutation that folds into W_q/W_k"}
+{"id": "3607bb65eb2e", "label": "MAPPED", "slot": "pos=rope", "reason": "full-dim RoPE on q and k at position_ids (or key_len - query_len offset for cached queries); fp32 upcast is fp32 evaluation"}
+{"id": "8718a4f462e1", "label": "MAPPED", "slot": "pos=rope", "reason": "inv_freq = theta^(-2i/head_dim) with head_dim = d_model/n_heads, cat(freqs,freqs): default full RoPE table read from rope_theta"}
+{"id": "c0eeda920ee5", "label": "MAPPED", "slot": "pos=rope", "reason": "interleaved rotation (GPT-J style) is unused by MolmoForCausalLM (rope_impl='llama'), and in any case is a fixed permutation of q/k channels, an exact fold into W_q/W_k"}
+{"id": "133a7d507e28", "label": "MAPPED", "slot": "pos=rope", "reason": "standard rotate_half (NeoX) split; same math as Llama rotate_half"}
+{"id": "6a879ff634a4", "label": "MAPPED", "slot": "kv / feats:bias_qkv / dims_of:head_dim", "reason": "stock Llama attention init: head_dim (config or hidden/heads), GQA groups, scaling head_dim^-0.5, attention_bias on q/k/v/o; classifier reads num_key_value_heads, head_dim, attention_bias (bias_qkv / O_BIAS_FROM_ATTN_BIAS)"}
+{"id": "d6a6eacd7aa6", "label": "MAPPED", "slot": "pos=rope (static YaRN table + mscale fold)", "reason": "Yarn-Llama-2-7b-128k: rope_scaling type 'yarn' (not dynamic, finetuned) builds a static YaRN inv_freq with cos/sin * mscale (0.1 ln 32 + 1) on q and k, an exact fold into W_q; base hard-coded 10000 equals the config's default theta; norm_factor = sqrt(head_dim) is the standard softmax scale"}
+{"id": "66a42e1b1e7e", "label": "IRRELEVANT", "slot": "", "reason": "keyword-argument reorder in _init_rope; same math, refactor"}
+{"id": "01fa8377137c", "label": "MAPPED", "slot": "pos=rope / kv", "reason": "stock Llama attention forward (q/k/v proj, RoPE, cache, attention interface with scaling, o_proj); every piece is the base point of the relation"}
+{"id": "05268ad09333", "label": "IRRELEVANT", "slot": "", "reason": "signature (is_padded_inputs) and packed KV-cache bookkeeping (past_len); cache plumbing"}
+{"id": "07835dd8589e", "label": "MAPPED", "slot": "pos=rope (static YaRN) / kv=MHA", "reason": "flash-attn kvpacked rewrite of the same attention: RoPE via FlashYaRNRotaryEmbedding at offset past_len, causal softmax with softmax_scale 1/sqrt(head_dim), o_proj; varlen path only drops padding; same math as eager Llama with the YaRN table (mscale folds into W_q)"}
+{"id": "f7bd30694622", "label": "IRRELEVANT", "slot": "", "reason": "BitCPM LinearQuantizer: weight-only ternary fake-quantisation (STE, per-row absmean scale) of the q/k/v/o weights; a fixed function of the weights, so the node is the dequantized Llama architecture (weight-only quant convention, litreview B8)"}
+{"id": "1c653e5a15a8", "label": "IRRELEVANT", "slot": "", "reason": "H2OVL composite config: builds vision_config / llm_config sub-configs, logging, to_dict; the LM is the nested llm_config the classifier already unwraps"}
+{"id": "1fab3c2e9e1b", "label": "IRRELEVANT", "slot": "", "reason": "is_composition config flag; serialization only"}
+{"id": "255799d73518", "label": "IRRELEVANT", "slot": "", "reason": "HyperCLOVAXConfig drops rope_config_validation; validation only"}
+{"id": "aa05816dda84", "label": "IRRELEVANT", "slot": "", "reason": "HyperCLOVAXConfig default attention_multiplier=1.0 is unused by the carrying model (HyperCLOVAX-SEED-Omni-8B text_config is model_type llama, built as stock LlamaForCausalLM; modeling_vlm.py L383-397); where used it is a softmax-scale fold into W_q"}
+{"id": "152f1f42da31", "label": "IRRELEVANT", "slot": "", "reason": "HyperCLOVAXConfig default embedding_multiplier=1.0 unused by the carrying model (text_config model_type llama, stock Llama); a muP fold where used"}
+{"id": "8406a816e900", "label": "IRRELEVANT", "slot": "", "reason": "HyperCLOVAXConfig default residual_multiplier=1.0 unused by the carrying model (text_config model_type llama, stock Llama); a fold into o_proj/down_proj where used"}
+{"id": "ba7a0361ff4d", "label": "IRRELEVANT", "slot": "", "reason": "HyperCLOVAXConfig default use_post_norm=false; unused by the carrying model (text_config model_type llama) and false is the stock behaviour anyway"}
+{"id": "1c0b3f86ed00", "label": "IRRELEVANT", "slot": "", "reason": "Idefics3 composite config drops the perceiver sub-config; the text_config is unwrapped by the classifier; no LM math"}
+{"id": "231a9dcb55bb", "label": "MAPPED", "slot": "dims_of:head_dim / kv", "reason": "head_dim None -> hidden/heads, num_key_value_heads None -> num_attention_heads; dims_of uses the same fallbacks (L2921-2925)"}
+{"id": "95fc980357f2", "label": "IRRELEVANT", "slot": "", "reason": "error-message wording in rope_scaling validation"}
+{"id": "9a9db79e12d8", "label": "IRRELEVANT", "slot": "", "reason": "flash-attn import check and relaxed rope_scaling validation (allows yarn keys); validation only"}
+{"id": "11acd042bd02", "label": "MAPPED", "slot": "feats:bias_qkv", "reason": "attention_bias default false; classifier's class default for llama (4.57 LlamaConfig) is also False"}
+{"id": "a54a227e4bb3", "label": "MAPPED", "slot": "dims_of:head_dim", "reason": "head_dim default null -> hidden/heads; dims_of falls back to hidden // n_heads when head_dim is absent"}
+{"id": "a501f52b01af", "label": "MAPPED", "slot": "act=SiLU", "reason": "hidden_act default silu; raw_act falls back to the 4.57 LlamaConfig default 'silu'"}
+{"id": "f025acfdc22b", "label": "MAPPED", "slot": "dims_of:hidden", "reason": "hidden_size default 4096; the 94 llama configs without it are GGUF stub configs (e.g. TheBloke/Llama-2-7B-Chat-GGUF) whose real dims are not the class default either; dims_of reads the saved key"}
+{"id": "bfbbc1e68300", "label": "MAPPED", "slot": "dims_of:intermediate", "reason": "intermediate_size default 11008; configs omitting it are GGUF stubs (same 94); dims_of reads the saved key"}
+{"id": "fac2af882cfe", "label": "MAPPED", "slot": "feats:bias_out", "reason": "mlp_bias default false; classifier's class default for llama is False"}
+{"id": "96e54c84af23", "label": "MAPPED", "slot": "dims_of:qheads", "reason": "num_attention_heads default 32; configs omitting it are the GGUF stubs; dims_of reads the saved key"}
+{"id": "28defebc92c7", "label": "MAPPED", "slot": "dims_of:layers", "reason": "num_hidden_layers default 32; configs omitting it are the GGUF stubs; dims_of reads the saved key"}
+{"id": "32917d662e61", "label": "MAPPED", "slot": "kv / dims_of:kv_cap", "reason": "num_key_value_heads null -> num_attention_heads (MHA); dims_of falls back to n_heads, classify kv block likewise"}
+{"id": "7cf18c874031", "label": "MAPPED", "slot": "norm=RMSNorm (eps)", "reason": "rms_norm_eps default 1e-6; classifier's class default for llama is 1e-06"}
+{"id": "0e23fc901e55", "label": "MAPPED", "slot": "pos=rope", "reason": "rope_parameters null -> default rope with theta 10000; classifier's 4.57 class default rope_theta 10000, rope_scaling None"}
+{"id": "f6e7f9afdfdb", "label": "MAPPED", "slot": "feats:tied_emb", "reason": "tie_word_embeddings default false; classifier's llama class default False"}
+{"id": "5de33dd4b7d5", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia2Config logic for the video/audio compressor of HyperCLOVAX-SEED-Omni (time_step_rank auto); not the text decoder"}
+{"id": "d438384b03a0", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "297ee6cb711d", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "db86af71c337", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder (text_config carries rms_norm_eps)"}
+{"id": "26bacff7ceb3", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "1b089f6ba374", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "647473360347", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "b312a63e7967", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "115ff0fb379d", "label": "IRRELEVANT", "slot": "", "reason": "init-only flag (rescale_prenorm_residual) of the MambaMia compressor"}
+{"id": "e76156362b04", "label": "IRRELEVANT", "slot": "", "reason": "dtype plumbing (residual_in_fp32) of the MambaMia compressor; fp32 evaluation"}
+{"id": "3b647e5f93d4", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "6816161084b5", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "af94dce30ee7", "label": "IRRELEVANT", "slot": "", "reason": "init-only (dt init floor) of the MambaMia compressor"}
+{"id": "157b63d754e8", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "077e8c3e48a4", "label": "IRRELEVANT", "slot": "", "reason": "init-only (dt init max) of the MambaMia compressor"}
+{"id": "7fe81f18adfa", "label": "IRRELEVANT", "slot": "", "reason": "init-only (dt init min) of the MambaMia compressor"}
+{"id": "bdeb6aee56ed", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "f152c2f767bf", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "a57b3d656a49", "label": "IRRELEVANT", "slot": "", "reason": "MambaMia video/audio compressor config default; not the text decoder"}
+{"id": "b389c87fa6e4", "label": "IRRELEVANT", "slot": "", "reason": "audio encoder config default (HyperCLOVAX-SEED-Omni audio tokenizer); not the text decoder"}
+{"id": "03e2660a092a", "label": "IRRELEVANT", "slot": "", "reason": "audio encoder config default; not the text decoder"}
+{"id": "f8e2b8851e17", "label": "IRRELEVANT", "slot": "", "reason": "audio encoder config default; not the text decoder"}
+{"id": "9f6b9b30bb62", "label": "IRRELEVANT", "slot": "", "reason": "audio encoder config default; not the text decoder"}
+{"id": "0be05fc79266", "label": "IRRELEVANT", "slot": "", "reason": "audio tokenizer codebook size; not the text decoder"}
+{"id": "78344658cec6", "label": "IRRELEVANT", "slot": "", "reason": "audio front-end mel bins; not the text decoder"}
+{"id": "341aa3c628e3", "label": "IRRELEVANT", "slot": "", "reason": "NovoMolGenConfig: auto_map and from_pretrained checkpoint loading; the model is flash_attn GPTLMHeadModel built by llama_config_to_gpt2_config (same Llama math)"}
+{"id": "7de6d1bb989c", "label": "IRRELEVANT", "slot": "", "reason": "Ovis composite config: builds llm_config / visual_tokenizer_config sub-configs; no LM math"}
+{"id": "49324e1d333f", "label": "MAPPED", "slot": "norm=RMSNorm / block=sequential", "reason": "stock Llama decoder layer: two RMSNorms with rms_norm_eps around attention and MLP"}
+{"id": "8c4445f9491f", "label": "MAPPED", "slot": "block=sequential", "reason": "stock pre-norm sequential residual block (x + attn(norm x); x + mlp(norm x))"}
+{"id": "9b84d41b3fdc", "label": "IRRELEVANT", "slot": "", "reason": "passes is_padded_inputs through to attention; plumbing"}
+{"id": "d61ea3608e64", "label": "MAPPED", "slot": "pos=rope (static YaRN mscale fold)", "reason": "YaRN mscale 0.1 ln(s) + 1 multiplies cos/sin; constant per model (static yarn), folds into W_q"}
+{"id": "e2903b3b0289", "label": "IRRELEVANT", "slot": "", "reason": "anyres image-feature post-processing of the vision path; not the text decoder"}
+{"id": "b10d5e4cbbbc", "label": "MAPPED", "slot": "pos=rope", "reason": "stock NeoX-style apply_rotary_pos_emb on q and k"}
+{"id": "cbd06d1bef3b", "label": "MAPPED", "slot": "kv / mixer=softmax", "reason": "stock eager attention: repeat_kv for GQA, q k^T * scaling, additive mask, softmax, @ v"}
+{"id": "f7ed784e5cfd", "label": "IRRELEVANT", "slot": "", "reason": "BitCPM quantizer factory for weight-only STE fake-quantisation; dequantized-architecture convention (weight-only quant)"}
+{"id": "c4144ce19ed9", "label": "IRRELEVANT", "slot": "", "reason": "distributed rank helper; logging/loss only"}
+{"id": "5c748e8730c1", "label": "MAPPED", "slot": "kv=GQA", "reason": "stock repeat_kv tiling of KV heads"}
+{"id": "6c6c34f69a64", "label": "MAPPED", "slot": "kv", "reason": "repeat_kv on the packed (b, s, 2, h_kv, d) KV layout; same GQA tiling, layout refactor"}
+{"id": "b793633c271a", "label": "MAPPED", "slot": "norm=RMSNorm", "reason": "standard RMSNorm (fp32, x * rsqrt(mean x^2 + eps) * weight), same math as LlamaRMSNorm"}
+{"id": "7c27ba6c56d2", "label": "MAPPED", "slot": "pos=rope", "reason": "stock rotate_half"}
+{"id": "3b0adaad6369", "label": "IRRELEVANT", "slot": "", "reason": "image processor resolution selection; not the text decoder"}
+{"id": "a23b79019e3b", "label": "MAPPED", "slot": "feats:tied_emb", "reason": "stock CausalLM head: bias-free lm_head Linear(hidden, vocab), tied per tie_word_embeddings"}
+{"id": "16bd001d4f4f", "label": "IRRELEVANT", "slot": "", "reason": "HCX-Vision-3B wrapper init: vision tower, projector, AutoModelForCausalLM.from_config(text_config) (stock llama), lm_head re-created at padded vocab and re-tied by tie_weights -> language_model.tie_weights; text math is stock Llama"}
+{"id": "58648d412ca2", "label": "IRRELEVANT", "slot": "", "reason": "HCX-Omni wrapper init; builds the multimodal model holding the stock Llama text model"}
+{"id": "ea7b67bda1ae", "label": "IRRELEVANT", "slot": "", "reason": "anyres grid resolutions for the vision path"}
+{"id": "1a9eabd5d361", "label": "IRRELEVANT", "slot": "", "reason": "loss reduction selection; training only"}
+{"id": "e2aecf5ee19e", "label": "IRRELEVANT", "slot": "", "reason": "builds the text config from the wrapper; forces logits_scaling=1.0 for non-hyperclovax text models (the carrying model's text_config is llama, so the multiply is by 1)"}
+{"id": "e91595c7aa05", "label": "IRRELEVANT", "slot": "", "reason": "scatter of image/video features into input embeddings; multimodal input path, text-only forward unchanged"}
+{"id": "00e245b663da", "label": "IRRELEVANT", "slot": "", "reason": "wrapper forward; logits * text_config.logits_scaling (1.0 for the carrying model, a scalar fold into lm_head in general); otherwise plumbing"}
+{"id": "d799b2f8d953", "label": "IRRELEVANT", "slot": "", "reason": "wrapper forward: text-only path is embeddings -> stock Llama base_model -> hidden * logits_scaling (forced 1.0 for llama text, a final-norm fold in general) -> lm_head; loss code"}
+{"id": "36f03a876898", "label": "IRRELEVANT", "slot": "", "reason": "classmethod constructor; plumbing"}
+{"id": "a29204337619", "label": "IRRELEVANT", "slot": "", "reason": "text_config property; plumbing"}
+{"id": "07be812acab6", "label": "IRRELEVANT", "slot": "", "reason": "kwargs (return_dict) passthrough in Idefics3 forward; API drift"}
+{"id": "873e78a43e7a", "label": "IRRELEVANT", "slot": "", "reason": "FSDP sharding plan; no math"}
+{"id": "5c4cab2bb1cd", "label": "IRRELEVANT", "slot": "", "reason": "computes is_padded_inputs from the attention mask and passes it down (selects varlen flash path); same math"}
+{"id": "765bcb7a01ca", "label": "MAPPED", "slot": "feats:tied_emb", "reason": "stock CausalLM forward: lm_head on the final hidden states (logits_to_keep slicing), loss"}
+{"id": "1cc126e4560b", "label": "IRRELEVANT", "slot": "", "reason": "BitCPM MLP with LinearQuantizer: weight-only ternary STE fake-quantisation; dequantized-architecture convention"}
+{"id": "85b3e8c6c371", "label": "MAPPED", "slot": "ffn=glu / feats:bias_out / dims_of:intermediate", "reason": "stock gated MLP init (gate/up/down, mlp_bias, ACT2FN[hidden_act])"}
+{"id": "5d6241eaeab1", "label": "MAPPED", "slot": "ffn=glu / act", "reason": "down(act(gate x) * up x), the base GLU point"}
+{"id": "ee6a80a1c28f", "label": "IRRELEVANT", "slot": "", "reason": "H2OVL wrapper init: InternViT vision model, mlp1 projector, AutoModelForCausalLM.from_config(llm_config); the LM is the stock nested llm_config"}
+{"id": "b74375be94a9", "label": "IRRELEVANT", "slot": "", "reason": "LoRA wrapping for training"}
+{"id": "4025e7f8de30", "label": "IRRELEVANT", "slot": "", "reason": "Idefics3 image_seq_len from vision config; multimodal input path only"}
+{"id": "461388338c6d", "label": "IRRELEVANT", "slot": "", "reason": "use_cache / gradient-checkpointing guard and docstring in Idefics3Model.forward; plumbing"}
+{"id": "8d4d267f8c55", "label": "IRRELEVANT", "slot": "", "reason": "device move of input embeddings; plumbing"}
+{"id": "65d339ad9174", "label": "MAPPED", "slot": "norm=RMSNorm / pos=rope / dims_of:layers", "reason": "stock LlamaModel: embedding, num_hidden_layers decoder layers, final RMSNorm, rotary embedding"}
+{"id": "3d1bd9770f09", "label": "IRRELEVANT", "slot": "", "reason": "padding mask rewritten as causal.eq(0) & attn.eq(0) instead of (causal + attn) == 0; same mask, refactor"}
+{"id": "138817e620ea", "label": "IRRELEVANT", "slot": "", "reason": "gradient checkpointing wrapper and is_padded_inputs passthrough; plumbing"}
+{"id": "9834cbd28b38", "label": "IRRELEVANT", "slot": "", "reason": "Yarn-Llama drops position_ids and the 4D mask: positions come from the cache offset past_len (arange, same as default) and causality from flash-attn causal=True; same math for unpadded inputs (mask / position API drift)"}
+{"id": "c96029d84894", "label": "MAPPED", "slot": "pos=rope / gen=ar", "reason": "stock LlamaModel.forward: embeddings, arange positions + cache offset, causal mask, rotary, layers, final norm"}
+{"id": "e63c0530b82b", "label": "IRRELEVANT", "slot": "", "reason": "error-message wording and shape unpacking; seq_length_with_past bookkeeping"}
+{"id": "c67f1be7e477", "label": "IRRELEVANT", "slot": "", "reason": "eps stored as a buffer instead of a float; same value"}
+{"id": "e33cba8fdb53", "label": "MAPPED", "slot": "norm=RMSNorm", "reason": "stock RMSNorm init (weight ones, eps)"}
+{"id": "430c46af6ee3", "label": "MAPPED", "slot": "norm=RMSNorm", "reason": "stock RMSNorm forward (fp32, rsqrt(mean x^2 + eps), * weight)"}
+{"id": "b0af4703638d", "label": "MAPPED", "slot": "norm=RMSNorm", "reason": "calls rmsnorm_func: same RMSNorm math (weight * normalised x)"}
+{"id": "2c8f2ddfd414", "label": "IRRELEVANT", "slot": "", "reason": "BitCPM LinearQuantizer init: weight-only fake-quantised Linear; dequantized-architecture convention"}
+{"id": "6d5216e347da", "label": "IRRELEVANT", "slot": "", "reason": "BitCPM LinearQuantizer forward: x @ Q(W)^T + b with Q a fixed function of the stored weight (weight-only quant); dequantized-architecture convention"}
+{"id": "92f05cb6e62a", "label": "IRRELEVANT", "slot": "", "reason": "NoQuantizer identity"}
+{"id": "b530f0958b19", "label": "IRRELEVANT", "slot": "", "reason": "NovoMolGen = flash_attn GPTLMHeadModel built from llama_config_to_gpt2_config (RMSNorm, SwiGLU, NeoX rotary, untied); same Llama math, residual_in_fp32 is fp32 evaluation"}
+{"id": "29da3a81b30d", "label": "IRRELEVANT", "slot": "", "reason": "NovoMolGen forward: transformer -> lm_head; output_scale (mup_width_scale, absent = 1.0) and norm_head (absent = False) are off for the llama-converted config, and both would be weight/scalar folds; loss"}
+{"id": "7f8c1f87f95e", "label": "IRRELEVANT", "slot": "", "reason": "loss function selection; training only"}
+{"id": "5ed9d163b003", "label": "IRRELEVANT", "slot": "", "reason": "Ovis wrapper init: llm via AutoModelForCausalLM.from_config(llm_config) (stock), visual tokenizer, visual embedding table; LM math unchanged"}
+{"id": "d9fbbd248d9b", "label": "IRRELEVANT", "slot": "", "reason": "Ovis training forward: merge multimodal embeddings then call the stock llm"}
+{"id": "563764812bd9", "label": "IRRELEVANT", "slot": "", "reason": "padding/truncation of multimodal sequences; input preparation"}
+{"id": "f9fd18c6a00e", "label": "IRRELEVANT", "slot": "", "reason": "BitCPM int-sym quantizer init; weight-only quant"}
+{"id": "44885abb309e", "label": "IRRELEVANT", "slot": "", "reason": "BitCPM int-sym STE weight quantizer (unused: layers use quant_type='ternary'); weight-only quant"}
+{"id": "0c30c2e57024", "label": "IRRELEVANT", "slot": "", "reason": "BitCPM ternary quantizer init; weight-only quant"}
+{"id": "b7c87bea062a", "label": "IRRELEVANT", "slot": "", "reason": "BitCPM ternary STE weight quantizer (per-row absmean scale, round-clamp to {-1,0,1}); applied to weights only, so a fixed weight transform; dequantized-architecture convention"}
+{"id": "b413ecebbc2b", "label": "MAPPED", "slot": "pos=rope", "reason": "FlashRotaryEmbedding (used only for rope_scaling None / linear): standard inv_freq table; xPos scale only if scale_base set (never, and forward asserts it is None)"}
+{"id": "fc3cc96cac50", "label": "MAPPED", "slot": "pos=rope", "reason": "default inv_freq = base^(-2i/dim)"}
+{"id": "43e48f7081f1", "label": "MAPPED", "slot": "pos=rope", "reason": "cos/sin table with t / scaling_factor (linear PI): a static table, settable inv_freq; xPos branch unused"}
+{"id": "1a989e96be33", "label": "MAPPED", "slot": "pos=rope", "reason": "applies the table to q and k at seqlen_offset; standard RoPE"}
+{"id": "afa558f19521", "label": "MAPPED", "slot": "pos=rope (static YaRN + mscale fold)", "reason": "FlashYaRN init: static YaRN inv_freq (dynamic False for type 'yarn') and mscale = 0.1 ln s + 1 on cos/sin, a constant fold into W_q"}
+{"id": "a4a1ab1d2a9b", "label": "MAPPED", "slot": "pos=rope (static YaRN table)", "reason": "YaRN ramp blend of interpolated / extrapolated inv_freq; a fixed table (inv_freq settable)"}
+{"id": "7d122064964d", "label": "MAPPED", "slot": "pos=rope", "reason": "default inv_freq, used only on the dynamic path (not taken by the carrying config)"}
+{"id": "132a37577054", "label": "MAPPED", "slot": "pos=rope (static YaRN + mscale fold)", "reason": "cos/sin * mscale table; dynamic re-scaling branch is off for rope_scaling type 'yarn', so the table is static"}
+{"id": "bead1869a9ef", "label": "MAPPED", "slot": "pos=rope", "reason": "applies the (YaRN) table to q and k at the cache offset"}
+{"id": "f760f18a0e08", "label": "MAPPED", "slot": "pos=rope", "reason": "stock rotary init from rope_parameters / ROPE_INIT_FUNCTIONS; static tables + attention_scaling fold"}
+{"id": "76db214a5741", "label": "MAPPED", "slot": "pos=rope", "reason": "default inv_freq from rope_theta and head_dim (or hidden/heads), attention_factor 1"}
+{"id": "7df04f2e4549", "label": "MAPPED", "slot": "pos=rope", "reason": "stock rotary forward: cos/sin of position_ids * inv_freq, times attention_scaling (a fold); dynamic_rope_update only for dynamic rope types"}
+{"id": "c11e6aaff4c8", "label": "IRRELEVANT", "slot": "", "reason": "FlashSelfAttention init; attention-backend variant"}
+{"id": "2c2b3f5934e1", "label": "IRRELEVANT", "slot": "", "reason": "flash-attn varlen backend for Qwen-Audio: causal softmax with the default scale, unpad/pad for padding; same math as the eager path"}
+{"id": "37b1cde7e949", "label": "IRRELEVANT", "slot": "", "reason": "flash-attn backend for Qwen-1 (flash_attn_func for batch 1, varlen otherwise); same causal softmax attention"}
+{"id": "b1531c6e09b2", "label": "IRRELEVANT", "slot": "", "reason": "padding re-insertion for varlen flash; plumbing"}
+{"id": "fb685f491a12", "label": "IRRELEVANT", "slot": "", "reason": "padding removal for varlen flash; plumbing"}
+{"id": "70c94a3ca42a", "label": "UNMAPPED", "slot": "", "finding": "qwen1_logn_attn", "reason": "QWenAttention (Qwen-Audio) builds logn_tensor[i] = log_{seq_length}(i) for positions i > seq_length (else 1) and, with use_logn_attn (True in the configs), multiplies the query by it in eval; seq_length = 2048 here. A position-dependent query temperature the classifier does not read (also: c_attn always biased -> bias_qkv, c_proj bias = not no_bias, cache-quant buffers)", "direction": "over-credit", "suggest": "feature/slot for a log-n query scale (qtemp-like, context-gated at seq_length) read from use_logn_attn + seq_length for model_type qwen; or cap the target's credited context at seq_length"}
+{"id": "c6fdb191d125", "label": "UNMAPPED", "slot": "", "finding": "qwen1_logn_attn", "reason": "QWenAttention (Qwen-7B/14B/1.8B family) registers logn_tensor = log_{seq_length}(pos) for pos > seq_length used to scale the query when use_logn_attn (True in 9 of 11 Qwen-1 configs; seq_length 2048 for Qwen-14B, 8192 for 7B/1.8B); unrepresented position-dependent query temperature. Rest is plumbing (flash init, cache-quant buffers off by default)", "direction": "over-credit", "suggest": "log-n query-scale feature (context-gated at seq_length) for model_type qwen with use_logn_attn"}
+{"id": "dcc48e5547f6", "label": "UNMAPPED", "slot": "", "finding": "qwen1_logn_attn", "reason": "Qwen-VL QWenAttention init: logn_tensor = log_{seq_length}(pos) for pos > seq_length (seq_length 2048, max_position_embeddings 8192, so it fires inside the advertised context) used as a query multiplier when use_logn_attn", "direction": "over-credit", "suggest": "log-n query-scale feature for qwen (use_logn_attn, seq_length)"}
+{"id": "21369de1070c", "label": "MAPPED", "slot": "mixer=softmax / kv=MHA", "reason": "eager attention: q k^T / sqrt(head_dim), causal mask (only when q_len == k_len), additive mask, softmax (fp32 optional), @ v; int8 KV-cache branch is off (use_cache_quantization false in every config)"}
+{"id": "2a9cd53d2e31", "label": "IRRELEVANT", "slot": "", "reason": "output transpose for the (b, s, h, d) layout; refactor"}
+{"id": "64c10cc34707", "label": "IRRELEVANT", "slot": "", "reason": "int8 KV-cache dequantisation branch (use_cache_quantization false in every config) and layout transpose; cache plumbing"}
+{"id": "8efa5cb5d4c7", "label": "IRRELEVANT", "slot": "", "reason": "Qwen-VL _attn takes the causal mask from the prepared 4D attention_mask (_prepare_decoder_attention_mask makes it causal) instead of the GPT-2 bias buffer; drops scale_attn_by_inverse_layer_idx (GPT-2 parent flag, never set for Qwen); mask API drift, same causal softmax"}
+{"id": "b95a5a72c4b2", "label": "MAPPED", "slot": "mixer=softmax", "reason": "causal softmax attention with 1/sqrt(head_dim) scale via the registered causal mask; KV-cache int8 branch off by default; softmax_in_fp32 is fp32 evaluation"}
+{"id": "0b79dcc4e4e3", "label": "IRRELEVANT", "slot": "", "reason": "head merge on the (b, s, h, d) layout; refactor"}
+{"id": "ebcfa03ca651", "label": "IRRELEVANT", "slot": "", "reason": "head merge; reshape only"}
+{"id": "85b8e6ae669a", "label": "IRRELEVANT", "slot": "", "reason": "head split without permute (layout); refactor"}
+{"id": "a9ccbd72feb2", "label": "IRRELEVANT", "slot": "", "reason": "head split; reshape only"}
+{"id": "108fa7819ab5", "label": "UNMAPPED", "slot": "", "finding": "qwen1_logn_attn", "reason": "Qwen-VL attention forward: in eval with use_logn_attn, query *= logn_tensor[key_len - q_len : key_len] (= log_2048(pos) for pos > 2048, else 1) before the causal softmax; a position-dependent query temperature", "direction": "over-credit", "suggest": "log-n query-scale feature for qwen (use_logn_attn, seq_length), context-gated"}
+{"id": "19cd762964d0", "label": "UNMAPPED", "slot": "", "finding": "qwen1_logn_attn", "reason": "Qwen-Audio attention forward: query *= log_{seq_length}(pos) for pos > seq_length (2048) when use_logn_attn in eval; then flash or SDPA causal attention (backend variants, same math)", "direction": "over-credit", "suggest": "log-n query-scale feature for qwen (use_logn_attn, seq_length), context-gated"}
+{"id": "27815fde48c9", "label": "MAPPED", "slot": "feats:bias_qkv / kv=MHA", "reason": "fused c_attn (biased) split into q, k, v; cross-attention branch removed; bias_qkv via BIAS_QKV_TYPES qwen"}
+{"id": "3d443be43fd1", "label": "UNMAPPED", "slot": "", "finding": "qwen1_logn_attn", "reason": "Qwen-1 attention forward: RoPE (per-sample NTK tables), then if key_len > seq_length and use_logn_attn (eval) query *= log_{seq_length}(pos); otherwise flash / SDPA / eager causal attention and c_proj. The logn query scale is unrepresented (RoPE, cache-quant and backends are mapped / plumbing)", "direction": "over-credit", "suggest": "log-n query-scale feature for qwen (use_logn_attn, seq_length), context-gated"}
+{"id": "67c5c83a7c0a", "label": "MAPPED", "slot": "feats:bias_qkv / kv=MHA", "reason": "fused biased c_attn split into q, k, v (Qwen-Audio); bias_qkv via BIAS_QKV_TYPES"}
+{"id": "8529561d5cf8", "label": "MAPPED", "slot": "pos=rope", "reason": "RoPE applied to q and k from the precomputed table slice [-cur_len:]; KV concat on the seq axis"}
+{"id": "f0039897bfe6", "label": "MAPPED", "slot": "pos=rope", "reason": "RoPE on q and k (per-sample tables when the NTK alpha differs per sample; the alpha itself is the dynamic-NTK finding on the model forward); int8 KV-cache quant off by default; cache concat"}
+{"id": "3475482f892b", "label": "IRRELEVANT", "slot": "", "reason": "softmax_in_fp32 default false; fp32 evaluation"}
+{"id": "236908483a03", "label": "IRRELEVANT", "slot": "", "reason": "CUDA KV-cache kernel toggle; cache plumbing"}
+{"id": "87e4ed220946", "label": "IRRELEVANT", "slot": "", "reason": "int8 KV-cache quantisation default false (no config enables it); cache plumbing"}
+{"id": "0271b1a96ffd", "label": "MAPPED", "slot": "norm=RMSNorm", "reason": "QWenBlock: RMSNorm ln_1 / ln_2 with layer_norm_epsilon (NORM_BY_CODE qwen, RMS_LNEPS_TYPES)"}
+{"id": "d60b68c84ef6", "label": "MAPPED", "slot": "norm=RMSNorm / block=sequential", "reason": "Qwen-VL block: RMSNorm ln_1 and a separate ln_2 (the GPT-J parent is parallel; Qwen is sequential, classifier gives block=sequential)"}
+{"id": "3bff3ab6d5a0", "label": "MAPPED", "slot": "block=sequential", "reason": "pre-norm sequential block: x + attn(ln_1 x), then + mlp(ln_2 .); same math as the parent, renamed"}
+{"id": "ce0d798b4db5", "label": "MAPPED", "slot": "block=sequential", "reason": "Qwen-VL turns the GPT-J parallel block into sequential pre-norm (attn then ln_2 -> mlp); classifier gives block=sequential for Qwen-VL"}
+{"id": "999df16ac5dd", "label": "IRRELEVANT", "slot": "", "reason": "CUDA extension build helper"}
+{"id": "507ca5246bc4", "label": "IRRELEVANT", "slot": "", "reason": "optional flash-attn / fused rotary / fused rms_norm imports; kernels with the same math"}
+{"id": "720b6edd7c8c", "label": "IRRELEVANT", "slot": "", "reason": "optional flash-attn / fused kernels import; same math"}
+{"id": "b53d6dbbc4fc", "label": "MAPPED", "slot": "pos=rope", "reason": "NeoX rotate_half via einops"}
+{"id": "13c0e1edf75d", "label": "MAPPED", "slot": "pos=rope", "reason": "RoPE on the first rot_dim channels (rotary_pct = 1.0 in every Qwen-1 config, so full rotation); fused kernel is the same math"}
+{"id": "e6dc3cf47e67", "label": "MAPPED", "slot": "pos=rope", "reason": "RoPE on the first rot_dim channels (full for rotary_pct 1.0); fp32 cast is fp32 evaluation"}
+{"id": "fa919cac0df1", "label": "IRRELEVANT", "slot": "", "reason": "KV-cache int8 dequantisation (feature off in every config); cache"}
+{"id": "73c0c01fbe35", "label": "IRRELEVANT", "slot": "", "reason": "KV-cache int8 quantisation (feature off in every config); cache"}
+{"id": "a44e9835abe8", "label": "IRRELEVANT", "slot": "", "reason": "precision auto-selection (bf16/fp16/fp32) and lm_head Linear(hidden, vocab, bias=False); dtype plumbing"}
+{"id": "f2e7536b020d", "label": "IRRELEVANT", "slot": "", "reason": "precision auto-selection, flash-attn enabling, bias-free lm_head; dtype / backend plumbing"}
+{"id": "c7d1b41e88a7", "label": "IRRELEVANT", "slot": "", "reason": "audio_info passthrough to the transformer; multimodal input plumbing"}
+{"id": "cd9943ba887b", "label": "IRRELEVANT", "slot": "", "reason": "output class change; no math"}
+{"id": "956fb4784990", "label": "MAPPED", "slot": "ffn=glu / dims_of:intermediate (FUSED_GLU_HALF)", "reason": "w1, w2 of width intermediate_size // 2 and c_proj; FUSED_GLU_HALF qwen halves the intermediate in dims_of (11008 for 22016)"}
+{"id": "7afadee69eda", "label": "MAPPED", "slot": "ffn=glu / act=SiLU", "reason": "c_proj(w1 x * silu(w2 x)): SwiGLU (gate / up roles swapped by name only)"}
+{"id": "7f41f2a76963", "label": "IRRELEVANT", "slot": "", "reason": "drops .long() on position_ids; dtype plumbing"}
+{"id": "883ef4318436", "label": "MAPPED", "slot": "pos=rope / norm=RMSNorm", "reason": "QWenModel init (Audio): RotaryEmbedding(kv_channels * rotary_pct, rotary_emb_base), RMSNorm ln_f, audio encoder (input path); the dynamic-NTK switch it stores is used in forward (qwen1_dynamic_ntk on the forward hunks)"}
+{"id": "99ba707f002e", "label": "MAPPED", "slot": "pos=rope / norm=RMSNorm", "reason": "QWenModel init (VL): rotary instead of learned wpe, RMSNorm ln_f, vision tower (input path); dynamic NTK used in forward (see forward hunks)"}
+{"id": "a124db1e32a9", "label": "MAPPED", "slot": "pos=rope / norm=RMSNorm", "reason": "QWenModel init: rotary dim kv_channels * rotary_pct with base rotary_emb_base, RMSNorm ln_f; the use_dynamic_ntk flag is applied in forward (see forward hunks)"}
+{"id": "7aa982e3fbc2", "label": "IRRELEVANT", "slot": "", "reason": "standard causal + padding 4D mask construction; mask API"}
+{"id": "0436bd66f022", "label": "IRRELEVANT", "slot": "", "reason": "Qwen-VL image detection and encoding from image tokens; multimodal input path"}
+{"id": "5405d09f7d1e", "label": "IRRELEVANT", "slot": "", "reason": "passes rotary_pos_emb_list to blocks; plumbing"}
+{"id": "5f85a6cf6493", "label": "IRRELEVANT", "slot": "", "reason": "past length from the quantised cache layout; cache plumbing"}
+{"id": "7032df424ae7", "label": "UNMAPPED", "slot": "", "finding": "qwen1_dynamic_ntk", "reason": "Qwen-VL model forward: on prefill (eval, use_dynamic_ntk) ntk_alpha = max(2^ceil(log2(L / seq_length) + 1) - 1, 1) for total length L, and the rotary base becomes base * alpha^(d/(d-2)); with seq_length 2048 this fires inside max_position_embeddings 8192, and every position's rotation depends on the whole sequence length (decode reuses the prefill alpha). Rest: learned wpe removed (rope), image-embedding scatter (input path)", "direction": "over-credit", "suggest": "context-gated wall / slot for length-dependent RoPE (use_dynamic_ntk + seq_length on qwen), or restrict credited context to seq_length"}
+{"id": "732f290a4d04", "label": "IRRELEVANT", "slot": "", "reason": "head_mask layer count key rename; encoder mask None; plumbing"}
+{"id": "87cf8a3bc18c", "label": "IRRELEVANT", "slot": "", "reason": "Qwen-Audio audio encoding from audio tokens; multimodal input path"}
+{"id": "93a990971a7f", "label": "UNMAPPED", "slot": "", "finding": "qwen1_dynamic_ntk", "reason": "Qwen-1 model forward: in eval with use_dynamic_ntk, ntk_alpha = get_ntk_alpha(L) per sample (L = unpadded prefill length when > seq_length) and the RoPE base becomes base * alpha^(d/(d-2)); positions' rotations depend on the total prefill length once L > seq_length (2048 for Qwen-14B, 8192 for 7B/1.8B); decode reuses the cached alpha", "direction": "over-credit", "suggest": "context-gated wall / slot for length-dependent RoPE on qwen (use_dynamic_ntk, seq_length)"}
+{"id": "a6ffbe337d48", "label": "IRRELEVANT", "slot": "", "reason": "passes rotary_pos_emb and the causal mask to blocks; plumbing"}
+{"id": "b1abd2d085ca", "label": "IRRELEVANT", "slot": "", "reason": "tuple output change; no math"}
+{"id": "ddc1a6b06fe6", "label": "UNMAPPED", "slot": "", "finding": "qwen1_dynamic_ntk", "reason": "Qwen-Audio model forward: same dynamic NTK alpha per sample (base * alpha^(d/(d-2)) once the prefill length exceeds seq_length = 2048), plus audio embedding scatter (input path)", "direction": "over-credit", "suggest": "context-gated wall / slot for length-dependent RoPE on qwen (use_dynamic_ntk, seq_length)"}
+{"id": "61c4ae5833be", "label": "UNMAPPED", "slot": "", "finding": "qwen1_dynamic_ntk", "reason": "get_ntk_alpha(L) = max(2^ceil(log2(L / seq_length) + 1) - 1, 1): 1 up to seq_length, 3 up to 2*seq_length, 7, ...; feeds the length-dependent RoPE base", "direction": "over-credit", "suggest": "context-gated wall / slot for length-dependent RoPE on qwen (use_dynamic_ntk, seq_length)"}
+{"id": "203306de8b66", "label": "IRRELEVANT", "slot": "", "reason": "RMSNorm weight initialised to ones instead of zeros; init only (the forward hunk decides x*w vs x*(1+w))"}
+{"id": "62c7d2b95bcc", "label": "MAPPED", "slot": "norm=RMSNorm (NORM_BY_CODE qwen)", "reason": "plain RMSNorm output * weight (not the Gemma parent's 1 + weight); fused rms_norm kernel is the same math; NORM_BY_CODE['qwen'] = RMSNorm"}
+{"id": "6ef91ff36a50", "label": "MAPPED", "slot": "pos=rope", "reason": "inv_freq = base^(-2i/dim) with dim = kv_channels * rotary_pct, base rotary_emb_base; NTK alpha cache fields initialised to 1"}
+{"id": "ff97b4f3486a", "label": "MAPPED", "slot": "pos=rope", "reason": "same default inv_freq (Qwen-VL), NTK alpha cache initialised to 1"}
+{"id": "623d9d2dd6ce", "label": "MAPPED", "slot": "pos=rope", "reason": "returns the cos/sin table slice for the requested length / offset; the alpha argument is the dynamic-NTK finding on the model forward"}
+{"id": "719ad90a5322", "label": "MAPPED", "slot": "pos=rope", "reason": "returns the cos/sin table for max_seq_len at the given alpha; table lookup"}
+{"id": "1ffeecd3abc2", "label": "UNMAPPED", "slot": "", "finding": "qwen1_dynamic_ntk", "reason": "rotary table rebuilt with base = rotary_emb_base * ntk_alpha^(dim/(dim-2)) whenever alpha changes; with alpha from the sequence length this is a length-dependent RoPE base (Qwen-VL / Audio)", "direction": "over-credit", "suggest": "context-gated wall / slot for length-dependent RoPE on qwen (use_dynamic_ntk, seq_length)"}
+{"id": "68a848a8bb13", "label": "UNMAPPED", "slot": "", "finding": "qwen1_dynamic_ntk", "reason": "rotary table rebuilt with base = rotary_emb_base * ntk_alpha^(dim/(dim-2)) whenever alpha changes (Qwen-7B/14B/1.8B family); length-dependent RoPE base", "direction": "over-credit", "suggest": "context-gated wall / slot for length-dependent RoPE on qwen (use_dynamic_ntk, seq_length)"}
+{"id": "6d912beb96e1", "label": "MAPPED", "slot": "kv=MLA / feats:bias_qkv,bias_out", "reason": "Bailing MLA: q_a / kv_a / dense biases read use_qkv_bias (False in every bailing_hybrid config) instead of attention_bias, o_proj renamed dense; classifier gives no bias feats, consistent"}
+{"id": "618400766b79", "label": "IRRELEVANT", "slot": "", "reason": "o_proj renamed dense and the cache returned; same math"}
+{"id": "e15db712d393", "label": "MAPPED", "slot": "pos=partial_rope", "reason": "Ring-2.5 / Ling-2.6 MLA raise (1/0) on the non-interleaved RoPE path, so only rope_interleave=True runs; interleaved rotation of the decoupled rope channels is a fixed q/k channel permutation (folds into q_b_proj / kv_a_proj rows)"}
+{"id": "f9c7e4701184", "label": "IRRELEVANT", "slot": "", "reason": "always uses eager attention (ignores _attn_implementation); backend selection, same math"}
+{"id": "39edd55299b6", "label": "MAPPED", "slot": "feats:out_gate", "reason": "optional g_proj (head_wise: hidden -> num_heads, element_wise: -> heads * v_head_dim) when gated_attention_proj_granularity_type is set; classifier gives out_gate for every model with that key (Ling-3.x, Ming-3.0-asr-tiny, Edge0)"}
+{"id": "f45638f10206", "label": "MAPPED", "slot": "feats:out_gate", "reason": "stores gated_attention_proj_granularity_type, the key the out_gate rule reads"}
+{"id": "f6912309ea60", "label": "MAPPED", "slot": "feats:out_gate", "reason": "attn_output *= sigmoid(g_proj(x)) per head (or per element) before dense; out_gate present for all carrying models"}
+{"id": "3c558d76649d", "label": "MAPPED", "slot": "dims_of:head_dim / kv=MLA", "reason": "head_dim = head_dim or hidden/heads; qk_head_dim = nope + rope; dims_of reads the MLA head dims directly"}
+{"id": "af92c43b4a9d", "label": "IRRELEVANT", "slot": "", "reason": "torch.torch.int32 typo-equivalent; varlen helper"}
+{"id": "1d7898bba1c0", "label": "MAPPED", "slot": "pos=partial_rope", "reason": "RoPE on the first rotary_dim = cos.shape[-1] channels, rest passed through; classifier reads partial_rotary_factor (partial_rope for Bailing, rope where the table is full width)"}
+{"id": "8cf55e1493d8", "label": "MAPPED", "slot": "kv", "reason": "eager attention with repeat_kv2 (head-first tiling, same as repeat_kv); same math"}
+{"id": "54dff3102075", "label": "IRRELEVANT", "slot": "", "reason": "varlen gather helper; plumbing"}
+{"id": "68bce729c059", "label": "IRRELEVANT", "slot": "", "reason": "varlen scatter helper; plumbing"}
+{"id": "75409da4a7bf", "label": "IRRELEVANT", "slot": "", "reason": "varlen pad helper; plumbing"}
+{"id": "111ce5920281", "label": "MAPPED", "slot": "kv=GQA", "reason": "repeat_kv with an optional seq-first layout; same KV tiling"}
+{"id": "273840b75bba", "label": "MAPPED", "slot": "kv=GQA", "reason": "repeat_kv2 = stock repeat_kv"}
+{"id": "9b1baa437227", "label": "IRRELEVANT", "slot": "", "reason": "label roll for the MTP loss; training only"}
+{"id": "df9bcaf11a8c", "label": "MAPPED", "slot": "mtp", "reason": "stores num_nextn_predict_layers / mtp loss factor; MTP heads are auxiliary (mtp slot reads num_nextn_predict_layers)"}
+{"id": "16fb09cc3497", "label": "MAPPED", "slot": "mtp", "reason": "main logits = lm_head(hidden) (float cast is fp32 evaluation); extra MTP logits / losses from auxiliary heads only; mtp slot"}

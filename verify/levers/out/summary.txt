@@ -1,0 +1,37 @@
+headline                                                218
+R0: window + eps (rules as stated)                      194
+R0 + drafts / assistants excluded                       185
++ (c) numeric scalars                                   163
++ (a) every shape-preserving config value               153
++ DSA ignored (context <= index_topk)                   150
+
+leave-one-out on R0 (top):
+  cat:act                      179  ['MiniCPM-V-4.7-35B-A3B-DSpark', 'codeparrot', 'DanTagGen-beta', 'Kimi-K3-DFlash', 'Qwen-3.8-27B-ROCmFP4-FAST-GGUF']
+  rot_gate                     182  ['Laguna-S-2.1', 'MiniCPM-V-4.7-35B-A3B-DSpark', 'Fx-Bio', 'Phi-3.5-MoE-instruct', 'HyperCLOVAX-SEED-Think-14B']
+  ffn_active                   184  ['delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft', 'LFM2.5-1.2B-JP', 'Moonlight-16B-A3B', 'WizardLM-2-8x22B', 'MioTTS-2.6B']
+  feat:bias_out:target         185  ['granite-3b-code-base-2k', 'stable-code-3b', 'nous-2', 'hubble-8b-100b_toks-perturbed-hf', 'basal-2.0-4.5B']
+  cat:pos                      186  ['codeparrot', 'really-tiny-falcon-testing', 'opt-66b', 'plamo-3-translate-2b', 'kanana-2-1.3b-instruct']
+  cat:qknorm                   186  ['Intern-S1', 'Kimi-K3-DSpark', 'delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft', 'MiniCPM-V-4.7-35B-A3B-DSpark', 'Kimi-K3-DFlash']
+  feat:bias_qkv:target         187  ['Seed-OSS-36B-Base', 'Phi-3.5-MoE-instruct', 'GLM-4-9B-0414', 'nous-2', 'Qwen1.5-110B']
+  ffn_total                    187  ['WizardLM-2-8x22B', 'Solar-Open2-250B', 'Ling-3.1-flash', 'Intern-S1-Pro', 'IQuest-Q1']
+  feat:dsa:host                188  ['MAI-DS-R1', 'GLM-4.7-Flash', 'Moonlight-16B-A3B', 'LongCat-Flash-Chat', 'MiniCPM3-4B']
+  feat:out_gate:target         188  ['Laguna-M.1', 'A.X-K2-NVFP4', 'Solar-Open2-250B', 'Laplace-1-Vector', 'Jais-3-MoVA-36B-A4B']
+  feat:post_norm:target        188  ['Olmo-3-1125-32B', 'GLM-4-9B-0414', 'HyperCLOVAX-SEED-Think-14B', 'wayfinder-glimmer-30b', 'A.X-K1']
+  cat:gen                      190  ['gte-Qwen2-7B-instruct', 'Nemotron-Labs-Diffusion-14B', 'LLaDA2.2-mini', 'GLM-5.3-DFlash2']
+  feat:rf:target               190  ['LFM2.5-1.2B-JP', 'plamo-2-translate', 'Jet-Nemotron-2B']
+  feat:tied_emb:host           190  ['stable-code-3b', 'nous-2', 'hubble-8b-100b_toks-perturbed-hf', 'gerpt2']
+  mla_latents                  190  ['Kimi-Linear-48B-A3B-Base', 'Moonlight-16B-A3B', 'kanana-2-30b-a3b-instruct', 'Ling-3.0-flash-oQ4']
+
+greedy on R0:
+  - cat:act                      -> 179 (-15)
+  - feat:bias_out:target         -> 166 (-13)
+  - cat:qknorm                   -> 158 (-8)
+  - rot_gate                     -> 150 (-8)
+  - feat:post_norm:target        -> 142 (-8)
+  - feat:rf:target               -> 134 (-8)
+  - kv_heads                     -> 127 (-7)
+  - cat:gen                      -> 121 (-6)
+  - feat:dsa:host                -> 115 (-6)
+  - feat:out_gate:target         -> 109 (-6)
+  - feat:bias_qkv:target         -> 105 (-4)
+  - feat:router_group:host       -> 101 (-4)

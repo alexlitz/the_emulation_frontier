@@ -1,0 +1,102 @@
+{
+ "GLM-4.5-Air": [
+  "GLM-4.5"
+ ],
+ "MiniMax-M2": [
+  "K-EXAONE-2.0-750B-A37B"
+ ],
+ "gemma-2-9b": [
+  "GaMS3-12B-Instruct",
+  "Gemma-4-31B-IT-NVFP4",
+  "Gemma-4-Novelist-Eclipse-31B",
+  "Jeff-1.0-Large"
+ ],
+ "GaMS3-12B-Instruct": [
+  "Gemma-4-31B-IT-NVFP4",
+  "Gemma-4-Novelist-Eclipse-31B",
+  "Jeff-1.0-Large"
+ ],
+ "bge-reranker-v2.5-gemma2-lightweight": [
+  "Gemma-4-Novelist-Eclipse-31B"
+ ],
+ "MemT-1.0-Nano": [
+  "AREX-Base",
+  "Karnak-Th-41B-v1.0",
+  "Nex-N2.5-mini",
+  "Ornith-1.0-397B-FP8"
+ ],
+ "Solar-Open-100B": [
+  "Hy3",
+  "K-EXAONE-2.0-750B-A37B",
+  "K-EXAONE-236B-A23B",
+  "Laguna-M.1"
+ ],
+ "LLaMA-MoE-v1-3_0B-2_16": [
+  "dots.llm1.base"
+ ],
+ "deepseek-moe-16b-base": [
+  "dots.llm1.base"
+ ],
+ "K2-Horizon-375B-A23B": [
+  "K-EXAONE-2.0-750B-A37B"
+ ],
+ "Param2-17B-A2.4B-Thinking": [
+  "K-EXAONE-2.0-750B-A37B"
+ ],
+ "AFM-4.5B": [
+  "Apertus-70B-2509"
+ ],
+ "Pharia-1-LLM-7B-control-hf": [
+  "starcoder2-15b",
+  "starcoder2-7b"
+ ],
+ "jetmoe-8b": [
+  "Muse-Spark-Open-816B-A42B-GGUF",
+  "dots.llm1.base"
+ ],
+ "rnj-1-instruct": [
+  "Fanar-2-27B-Instruct",
+  "Gemma-4-31B-IT-NVFP4",
+  "Gemma-4-Novelist-Eclipse-31B",
+  "Jeff-1.0-Large"
+ ],
+ "manaca-1b-base": [
+  "Hypernova-60B-2605",
+  "gpt-oss-120b",
+  "gpt-oss-20b",
+  "gpt-oss-nano"
+ ],
+ "vaultgemma-1b": [
+  "Gemma-4-Novelist-Eclipse-31B"
+ ],
+ "EdgeRock": [
+  "Qwen3.5-4B-Qwenputer",
+  "Qwen3.6-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking-8bit",
+  "Qwen3.8-2.4T-A95B",
+  "Qwen3.8-Whittle-16B"
+ ],
+ "GigaChat3.1-Audio-10B-A1.8B": [
+  "Kimi-K2.5-NVFP4"
+ ],
+ "Nanbeige4.3-33B-DFlash2": [
+  "Muse-Spark-Open-DFlash2"
+ ],
+ "Udgam-384M-Base": [
+  "Gemma-4-Novelist-Eclipse-31B"
+ ],
+ "Gemini-Nano-Gemmafied": [
+  "GaMS3-12B-Instruct",
+  "Gemma-4-31B-IT-NVFP4",
+  "Gemma-4-Novelist-Eclipse-31B",
+  "Jeff-1.0-Large"
+ ],
+ "Vemana-Base": [
+  "ContextPilot-E4B",
+  "Gemma-4-26B-A4B-Arabic-It",
+  "Gemma-4-31B-IT-NVFP4",
+  "Gemma-4-Novelist-Eclipse-31B"
+ ],
+ "Qwen3.8-2.4T-A95B-DSpark": [
+  "Muse-Spark-Open-DFlash2"
+ ]
+}

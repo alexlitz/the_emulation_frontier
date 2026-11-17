@@ -1,0 +1,40 @@
+2025 dated models.
+
+1. KV-scheme share + median kv_cap among models created each period:
+   period      n    MHA  GQA  MQA  MLA   median kv_cap
+   2022-H1    47   100%   0%   0%   0%            1024
+   2022-H2    10   100%   0%   0%   0%            1024
+   2023-H1    38    92%   0%   5%   0%            2048
+   2023-H2   122    53%  44%   2%   0%            1024
+   2024-H1   431    23%  72%   2%   2%            1024
+   2024-H2   212    18%  78%   1%   1%            1024
+   2025-H1   249     7%  87%   2%   4%            1024
+   2025-H2   230     9%  81%   4%   7%             576
+   2026-H1   283     5%  88%   3%   5%            1024
+   2026-H2   403     4%  82%   5%   9%            1024
+
+2. architecture diversity (distinct 9-slot classes):
+   period      n   new classes  cumulative
+   2022-H1    47             5           5
+   2022-H2    10             1           6
+   2023-H1    38             4          10
+   2023-H2   122             8          18
+   2024-H1   431            18          36
+   2024-H2   212             8          44
+   2025-H1   249            14          58
+   2025-H2   230            19          77
+   2026-H1   283            21          98
+   2026-H2   403            22         120
+
+3. most-universal checkpoint among ALL models released so far (cumulative):
+   by end of  models   top emulator                      covers
+   2022-H1        47   gpt2-xl                              68%
+   2022-H2        57   mGPT                                 65%
+   2023-H1        95   mGPT                                 43%
+   2023-H2       217   llama-13b                            32%
+   2024-H1       648   Qwen1.5-72B                          62%
+   2024-H2       860   Qwen1.5-72B                          64%
+   2025-H1      1109   Qwen1.5-72B                          66%
+   2025-H2      1339   Qwen1.5-72B                          62%
+   2026-H1      1622   Qwen1.5-72B                          58%
+   2026-H2      2025   Qwen1.5-72B                          53%

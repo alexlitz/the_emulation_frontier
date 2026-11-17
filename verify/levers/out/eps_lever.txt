@@ -1,0 +1,7 @@
+Qwen3 host (qk-norm off) == Llama target                       torch.float32  max|d| = 1.788e-07  (max |logit| 0.66)
+Gemma-2 host (post-norms off, softcap None) == Gemma target    torch.float32  max|d| = 2.384e-07  (max |logit| 1.47)
+weight-free RMS norm, linear regime == x / sqrt(E)             torch.float32  max|d| = 0.000e+00
+Qwen3 host (qk-norm off) == Llama target                       torch.float64  max|d| = 5.890e-08  (max |logit| 0.56)
+Gemma-2 host (post-norms off, softcap None) == Gemma target    torch.float64  max|d| = 9.565e-08  (max |logit| 1.49)
+weight-free RMS norm, linear regime == x / sqrt(E)             torch.float64  max|d| = 3.911e-07
+reference: Llama target fp32 vs fp64 (rounding scale)          -              max|d| = 2.074e-07

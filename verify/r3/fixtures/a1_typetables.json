@@ -1,0 +1,198 @@
+{
+  "out_gate_by_code_unlisted": {
+    "detector": "detect_out_gate_by_code_unlisted",
+    "flag": {
+      "AJ-Gonzalez/coder-lfm3-1.7b": "head",
+      "junkdogjoe/LFM3-Lobotomized-2B": "head",
+      "cybertruck32489/LFM3-1.7B-RD": "head",
+      "PeetPedro/qwen4_exp-8b-obliterated-abliterated-kompress-ultra": "elem",
+      "Jab1718/qwen3.8-flash-coder-85gb-bf16": "elem",
+      "AMAImedia/AliceAI-Foundation-80B-A3B-NOESIS-BF16-GGUF": "elem",
+      "techdotus/Ethoric-10M": "head_bias",
+      "AxiomicLabs/GPT-S3-3M": "elem",
+      "AxiomicLabs/GPT-X3-150M": "elem",
+      "tencent/Hy4-preview-FP8": "elem",
+      "RadixArk/Muse-Glimmer-q4-MLX": "elem",
+      "hweller1/wayfinder-glimmer-30b": "elem",
+      "sapientinc/HRM-Text-1B": "elem",
+      "danish-foundation-models/DFM-Mimir": "elem",
+      "ProCreations/Dory-Beam-4B": "elem",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21": "head",
+      "dots-studio/dots3-note-prev": "head",
+      "reflection/Beam-1.0-501B-A23B": "elem_bias",
+      "MinimaLabs/KLM-1.5": "elem",
+      "Cactus-Compute/needle2": "elem"
+    },
+    "not_flag": [
+      "LiquidAI/LFM2.5-230M-Base",
+      "Qwen/Qwen3-0.6B",
+      "Qwen/Qwen3-30B-A3B",
+      "tencent/Hy3",
+      "rednote-hilab/dots.llm1.base",
+      "Qwen/Qwen3-Next-80B-A3B-Instruct",
+      "arcee-ai/Trinity-Mini",
+      "jkminder/d16_optimized_537m_seed5",
+      "Lilgarca/my-model-v01"
+    ]
+  },
+  "qknorm_by_code_unlisted": {
+    "detector": "detect_qknorm_by_code_unlisted",
+    "flag": {
+      "pfnet/plamo-3-0.8b-fin-instruct": "head",
+      "inclusionAI/LLaDA2.0-mini-preview": "head",
+      "inclusionAI/LLaDA2.0-mini": "head",
+      "LiquidAI/LFM3-1.7B-Base": "head",
+      "cybertruck32489/LFM3-1.7B-RD-v2": "head",
+      "AMAImedia/AliceAI-Foundation-80B-A3B-NOESIS-BF16-GGUF": "head",
+      "techdotus/Ethoric-10M": "head",
+      "AxiomicLabs/GPT-S3-3M": "head",
+      "rockmatrix-ai/EdgeRock": "head",
+      "Lilgarca/my-model-v01": "head",
+      "ifx-pse-sys-ml/flame-27m-grounded": "head",
+      "MinimaLabs/KLM-1.5": "head",
+      "PerceptronAI/Isaac-0.1": "head",
+      "MemTensor/MemT-1.0-Nano": "head",
+      "BananaMind/BananaMind-2-MoE": "head",
+      "domyn/Domyn-Edge-Base": "head_qfree",
+      "zarko1321/Bitsy500M": "head",
+      "tardellirs/gemma3moe-16x4-270m-starter": "head",
+      "ZJU-AI4H/Hulu-Med-4B": "head",
+      "zenosai/MonkeyOCRv2-B-Parsing": "head",
+      "IQuestLab/IQuest-Q1": "head",
+      "ViuAI/ViuAI-500M": "head",
+      "Lordnyx/qwen3loop-0.6b-sft-deep-supervision-v1": "head",
+      "Cactus-Compute/needle3": "head",
+      "eins78/Kolibri-1-mlx-mixed-4-8-bit": "head",
+      "reflection/Beam-1.0-501B-A23B": "head",
+      "unsloth/Muse-Glimmer-30B-unsloth-bnb-4bit": "head_free_gain",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21": "head_free_gain",
+      "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-MXFP8": "ngpt"
+    },
+    "not_flag": [
+      "ZJU-AI4H/Hulu-Med-7B",
+      "Qwen/Qwen3-0.6B",
+      "pfnet/plamo-2-1b",
+      "google/gemma-3-1b-it",
+      "LGAI-EXAONE/EXAONE-4.0-32B",
+      "LiquidAI/LFM2.5-230M-Base",
+      "SmallDoge/Doge-20M",
+      "arcee-ai/Trinity-Mini"
+    ]
+  },
+  "qknorm_always_remote_lacks": {
+    "detector": "detect_qknorm_always_remote_lacks",
+    "flag": {"SmallDoge/Doge-320M": "no"},
+    "not_flag": ["SmallDoge/Doge-20M", "Qwen/Qwen3-0.6B"]
+  },
+  "qknorm_fixed_gain": {
+    "detector": "detect_qknorm_fixed_gain",
+    "flag": {
+      "castorini/gaggle-nanochat-pretrained-climbmix-20260924": "head_free_gain",
+      "jkminder/d12_optimized_286m_seed2": "head_free_gain",
+      "jkminder/d12_optimized_286m_seed3": "head_free_gain",
+      "jkminder/d16_optimized_537m_seed3": "head_free_gain",
+      "jkminder/d16_optimized_537m_seed4": "head_free_gain",
+      "jkminder/d16_optimized_537m_seed5": "head_free_gain",
+      "jkminder/d20_optimized_897m_seed3": "head_free_gain",
+      "jkminder/d20_optimized_897m_seed8": "head_free_gain",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21": "head_free_gain",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21-dr-doom": "head_free_gain",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.10.05": "head_free_gain",
+      "open-athena/Grug-67B-A2B-GLM53-RLVR-SFT-2026.09.23": "head_free_gain"
+    },
+    "not_flag": [
+      "l0ulan/chinese-babylm-nanochat-d22-step10000",
+      "lmstudio-community/Llama-4-Scout-17B-16E-MLX-text-8bit",
+      "Diamegs/PIT-1B-201912",
+      "Qwen/Qwen3-0.6B"
+    ]
+  },
+  "bias_qkv_by_code_unlisted": {
+    "detector": "detect_bias_qkv_by_code_unlisted",
+    "flag": {
+      "thuml/sundial-base-128m": true,
+      "Edge0/ARK-ASR-3B": true,
+      "Edge0/Audio8-ASR-0.1B": true,
+      "Yo-Purple/Meditor-1-2.2B-A500M-MoE": true,
+      "stepfun-ai/Step-Audio-2-mini": true,
+      "apple/FastVLM-0.5B": true,
+      "apple/FastVLM-1.5B": true,
+      "qnguyen3/nanoLLaVA": true,
+      "ZJU-AI4H/Hulu-Med-7B": true,
+      "DAMO-NLP-SG/VideoLLaMA3-2B": true,
+      "nyu-visionx/Cambrian-S-7B": true,
+      "manycore-research/SpatialLM-Qwen-0.5B": true
+    },
+    "not_flag": [
+      "ZJU-AI4H/Hulu-Med-4B",
+      "Qwen/Qwen2.5-0.5B-Instruct",
+      "Qwen/Qwen3-0.6B",
+      "liuhaotian/llava-v1.5-7b",
+      "zenosai/MonkeyOCRv2-B-Parsing"
+    ]
+  },
+  "bias_qkv_table_wrong": {
+    "detector": "detect_bias_qkv_table_wrong",
+    "flag": {"abeja/gpt-neox-japanese-2.7b": true},
+    "not_flag": ["EleutherAI/pythia-160m", "rinna/japanese-gpt-neox-small"]
+  },
+  "bias_out_by_code_unlisted": {
+    "detector": "detect_bias_out_by_code_unlisted",
+    "flag": {
+      "google/recurrentgemma-2b": true,
+      "google/recurrentgemma-2b-it": true,
+      "jetmoe/jetmoe-8b": true,
+      "Subject-Emu-5259/NeuralAI-Nae1": true
+    },
+    "not_flag": ["google/gemma-2-2b-it", "ggml-org/stories15M_MOE", "Qwen/Qwen3-0.6B"]
+  },
+  "out_gate_key_unread": {
+    "detector": "detect_out_gate_key_unread",
+    "flag": {"baidu/ERNIE-5.5-Flash-Base": "elem_qlat"},
+    "not_flag": ["baidu/ERNIE-4.5-21B-A3B-PT", "deepseek-ai/DeepSeek-V4-Flash"]
+  },
+  "parallel_by_code_unlisted": {
+    "detector": "detect_parallel_by_code_unlisted",
+    "flag": {"zarko1321/Bitsy500M": "parallel"},
+    "not_flag": ["EleutherAI/gpt-j-6b", "Qwen/Qwen3-0.6B"]
+  },
+  "nanochat_port_unlisted": {
+    "detector": "detect_nanochat_port_unlisted",
+    "flag": {
+      "castorini/gaggle-nanochat-pretrained-climbmix-20260924": "ffn=vanilla,act=relu2,qknorm=head_free",
+      "Diamegs/PIT-1B-201912": "ffn=vanilla,act=relu2,qknorm=head_free",
+      "kingbear329/sn38-r16-c12-step687-alpha05": "ffn=vanilla,act=relu2,qknorm=head_free"
+    },
+    "not_flag": [
+      "jkminder/d16_optimized_537m_seed5",
+      "l0ulan/chinese-babylm-nanochat-d22-step10000",
+      "Qwen/Qwen3-0.6B"
+    ]
+  },
+  "glm5_next_mla_no_head_qknorm": {
+    "detector": "detect_glm5_next_mla_no_head_qknorm",
+    "flag": {
+      "12fn/GLM-5.3-Flash-NVFP4-W4A16-2x-RTX-PRO-6000": "no",
+      "INCModel3/GLM-5.3-Flash-MXFP4-Mixed-CT-AutoRound": "no",
+      "avlp12/GLM-5.3-Flash-Alis-MLX-4bit": "no",
+      "dealignai/GLM-5.3-Flash-CYBERSECURITY-W4A16": "no",
+      "defnoteatin/PseudoBrain-GLM-5.3-Flash-Chronos-v7.5": "no",
+      "local-inference-lab/GLM-5.3-Flash-NVFP4-Spark": "no",
+      "shashanth-27xA9/GLM-5.3-SuperExpert-v2-9.2GB": "no"
+    },
+    "not_flag": ["zai-org/GLM-5.3", "zai-org/GLM-4.5-Air", "deepseek-ai/DeepSeek-V3.2"]
+  },
+  "dsv41_q_head_norm_absent": {
+    "detector": "detect_dsv41_q_head_norm_absent",
+    "flag": {
+      "Infatoshi/DeepSeek-V4.1-Flash-1017-MXFP4-uncensored": "dsv4_kv",
+      "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw": "dsv4_kv",
+      "OBLITERATUS/DeepSeek-V4.1-Flash-1017-obliterated": "dsv4_kv",
+      "TensorFold/DeepSeek-V4.1-Flash-MLX-2bit-MTP": "dsv4_kv",
+      "amd/DeepSeek-V4.1-Flash-Quark-MXFP4": "dsv4_kv",
+      "deepseek-ai/DeepSeek-V4.1-Flash": "dsv4_kv",
+      "deepseek-ai/DeepSeek-V4.1-Flash-1017": "dsv4_kv"
+    },
+    "not_flag": ["deepseek-ai/DeepSeek-V4-Flash", "deepseek-ai/DeepSeek-V4-Flash-0731", "deepseek-ai/DeepSeek-V3.2"]
+  }
+}

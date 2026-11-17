@@ -1,0 +1,947 @@
+{
+ "cohere": {
+  "tiny": {
+   "hidden_size": 512,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 4,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 21762048,
+    "predicted": 23857152,
+    "kv": 8388608,
+    "ratio": 1.0962732919254659
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 219168768,
+    "predicted": 227543040,
+    "kv": 33554432,
+    "ratio": 1.038209239739852
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 17043456,
+    "predicted": 12847104,
+    "kv": 8388608,
+    "ratio": 0.7537851478010094
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 68173824,
+    "predicted": 51382272,
+    "kv": 33554432,
+    "ratio": 0.7536950252343186
+   }
+  ],
+  "repo": "NLPark/AnFeng_v3_Avocet"
+ },
+ "deepseek_v3": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 4,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 25956352,
+    "predicted": 20318208,
+    "kv": 4718592,
+    "ratio": 0.7827836515701436
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 237649920,
+    "predicted": 213387264,
+    "kv": 18874368,
+    "ratio": 0.8979058945191314
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 21966336,
+    "predicted": 16320512,
+    "kv": 4718592,
+    "ratio": 0.7429783465025755
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 89563136,
+    "predicted": 65275904,
+    "kv": 18874368,
+    "ratio": 0.7288255739504254
+   }
+  ],
+  "repo": "deepseek-ai/DeepSeek-R1"
+ },
+ "exaone4": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 1,
+   "head_dim": 128,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 14946304,
+    "predicted": 14441472,
+    "kv": 545792,
+    "ratio": 0.9662236229103864
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 198197248,
+    "predicted": 189815808,
+    "kv": 2118656,
+    "ratio": 0.957711622716376
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 8434688,
+    "predicted": 3431424,
+    "kv": 545792,
+    "ratio": 0.4068228724050018
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 27279360,
+    "predicted": 13655040,
+    "kv": 2118656,
+    "ratio": 0.5005630630630631
+   }
+  ],
+  "repo": "LGAI-EXAONE/EXAONE-4.0-32B"
+ },
+ "falcon": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": null,
+   "head_dim": null,
+   "intermediate_size": null
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 11538432,
+    "predicted": 13895680,
+    "kv": 1048576,
+    "ratio": 1.2042953496627617
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 153108480,
+    "predicted": 187697152,
+    "kv": 4194304,
+    "ratio": 1.2259095773140718
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 14424576,
+    "predicted": 3803136,
+    "kv": 1048576,
+    "ratio": 0.26365669257800023
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 183525888,
+    "predicted": 15206400,
+    "kv": 4194304,
+    "ratio": 0.08285697546931363
+   }
+  ],
+  "repo": "tiiuae/falcon-7b"
+ },
+ "gemma2": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 2,
+   "head_dim": 256,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 24383488,
+    "predicted": 20768768,
+    "kv": 4251648,
+    "ratio": 0.8517554174365866
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 235945984,
+    "predicted": 215017472,
+    "kv": 16834560,
+    "ratio": 0.9112995625303798
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 20493312,
+    "predicted": 9758720,
+    "kv": 4251648,
+    "ratio": 0.47619047619047616
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 72368128,
+    "predicted": 38856704,
+    "kv": 16834560,
+    "ratio": 0.5369311750056599
+   }
+  ],
+  "repo": "hugging-quants/gemma-2-9b-it-AWQ-INT4"
+ },
+ "gemma3": {
+  "tiny": {
+   "hidden_size": null,
+   "num_hidden_layers": null,
+   "num_attention_heads": null,
+   "num_key_value_heads": null,
+   "head_dim": null,
+   "intermediate_size": null
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 25039872,
+    "predicted": 17666048,
+    "kv": 1148928,
+    "ratio": 0.7055167055167055
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 238613504,
+    "predicted": 202477568,
+    "kv": 4294656,
+    "ratio": 0.8485587135923371
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 18920448,
+    "predicted": 6656000,
+    "kv": 1148928,
+    "ratio": 0.35178871028846675
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 79228928,
+    "predicted": 26316800,
+    "kv": 4294656,
+    "ratio": 0.33216150545416945
+   }
+  ],
+  "repo": "chbae624/vllm-translategemma-12b-it"
+ },
+ "glm4": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 1,
+   "head_dim": 128,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 14553088,
+    "predicted": 15992832,
+    "kv": 2097152,
+    "ratio": 1.0989304812834224
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 190332928,
+    "predicted": 196085760,
+    "kv": 8388608,
+    "ratio": 1.030225101144874
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 8303616,
+    "predicted": 4982784,
+    "kv": 2097152,
+    "ratio": 0.6000739918608953
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 18366464,
+    "predicted": 19924992,
+    "kv": 8388608,
+    "ratio": 1.08485727029438
+   }
+  ],
+  "repo": "zai-org/GLM-Z1-32B-0414"
+ },
+ "gpt2": {
+  "tiny": {
+   "hidden_size": null,
+   "num_hidden_layers": null,
+   "num_attention_heads": null,
+   "num_key_value_heads": null,
+   "head_dim": null,
+   "intermediate_size": null
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 12587008,
+    "predicted": 17434624,
+    "kv": 4194304,
+    "ratio": 1.385128538887081
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 100549120,
+    "predicted": 201852928,
+    "kv": 16777216,
+    "ratio": 2.00750566489294
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 9965568,
+    "predicted": 6948864,
+    "kv": 4194304,
+    "ratio": 0.6972872996300863
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 39862272,
+    "predicted": 27789312,
+    "kv": 16777216,
+    "ratio": 0.6971331689272503
+   }
+  ],
+  "repo": "openai-community/gpt2"
+ },
+ "gpt_neox": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": null,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 17076224,
+    "predicted": 17434624,
+    "kv": 4194304,
+    "ratio": 1.0209882465819142
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 200425472,
+    "predicted": 201852928,
+    "kv": 16777216,
+    "ratio": 1.007122128668356
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 7402496,
+    "predicted": 6424576,
+    "kv": 4194304,
+    "ratio": 0.8678932079125744
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 26361856,
+    "predicted": 25692160,
+    "kv": 16777216,
+    "ratio": 0.9745960223741454
+   }
+  ],
+  "repo": "EleutherAI/pythia-160m"
+ },
+ "granite": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 1,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 13242368,
+    "predicted": 13895680,
+    "kv": 1048576,
+    "ratio": 1.0493349829879368
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 185090048,
+    "predicted": 187697152,
+    "kv": 4194304,
+    "ratio": 1.0140855979463574
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 3568640,
+    "predicted": 2885632,
+    "kv": 1048576,
+    "ratio": 0.8086083213773314
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 12091392,
+    "predicted": 11536384,
+    "kv": 4194304,
+    "ratio": 0.9540989159891599
+   }
+  ],
+  "repo": "ibm-granite/granite-4.1-3b"
+ },
+ "llama": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 1,
+   "head_dim": 128,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 14684160,
+    "predicted": 15992832,
+    "kv": 2097152,
+    "ratio": 1.089121338912134
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 190857216,
+    "predicted": 196085760,
+    "kv": 8388608,
+    "ratio": 1.0273950553695597
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 8434688,
+    "predicted": 4982784,
+    "kv": 2097152,
+    "ratio": 0.5907490591234673
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 20987904,
+    "predicted": 19924992,
+    "kv": 8388608,
+    "ratio": 0.9493559718969555
+   }
+  ],
+  "repo": "dphn/dolphin-2.9.1-yi-1.5-34b"
+ },
+ "mistral": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 1,
+   "head_dim": 128,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 14684160,
+    "predicted": 15992832,
+    "kv": 2097152,
+    "ratio": 1.089121338912134
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 190857216,
+    "predicted": 196085760,
+    "kv": 8388608,
+    "ratio": 1.0273950553695597
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 8434688,
+    "predicted": 4982784,
+    "kv": 2097152,
+    "ratio": 0.5907490591234673
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 20987904,
+    "predicted": 19924992,
+    "kv": 8388608,
+    "ratio": 0.9493559718969555
+   }
+  ],
+  "repo": "mistralai/Mistral-7B-Instruct-v0.2"
+ },
+ "mixtral": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 6,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 4,
+   "head_dim": 48,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 14454784,
+    "predicted": 15239168,
+    "kv": 2359296,
+    "ratio": 1.0542646642108247
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 189939712,
+    "predicted": 193071104,
+    "kv": 9437184,
+    "ratio": 1.0164862416975762
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 4756480,
+    "predicted": 4229120,
+    "kv": 2359296,
+    "ratio": 0.8891280947255114
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 19460096,
+    "predicted": 16910336,
+    "kv": 9437184,
+    "ratio": 0.8689749526415491
+   }
+  ],
+  "repo": "ggml-org/stories15M_MOE"
+ },
+ "olmo2": {
+  "tiny": {
+   "hidden_size": 512,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 4,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 21499904,
+    "predicted": 23857152,
+    "kv": 8388608,
+    "ratio": 1.1096399314155077
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 218120192,
+    "predicted": 227543040,
+    "kv": 33554432,
+    "ratio": 1.043200255389469
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 15250432,
+    "predicted": 12847104,
+    "kv": 8388608,
+    "ratio": 0.8424091855234003
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 58736640,
+    "predicted": 51382272,
+    "kv": 33554432,
+    "ratio": 0.8747907949790795
+   }
+  ],
+  "repo": "allenai/OLMo-2-0425-1B"
+ },
+ "phi3": {
+  "tiny": {
+   "hidden_size": 384,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 4,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 21041152,
+    "predicted": 14440448,
+    "kv": 86016,
+    "ratio": 0.6862955032119914
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 214581248,
+    "predicted": 189618176,
+    "kv": 86016,
+    "ratio": 0.883666106742002
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 10424320,
+    "predicted": 3430400,
+    "kv": 86016,
+    "ratio": 0.3290766208251473
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 52183040,
+    "predicted": 13457408,
+    "kv": 86016,
+    "ratio": 0.25788854003139716
+   }
+  ],
+  "repo": "microsoft/Phi-3.5-mini-instruct"
+ },
+ "qwen2": {
+  "tiny": {
+   "hidden_size": 512,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 1,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 15470592,
+    "predicted": 16779264,
+    "kv": 2097152,
+    "ratio": 1.084590945194599
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 194002944,
+    "predicted": 199231488,
+    "kv": 8388608,
+    "ratio": 1.026950848745883
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 9221120,
+    "predicted": 5769216,
+    "kv": 2097152,
+    "ratio": 0.6256524153248195
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 24150016,
+    "predicted": 23070720,
+    "kv": 8388608,
+    "ratio": 0.95530868385346
+   }
+  ],
+  "repo": "Qwen/Qwen2.5-7B-Instruct"
+ },
+ "qwen2_moe": {
+  "tiny": {
+   "hidden_size": 512,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 4,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 21763072,
+    "predicted": 23857152,
+    "kv": 8388608,
+    "ratio": 1.0962217098762528
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 219172864,
+    "predicted": 227543040,
+    "kv": 33554432,
+    "ratio": 1.0381898372236447
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 15512576,
+    "predicted": 12847104,
+    "kv": 8388608,
+    "ratio": 0.8281734767971484
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 58046464,
+    "predicted": 51382272,
+    "kv": 33554432,
+    "ratio": 0.8851921109268602
+   }
+  ],
+  "repo": "Qwen/Qwen1.5-MoE-A2.7B"
+ },
+ "qwen3": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 2,
+   "head_dim": 128,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 17829888,
+    "predicted": 18352128,
+    "kv": 4194304,
+    "ratio": 1.029290144727774
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 203440128,
+    "predicted": 205522944,
+    "kv": 16777216,
+    "ratio": 1.0102379801884513
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 10531840,
+    "predicted": 7342080,
+    "kv": 4194304,
+    "ratio": 0.6971317452600875
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 29442048,
+    "predicted": 29362176,
+    "kv": 16777216,
+    "ratio": 0.9972871452420701
+   }
+  ],
+  "repo": "Qwen/Qwen3-0.6B"
+ },
+ "qwen3_moe": {
+  "tiny": {
+   "hidden_size": 256,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 1,
+   "head_dim": 128,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 19052032,
+    "predicted": 15992832,
+    "kv": 2097152,
+    "ratio": 0.8394292010427025
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 190857216,
+    "predicted": 196085760,
+    "kv": 8388608,
+    "ratio": 1.0273950553695597
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 16430592,
+    "predicted": 8914944,
+    "kv": 2097152,
+    "ratio": 0.5425820323455174
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 65717760,
+    "predicted": 35653632,
+    "kv": 8388608,
+    "ratio": 0.5425265864204745
+   }
+  ],
+  "repo": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+ },
+ "smollm3": {
+  "tiny": {
+   "hidden_size": 512,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 1,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 15470592,
+    "predicted": 16779264,
+    "kv": 2097152,
+    "ratio": 1.084590945194599
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 194002944,
+    "predicted": 199231488,
+    "kv": 8388608,
+    "ratio": 1.026950848745883
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 9221120,
+    "predicted": 5769216,
+    "kv": 2097152,
+    "ratio": 0.6256524153248195
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 24150016,
+    "predicted": 23070720,
+    "kv": 8388608,
+    "ratio": 0.95530868385346
+   }
+  ],
+  "repo": "HuggingFaceTB/SmolLM3-3B"
+ },
+ "starcoder2": {
+  "tiny": {
+   "hidden_size": 512,
+   "num_hidden_layers": 8,
+   "num_attention_heads": 4,
+   "num_key_value_heads": 1,
+   "head_dim": null,
+   "intermediate_size": 64
+  },
+  "runs": [
+   {
+    "impl": "eager",
+    "L": 512,
+    "measured": 15470592,
+    "predicted": 14710784,
+    "kv": 28672,
+    "ratio": 0.950886947312682
+   },
+   {
+    "impl": "eager",
+    "L": 2048,
+    "measured": 194002944,
+    "predicted": 190871552,
+    "kv": 28672,
+    "ratio": 0.9838590490668018
+   },
+   {
+    "impl": "sdpa",
+    "L": 512,
+    "measured": 6295552,
+    "predicted": 3700736,
+    "kv": 28672,
+    "ratio": 0.5878334417696812
+   },
+   {
+    "impl": "sdpa",
+    "L": 2048,
+    "measured": 32522240,
+    "predicted": 14710784,
+    "kv": 28672,
+    "ratio": 0.4523299748110831
+   }
+  ],
+  "repo": "bigcode/starcoder2-3b"
+ }
+}

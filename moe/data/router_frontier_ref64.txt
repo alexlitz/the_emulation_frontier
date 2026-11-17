@@ -1,0 +1,22 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794734832.062003  237191 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+null m=2 r=2                          0  rel 1.41e-01  max|d| 2.96e-01  top-1 0.917  identical 4/8
+null m=2 r=2                         10  rel 1.23e-01  max|d| 2.58e-01  top-1 0.932  identical 4/8
+null m=2 r=2                       1000  rel 3.77e-11  max|d| 7.89e-11  top-1 1.000  identical 8/8
+null m=2 r=2                      1e+09  rel 8.48e-16  max|d| 1.78e-15  top-1 1.000  identical 8/8
+null m=1 r=3                      1e+09  rel 8.48e-16  max|d| 1.78e-15  top-1 1.000  identical 8/8
+exp regime rho                        0  rel 1.39e-01  max|d| 1.52e-01  top-1 0.938  identical 5/8
+exp regime rho                        1  rel 1.39e-01  max|d| 1.51e-01  top-1 0.938  identical 5/8
+exp regime rho                       10  rel 1.38e-01  max|d| 1.50e-01  top-1 0.953  identical 5/8
+exp regime rho                      100  rel 5.32e-02  max|d| 5.79e-02  top-1 0.995  identical 7/8
+exp regime rho                     1000  rel 2.67e-07  max|d| 2.90e-07  top-1 1.000  identical 7/8
+exp regime rho                    10000  rel 3.14e-01  max|d| 3.42e-01  top-1 0.703  identical 0/8
+plain extras qwen2_moe x=3            0  rel 1.60e-01  max|d| 3.62e-01  top-1 0.828  identical 3/8
+plain extras olmoe x=3                0  rel 3.22e-01  max|d| 7.06e-01  top-1 0.781  identical 0/8
+plain extras qwen2_moe x=3           10  rel 1.11e-01  max|d| 2.51e-01  top-1 0.865  identical 4/8
+plain extras olmoe x=3               10  rel 1.59e-01  max|d| 3.49e-01  top-1 0.880  identical 0/8
+plain extras qwen2_moe x=3         1000  rel 6.92e-06  max|d| 1.56e-05  top-1 1.000  identical 8/8
+plain extras olmoe x=3             1000  rel 4.88e-14  max|d| 1.07e-13  top-1 1.000  identical 8/8
+plain extras qwen2_moe x=3        1e+09  rel 7.86e-16  max|d| 1.78e-15  top-1 1.000  identical 8/8
+plain extras olmoe x=3            1e+09  rel 1.27e-15  max|d| 2.78e-15  top-1 1.000  identical 8/8

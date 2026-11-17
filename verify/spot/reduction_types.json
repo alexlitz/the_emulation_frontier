@@ -1,0 +1,1884 @@
+[
+ {
+  "id": "capacity:eff_layers",
+  "kind": "capacity",
+  "note": "extra layers are the identity",
+  "headline": true,
+  "axis": "eff_layers"
+ },
+ {
+  "id": "capacity:ffn_active",
+  "kind": "capacity",
+  "note": "extra units zeroed, or experts tied to the FFN",
+  "headline": true,
+  "axis": "ffn_active"
+ },
+ {
+  "id": "capacity:ffn_total",
+  "kind": "capacity",
+  "note": "extra units zeroed",
+  "headline": true,
+  "axis": "ffn_total"
+ },
+ {
+  "id": "capacity:head_dim",
+  "kind": "capacity",
+  "note": "zero-padded; RoPE pairs on matching frequencies",
+  "headline": true,
+  "axis": "head_dim"
+ },
+ {
+  "id": "capacity:hidden",
+  "kind": "capacity",
+  "note": "zero-padded; eps and norm gains rescaled",
+  "headline": true,
+  "axis": "hidden"
+ },
+ {
+  "id": "capacity:kv_cap",
+  "kind": "capacity",
+  "note": "KV heads tiled over the host's groups, extras zeroed",
+  "headline": true,
+  "axis": "kv_cap"
+ },
+ {
+  "id": "capacity:kv_pack:nope",
+  "kind": "capacity",
+  "note": "KV-head packing, position-free (kv_heads_fit)",
+  "headline": true
+ },
+ {
+  "id": "capacity:kv_pack:rope",
+  "kind": "capacity",
+  "note": "KV-head packing on a rope_pairs_free (longrope) host: the target's frequencies once per packed block (kv_heads_fit, rope_fits)",
+  "headline": true
+ },
+ {
+  "id": "capacity:layer_kind:FT<-FT",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "FT",
+  "target_kind": "FT"
+ },
+ {
+  "id": "capacity:layer_kind:FT<-FU",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "FU",
+  "target_kind": "FT"
+ },
+ {
+  "id": "capacity:layer_kind:FU<-FU",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "FU",
+  "target_kind": "FU"
+ },
+ {
+  "id": "capacity:layer_kind:LT<-FT",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "FT",
+  "target_kind": "LT"
+ },
+ {
+  "id": "capacity:layer_kind:LT<-FU",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "FU",
+  "target_kind": "LT"
+ },
+ {
+  "id": "capacity:layer_kind:LT<-LT",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "LT",
+  "target_kind": "LT"
+ },
+ {
+  "id": "capacity:layer_kind:LT<-LU",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "LU",
+  "target_kind": "LT"
+ },
+ {
+  "id": "capacity:layer_kind:LU<-FU",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "FU",
+  "target_kind": "LU"
+ },
+ {
+  "id": "capacity:layer_kind:LU<-LU",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "LU",
+  "target_kind": "LU"
+ },
+ {
+  "id": "capacity:layer_kind:R<-R",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "R",
+  "target_kind": "R"
+ },
+ {
+  "id": "capacity:layer_kind:S<-S",
+  "kind": "capacity",
+  "note": "per-layer-kind depth matching (KIND_REACH)",
+  "headline": true,
+  "host_kind": "S",
+  "target_kind": "S"
+ },
+ {
+  "id": "capacity:mla_latent",
+  "kind": "capacity",
+  "note": "MLA <- MLA: latents an integer multiple of the target's (or any wider under the eps lever)",
+  "headline": true
+ },
+ {
+  "id": "capacity:moe_depth",
+  "kind": "capacity",
+  "note": "x2 depth: a less-rich FFN host / a parallel host for a sequential target",
+  "headline": true
+ },
+ {
+  "id": "capacity:norm_width",
+  "kind": "capacity",
+  "note": "x2 hidden: the [h; -h] mirror (RMSNorm target, LayerNorm host)",
+  "headline": true
+ },
+ {
+  "id": "capacity:param_layers",
+  "kind": "capacity",
+  "note": "extra layers are the identity",
+  "headline": true,
+  "axis": "param_layers"
+ },
+ {
+  "id": "capacity:q_cap",
+  "kind": "capacity",
+  "note": "extra query heads zeroed",
+  "headline": true,
+  "axis": "q_cap"
+ },
+ {
+  "id": "capacity:qheads",
+  "kind": "capacity",
+  "note": "extra query heads zeroed",
+  "headline": true,
+  "axis": "qheads"
+ },
+ {
+  "id": "capacity:rot_gate",
+  "kind": "capacity",
+  "note": "partial-RoPE host for a RoPE target: the target's rotating pairs in the host's inv_freq tables (rope_fits, hf/partial_rope_host.py)",
+  "headline": true
+ },
+ {
+  "id": "feature:bias_out:host",
+  "kind": "feature",
+  "note": "output-side biases: o_proj / MLP biases and affine LayerNorm beta (folded into the consumers' biases and an lm_head bias: the LayerNorm -> RMSNorm fold needs them, tests/test_cookbook_fixes.py): a bia",
+  "headline": true,
+  "feature": "bias_out",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:bias_qkv:host",
+  "kind": "feature",
+  "note": "q / k / v projection biases (Qwen-1 / 2 / 2.5, GPT-2, OPT, Bloom, Pythia, Phi, StableLM, ...): a constant needs a constant input channel, which a pre-norm residual does not offer (RMSNorm rescales it ",
+  "headline": true,
+  "feature": "bias_qkv",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:dsa:host",
+  "kind": "feature",
+  "note": "DeepSeek sparse attention (an indexer keeps the index_topk best keys per query): treated as dense attention -- exact while the context is <= index_topk; a DSA host sets index_topk >= the context",
+  "headline": true,
+  "feature": "dsa",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:dsa:target",
+  "kind": "feature",
+  "note": "DeepSeek sparse attention (an indexer keeps the index_topk best keys per query): treated as dense attention -- exact while the context is <= index_topk; a DSA host sets index_topk >= the context",
+  "headline": true,
+  "feature": "dsa",
+  "side": "target",
+  "rule": "free"
+ },
+ {
+  "id": "feature:engram:host",
+  "kind": "feature",
+  "note": "hashed n-gram memory added to the residual (Engram, DeepSeek-V4.1): a token embedding cannot read the previous tokens; zero its output to switch it off",
+  "headline": true,
+  "feature": "engram",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:out_gate:host",
+  "kind": "feature",
+  "note": "attention output gate o * sigmoid(W_g x) (Qwen3-Next / 3.5 attn_output_gate, Laguna, Step-3.5, MiniCPM-SALA, Kimi MLA, ...): a data-dependent product no ungated layer forms; a gated host sets W_g = 0 ",
+  "headline": true,
+  "feature": "out_gate",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:ple:host",
+  "kind": "feature",
+  "note": "per-layer token embeddings fed into every layer (Gemma-3n / Gemma-4 E-models PLE, Qwen4-exp): carrying them in the residual is seen by every pre-norm; zero them to switch off",
+  "headline": true,
+  "feature": "ple",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:router_bias:host",
+  "kind": "feature",
+  "note": "a selection-only expert bias (aux-loss-free balancing: topk_method noaux_tc, e_score_correction_bias, moe_router_enable_expert_bias, use_routing_bias, ...): the experts are SELECTED on l + b but weigh",
+  "headline": true,
+  "feature": "router_bias",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:router_group:host",
+  "kind": "feature",
+  "note": "group-limited top-k (n_group / topk_group): priced by moe_why (group routing: the same group-score code, m = 1 under a top-2-sum score, the host's experts in m x n_group equal groups)",
+  "headline": true,
+  "feature": "router_group",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:router_group:target",
+  "kind": "feature",
+  "note": "group-limited top-k (n_group / topk_group): priced by moe_why (group routing: the same group-score code, m = 1 under a top-2-sum score, the host's experts in m x n_group equal groups)",
+  "headline": true,
+  "feature": "router_group",
+  "side": "target",
+  "rule": "free"
+ },
+ {
+  "id": "feature:router_sigmoid:host",
+  "kind": "feature",
+  "note": "sigmoid expert scores (DeepSeek-V3, GLM-4.5, Kimi-K2, ...): priced by moe_why (router score): a softmax router's weights cannot equal sigmoid ones for linear logits, and the sigmoid -> e^z limit is a ",
+  "headline": true,
+  "feature": "router_sigmoid",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:router_sigmoid:target",
+  "kind": "feature",
+  "note": "sigmoid expert scores (DeepSeek-V3, GLM-4.5, Kimi-K2, ...): priced by moe_why (router score): a softmax router's weights cannot equal sigmoid ones for linear logits, and the sigmoid -> e^z limit is a ",
+  "headline": true,
+  "feature": "router_sigmoid",
+  "side": "target",
+  "rule": "free"
+ },
+ {
+  "id": "feature:router_sqrtsoftplus:host",
+  "kind": "feature",
+  "note": "expert scores sqrt(softplus(l)) (DeepSeek-V4 scoring_func sqrtsoftplus): priced by moe_why (router score; V4's ACT2FN[scoring_func] takes sigmoid or sqrtsoftplus from the config)",
+  "headline": true,
+  "feature": "router_sqrtsoftplus",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:router_sqrtsoftplus:target",
+  "kind": "feature",
+  "note": "expert scores sqrt(softplus(l)) (DeepSeek-V4 scoring_func sqrtsoftplus): priced by moe_why (router score; V4's ACT2FN[scoring_func] takes sigmoid or sqrtsoftplus from the config)",
+  "headline": true,
+  "feature": "router_sqrtsoftplus",
+  "side": "target",
+  "rule": "free"
+ },
+ {
+  "id": "feature:selfcond:host",
+  "kind": "feature",
+  "note": "self-conditioning (DiffusionGemma, LLaDA2.1-ORL, QwenDLM-ORL): the previous step's logits fed back as an extra input, softmax(prev) E -> MLP -> added; no host without it reads that input; a self-condi",
+  "headline": true,
+  "feature": "selfcond",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:shared_gate:host",
+  "kind": "feature",
+  "note": "a sigmoid gate on the shared expert, sigmoid(w . x) * shared(x) (Qwen1.5 / 2-MoE, Qwen3-Next, Qwen3.5-MoE, Qwen4-exp): a data-dependent product an ungated shared expert does not form; a gated host set",
+  "headline": true,
+  "feature": "shared_gate",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:switch_lora:host",
+  "kind": "feature",
+  "note": "per-token switched LoRA adapters (Granite-Switch aLoRA): the weights change mid-sequence on a control token; a plain host has one weight set (a switch host never selects an adapter)",
+  "headline": true,
+  "feature": "switch_lora",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "feature:tied_emb:target",
+  "kind": "feature",
+  "note": "tied embeddings (lm_head = E^T): a tied target is an untied host with lm_head := E^T; a tied host's output table IS its input table -- a target with its own lm_head would need a second table in the re",
+  "headline": true,
+  "feature": "tied_emb",
+  "side": "target",
+  "rule": "free"
+ },
+ {
+  "id": "feature:value_emb:host",
+  "kind": "feature",
+  "note": "value embeddings / value residuals added inside attention (nanochat ve, x0 / residual lambdas, smear): extra per-token inputs no plain layer reads; zero them to switch off",
+  "headline": true,
+  "feature": "value_emb",
+  "side": "host",
+  "rule": "free"
+ },
+ {
+  "id": "moe:dense_host_top1",
+  "kind": "moe",
+  "note": "dense host for a top-1 unit-gate MoE target (moe/dense_host_prenorm.py)",
+  "headline": true
+ },
+ {
+  "id": "moe:dense_layers",
+  "kind": "moe",
+  "note": "dense-first target layers on host dense / spare MoE layers (moe_why)",
+  "headline": true
+ },
+ {
+  "id": "moe:dup:P:1",
+  "kind": "moe",
+  "note": "MoE <- MoE expert duplication, renorm P, m = 1 copies (moe_why)",
+  "headline": true,
+  "renorm": "P",
+  "copies": "1"
+ },
+ {
+  "id": "moe:dup:P:m",
+  "kind": "moe",
+  "note": "MoE <- MoE expert duplication, renorm P, m = m copies (moe_why)",
+  "headline": true,
+  "renorm": "P",
+  "copies": "m"
+ },
+ {
+  "id": "moe:dup:R:1",
+  "kind": "moe",
+  "note": "MoE <- MoE expert duplication, renorm R, m = 1 copies (moe_why)",
+  "headline": true,
+  "renorm": "R",
+  "copies": "1"
+ },
+ {
+  "id": "moe:dup:R:m",
+  "kind": "moe",
+  "note": "MoE <- MoE expert duplication, renorm R, m = m copies (moe_why)",
+  "headline": true,
+  "renorm": "R",
+  "copies": "m"
+ },
+ {
+  "id": "moe:dup:sparsemixer:1",
+  "kind": "moe",
+  "note": "MoE <- MoE expert duplication, renorm sparsemixer, m = 1 copies (moe_why)",
+  "headline": true,
+  "renorm": "sparsemixer",
+  "copies": "1"
+ },
+ {
+  "id": "moe:dup:sparsemixer:m",
+  "kind": "moe",
+  "note": "MoE <- MoE expert duplication, renorm sparsemixer, m = m copies (moe_why)",
+  "headline": true,
+  "renorm": "sparsemixer",
+  "copies": "m"
+ },
+ {
+  "id": "moe:extra_experts",
+  "kind": "moe",
+  "note": "extra host experts scored below the copies (a selection bias / a free hidden dim)",
+  "headline": true
+ },
+ {
+  "id": "moe:group:max",
+  "kind": "moe",
+  "note": "group-limited routing, group score max (moe_why)",
+  "headline": true,
+  "group": "max"
+ },
+ {
+  "id": "moe:group:top2sum",
+  "kind": "moe",
+  "note": "group-limited routing, group score top2sum (moe_why)",
+  "headline": true,
+  "group": "top2sum"
+ },
+ {
+  "id": "moe:host_for_dense",
+  "kind": "moe",
+  "note": "dense target on a MoE host: zero router, units over the selected experts",
+  "headline": true
+ },
+ {
+  "id": "moe:latent",
+  "kind": "moe",
+  "note": "expert-input latent rank, host >= target (moe_why)",
+  "headline": true
+ },
+ {
+  "id": "moe:score",
+  "kind": "moe",
+  "note": "router score kinds a host's code computes (score_cap, moe_why)",
+  "headline": true
+ },
+ {
+  "id": "moe:shared",
+  "kind": "moe",
+  "note": "shared expert, host >= target (moe_why)",
+  "headline": true
+ },
+ {
+  "id": "port:act_width",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "act_width"
+ },
+ {
+  "id": "port:alibi_labs",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "alibi_labs"
+ },
+ {
+  "id": "port:bos_labs",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "bos_labs"
+ },
+ {
+  "id": "port:bos_sink",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "bos_sink"
+ },
+ {
+  "id": "port:comp_ln",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "comp_ln"
+ },
+ {
+  "id": "port:comp_par",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "comp_par"
+ },
+ {
+  "id": "port:eps_feats",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "eps_feats"
+ },
+ {
+  "id": "port:eps_latent",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "eps_latent"
+ },
+ {
+  "id": "port:eps_mla_plain",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "eps_mla_plain"
+ },
+ {
+  "id": "port:eps_qknorm",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "eps_qknorm"
+ },
+ {
+  "id": "port:eps_rec",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "eps_rec"
+ },
+ {
+  "id": "port:gelu",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "gelu"
+ },
+ {
+  "id": "port:ln_beta",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "ln_beta"
+ },
+ {
+  "id": "port:loop",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "loop"
+ },
+ {
+  "id": "port:oai_bias",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "oai_bias"
+ },
+ {
+  "id": "port:partial",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "partial"
+ },
+ {
+  "id": "port:qk_switch",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "qk_switch"
+ },
+ {
+  "id": "port:rot_config",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "rot_config"
+ },
+ {
+  "id": "port:softcap",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "softcap"
+ },
+ {
+  "id": "port:window",
+  "kind": "port",
+  "note": "pass-5 port (graph.model_graph P5_PORTS)",
+  "headline": true,
+  "port": "window"
+ },
+ {
+  "id": "recurrent:eq",
+  "kind": "recurrent",
+  "note": "recurrent capacity rule RC_EQ (_rc_pair_ok)",
+  "headline": true,
+  "rule": 5
+ },
+ {
+  "id": "recurrent:gdn",
+  "kind": "recurrent",
+  "note": "recurrent capacity rule RC_GDN (_rc_pair_ok)",
+  "headline": true,
+  "rule": 3
+ },
+ {
+  "id": "recurrent:ge",
+  "kind": "recurrent",
+  "note": "recurrent capacity rule RC_GE (_rc_pair_ok)",
+  "headline": true,
+  "rule": 1
+ },
+ {
+  "id": "recurrent:kda",
+  "kind": "recurrent",
+  "note": "recurrent capacity rule RC_KDA (_rc_pair_ok)",
+  "headline": true,
+  "rule": 4
+ },
+ {
+  "id": "recurrent:m2",
+  "kind": "recurrent",
+  "note": "recurrent capacity rule RC_M2 (_rc_pair_ok)",
+  "headline": true,
+  "rule": 2
+ },
+ {
+  "id": "recurrent:zamba_shared",
+  "kind": "recurrent",
+  "note": "Zamba2 shared blocks a multiple of the target's (_rec_ok)",
+  "headline": true
+ },
+ {
+  "id": "slot:act:GeLU->GeLU_tanh",
+  "kind": "slot",
+  "slot": "act",
+  "target": "GeLU",
+  "host": "GeLU_tanh",
+  "currency": "floor",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 303
+ },
+ {
+  "id": "slot:act:GeLU->SiLU",
+  "kind": "slot",
+  "slot": "act",
+  "target": "GeLU",
+  "host": "SiLU",
+  "currency": "port",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 494
+ },
+ {
+  "id": "slot:act:GeLU->swigluoai",
+  "kind": "slot",
+  "slot": "act",
+  "target": "GeLU",
+  "host": "swigluoai",
+  "currency": "port",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 7
+ },
+ {
+  "id": "slot:act:GeLU_tanh->GeLU",
+  "kind": "slot",
+  "slot": "act",
+  "target": "GeLU_tanh",
+  "host": "GeLU",
+  "currency": "floor",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 678
+ },
+ {
+  "id": "slot:act:GeLU_tanh->SiLU",
+  "kind": "slot",
+  "slot": "act",
+  "target": "GeLU_tanh",
+  "host": "SiLU",
+  "currency": "port",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 31
+ },
+ {
+  "id": "slot:act:ReLU->GeLU",
+  "kind": "slot",
+  "slot": "act",
+  "target": "ReLU",
+  "host": "GeLU",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 58
+ },
+ {
+  "id": "slot:act:ReLU->GeLU_tanh",
+  "kind": "slot",
+  "slot": "act",
+  "target": "ReLU",
+  "host": "GeLU_tanh",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 58
+ },
+ {
+  "id": "slot:act:ReLU->SiLU",
+  "kind": "slot",
+  "slot": "act",
+  "target": "ReLU",
+  "host": "SiLU",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 5
+ },
+ {
+  "id": "slot:act:ReLU->mish",
+  "kind": "slot",
+  "slot": "act",
+  "target": "ReLU",
+  "host": "mish",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:act:ReLU->swigluoai",
+  "kind": "slot",
+  "slot": "act",
+  "target": "ReLU",
+  "host": "swigluoai",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:act:SiLU->GeLU",
+  "kind": "slot",
+  "slot": "act",
+  "target": "SiLU",
+  "host": "GeLU",
+  "currency": "port",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 1163
+ },
+ {
+  "id": "slot:act:SiLU->GeLU_tanh",
+  "kind": "slot",
+  "slot": "act",
+  "target": "SiLU",
+  "host": "GeLU_tanh",
+  "currency": "port",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 1850
+ },
+ {
+  "id": "slot:act:SiLU->swigluoai",
+  "kind": "slot",
+  "slot": "act",
+  "target": "SiLU",
+  "host": "swigluoai",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 580
+ },
+ {
+  "id": "slot:act:relu2->xielu",
+  "kind": "slot",
+  "slot": "act",
+  "target": "relu2",
+  "host": "xielu",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 1
+ },
+ {
+  "id": "slot:act:swigluoai->SiLU",
+  "kind": "slot",
+  "slot": "act",
+  "target": "swigluoai",
+  "host": "SiLU",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:block:parallel->sequential",
+  "kind": "slot",
+  "slot": "block",
+  "target": "parallel",
+  "host": "sequential",
+  "currency": "width",
+  "exact": true,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:block:sequential->parallel",
+  "kind": "slot",
+  "slot": "block",
+  "target": "sequential",
+  "host": "parallel",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 1884
+ },
+ {
+  "id": "slot:crosslayer_kv:no->yes",
+  "kind": "slot",
+  "slot": "crosslayer_kv",
+  "target": "no",
+  "host": "yes",
+  "currency": "depth (ZERO_EDGES)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 87
+ },
+ {
+  "id": "slot:crosslayer_kv:yes->no",
+  "kind": "slot",
+  "slot": "crosslayer_kv",
+  "target": "yes",
+  "host": "no",
+  "currency": "width",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:ffn:glu->moe",
+  "kind": "slot",
+  "slot": "ffn",
+  "target": "glu",
+  "host": "moe",
+  "currency": "cap",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 6181
+ },
+ {
+  "id": "slot:ffn:glu->moe_shared",
+  "kind": "slot",
+  "slot": "ffn",
+  "target": "glu",
+  "host": "moe_shared",
+  "currency": "cap,free",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 5010
+ },
+ {
+  "id": "slot:ffn:glu->vanilla",
+  "kind": "slot",
+  "slot": "ffn",
+  "target": "glu",
+  "host": "vanilla",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 1508
+ },
+ {
+  "id": "slot:ffn:moe->glu",
+  "kind": "slot",
+  "slot": "ffn",
+  "target": "moe",
+  "host": "glu",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 5
+ },
+ {
+  "id": "slot:ffn:moe->moe_shared",
+  "kind": "slot",
+  "slot": "ffn",
+  "target": "moe",
+  "host": "moe_shared",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 83
+ },
+ {
+  "id": "slot:ffn:vanilla->glu",
+  "kind": "slot",
+  "slot": "ffn",
+  "target": "vanilla",
+  "host": "glu",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 374
+ },
+ {
+  "id": "slot:ffn:vanilla->moe",
+  "kind": "slot",
+  "slot": "ffn",
+  "target": "vanilla",
+  "host": "moe",
+  "currency": "free,cap",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 87
+ },
+ {
+  "id": "slot:ffn:vanilla->moe_shared",
+  "kind": "slot",
+  "slot": "ffn",
+  "target": "vanilla",
+  "host": "moe_shared",
+  "currency": "free,cap",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 52
+ },
+ {
+  "id": "slot:gen:ar->block",
+  "kind": "slot",
+  "slot": "gen",
+  "target": "ar",
+  "host": "block",
+  "currency": "mask",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 418
+ },
+ {
+  "id": "slot:gen:ar->diffusion",
+  "kind": "slot",
+  "slot": "gen",
+  "target": "ar",
+  "host": "diffusion",
+  "currency": "mask",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 517
+ },
+ {
+  "id": "slot:gen:block->diffusion",
+  "kind": "slot",
+  "slot": "gen",
+  "target": "block",
+  "host": "diffusion",
+  "currency": "mask",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:gen:diffusion->block",
+  "kind": "slot",
+  "slot": "gen",
+  "target": "diffusion",
+  "host": "block",
+  "currency": "mask",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 3
+ },
+ {
+  "id": "slot:kv:GQA->MHA",
+  "kind": "slot",
+  "slot": "kv",
+  "target": "GQA",
+  "host": "MHA",
+  "currency": "kv",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 4928
+ },
+ {
+  "id": "slot:kv:GQA->MLA",
+  "kind": "slot",
+  "slot": "kv",
+  "target": "GQA",
+  "host": "MLA",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 152
+ },
+ {
+  "id": "slot:kv:GQA->MQA",
+  "kind": "slot",
+  "slot": "kv",
+  "target": "GQA",
+  "host": "MQA",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 158
+ },
+ {
+  "id": "slot:kv:MHA->GQA",
+  "kind": "slot",
+  "slot": "kv",
+  "target": "MHA",
+  "host": "GQA",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 7720
+ },
+ {
+  "id": "slot:kv:MHA->MLA",
+  "kind": "slot",
+  "slot": "kv",
+  "target": "MHA",
+  "host": "MLA",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 204
+ },
+ {
+  "id": "slot:kv:MHA->MQA",
+  "kind": "slot",
+  "slot": "kv",
+  "target": "MHA",
+  "host": "MQA",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 94
+ },
+ {
+  "id": "slot:kv:MQA->GQA",
+  "kind": "slot",
+  "slot": "kv",
+  "target": "MQA",
+  "host": "GQA",
+  "currency": "kv",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 1682
+ },
+ {
+  "id": "slot:kv:MQA->MHA",
+  "kind": "slot",
+  "slot": "kv",
+  "target": "MQA",
+  "host": "MHA",
+  "currency": "kv",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 507
+ },
+ {
+  "id": "slot:kv:MQA->MLA",
+  "kind": "slot",
+  "slot": "kv",
+  "target": "MQA",
+  "host": "MLA",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 63
+ },
+ {
+  "id": "slot:loop:looped->untied",
+  "kind": "slot",
+  "slot": "loop",
+  "target": "looped",
+  "host": "untied",
+  "currency": "depth",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 146
+ },
+ {
+  "id": "slot:loop:untied->looped",
+  "kind": "slot",
+  "slot": "loop",
+  "target": "untied",
+  "host": "looped",
+  "currency": "size (capacity rows)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 10
+ },
+ {
+  "id": "slot:mixer:hybrid->softmax",
+  "kind": "slot",
+  "slot": "mixer",
+  "target": "hybrid",
+  "host": "softmax",
+  "currency": "near-gap",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:mixer:linear->softmax",
+  "kind": "slot",
+  "slot": "mixer",
+  "target": "linear",
+  "host": "softmax",
+  "currency": "near-gap",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:mixer:softmax->hybrid",
+  "kind": "slot",
+  "slot": "mixer",
+  "target": "softmax",
+  "host": "hybrid",
+  "currency": "depth (ZERO_EDGES)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 1893
+ },
+ {
+  "id": "slot:mixer:ssm->softmax",
+  "kind": "slot",
+  "slot": "mixer",
+  "target": "ssm",
+  "host": "softmax",
+  "currency": "near-gap",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:mtp:no->yes",
+  "kind": "slot",
+  "slot": "mtp",
+  "target": "no",
+  "host": "yes",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 1465
+ },
+ {
+  "id": "slot:mtp:yes->no",
+  "kind": "slot",
+  "slot": "mtp",
+  "target": "yes",
+  "host": "no",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 12
+ },
+ {
+  "id": "slot:norm:LayerNorm->RMSNorm",
+  "kind": "slot",
+  "slot": "norm",
+  "target": "LayerNorm",
+  "host": "RMSNorm",
+  "currency": "fold",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 804
+ },
+ {
+  "id": "slot:norm:RMSNorm->LayerNorm",
+  "kind": "slot",
+  "slot": "norm",
+  "target": "RMSNorm",
+  "host": "LayerNorm",
+  "currency": "width",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 2380
+ },
+ {
+  "id": "slot:pos:alibi->additive_bias",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "alibi",
+  "host": "additive_bias",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:pos:alibi->partial_rope",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "alibi",
+  "host": "partial_rope",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 144
+ },
+ {
+  "id": "slot:pos:alibi->rope",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "alibi",
+  "host": "rope",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 432
+ },
+ {
+  "id": "slot:pos:learned_abs->nope",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "learned_abs",
+  "host": "nope",
+  "currency": "port",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 8
+ },
+ {
+  "id": "slot:pos:learned_abs->partial_rope",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "learned_abs",
+  "host": "partial_rope",
+  "currency": "port",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 467
+ },
+ {
+  "id": "slot:pos:learned_abs->rope",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "learned_abs",
+  "host": "rope",
+  "currency": "port",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 267
+ },
+ {
+  "id": "slot:pos:nope->alibi",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "nope",
+  "host": "alibi",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 4
+ },
+ {
+  "id": "slot:pos:nope->learned_abs",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "nope",
+  "host": "learned_abs",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 14
+ },
+ {
+  "id": "slot:pos:nope->partial_rope",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "nope",
+  "host": "partial_rope",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 86
+ },
+ {
+  "id": "slot:pos:nope->rope",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "nope",
+  "host": "rope",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 326
+ },
+ {
+  "id": "slot:pos:partial_rope->rope",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "partial_rope",
+  "host": "rope",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 514
+ },
+ {
+  "id": "slot:pos:rope->partial_rope",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "rope",
+  "host": "partial_rope",
+  "currency": "rot",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 5988
+ },
+ {
+  "id": "slot:pos:t5_relbias->additive_bias",
+  "kind": "slot",
+  "slot": "pos",
+  "target": "t5_relbias",
+  "host": "additive_bias",
+  "currency": "free",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:dsv4->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "dsv4",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:head->head_distinct",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head",
+  "host": "head_distinct",
+  "currency": "fold",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 1
+ },
+ {
+  "id": "slot:qknorm:head->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:head_distinct->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head_distinct",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:head_free->head",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head_free",
+  "host": "head",
+  "currency": "fold",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 19
+ },
+ {
+  "id": "slot:qknorm:head_free->head_distinct",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head_free",
+  "host": "head_distinct",
+  "currency": "fold",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:head_free->head_post",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head_free",
+  "host": "head_post",
+  "currency": "fold",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:head_free->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head_free",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:head_ln->head_ln_bias",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head_ln",
+  "host": "head_ln_bias",
+  "currency": "fold",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:head_ln->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head_ln",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:head_ln_bias->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head_ln_bias",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:head_post->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "head_post",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:ln_shared_bias->head_ln_bias",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "ln_shared_bias",
+  "host": "head_ln_bias",
+  "currency": "fold",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:ln_shared_bias->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "ln_shared_bias",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:no->dsv4",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "dsv4",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:no->head",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "head",
+  "currency": "approx",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 7621
+ },
+ {
+  "id": "slot:qknorm:no->head_distinct",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "head_distinct",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:no->head_free",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "head_free",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:no->head_ln",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "head_ln",
+  "currency": "approx",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 64
+ },
+ {
+  "id": "slot:qknorm:no->head_ln_bias",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "head_ln_bias",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:no->head_post",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "head_post",
+  "currency": "approx",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 230
+ },
+ {
+  "id": "slot:qknorm:no->ln_shared_bias",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "ln_shared_bias",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:no->proj",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "proj",
+  "currency": "approx",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 412
+ },
+ {
+  "id": "slot:qknorm:no->proj_ln",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "proj_ln",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:no->qkv_input",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "no",
+  "host": "qkv_input",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:proj->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "proj",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:proj_ln->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "proj_ln",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:qknorm:qkv_input->no",
+  "kind": "slot",
+  "slot": "qknorm",
+  "target": "qkv_input",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:sink:no->yes",
+  "kind": "slot",
+  "slot": "sink",
+  "target": "no",
+  "host": "yes",
+  "currency": "mag",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 1084
+ },
+ {
+  "id": "slot:sink:yes->no",
+  "kind": "slot",
+  "slot": "sink",
+  "target": "yes",
+  "host": "no",
+  "currency": "drop-sinks",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:softcap:attn->final",
+  "kind": "slot",
+  "slot": "softcap",
+  "target": "attn",
+  "host": "final",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:softcap:attn->no",
+  "kind": "slot",
+  "slot": "softcap",
+  "target": "attn",
+  "host": "no",
+  "currency": "approx",
+  "exact": false,
+  "headline": false,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:softcap:final->attn",
+  "kind": "slot",
+  "slot": "softcap",
+  "target": "final",
+  "host": "attn",
+  "currency": "cap-large",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 0
+ },
+ {
+  "id": "slot:softcap:final->no",
+  "kind": "slot",
+  "slot": "softcap",
+  "target": "final",
+  "host": "no",
+  "currency": "argmax",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 39
+ },
+ {
+  "id": "slot:softcap:no->attn",
+  "kind": "slot",
+  "slot": "softcap",
+  "target": "no",
+  "host": "attn",
+  "currency": "cap-large",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 212
+ },
+ {
+  "id": "slot:softcap:no->final",
+  "kind": "slot",
+  "slot": "softcap",
+  "target": "no",
+  "host": "final",
+  "currency": "cap-large",
+  "exact": false,
+  "headline": true,
+  "one_hop": true,
+  "observed": 1045
+ },
+ {
+  "id": "slot:window:full->local",
+  "kind": "slot",
+  "slot": "window",
+  "target": "full",
+  "host": "local",
+  "currency": "depth (ZERO_EDGES)",
+  "exact": true,
+  "headline": true,
+  "one_hop": false,
+  "observed": 4799
+ },
+ {
+  "id": "slot:window:local->full",
+  "kind": "slot",
+  "slot": "window",
+  "target": "local",
+  "host": "full",
+  "currency": "mask",
+  "exact": true,
+  "headline": true,
+  "one_hop": true,
+  "observed": 2524
+ },
+ {
+  "id": "zero:crosslayer_kv:no<-yes",
+  "kind": "zero",
+  "note": "depth (zero the KV-sharing layers)",
+  "headline": true,
+  "slot": "crosslayer_kv",
+  "target": "no",
+  "host": "yes"
+ },
+ {
+  "id": "zero:mixer:softmax<-hybrid",
+  "kind": "zero",
+  "note": "depth (zero the SSM / linear layers)",
+  "headline": true,
+  "slot": "mixer",
+  "target": "softmax",
+  "host": "hybrid"
+ },
+ {
+  "id": "zero:window:full<-local",
+  "kind": "zero",
+  "note": "depth (zero the sliding-window layers)",
+  "headline": true,
+  "slot": "window",
+  "target": "full",
+  "host": "local"
+ }
+]

@@ -1,0 +1,253 @@
+# finding keys already in use (key -- first description). Reuse a key when the subtlety is the same.
+mpt_qk_norm_variant -- PhoGPT GroupedQueryAttention.__init__ (fused Wqkv with kv_n_heads, bias=not no_bias, softmax_scale default 1/sqrt(head_dim)) builds q_ln / k_ln. MPT attn_config
+mpt_attn_config_rope_unread -- PhoGPT GroupedQueryAttention.forward: clamp of fused qkv (clip_qkv feature, mapped), qk_ln / qk_gn (see mpt_qk_norm_variant), then RoPE from rotary_emb_w_meta_i
+mpt_remote_alibi_default_false -- PhoGPT MPTConfig logic (_validate_config fills attn_config / ffn_config defaults; alibi or rope forces learned_pos_emb False). Zoo PhoGPT configs set alibi true
+mpt_ffn_config_unread -- build_ffn dispatches ffn_type mptmlp / mptglu / te_ln_mlp with ffn_act_fn and ffn_hidden_size. ffn_config.ffn_type 'mptglu' gives act(gate(x)) * up(x) (GLU), ff
+mpt_attn_config_sliding_window -- PhoGPT-version flash_attn_fn passes window_size=(w, w) from attn_config.sliding_window_size (flash backend only; the torch path ignores it). classify reads slid
+mpt_norm_type_unread -- rms_norm (mpt-7b / replit copy) computes x / rsqrt(mean(x^2)+eps) = x * rms(x). MPT norm_type selects layernorm / low_precision_layernorm / rmsnorm / low_precis
+mpt_prefix_lm -- attn_config.prefix_lm: the mask lets every query attend to all prefix_mask positions (bidirectional prefix, causal after; is_causal = False and ALiBi built 'ful
+bloom_word_embeddings_layernorm -- native MptModel.__init__ vs BloomModel: word_embeddings_layernorm removed (MPT has no embedding norm); norm_f without bias. BLOOM applies word_embeddings_layern
+attention_head_dim_unread -- Nemotron-H remote attention uses head_dim = config.attention_head_dim (default 128) else hidden//heads; dims_of reads only head_dim, so Nemotron-H-4B (attention
+kimi_latent_moe_norm -- Kimi-K3 latent MoE: when routed_expert_hidden_size is set (3584 vs hidden 7168 in every K3 snapshot) the routed experts run on routed_expert_down_proj(x); with 
+attn_output_saturation -- Qwen3-0.6B-D-ROS: every attention output passes _apply_dros (enabled in the snapshot's d_ros_config): in layers int(0.6 L)..int(0.9 L) a channel-axis avg-pool b
+bidirectional_flag_true -- voyage-4-nano Qwen3BidirectionalModel: the code always ORs bidirectional_mask_function into the mask (every token attends every non-padded token, no causal mask
+reranker_score_head -- LayerWiseHead / CostWiseHead: the 'lm_head' of bge rerankers is Linear(hidden, 1) (head_type simple), one per exit layer from start_layer: the model outputs a r
+loop_boundary_norm -- the loop over num_loops=2 applies self.norm (the final RMSNorm, shared weight) to the residual stream at the END OF EVERY LOOP (skip_loop_final_norm false in bo
+norm_after_post_only -- MolmoSequentialBlock.forward: with norm_after (Molmo-7B-O-0924 config norm_after true) the block has NO pre-norm: att_proj reads x, attn_norm is applied to the 
+input_vocab_extra_rows -- Molmo Embedding: two tables, embedding (embedding_size rows) and new_embedding (additional_vocab_size = 128 rows, passed by MolmoForCausalLM), concatenated for 
+qwen1_logn_attn -- QWenAttention (Qwen-Audio) builds logn_tensor[i] = log_{seq_length}(i) for positions i > seq_length (else 1) and, with use_logn_attn (True in the configs), mult
+qwen1_dynamic_ntk -- Qwen-VL model forward: on prefill (eval, use_dynamic_ntk) ntk_alpha = max(2^ceil(log2(L / seq_length) + 1) - 1, 1) for total length L, and the rotary base becom
+no_model_type_bailing_v3_hybrid -- KDA mixer (separate q/k/v short convs, A_log / dt_bias gate with kda_lower_bound -5, sigmoid-gated RMSNorm output). For Ling-3.x (bailing_hybrid) this is rf_kda
+act_clip_per_layer_list -- Ling-3.1-flash MLP: gate = silu(gate_proj x) then gate.clamp(max=L), up.clamp(-L, L) when the per-layer swiglu_limit is set (from expert_swiglu_limit_list / sha
+renorm_fixed_key_ignored -- Bailing V2 / V2.5 / V3, LLaDA2, Param2, Ming-3 gate always renormalises the top-k sigmoid scores (scores / sum when top_k > 1) and ignores norm_topk_prob; _moe_
+ceno_megatron_stream_renorm -- CENOBlock (Megatron IdentityOp port): attention blocks get a second norm pre_mlp_norm applied to the OUTPUT (x -> pre_mlp_norm(x + attn(norm x))), MoE / MLP blo
+no_model_type_longcat -- LongCat router reads norm_topk_prob, default False (no renorm: softmax over routed + zero experts with a selection bias, x routed_scaling_factor). The config ha
+no_model_type_class_default -- MiniCPMConfig defaults tie_word_embeddings=True; BitCPM-CANN-0.5B-unquantized has no model_type and no tie key, so the classifier (class defaults keyed on model
+fake_quant_forward -- BitCPM-CANN *-unquantized MLP projections are LinearQuantizer: every forward replaces W by a ternary (4-bit) quantisation q(W) before the matmul. As a target th
+identity_experts -- LongCat zero-computation experts: zero_expert_num=256 extra router slots whose expert is the IDENTITY (expert_output = expert_input), weighted by the router wei
+code_ignores_window_and_sink -- nanowhale's remote attention runs F.scaled_dot_product_attention with its own full causal mask (b56547084dc7): NO sliding window although config sliding_window=
+dsv4_layer_types_schema -- tf5 DeepSeek-V4 config: the attention / MLP layer schedule is layer_types (sliding / CSA / HCA) and mlp_layer_types (hash_moe / moe), derived from the legacy co
+hc_comb_orientation -- nanowhale hc_post mixes the residual streams with comb (out_i = sum_j comb_ij res_j), the tf5 DeepseekV4DecoderLayer with comb^T (torch.matmul(comb.transpose(-1
+grouped_lowrank_oproj -- V4 output projection is grouped low-rank: o_a (block-diagonal, o_groups blocks of (heads*head_dim/o_groups) -> o_lora_rank) then o_b (o_groups*o_lora_rank -> hi
+blocksparse_mask -- Phi-3-small blocksparse attention on every layer with (i+1) % dense_attention_every_n_layers != 0 (16 of 32): causal block-sparse mask with 64-token blocks, 16 
+tied_default_missed -- Phi3SmallForCausalLM declares _tied_weights_keys = ['lm_head.weight'] and the configs carry no tie_word_embeddings, so the PretrainedConfig default True ties lm
+use_mla_false_rope_dims -- this MLA forward (weight-absorbed) is never built for its only carrier Isotr0py/deepseek-vl2-tiny: use_mla=false selects transformers' LlamaAttention (MHA, kv_l
+out_gate_granularity -- MLA attention with an output gate whose granularity is a config value: mla_output_gate_type head_wise builds g_proj: hidden -> num_heads (one sigmoid scalar per
+router_bias_code_default -- moe_router_enable_expert_bias defaults to True in code and the config omits it: with topk_method quantile_balancing the router SELECTS experts by topk(logits - 
+fope_positions -- Intern-S1-Pro turns on FoPE (Fourier position embedding) from rope_scaling keys fope_init_factor / fope_sep_head / num_inv_freq: cos / sin are LEARNED per-KV-he
+router_group_balanced -- grouped router with router_n_groups (8 in the config); moe_sig reads only n_group / num_expert_group / topk_group, so Intern-S1-Pro gets n_group 0 (plain softma
+rotary_dim_ignored -- head_dim = config.head_dim (dims_of reads it) and rope_dim = head_dim * partial_rotary_factor with a hasattr fallback of 1.0; the rotary table is built by trans
+decilm_window_sink_tokens -- AttentionConfig: window_length gives a sliding window (prefill_sliding_window), num_sink_tokens + window_length make it a sink attention (the first num_sink_tok
+decilm_linear_subblock -- DeciLMLinearAttention: a hidden x hidden linear map in place of attention (replace_with_linear)
+cfrd_chunk_attention_memory -- LocalCausalAttention: causal attention inside fixed 64-token chunks (block-diagonal, not a sliding window: the first token of a chunk sees only itself), global 
+cfrd_folded_recurrence -- CFRDConfig: inference_recurrences (default recurrences) passes of physical_cells shared cells; max_position_embeddings = context_length; tie_word_embeddings def
+cfrd_sigmoid_residual_gate -- BindingBlock: an extra pre-norm full-attention + SwiGLU block with sigmoid scalar residual gates and a 1/sqrt(2) residual scale, run before the logits
+cfrd_film_norm_shift -- phase_rms_norm: RMSNorm(x) * (1 + 0.1 tanh(scale_d)) + 0.1 shift_d per recurrence depth d: the scale folds into the norm weight, the shift adds a constant to ev
+cfrd_tied_lm_head_by_code -- no lm_head: logits use model.token_embedding (get_output_embeddings returns it); surface-feature table zero-initialised then loaded
+glm_superexpert_mismatched_body -- GLMSuperExpertAttention: q / k / v / o hidden x hidden (MHA, no GQA / MLA), dequantised packed weights
+glm5_next_mla_no_head_qknorm -- Glm5NextTextAttention: MLA whose only norms are the q_a / kv_a latent RMSNorms (eps = rms_norm_eps), scaling qk_head_dim^-0.5 with no YaRN mscale (NoPE: qk_rope
+remote_code_not_config_family -- GLM-5.3-SuperExpert remote dense MLP: plain SiLU SwiGLU without the swiglu_limit clamp the config / glm5_next code applies (classify gives act_clip from the con
+qknorm_code_unread -- PLaMo-3 Attention builds per-head q_norm / k_norm (Plamo3RMSNorm, (1 + w) * rms(x), before RoPE) unconditionally; classify gives plamo3 qknorm=no; also a per-la
+swa_key_unread -- PLaMo-3 layers with (i+1) % sliding_window_pattern != 0 (7 of 8) are causal sliding-window attention of window_size (2048; swa_mask |q-k| < W): the config's lay
+local_rope_theta_unread -- PLaMo-3 config property rope_parameters: full layers YaRN(theta=rope_theta 1e6, factor=rope_scaling_factor 256, original=initial_context_length), sliding layers
+sandwich_norm_unread -- PLaMo-3 decoder layer: pre_mixer_norm -> attn -> post_mixer_norm -> +residual, pre_mlp_norm -> mlp -> post_mlp_norm -> +residual (sandwich norms, as PLaMo-2); c
+swa_pattern_unread -- Motif-3 GDLA attention: sliding layers are layer_idx % sliding_window_period != 0 under sliding_window_pattern 'interleave' (period 4: 14 of 53 layers full), bu
+diff_attn -- GDLA differential attention: heads in num_noise_heads groups of (grouped_ratio + 1); per group out = signal_heads - sigmoid(lambda_proj(x)) * noise_head (data-d
+router_bias_key_unread -- Motif MoE builds expert_bias (a selection-only bias: topk on sigmoid(l) + b, weights sigmoid(l)) whenever load_balance_coeff is set (1e-4 in the snapshot); _rou
+route_norm_key_unread -- TokenChoiceTopKRouter reads score_func, route_norm (renormalise the top-k) and route_scale; RENORM_KEYS does not include route_norm, so moe_sig's renorm is '?mo
+config_default_unread -- LLaDA2.0-mini / 2.1-mini / 2.1-flash configs omit use_qk_norm; their remote LLaDA2MoeConfig default is use_qk_norm=True, so the attention applies per-head query
+block_routing -- LLaDA2.2-mini gate: per block of block_size (32) consecutive tokens only the expert_capacity (48 of 256) experts with the highest max score in the block are all
+qknorm_always_type_missing -- Lfm3Attention builds q_norm / k_norm (per-head RMSNorm before RoPE, Qwen3 style) unconditionally and a head-wise gate_proj; classify gives LFM3-1.7B-RD / -v2 qk
+out_gate_type_missing -- attention output multiplied per head by sigmoid(gate_proj(x)) (gate_proj: hidden -> num_heads) before o_proj; lfm3_rd is not in OUT_GATE_TYPES and no config key
+lfm3rd_recurrent_controller -- RD controller parameters: step_scales (final blend), injection (inj_norm + rank-64 LoRA, tanh gates), per-motif refinement adapters and token gates, halting hea
+lfm3rd_loop_depth_miscount -- a phase is one motif (motif_size = 4 layers) and the recurrent loop runs ONE phase per step (m_idx = s % num_motifs, s < recurrent_loops), so effective depth = 
+rope_per_layer_lists_missed -- Step-3.5 attention: kv heads from num_attention_groups, sliding layers use attention_other_setting heads (96 vs 64: dims qheads 96 read), head-wise sigmoid gate
+act_clip_order -- clamp AFTER the activation: min(silu(g), L) * clamp(u, -L, L), where the GLM-5-Next parent (and DeepSeek-V4) clamp BEFORE it: silu(min(g, L)) * clamp(u, -L, L);
+group_mask_zero_fill -- remote noaux_tc router whose group mask fills the excluded experts' biased scores with 0.0 instead of -inf: an expert of an excluded group can still be selected
+xsa_self_value_projection -- GPT-X2.5 attention builds plain GQA projections (head_dim from config) and reads xsa_projection (true in the snapshot), which subtracts from each head's output 
+symplectic_rope_warp -- GPT-X2 (CIx) config logic: casts and stores the symplectic-clock parameters (use_symplectic_rope, symplectic_* dt / k_dim / steps / scales, metric_* mass / spin
+content_warped_rope -- clock_feature (batch mean + 0.25*energy of the clock state) feeds the RoPE warp. GPT-X2-CIx (use_symplectic_rope true in every snapshot): each layer's RoPE phas
+hybrid_mla_layers_unread -- shared-MLA attention __init__: deletes k_proj/v_proj/k_norm, adds hidden_down (rank 512), hidden_rotary (64), kv_b, rotary_query, residual_query, mean_v. sabi-n
+swa_window_key_unread -- FixedWindowAttention stores swa_window = fixed_memory_swa_window (1024). EdgeRock's full-attention layers (fixed_memory_swa_layers 3,7,...,31) are sliding-windo
+qknorm_type_unlisted -- decoder layer builds transformers' Qwen3_5Attention for softmax layers (GDN otherwise; MLP, norms Qwen3.5). EdgeRock attention is transformers' Qwen3_5Attention
+chunk_memory_attention -- decoder forward: attn(input_norm(x)) + memory(x) added before the residual add (parallel second attention sublayer on the SWA layers). EdgeRock (fixed_memory_re
+tie_default_unread -- CyrahConfig defaults tie_word_embeddings = True and the snapshot omits the key, so lm_head = embed_tokens (CyrahForCausalLM _tied_weights_keys); cyrah is in nei
+cyrah_attn_impl_unread -- decoder layer: operator_norm -> ShortConv / GDN2 / CyrahMLA(sliding only for 'sliding_attention'), ffn_norm -> dense SwiGLU (first_k_dense_replace 14 >= 14 laye
+tie_default_remote_config -- CyrahForCausalLM declares _tied_weights_keys lm_head <- embed_tokens and CyrahConfig defaults tie_word_embeddings=True; the snapshot config omits the key, the r
+cyrah_shortconv_is_lfm2 -- CyrahShortConv with conv_dual_gate=True (the snapshot): in_proj -> pre, post, chan; out_proj(post * conv_causal(pre * chan)), depthwise kernel conv_L_cache=3, n
+router_feats_on_dense_model -- CyrahMoE is never built for the snapshot: every layer is dense (first_k_dense_replace 14 = num_hidden_layers and num_experts 1, decoder uses CyrahMLP when num_e
+cyrah_attn_impl_gqa_read_as_mla -- CyrahMLA with attn_impl='gqa' (the snapshot) builds plain GQA: q_proj h*64, k/v_proj with num_key_value_heads=8, per-head weighted q_norm / k_norm, elementwise 
+qknorm_code_fixed_unflagged -- both paths apply a weighted per-head RMSNorm to q and k (over nope+rope = head_dim) before RoPE, unconditionally; the classifier gives qknorm=no for the snapsho
+out_gate_headwise -- LagunaAttention takes a per-layer head count and builds g_proj with num_heads outputs (one scalar gate per head) when gating is True or 'per-head', else num_hea
+per_layer_head_counts -- XS-2.1 remote attention takes num_heads from the caller (num_attention_heads_per_layer[layer_idx]: 48 on full layers, 64 / 72 on sliding layers); dims_of reads 
+out_gate_softplus -- XS-2.1 remote forward: o * softplus(g_proj(x)) (per head or elementwise) before o_proj. The FEATURES out_gate is o * sigmoid(W_g x); a softplus gate is unbounde
+out_gate_code_fixed_unflagged -- Qwen4ExpTextAttention inherits Qwen3_5Attention's __init__: q_proj is 2 x heads x head_dim and the forward splits it into q and an elementwise gate, o * sigmoid
+qwen4_ple_reads_ngrams -- Qwen4-exp PLE layer: an n-gram hashed embedding (Qwen4ExpTextNGramEmbedding over the current and ngram_size-1 previous tokens) projected to keys / values, gated
+gdn_out_gate_act -- Qwen4-exp GatedDeltaNet's gated norm uses activation = config.output_gate_type or hidden_act; the qwen4_exp snapshots set output_gate_type='sigmoid', so o = nor
+hyper_conn_variant -- Qwen4-exp GatedResidual: grouped RMSNorm over hc_count*hidden, low-rank (hc_lowrank) input mix and an hc_count-way block-inject weight. hyper_conn is a single b
+rope_cap_zero_tail_table -- LFM3 default RoPE: inv_freq_i = theta^(-2i/head_dim) for i < partial*head_dim/2, then ZEROS up to head_dim/2 -- the table spans the whole head with a NoPE tail 
+jet_swa_window_unread -- sliding mask on 'swa' layers: key j visible iff i - W < j <= i with W = efficient_attention_config.swa.window_size (1152). The layer kind is local (mapped), but
+jet_dims_unread -- JetBlock: q/k at num_heads x head_dim (rc_h, rc_k read), but v / gate / o at head_dim * expand_v (2.667 -> 256) and a dynamic-conv kernel generator of width hid
+gemma4_branch_post_norms -- with enable_moe_block the FFN output is post_ffn_norm(post_ffn_norm_1(mlp(pre_ffn_norm(x))) + post_ffn_norm_2(experts(pre_ffn_norm_2(x)))): each branch is post-
+per_variant_kv_heads -- SWA layers take their own head counts (swa_num_key_value_heads = 8 on MiMo-V2.5 / Flash vs num_key_value_heads = 4 on full layers); _attn_variants feeds the wid
+v_head_dim_narrow -- V heads are viewed with v_head_dim (128) while Q/K use head_dim (192), and o_proj reads num_heads * v_head_dim; dims_of sets kv_cap = n_kv * head_dim (MiMo-V2.5
+factorized_embedding_proj -- OPTDecoder embeds tokens at word_embed_proj_dim and maps in / out with bias-free project_in (wpd -> hidden) and project_out (hidden -> wpd) before the TIED lm_h
+qknorm_undetected -- per-head zero-centred RMSNorm on q and k (q_norm / k_norm over head_dim, (1 + w) gain) is always built, but classify gives qknorm=no for alice_ai (not in QKNORM
+out_gate_undetected -- q_proj produces [query, gate] per head and the attention output is multiplied by sigmoid(gate) before o_proj (Qwen3-Next style attn output gate), but alice_ai h
+kda_classified_as_gdn -- the linear mixer is Kimi Delta Attention: separate q / k / v causal convs, low-rank per-CHANNEL decay alpha = f_b(f_a(x)) over key_dim with A_log per head and d
+renorm_fixed_unlisted -- sigmoid scores, top-k on scores (+ bias), weights always renormalised (weights / sum) with no scaling factor -- fixed in code, but alice_ai is not in RENORM_FIX
+shared_gate_undetected -- a shared expert gated by sigmoid(shared_expert_gate(x)) (Qwen2-MoE style), but alice_ai is not in SHARED_GATE_TYPES so the shared_gate feature is absent (ffn=mo
+out_gate_activation -- K2HorizonAttention.__init__: optional gate_proj (attention_gate_func) whose forward gate is softplus(beta=ln 2) or silu, not sigmoid. Also the q/k norm (only if
+rope_head_dim_unread -- rope_head_dim: only rope_head_dim of each head's dims rotate (K2-Horizon-375B-A23B / Jais-3-375B-A23B: 64 of head_dim 128); classify gives pos=rope with rope_sc
+mova_routed_values -- K2HorizonMoVAAttention: no v_proj; values come from mova_num_experts routed linear value experts (v_router with selection bias, top mova_num_experts_per_tok) pl
+grouped_rmsnorm -- Jais-ASR decoder layer: dense MLP (ffn=glu, mapped), but input / post-attention norms are K2HorizonRMSNorm with n_groups = layernorm_num_groups (Jais-ASR: 2): R
+router_score_config_unread -- Router: score = softmax or sigmoid from config.router_score_func, bias for selection only (router_bias, mapped), renorm from norm_topk_prob (renorm_cap P/R, map
+moe_capacity_drop -- topkgating (the remote-code router of Hunyuan-A13B): softmax, top-8, weights renormalised over the selected (R), but with an expert CAPACITY max(k, k*S/E) per f
+falcon_alibi_inv_sqrt_hd -- RoPE when alibi is off (pos=rope, mapped). The ALiBi path computes softmax((QK^T + alibi) * 1/sqrt(hd) + mask): the slopes act as bf16(s)/sqrt(head_dim) (falcon
+head_dim_alias_unread -- PLaMo-2 attention: head_dim = config.hidden_size_per_head (128), not hidden / heads; plamo-2.1-2b-vl has hidden 2048, 32 q heads, 4 kv heads, so q is 4096 wide 
+k_eq_v_by_code -- DiffusionGemma decoder attention: bidirectional (is_causal False, gen=diffusion mapped), scaling 1 with q/k norms (qknorm=head), weight-free v_norm (vnorm), and
+dense_width_key_unread -- decoder layer: MoE on mlp_layer_types sparse layers, else MiniMaxM3VLDenseMLP(intermediate_size=dense_intermediate_size). MiniMax-M3 / M3.1-Flash: the leading d
+post_only_block_type_unread -- config validates block_type in (reordered_norm, default) and norm_type in (rms, qwen_rms); both snapshots set block_type reordered_norm, which makes every globa
+bolmo_byte_patch_hierarchy -- BolmoLocalDecoder: initial_norm on the patch stream, in_projection (hidden x hidden, bias) of the byte embeddings and num_local_decoder_layers (4) mLSTM + SwiGL
+use_mem_rope_unread -- q/k/v get the per-invocation adapter outputs added (mapped: zamba_attn_adapt), but RoPE is applied only when config.use_mem_rope; Zamba2-2.7B / -2.7B-instruct s
+mlp_router -- gate built from config: gate_network 'mlp' in the snapshot gives router logits = W2 tanh(W1 x) (Linear(hidden, E) -> tanh -> Linear(E, E)), a nonlinear two-laye
+canon_layers -- attention builds Canon-B layers when 'B' in canon_set (dhara-250m: canon_set 'ABCD', kernel 4, residual True, no activation / bias): q, k, v each pass x + depth
+qknorm_string_flag -- EthoricAttention.__init__: GQA (dims read), q_norm / k_norm per-head RMSNorm when config.qk_norm == 'per_head' (the Ethoric-10M snapshot) -- classify only tests
+canon_conv_residual -- Canon residual: h = h + conv(h) (depthwise causal conv1d, kernel 4, no bias / activation) on the normed input before attention (A) and before the MLP (C), doc-m
+doc_mask_on_eos -- flex block mask: causal AND same-document (doc ids from eos tokens) AND q_pos - k_pos < window on window layers; the document restriction makes attention input-
+bias_qkv_code_unflagged -- SundialAttention: MHA with q / k / v Linear(hidden, hidden, bias=True) (o_proj bias-free), RoPE base default 10000; classify gives sundial feats '' -- no bias_q
+timeseries_not_lm -- flow-matching head FinalLayer (adaLN: affine-free LayerNorm eps 1e-6, shift / scale from SiLU-Linear of the condition, Linear out): Sundial (thuml/sundial-base-
+norm_fallback_rmsnorm_wrong -- SundialDecoderLayer norms are torch.nn.LayerNorm(hidden) (mean-centred, affine with bias, eps 1e-5) but classify gives norm=RMSNorm (the config carries no norm 
+attn_res_code_fixed_unflagged -- AttnResAggregator params: a learned depth query (zeros) and a key-norm weight; this is the Full Attention Residuals point (Kimi AttnRes) that replaces the resid
+sliding_window_backend_dependent -- remote PhiMoE model forward: the SDPA path (the default backend: _supports_sdpa) builds a plain causal mask WITHOUT sliding_window, while the eager path passes 
+nope_attn_temperature_tuning -- Llama4TextAttention.__init__: use_rope = no_rope_layers[layer_idx] (NoPE every 4th layer, mapped by nope_layers / rope_sched (128, -128)), and attn_scale / floo
+chunked_attention_unread -- Llama4TextConfig.__post_init__: default no_rope_layers (every no_rope_layer_interval-th layer NoPE, mapped), head_dim, moe_layers (interleave step, mapped by _m
+shared_expert_code_fixed_unread -- Llama4TextMoe always builds shared_expert = Llama4TextMLP(config) (intermediate_size wide, 8192) beside the routed experts; the snapshot has no shared-expert ke
+value_residual_unflagged -- forward: values = m0 * v + m1 * v_first (value residual from the first attention layer's V), q = rope(q_norm(q)), k = rope(k_norm(k)) (norm before half-split Ro
+attention_every_unread -- is_attention: layer % attention_every == attention_every - 1, so KLM-1.5 (attention_every 4, 24 layers) has 6 softmax layers and 18 Gated DeltaNet-2 layers; cla
+eos_document_reset -- CausalLM forward: KLMCache plumbing, and a left-padding mask turned into 'real' flags so each row's first real token starts a document; the model itself segment
+ngram_memory_unflagged -- lookup: exact-key search of the current bigram / trigram id in sorted key banks (row p + 1, else 0 = unknown): the n-gram memory's addressing; no engram feature
+token_id_hash_route_unflagged -- DeepConfig: routing_strategy must be 'token_id_balanced_hash' (the MLP routes by a persisted per-token-id table topk_token_to_expert, fixed route weights (top_k
+hash_route_unflagged -- DeepTokenRoutedMLP: experts chosen by a stored token-id table topk_token_to_expert[k, input_id] (no learned router at all) with CONSTANT route weights (top_k_pr
+sigmoid_router_type_missing -- MoEGate hard-codes scoring_func='sigmoid', topk_method='noaux_tc' (selection bias e_score_correction_bias) and norm_topk_prob=True, ignoring the config; sarvam-
+hybrid_layer_list_unread -- decoder layer: softmax GQA attention only on layer_idx in gqa_layers (12 of 48 in both Solar-Open2 snapshots: 0, 4, ..., 44) else (layer_idx+1) % gqa_interval =
+qk_sharpen_scale_unread -- forward: v += 3*sigmoid(ve_gate(x[:12])) * ve (value_emb, mapped); half-split RoPE then weight-free rms_norm on q and k (head_free, mapped); then q *= qk_sharpe
+emb_norm_unflagged -- model forward: x = rms_norm(embed(ids)) (a WEIGHT-FREE norm on the embedding, before smear and x0), x = resid_lambda_i * x + x0_lambda_i * x0 before each layer,
+arctic_dense_residual_parallel_moe -- with parallel_attn_mlp_res (true in the snapshot) every MoE layer also builds residual_layernorm + residual_mlp, a dense SwiGLU of width hidden_size (7168) alon
+remote_router_sigmoid_bias_unlisted -- MarkV3MoE builds a selection bias exp_probs_b over n_routed_experts beside the router (DeepSeek-V3 noaux_tc style) and an always-on shared expert; the snapshot'
+embedding_norm_unflagged -- text embedding is MuseGlimmerTextNormedEmbedding: embed_norm = weightless RMSNorm of every embedding row (replacing Gemma-2's sqrt(hidden) scale). As a target i
+layer_rope_theta_unread -- NoPE on layers with layer_rope_theta[i] == 0 (every 4th, counted from the last: 13 of 52); _nope_layer_mix reads no_rope_layers / no_rope_layer_interval / indic
+falcon_alibi_slope_scale -- BLOOM scores = q.k / sqrt(d) + alibi (beta 1: slopes S(n) unscaled), while the Falcon parent computes (q.k + alibi) * 1/sqrt(head_dim): Falcon's effective ALiBi
+dense_first_key_unread -- dense MLP (intermediate_size) on layers < config.first_k_dense (1 in the snapshot), MoE after; _dense_first reads first_k_dense_replace / num_dense_layers / n_d
+router_bias_code_fixed_unlisted -- KohakuMoE registers a persistent expert_bias buffer (loaded from the checkpoint) used for top-k SELECTION only, unconditionally; kohaku is not in ROUTER_BIAS_TY
+qknorm_free_fixed_gain -- q, k: RoPE, then weight-free per-head RMSNorm, then BOTH multiplied by qk_scale (1.2 in the snapshot), so the logits are 1.44 * rms(q).rms(k) / sqrt(d): a weigh
+relu2_mlp_type_unlisted -- GaggleMLP: c_fc (n_embd -> mlp_ratio*n_embd) and c_proj, no gate (a vanilla MLP); classify gives ffn=glu, act=SiLU: gaggle appears in no FFN / activation table 
+backout_residual -- GaggleModel builds per-layer resid_lambdas / x0_lambdas (x <- a_i x + b_i x0), smear gate, value embeddings on alternate layers (all under value_emb, mapped) AN
+bias_out_unlisted -- RecurrentGemmaAttention: q/k/v use attention_bias (false) but o_proj is built with bias=True unconditionally; the MLP gate/up/down also carry bias=True (aee0ecb
+glu_half_width_unlisted -- RecurrentGemmaMlp: gate_proj / up_proj are hidden -> intermediate_size // 2 (15360 // 2 = 7680 in both snapshots) with bias=True, down_proj bias=True. dims_of g
+swa_prefill_key_truncation -- Meditor-2 sliding layers truncate K/V to the LAST sliding_window_size positions before masking: in a cache-less prefill of length L > 2048, k/v become positions
+hierarchical_moe_unread -- total_sub_experts = num_macro_domains * num_sub_experts_per_domain (3 * 5 = 15 routed experts of width sub_intermediate_size 768). classify / dims_of read none 
+dynamic_ntk_by_code -- MeditorProportionalRotaryEmbedding stores orig_max_pos (8192, hard-coded by the attention) and is_global; on global layers forward rescales the base when max po
+inter_default_by_code -- Rwkv5Config forces intermediate_size = None, so RwkvFeedForward (dca01dd09f54) uses int(hidden * 3.5 // 32 * 32) = 14336 for v5-Eagle-7B (hidden 4096). dims_of 
+inter_key_unread -- the model is built from config n_layer / n_head / n_embd / ffn_hidden (1024) / block_size (512) / rope_theta. dims_of reads n_embd / n_head / n_layer but not ff
+expert_width_key_unread -- TinyMixtral SparseMoE: stacked expert weights of width config.expert_intermediate_size (2816 in the snapshot); dims_of reads moe_intermediate_size / ... / inter
+step3_mfa_query_latent_norm -- Step-3 MFA attention: one K/V head (MQA, mapped), but the query is low-rank WITH a norm: q = wq(inter_norm(q_proj x)) with q_proj hidden -> share_q_dim (2048) a
+attn_feats_without_attention -- Qwen3.8-Longbook GDN24 config: every layer becomes linear_attention (the source model's full-attention layers converted to GDN); classify reads it (mixer ssm, k
+loop_kv_share_gated_mix -- IQuest-Loop attention dispatches on loop_idx: loop 1 is plain GQA (filling a shared KV cache); loops >= 2 run forward_loop2, a gated mix of attention over loop 
+per_layer_head_dim -- head_dim is per layer: config.per_layer_config[i].head_dim from head_sizes (256 on the 12 full-attention NoPE layers, 64 on the 24 sliding RoPE layers); dims_of
+nope_layers_key_unread -- RoPE only on layers with position_layers == 'rope' (24 sliding-window layers); the 12 full-attention layers are NoPE. The window (sliding_window 1025 on sliding
+prefix_lm_bidirectional_prompt -- PaliGemma-style _update_causal_mask: outside training (eval / generation) causal_mask[:, :sequence_length] = 0, so on prefill EVERY prompt token (image + text p
+moa_routed_attention_heads -- JetMoeAttention: no q_proj / o_proj; the query and output projections are a Mixture-of-Attention (JetMoeMoA: num_local_experts experts, top-k router) with one s
+kv_channels_head_dim_unread -- attribute_map head_dim -> kv_channels: JetMoE's head dim is kv_channels (128 in jetmoe-8b); dims_of reads no head_dim key and derives hidden / heads = 64, so he
+bias_out_type_missing -- JetMoeMoE builds an output bias self.bias (hidden) added after the expert sum (and the MoA has one too); jetmoe-8b classifies with no bias_out feature (jetmoe n
+audio_key_read_as_lm -- ArkasrConfig (Audio8-ASR-0.1B) stores use_rope (default False, the snapshot sets false) for the AUDIO side; the LM is transformers' Qwen2ForCausalLM, which alwa
+bias_qkv_type_missing -- ArkasrForConditionalGeneration (ARK-ASR-3B) subclasses Qwen2ForCausalLM (audio adapter added; the FalconH1 parent is a mis-pairing): the LM is Qwen2, whose q / 
+nanochat_port_unlisted -- PIT CausalSelfAttention (nanochat-style): c_q / c_k / c_v / c_proj bias-free MHA (n_head heads, head_dim n_embd / n_head) and a weight-free F.rms_norm on q and 
+llama4_scaling_beta_unread -- q *= 1 + beta * log(1 + floor(pos / original_max_position_embeddings)) on every layer with beta = rope_parameters.llama_4_scaling_beta (0.1) and original 16384 
+ffn_mult_width_unread -- SwiGLU inner width = round_up_8(int(hidden_dim * ffn_mult * 2 / 3)) = 1024 for Ivme-Conversate-v2-Base (hidden 384, ffn_mult 4.0); the config has no intermediat
+bias_qkv_table_wrong -- GPTNeoXJapaneseAttention.__init__: query_key_value and dense are bias=False (only the LAST layer's attention has a dense_bias vector, added in bias_dropout_add)
+loop_count_key_unread -- OuroModel builds total_ut_steps (4 in every Ouro snapshot) and an early_exit_gate Linear(hidden,1): the whole 24 / 48-layer stack is applied total_ut_steps time
+per_token_early_exit -- OuroForCausalLM.forward (no labels): exit pdf p_t = sigmoid(gate_t) * prod_{s<t}(1 - sigmoid(gate_s)) (last step takes the remainder); with the config's early_e
+engram_key_unread -- CrowdForCausalLM builds wte, a CrowdEngram (hashed bigram table of engram_buckets = 227,865 rows), LayerNorm blocks, final LayerNorm, head tied to wte (_tied_we
+minimax_postln_stream -- MiniMax decoder layer: h = N1(x); h = alpha*h + beta*attn(h); h = N2(h); out = alpha*h + beta*mlp(h). The RESIDUAL is the normalised stream, so with y_l = N(x_l
+parallel_by_code_unlisted -- BitsyBlock builds attn_norm and mlp_norm (two RMSNorms) and a SwiGLU MLP; forward (2a7cd56d1535) is a PARALLEL block. classify reads use_parallel_residual / par
+value_emb_key_unread -- ARLoop / PreNormLoop Attention builds ve_gate = Linear(32 -> n_kv) on every other layer (layer parity of physical_layers - 1); forward adds v += 2*sigmoid(ve_ga
+attn_res_key_unread -- ARLoopForCausalLM builds attnres_queries (2 per effective layer), attnres_norms and a final AttnRes query/norm: the residual stream is replaced by depth-softmax
+rope_pct_key_unread -- _init_rope: rotary_ndims = int(head_dim * config.rope_pct); the Home-3B-v3 config has rope_pct 0.25 (20 of head_dim 80 rotate). _rotary_factor reads only rotary
+xsa_value_projection -- GPTS2Attention init: plain GQA (q / k / v / o bias-free, head_dim from config, read by dims_of) plus xsa_projection (true in the only snapshot, AxiomicLabs/GPT-
+qknorm_always_remote_lacks -- remote Doge-320M attention init (vs the 4.55 transformers Doge): A and dt_proj sized per QUERY head (num_attention_heads) and NO q_norm / k_norm. classify gives
+doge_dynamic_mask -- DogeAttention stores keep_window_size (2048) and drops is_causal: the attention mask becomes the dynamic mask of prepare_dynamic_mask (a per-key additive bias e
+residual_gain_vector -- DogeDecoderLayer: learned per-channel residual gains input_residual / post_attention_residual (hidden-size vectors, init 1): h = g_1 * r + attn(norm r), then h 
+hrm_hierarchical_loop -- HrmTextConfig: num_layers_per_stack defaults to the saved num_hidden_layers (16 in all three snapshots, which omit num_layers_per_stack) and num_hidden_layers i
+family_subclass_type_unlisted -- Gemma3MoeDecoderLayer is Gemma3DecoderLayer (super().__init__) with the MLP replaced: it keeps Gemma3Attention's per-head q_norm / k_norm ((1 + w) RMSNorm befor
+pos_query_temperature -- Mistral-4 MLA multiplies the query on every layer by get_llama_4_attn_scale = 1 + beta * log(1 + floor(pos / original_max_position_embeddings)) with beta = rope
+mla_query_raw_latent_skip -- A.X-K2 MLA replaces q_b_proj by q_gate_proj: Linear(2 * q_lora_rank -> heads * (qk_head_dim + v_head_dim)) reading concat(q_a_layernorm(q_a x), q_a x): the quer
+gated_prenorm_lowrank -- input_layernorm on every layer and post_attention_layernorm on MoE layers are AXK2GatedRMSNorm: y = RMSNorm(x); out = y * sigmoid(fc2(silu(fc1(y)))) with a rank
+wrapped_qwen2_bias_qkv_missed -- StepAudio2TextConfig builds a transformers Qwen2Config text_config and the model is transformers' Qwen2Model, whose q/k/v projections are hard-coded bias=True (
+quillan_native_core_unread -- QuillanOniConfig aliases hidden_dim / ffn_dim / n_layer / n_head and builds the native quillan_v5_4_oni core config; the forward is the bespoke native QuillanRo
+llama4_scaling_beta_qtemp -- Ministral-3 attention multiplies the query by 1 + llama_4_scaling_beta * log(1 + floor(pos / original_max_position_embeddings)) after RoPE (beta 0.1, original_m
+layer_types_all_full_window_ignored -- VaultGemmaConfig drops Gemma-2's alternating layer_types default; vaultgemma-1b saves layer_types = 26 x 'full_attention' and sliding_window 512 (< max_position
+mm200_core_keys_unread -- MM200HFConfig forwards every MM200Config field to the native MM200 core. The core rotates only rot_dim = int(head_dim * partial_rope_frac) // 2 * 2 = 16 of 64 d
+out_gate_by_code_unlisted -- the attention output is always multiplied by sigmoid(W_g x) in code (Qwen4-exp, LFM3 / LFM3-RD, Hy4, HRM-Text, GPT-S3 / X3, Ethoric, AliceAI, Muse-Glimmer, ...), with no 
+qknorm_by_code_unlisted -- q / k norms built unconditionally in code (LFM3, PLaMo-3, LLaDA2-preview, Bitsy, BananaMind, Cyrah, Hulu-Med-4B, MonkeyOCRv2, Gemma3-MoE, Ethoric (string flag), ...) but 
+renorm_by_code_unlisted -- the router renormalises (or never renormalises) in code whatever norm_topk_prob says (Bailing V2 / V2.5 / V3, LLaDA2, CENO, Step-3, Arctic, LLaMA-MoE, Gemma3-MoE, AliceAI
+embedding_norm -- a norm on the embedding output (BLOOM word_embeddings_layernorm; weight-free RMSNorm in Muse-Glimmer, gaggle, nanochat): folds into an untied target's table, but a host w
+position_query_temperature -- q scaled by a position-dependent factor inside the context: Qwen-1 logn (past seq_length), Llama-4 NoPE attn_temperature_tuning, Ministral-3 / Mistral-4 / Nemotron-Labs-D
+dsv41_q_head_norm_absent -- V4.1 Attention.forward drops V4's weight-free per-head q norm (q *= rsqrt(mean(q^2) + eps) after wq_b): q = wq_b(q_norm(wq_a x)) goes straight to RoPE; only the latent q_
+kv_compress_variant -- the compressed KV pools differ from V4's: V4.1 pools non-overlapping groups of compress_ratio = 2 tokens with no learned position bias (V4: ratio-4 pools over overlapping
+sliding_window_keys_unread -- sliding windows set by keys the window slot does not read (PLaMo-3 window_size + pattern, Motif / gaggle / Meditor patterns, EdgeRock / Fabric / Ethoric window keys, Jet 
+norm_placement_keys_unread -- norm placement read from keys / code the classifier ignores: sandwich (PLaMo-3, Ouro, Domyn, Ethoric peri_ln, cost_wise_gemma), post-only (Molmo norm_after, Bolmo reorder
+per_layer_head_shapes -- head counts / KV heads / head_dim per layer (Laguna num_attention_heads_per_layer, MiMo-V2 swa_* heads, DeciLM per-layer KV heads, Domyn head_sizes) collapsed to one valu
+router_score_unread -- router: scores = sigmoid(logits), selection on scores + e_score_correction_bias with group-limited top-k (top-2-sum group score, n_group 8 / topk_group 4), weights = sigm
+bias_qkv_by_code_unlisted -- q / k / v biases hard-coded (Qwen2 bodies under wrapper types: Step-Audio-2, FastVLM, nanoLLaVA, Hulu-Med, VideoLLaMA3, ArkASR; Sundial; Meditor)
+qknorm_fixed_gain -- q, k: RoPE, then weight-free per-head RMSNorm, then BOTH multiplied by qk_scale (1.2 in the snapshot), so the logits are 1.44 * rms(q).rms(k) / sqrt(d): a weight-free qk-
+ffn_width_keys_unread -- FFN widths from keys dims_of does not read (expert_intermediate_size, dense_intermediate_size, ffn_mult, ffn_hidden, RWKV-5 computed width, RecurrentGemma // 2)
+dynamic_ntk_in_context -- dynamic NTK that changes RoPE inside the context (Qwen-1 past seq_length; Meditor global layers past 8192)
+loop_depth_unread -- loops the classifier misses or miscounts (Ouro total_ut_steps 4, LFM3-RD motif depth, CFRD folded cells)
+nope_full_layers_unlisted -- disable_long_rope defaults to True (and is forced True): the 'long' full-attention layers (every 4th and the last, 7 of 26) apply no RoPE at all, while the sliding layers
+head_dim_key_unread -- head_dim from attention_head_dim / kv_channels / hidden_size_per_head (Nemotron-H-4B, Zamba, JetMoE, PLaMo-2-VL); dims_of derives hidden / heads
+partial_rope_keys_unread -- RoPE applied to the first rotary_dim = cos.shape[-1] dims only (partial RoPE): with partial_rotary_factors 0.5 on the full-attention layers half of each head passes unrot
+hybrid_layer_schedule_unread -- causal depthwise conv + silu on q / k / v (GDN2 short conv) -- part of the unrepresented GDN2 mixer
+memory_attention -- memory decode path: softmax over committed keys with a zero-logit pad slot; pending chunk committed by top-k. EdgeRock (fixed_memory_revision ...independent-gqa-memory-v1
+ngram_memory_unread -- sub_dim 128 per table row (6 x 128 = 768 concatenated); unflagged engram memory.
+nope_layer_keys_unread -- Exaone4 attention forward: q_norm / k_norm, then RoPE ONLY when sliding_window is None or the layer is sliding: with sliding_window 513 the 10 full-attention layers (ever
+router_bias_unread -- selection: quantile balancing picks topk(logits - qb_beta) in the raw-logit domain (top-(k+1) then first k), else topk(sigmoid + e_score_correction_bias) with optional gr
+value_emb_keys_unread -- NanochronoModel builds aux_embeds (vocab x kv_dim tables on aux_layers), residual_scales / skip_scales (x <- a_i x + b_i h0), mix_gate / mix_scale (smear of the previous 
+cross_attention_decoder_unflagged -- every decoder layer gets encoder_hidden_states / encoder_attention_mask (cross-attention to the T5 description encoder in each layer); layerdrop is training only
+multi_codebook_lm_heads -- ParlerTTSForCausalLM: num_codebooks lm_heads (or one fused Linear(hidden, vocab*num_codebooks)): 9 x 1088 output logits per position while dims_of vocab reads 1088
+prompt_prefix_embed_table -- ParlerTTSForConditionalGeneration builds embed_prompts = nn.Embedding(outer vocab_size 32128 / 90714, decoder hidden) for the transcript tokens, prepended to the decoder 
+rope_embeddings_flag_unread -- rope_theta default 1e4 is only used when rope_embeddings is True; its presence in the snapshots is what triggers classify's rope_like -> pos=rope while the code runs sinu
+ungated_ffn_type_unlisted -- ParlerTTSDecoderLayer FFN is fc2(gelu(fc1(x))), bias=False, activation_function gelu (erf): an UNGATED 2-matrix MLP, but parler_tts_decoder is in neither VANILLA nor UNGA
+attn_res_keys_unread -- forward: out = sum_i softmax_i(<q * w_k, s_i> / rms(s_i)) s_i over ALL earlier sources (embedding + every attention and MLP sublayer output) -- a depth softmax mix in pla
+bias_out_by_code_unlisted -- JetMoeMoE builds an output bias self.bias (hidden) added after the expert sum (and the MoA has one too); jetmoe-8b classifies with no bias_out feature (jetmoe not in BIAS
+canon_conv_layers -- forward: q/k/v -> Canon-B residual causal convs (kernel 4) -> RoPE -> per-head q/k RMSNorm AFTER RoPE (head_post, mapped) -> causal softmax, scale 1/sqrt(head_dim); trimo
+ffn_inner_norm -- DoryMLP builds suv_gate / suv_up (per intermediate channel, times sqrt(hidden)) -- these fold into gate_proj / up_proj rows -- and ffn_sub_norm, a weight-free L2 norm of 
+loop_input_injection -- prelude (n_input_layers) once; e = L2(h); for each of n_recurrent_loops (2): h = L2(h) + e (the prelude output re-injected at every loop start, after a stream norm), then
+ngpt_sphere_residual -- forward: h = L2(h); a = L2(attn(h)); h = L2(h + |lambda_1 s| * (a - h)); m = L2(mlp(h)); h = h + |lambda_2 s| * (m - h) (normalised by the next layer's input norm): the r
+switch_cache_layers_counted -- GraniteSwitchConfig: num_hidden_layers counts the switch's 2 KV-cache slots (SWITCH_CACHE_LAYERS; the model builds num_hidden_layers - 2 decoder layers: 42 -> 40, 66 -> 6
+not_a_causal_lm -- TimestepEmbedder forward (flow time t*1000 -> sinusoid -> MLP) inside Sundial's flow-matching head; bd3lm is classify None
+attn_output_head_norm -- MuseSparkTextAttention adds o_norm = weight-free RMSNorm (with_scale=False, eps rms_norm_eps) applied per head to the attention output (over head_dim) before the sigmoid 
+breeze_backbone_config_unread -- create_from_config: llm_config = AutoConfig.for_model(**config.backbone_config) and the layer family by backbone_model_type (qwen3 in every snapshot); the top-level rope_
+eos_document_mask -- document_ids = cumsum(input_ids == eos) - is_eos: every eos (eos_token_id 1) starts a new document for the following tokens; attention and Canon convs never cross it (doc
+expert_output_norm -- MuseSparkExperts run at moe_hidden_size (4096, not hidden 8192: see kimi_latent_moe_norm) and build post_expert_norm = input-scaled RMSNorm rms((1 + w) * y) (eps post_nor
+hadamard_mlp_unlisted -- hada_split forwarded to Block's HadamardMLP permutations (bool(ladder_widths)); part of the unrepresented Hadamard FFN.
+hyper_conn_key_unread -- _rms_unit: weight-free RMS normalisation (eps 1e-6) used on the flattened 4-lane stream feeding the mHC pre / post / res maps and on x and k_e in the engram gate: a primi
+lm_head_vocab_plus_one -- forward: merged text-encoder / audio embeds -> backbone -> lm_head with vocab_size + 1 = 2052 outputs (the extra class is the backbone EOS); dims_of vocab reads 2051. The
+post_norm_variant -- MuseSparkTextDecoderLayer: MoE on 'sparse' mlp_layer_types (all 62 layers in the snapshots), post_attention_layernorm becomes a WEIGHT-FREE RMSNorm (eps post_norm_eps 1e-
+runtime_kv_window_unread -- kv_window (default 0, needle3 config 256): exported in the .cact header as the window the model was trained / must be run with (effective_kv_window = min(KV budget, kv_wi
+text_encoder_input_embeds -- text-encoder features projected per segment by text_encoder_proj (Linear 1152 -> 2048 in the snapshot) and concatenated; DimFusion layer projections are off (layer_projs 
+prefix_lm_mask -- attn_config.prefix_lm: the mask lets every query attend to all prefix_mask positions (bidirectional prefix, causal after; is_causal = False and ALiBi built 'full' = -|i-j
+fla_num_heads_unplaced -- FLAModel.forward (fla transformer): embeddings -> pre-norm softmax blocks (RoPE, GQA, SwiGLU of width 256*ceil(int(hidden*hidden_ratio*2/3)/256)) -> final RMSNorm, attnre
+cca_conv_qk_attention -- cca_time1 = 2 (absent from the snapshot): kernel of the CCA grouped causal conv over time on q/k (ZAYA CCA attention, not represented by classify)
+dual_sigmoid_router_sum -- MoE forward: scores = sigmoid(l[:, :E]) + sigmoid(l[:, E:]) (two routers summed), routed experts on fc1_latent_proj(x), shared experts on x; moe_sig reads a plain sigmoid
+ernie_mla_layer_dims_unread -- ERNIE DSA (MLA) layer __init__: its dims are the hybrid_mla_* keys (64 heads, q_lora 1024, kv_lora 512, qk_nope 192, rope 64, v 256), but dims_of reads the top-level HCA 
+gla_rc_dims_unread -- GatedLinearAttention.__init__ is the rf_gla mixer (gk low-rank gate gate_low_rank_dim 16, swish-gated per-head RMSNorm, GQA via num_kv_heads), but its RC_EQ capacity dims
+hash_route_by_code -- DeepTokenRoutedMLP: experts chosen by a stored token-id table topk_token_to_expert[k, input_id] (no learned router at all) with CONSTANT route weights (top_k_primary_weig
+loop_split_depth_miscount -- selects the LoopSplit execution order under enable_double_loop_split (true in the snapshot): 56 executions of 28 parameter layers (middle 14 three times), which dims_of c
+mla_k_rope_norm -- forward: q latent and kv latent multiplied by constant lora scales (fold), then k_rot = k_rope_only_layernorm(k_rot): a WEIGHTED RMSNorm over the shared 64-dim RoPE key (
+multimax_logits -- the lm_head owns multimax buffers (4 ranges r, 4 slopes t) applied to the fp32 logits (config multimax: 'lm_head'): logits l <- l + t0*relu(r0 - l) + t1*relu(l - r1) + t2
+n_kv_heads_key_unread -- Nae1GQA: k_proj / v_proj at n_kv_heads * head_dim (4 x 64 = 256) with 12 query heads, scale head_dim^-0.5; dims_of reads no n_kv_heads key, so classify gives kv=MHA with 
+out_gate_key_unread -- HCA forward: gate = o_gate(q latent); o = VHA(attention output) (cross-head mix); out = wo_b(wo_a_grouped(o) * sigmoid(gate)) (grouped low-rank o-proj with the sigmoid ga
+sink_key_query_dependent -- IQuestAttention takes a learned sink_key (num_kv_heads x head_dim, NOT rotated) and (attention.py kernel) scales each head's output by 1 / (1 + exp(q . sink_k * scale - l
+swa_window_plus_one -- _attend: sliding layers keep key j iff row - col <= window (the decode path keeps the last window+1 keys), i.e. 513 visible keys for sliding_window 512, where HF sliding 
+vha_head_mix -- VHAPostMix: per token the attention outputs are mixed across heads, o[h] <- sum_g m[h, g] o[g] with m = I + V U^T (rank VHA_RANK, U, V learned), applied before the output

@@ -1,0 +1,9 @@
+sequence-mixer breakdown of 4384 fetched configs:
+
+  attention       3342  (76.2%)
+  other/skip       837  (19.1%)
+  hybrid           192  (4.4%)
+  ssm               13  (0.3%)
+
+SSM types:    {'mamba': 6, 'rwkv5': 1, 'falcon_mamba': 4, 'rwkv': 1, 'rwkv7': 1}
+hybrid types: {'nemotron_h': 45, 'lfm2': 37, 'lfm2_moe': 13, 'granitemoehybrid': 17, 'jamba': 5, 'lfm3': 22, 'zamba2': 6, 'falcon_h1': 16, 'bamba': 1, 'nemotron_h_puzzle': 4, 'minimax': 2, 'lfm3_rd': 2, 'minimax_text_01': 1, 'zamba': 1, 'recurrent_gemma': 2, 'phi4flash': 1, 'ceno': 12, 'hymba': 2, 'plamo2': 2, 'jet_nemotron': 1}

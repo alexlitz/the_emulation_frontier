@@ -1,0 +1,3 @@
+Points per verdict: window >= context = full attention: 121; remote code: not checked: 32; compressed layers stay local (only compress-ratio-0 layers convert): 10; in library, no window read (the window never binds): 2
+
+Windows that cannot bind as published (window >= own max_position_embeddings): CloneLM-Heavy (4096 >= 2048); nano-mistral (4096 >= 2048); Lite-Mistral-150M-v2-Instruct (4096 >= 2048); Triplex (262144 >= 131072); lexi-coder-v4.3 (262144 >= 131072); rnj-1-instruct (32768 >= 32768); Phi-3.5-MoE-instruct (131072 >= 131072); Phi-3.5-MoE-0.8B-A0.2B (131072 >= 131072); Smaug-Mixtral-v0.1 (32768 >= 32768); hf-moshika (3000 >= 3000); Ministral-8B-Instruct-heretic (32768 >= 32768)

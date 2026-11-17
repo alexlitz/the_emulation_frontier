@@ -1,0 +1,154 @@
+{
+  "position_query_temperature": {
+    "detector": "detect_position_query_temperature",
+    "flag": {
+      "Qwen/Qwen-7B": "logn@8192",
+      "Qwen/Qwen-14B": "logn@2048",
+      "Qwen/Qwen-VL": "logn@2048",
+      "Qwen/Qwen-Audio": "logn@2048",
+      "ArmGPT/ArmenianGPT-1.0-3B": "llama4_beta@16384",
+      "RedHatAI/Ministral-3-14B-Instruct-2512-FP8-dynamic": "llama4_beta@16384",
+      "mlx-community/Devstral-Small-2-24B-Instruct-2512-OptiQ-4bit": "llama4_beta@8192",
+      "mlx-community/Mistral-Small-4-119B-2603-OptiQ-2bit": "llama4_beta@8192",
+      "nvidia/Nemotron-Labs-Diffusion-8B": "llama4_beta@16384",
+      "lmstudio-community/Llama-4-Scout-17B-16E-MLX-text-8bit": "nope_temp@8192",
+      "mlx-community/Mistral-Large-4-1T-A52B-Text-4bit": "learned_logpos",
+      "reflection/Beam-1.0-501B-A23B": "ssmax"
+    },
+    "not_flag": ["Qwen/Qwen-72B", "Qwen/Qwen-72B-Chat", "nvidia/Mistral-Medium-3.5-128B-NVFP4",
+                 "saidutta69/Ministral-8B-Instruct-heretic", "meta-llama/Llama-3.1-8B", "Qwen/Qwen2.5-0.5B"]
+  },
+  "local_rope_theta_unread": {
+    "detector": "detect_local_rope_theta_unread",
+    "flag": {
+      "allenai/Olmo-3-1025-7B": [128, 128],
+      "allenai/Olmo-3-1125-32B": [128, 128],
+      "allenai/Olmo-3-7B-Think": [128, 128],
+      "allenai/Olmo-3-7B-Instruct": [128, 128],
+      "allenai/Olmo-3.1-32B-Instruct": [128, 128],
+      "moltherm1/olmo-mirror-olmo-3-1025-7b": [128, 128],
+      "pfnet/plamo-3-0.8b-fin-instruct": [128, 128],
+      "pfnet/plamo-3-translate-2b": [128, 128]
+    },
+    "not_flag": ["prithivMLmods/Olmo-3-Think-AIO-GGUF", "google/gemma-3-1b-it", "Qwen/Qwen3-0.6B"]
+  },
+  "rope_cap_zero_tail_table": {
+    "detector": "detect_rope_cap_zero_tail_table",
+    "flag": {
+      "AJ-Gonzalez/coder-lfm3-1.7b": [128, 128],
+      "DQN-Labs/17btest-nov6-2x16k": [128, 128],
+      "LiquidAI/LFM3-1.7B-Base": [128, 128],
+      "LiquidAI/LFM3-1.7B-MLX-5bit": [128, 128],
+      "mohommed/LFM3-1.7B-Frontier-SmartAgent": [128, 128],
+      "junkdogjoe/LFM3-Lobotomized-2B": [128, 128],
+      "cybertruck32489/LFM3-1.7B-RD": [128, 128],
+      "mlx-community/LFM3-1.7B-OptiQ-4bit": [128, 128]
+    },
+    "not_flag": ["Infatoshi/phonon-refiner-1.7b", "LiquidAI/LFM2-1.2B", "google/gemma-3-1b-it"]
+  },
+  "partial_rope_keys_unread": {
+    "detector": "detect_partial_rope_keys_unread",
+    "flag": {
+      "IFM/K2-Horizon-375B-A23B": [64],
+      "inception42/Jais-3-375B-A23B": [64],
+      "Zyphra/ZAYA1-VL-8B": [64],
+      "acon96/Home-3B-v3-GGUF": [20],
+      "stepfun-ai/Step-3.5-Flash": [128, 64],
+      "stepfun-ai/Step-3.5-Flash-Base-Midtrain": [128, 64],
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21": [64]
+    },
+    "not_flag": ["IFM/K2-Horizon-7B", "IFM/Jais-ASR", "IFM/K2-Type-0.9B", "inception42/Jais-3-0.9B",
+                 "stabilityai/stablelm-3b-4e1t", "stabilityai/stablelm-2-1_6b"]
+  },
+  "rotary_dim_ignored": {
+    "detector": "detect_rotary_dim_ignored",
+    "flag": {"inclusionAI/Ling-1T": [128], "inclusionAI/Ring-1T": [128]},
+    "not_flag": ["inclusionAI/Ling-flash-2.0", "inclusionAI/Ling-mini-2.0", "inclusionAI/Ring-flash-2.0",
+                 "inclusionAI/Ling-lite", "inclusionAI/LLaDA2.0-mini-preview", "bharatgenai/Param2-17B-A2.4B-Thinking"]
+  },
+  "dynamic_ntk_in_context": {
+    "detector": "detect_dynamic_ntk_in_context",
+    "flag": {
+      "Qwen/Qwen-14B": "dyn_ntk@2048",
+      "Qwen/Qwen-14B-Chat": "dyn_ntk@2048",
+      "Qwen/Qwen-1_8B": "dyn_ntk@8192",
+      "Qwen/Qwen-7B": "dyn_ntk@8192",
+      "Qwen/Qwen-7B-Chat": "dyn_ntk@8192",
+      "Qwen/Qwen-Audio": "dyn_ntk@2048",
+      "Qwen/Qwen-Audio-Chat": "dyn_ntk@2048",
+      "Qwen/Qwen-VL": "dyn_ntk@2048",
+      "Qwen/Qwen-VL-Chat": "dyn_ntk@2048",
+      "Yo-Purple/Meditor-1-2.2B-A500M-MoE": "dyn_ntk@32768",
+      "Yo-Purple/Meditor-2-3.4B-A1.8B-HMoE": "dyn_ntk@8192"
+    },
+    "not_flag": ["Qwen/Qwen-72B", "Qwen/Qwen-72B-Chat", "Qwen/Qwen2.5-0.5B", "meta-llama/Llama-3.1-8B"]
+  },
+  "falcon_alibi_slope_scale": {
+    "detector": "detect_falcon_alibi_slope_scale",
+    "flag": {"tiiuae/falcon-rw-1b": 0.125, "fxmarty/tiny-testing-falcon-alibi": 0.25},
+    "not_flag": ["tiiuae/falcon-7b", "bigscience/bloom-560m", "replit/replit-code-v1-3b"]
+  },
+  "mpt_remote_alibi_default_false": {
+    "detector": "detect_mpt_remote_alibi_default_false",
+    "flag": {"explosion-testing/mpt-test": "learned_abs"},
+    "not_flag": ["replit/replit-code-v1-3b", "vinai/PhoGPT-4B-Chat", "vinai/PhoGPT-4B", "anas-awadalla/mpt-7b"]
+  },
+  "use_mem_rope_unread": {
+    "detector": "detect_use_mem_rope_unread",
+    "flag": {"Zyphra/Zamba2-2.7B": "nope", "Zyphra/Zamba2-2.7B-instruct": "nope"},
+    "not_flag": ["Zyphra/Zamba2-1.2B-instruct", "Zyphra/Zamba2-1.2B-Instruct-v2", "Zyphra/Zamba2-7B-Instruct",
+                 "Zyphra/Zamba2-7B-Instruct-v2"]
+  },
+  "nope_layer_keys_unread": {
+    "detector": "detect_nope_layer_keys_unread",
+    "flag": {
+      "RadixArk/Muse-Glimmer-q4-MLX": true,
+      "hweller1/wayfinder-glimmer-30b": true,
+      "unsloth/Muse-Glimmer-30B-unsloth-bnb-4bit": true,
+      "staccs/Muse-Spark-Open-816B-A42B-lecore-mlx": true,
+      "Interchained/Muse-Spark-Open-816B-A42B-GGUF": true,
+      "domyn/Domyn-Edge-Base": true,
+      "eins78/Kolibri-1-mlx-mixed-4-8-bit": true
+    },
+    "not_flag": ["LGAI-EXAONE/EXAONE-4.0-32B", "HuggingFaceTB/SmolLM3-3B", "google/gemma-3-1b-it"]
+  },
+  "nope_full_layers_unlisted": {
+    "detector": "detect_nope_full_layers_unlisted",
+    "flag": {
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21": [1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0],
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21-dr-doom": true,
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.10.05": true,
+      "open-athena/Grug-67B-A2B-GLM53-RLVR-SFT-2026.09.23": true,
+      "open-athena/Snowball-67B-A2B-Identity-PathB-A13-2026.10.30": true,
+      "open-athena/Snowball-67B-A2B-Identity-PathB-A3-2026.10.30": true,
+      "open-athena/snowball-67b-a2b-base-262k-qk175": true
+    },
+    "not_flag": ["HuggingFaceTB/SmolLM3-3B", "google/gemma-3-1b-it"]
+  },
+  "rope_embeddings_flag_unread": {
+    "detector": "detect_rope_embeddings_flag_unread",
+    "flag": {
+      "parler-tts/parler-tts-large-v1": "sinusoidal",
+      "parler-tts/parler-tts-mini-multilingual-v1.1": "sinusoidal",
+      "parler-tts/parler-tts-mini-v1": "sinusoidal",
+      "parler-tts/parler-tts-mini-v1.1": "sinusoidal",
+      "parler-tts/parler_tts_mini_v0.1": "sinusoidal"
+    },
+    "not_flag": ["meta-llama/Llama-3.1-8B", "Qwen/Qwen2.5-0.5B"]
+  },
+  "fope_positions": {
+    "detector": "detect_fope_positions",
+    "flag": {"internlm/Intern-S1-Pro": "fope"},
+    "not_flag": ["internlm/Intern-S1", "internlm/Intern-S1-mini", "Qwen/Qwen3-0.6B"]
+  },
+  "content_warped_rope": {
+    "detector": "detect_content_warped_rope",
+    "flag": {"reaperdoesntknow/GPT-X2-125M-CIx-Long-Context": "rope_warp"},
+    "not_flag": ["AxiomicLabs/GPT-X2.5-135M", "AxiomicLabs/GPT-X3-150M"]
+  },
+  "use_mla_false_rope_dims": {
+    "detector": "detect_use_mla_false_rope_dims",
+    "flag": {"Isotr0py/deepseek-vl2-tiny": [128]},
+    "not_flag": ["deepseek-ai/DeepSeek-V2-Lite", "deepseek-ai/DeepSeek-V2", "deepseek-ai/DeepSeek-V2.5"]
+  }
+}

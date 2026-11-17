@@ -1,0 +1,71 @@
+decomposition == emul_matrix(payable) on 895 points; 57 components; frontier 218
+Baseline headline frontier: 218 (895 shapes, 3933 models).
+
+| rule relaxed alone | kind | frontier | freed | examples (left the frontier) |
+|---|---|---:|---:|---|
+| all FEATURES | coupled | 168 | 50 | `Qwen1.5-110B`, `Seed-OSS-36B-Base`, `granite-switch-4.1-30b`, `HyperCLOVAX-SEED-Think-14B`, `hubble-8b-100b_toks-perturbed-hf`, `granite-8b-code-base-4k` +40 |
+| depth (eff + param + kinds) | coupled | 186 | 32 | `Hermes-4-405B`, `Ling-plus`, `IQuest-Coder-V1-40B-Loop-Instruct`, `Solar-Open-100B`, `Hy3`, `Qwen-3.8-27B-ROCmFP4-FAST-GGUF` +26 |
+| qknorm both ways + post_norm both sides | coupled | 194 | 24 | `OLMo-2-0325-32B`, `Qwen-3.8-27B-ROCmFP4-FAST-GGUF`, `HyperCLOVAX-SEED-Think-14B`, `NorOLMo-13B`, `HunyuanImage-3.0`, `Solar-Open-100B` +18 |
+| cat:qknorm | component | 201 | 17 | `Qwen-3.8-27B-ROCmFP4-FAST-GGUF`, `HunyuanImage-3.0`, `Solar-Open-100B`, `delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft`, `GLM-4.5-Air`, `deepseek-moe-16b-base` +11 |
+| near-gap: softmax plays recurrent layers (nonplain:mixer + rf target + kinds) | coupled | 201 | 17 | `GKA-primed-HQwen3-8B-Instruct`, `PseudoBrain-Qwen3-Coder-30B-A3B-BF16`, `Jamba-v0.1`, `MioTTS-2.6B`, `LFM2.5-1.2B-JP`, `LFM2-8B-A1B` +11 |
+| all bias features (bias_qkv + bias_out) | coupled | 204 | 14 | `Qwen1.5-110B`, `Seed-OSS-36B-Base`, `hubble-8b-100b_toks-perturbed-hf`, `granite-8b-code-base-4k`, `basal-2.0-4.5B`, `PowerLM-3b` +8 |
+| act floor threshold ACT_FLOOR_MAX -> 1e+09 | coupled | 205 | 13 | `Qwen-3.8-27B-ROCmFP4-FAST-GGUF`, `ruGPT-3.5-13B-GGUF`, `codeparrot`, `nemotron3-8b`, `AFM-4.5B`, `parler-tts-large-v1` +7 |
+| cat:act | component | 205 | 13 | `Qwen-3.8-27B-ROCmFP4-FAST-GGUF`, `ruGPT-3.5-13B-GGUF`, `codeparrot`, `nemotron3-8b`, `AFM-4.5B`, `parler-tts-large-v1` +7 |
+| window: sliding-window host layers count as full (ZERO_EDGES window + kinds LU->FU) | coupled | 207 | 11 | `manaca-1b-base`, `MiniMax-M2`, `Qwen3.8-2.4T-A95B-DSpark`, `Param2-17B-A2.4B-Thinking`, `Udgam-384M-Base`, `rnj-1-instruct` +5 |
+| ffn_active | component | 208 | 10 | `WizardLM-2-8x22B`, `HunyuanImage-3.0`, `delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft`, `LFM2-8B-A1B`, `MioTTS-2.6B`, `LFM2.5-1.2B-JP` +4 |
+| cat:pos | component | 209 | 9 | `Solar-Open-100B`, `ruGPT-3.5-13B-GGUF`, `codeparrot`, `gerpt2`, `plamo-3-translate-2b`, `kanana-2-1.3b-instruct` +3 |
+| cat:qknorm yes<-no | pair | 209 | 9 | `Qwen-3.8-27B-ROCmFP4-FAST-GGUF`, `HunyuanImage-3.0`, `delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft`, `Intern-S1`, `Qwen3.8-2.4T-A95B-DSpark`, `Kimi-K3-DFlash` +3 |
+| feat:bias_out:target | component | 209 | 9 | `hubble-8b-100b_toks-perturbed-hf`, `granite-8b-code-base-4k`, `basal-2.0-4.5B`, `PowerLM-3b`, `granite-3b-code-base-2k`, `manaca-1b-base` +3 |
+| rot_gate | component | 209 | 9 | `plamo-3-translate-2b`, `kanana-2-1.3b-instruct`, `Laguna-S-2.1`, `LFM3-1.7B-Frontier-SmartAgent`, `Fx-Bio`, `Mellum2-12B-A2.5B-Base` +3 |
+| MoE<-dense: both (no 2x depth, any router) | coupled | 210 | 8 | `WizardLM-2-8x22B`, `Yi-34Bx2-MoE-60B`, `ERNIE-4.5-300B-A47B-PT`, `Solar-Open-100B`, `Qwen-3.8-27B-ROCmFP4-FAST-GGUF`, `LLaMA-MoE-v1-3_0B-2_16` +2 |
+| act floor threshold ACT_FLOOR_MAX -> 0.15 | coupled | 210 | 8 | `ruGPT-3.5-13B-GGUF`, `codeparrot`, `parler-tts-large-v1`, `DanTagGen-beta`, `vaultgemma-1b`, `granite-20b-code-base-8k` +2 |
+| cat:qknorm no<-yes | pair | 210 | 8 | `Solar-Open-100B`, `GLM-4.5-Air`, `deepseek-moe-16b-base`, `jetmoe-8b`, `LLaMA-MoE-v1-3_0B-2_16`, `MemT-1.0-Nano` +2 |
+| feat:bias_qkv:target | component | 210 | 8 | `Qwen1.5-110B`, `Seed-OSS-36B-Base`, `granite-8b-code-base-4k`, `manaca-1b-base`, `polyglot-ko-5.8b`, `Phi-3.5-MoE-instruct` +2 |
+| all MLA rules (mla_wall + latents + penalty) | coupled | 212 | 6 | `kanana-2-30b-a3b-instruct`, `Moonlight-16B-A3B`, `GigaChat3.1-Audio-10B-A1.8B`, `Kimi-Linear-48B-A3B-Base`, `MiniCPM3-4B`, `Ling-3.0-flash-oQ4` |
+| feat:post_norm:target | component | 212 | 6 | `OLMo-2-0325-32B`, `GLM-4-9B-0414`, `GLM-Z1-Rumination-32B-0414`, `wayfinder-glimmer-30b`, `HyperCLOVAX-SEED-Think-14B`, `A.X-K1` |
+| feat:tied_emb:host | component | 212 | 6 | `hubble-8b-100b_toks-perturbed-hf`, `manaca-1b-base`, `gerpt2`, `nous-2`, `stable-code-3b`, `vaultgemma-1b` |
+| ffn_total | component | 212 | 6 | `WizardLM-2-8x22B`, `snowflake-arctic-instruct`, `MiniMax-M2`, `Ling-3.1-flash`, `IQuest-Q1`, `Qwen3.8-Flash-Next-125B-A5B-INT4-AutoRound` |
+| act floor threshold ACT_FLOOR_MAX -> 0.015 | coupled | 213 | 5 | `parler-tts-large-v1`, `DanTagGen-beta`, `vaultgemma-1b`, `Gemini-Nano-Gemmafied`, `rnj-1-instruct` |
+| act floor threshold ACT_FLOOR_MAX -> 0.02 | coupled | 213 | 5 | `parler-tts-large-v1`, `DanTagGen-beta`, `vaultgemma-1b`, `Gemini-Nano-Gemmafied`, `rnj-1-instruct` |
+| act floor threshold ACT_FLOOR_MAX -> 0.05 | coupled | 213 | 5 | `parler-tts-large-v1`, `DanTagGen-beta`, `vaultgemma-1b`, `Gemini-Nano-Gemmafied`, `rnj-1-instruct` |
+| cat:gen | component | 213 | 5 | `Nemotron-Labs-Diffusion-14B`, `gte-Qwen2-7B-instruct`, `GLM-5.3-DFlash2`, `LLaDA2.2-mini`, `Nanbeige4.3-33B-DFlash2` |
+| cat:gen diffusion<-ar | pair | 213 | 5 | `Nemotron-Labs-Diffusion-14B`, `gte-Qwen2-7B-instruct`, `GLM-5.3-DFlash2`, `LLaDA2.2-mini`, `Nanbeige4.3-33B-DFlash2` |
+| cat:pos learned_abs<-alibi | pair | 213 | 5 | `ruGPT-3.5-13B-GGUF`, `codeparrot`, `gerpt2`, `opt-66b`, `granite-20b-code-base-8k` |
+| mla_latents | component | 213 | 5 | `Moonlight-16B-A3B`, `kanana-2-30b-a3b-instruct`, `Ling-3.0-flash-oQ4`, `GigaChat3.1-Audio-10B-A1.8B`, `Kimi-Linear-48B-A3B-Base` |
+| MoE<-dense: no 2x depth (moe factor 1) | coupled | 214 | 4 | `Solar-Open-100B`, `Qwen-3.8-27B-ROCmFP4-FAST-GGUF`, `teutonic-II-110B-genesis`, `parler-tts-large-v1` |
+| cat:act GeLU<-SiLU | pair | 214 | 4 | `parler-tts-large-v1`, `rnj-1-instruct`, `Gemini-Nano-Gemmafied`, `vaultgemma-1b` |
+| feat:dsa:host | component | 214 | 4 | `MAI-DS-R1`, `GLM-4.7-Flash`, `LongCat-Flash-Chat`, `MiniCPM3-4B` |
+| kv_heads | component | 214 | 4 | `jetmoe-8b`, `Kimi-K3-DSpark`, `really-tiny-falcon-testing`, `tiny-testing-falcon-alibi` |
+| cat:act GeLU<-ReLU | pair | 215 | 3 | `ruGPT-3.5-13B-GGUF`, `codeparrot`, `granite-20b-code-base-8k` |
+| cat:act SiLU<-xielu | pair | 215 | 3 | `Qwen-3.8-27B-ROCmFP4-FAST-GGUF`, `Qwen3.8-2.4T-A95B-DSpark`, `Kimi-K3-DFlash` |
+| cat:pos rope<-nope | pair | 215 | 3 | `Solar-Open-100B`, `plamo-3-translate-2b`, `kanana-2-1.3b-instruct` |
+| feat:out_gate:target | component | 215 | 3 | `Jais-3-MoVA-36B-A4B`, `A.X-K2-NVFP4`, `Whittle-Next-27B-A3B` |
+| feat:rf:target | component | 215 | 3 | `LFM2.5-1.2B-JP`, `Jet-Nemotron-2B` |
+| hidden | component | 215 | 3 | `Qwen3.8-2.4T-A95B-DSpark`, `Muse-Spark-Open-DFlash2`, `Kimi-K3-DFlash` |
+| hidden incl. norm mirror | coupled | 215 | 3 | `Qwen3.8-2.4T-A95B-DSpark`, `Muse-Spark-Open-DFlash2`, `Kimi-K3-DFlash` |
+| CLA carry: own-KV attention plays KV-sharing layers (nonplain:cla + kinds) | coupled | 216 | 2 | `DeepSeek-V4.1-Flash`, `gemma-4-31B-it-assistant` |
+| MoE<-dense: any router (top-1 unit-gate rule dropped) | coupled | 216 | 2 | `Yi-34Bx2-MoE-60B`, `LLaMA-MoE-v1-3_0B-2_16` |
+| feat:dsa:target | component | 216 | 2 | `DeepSeek-V3.2`, `Naive-N0.5-Flash` |
+| feat:hyper_conn:target | component | 216 | 2 | `Xing4.0-29B-Intent`, `Hy4-preview-FP8` |
+| feat:router_group:host | component | 216 | 2 | `MiniMax-M2`, `Param2-17B-A2.4B-Thinking` |
+| feat:switch_lora:target | component | 216 | 2 | `granite-switch-4.1-30b`, `granite-switch-4.1-3b-preview` |
+| moe_dense_top1 | component | 216 | 2 | `Yi-34Bx2-MoE-60B`, `LLaMA-MoE-v1-3_0B-2_16` |
+| norm_mirror | component | 216 | 2 | `Qwen3.8-2.4T-A95B-DSpark`, `Kimi-K3-DFlash` |
+| K=V: a K=V host layer plays an own-V layer (keqv caps + kinds) | coupled | 217 | 1 | `Udgam-384M-Base` |
+| act floor threshold ACT_FLOOR_MAX -> 0.01 | coupled | 217 | 1 | `DanTagGen-beta` |
+| cat:act mish<-GeLU | pair | 217 | 1 | `DanTagGen-beta` |
+| cat:act mish<-SiLU | pair | 217 | 1 | `DanTagGen-beta` |
+| cat:act relu2<-GeLU | pair | 217 | 1 | `nemotron3-8b` |
+| cat:act relu2<-SiLU | pair | 217 | 1 | `AFM-4.5B` |
+| cat:pos learned_abs<-partial_rope | pair | 217 | 1 | `gerpt2` |
+| cat:pos learned_abs<-rope | pair | 217 | 1 | `gerpt2` |
+| cat:pos rope<-alibi | pair | 217 | 1 | `really-tiny-falcon-testing` |
+| feat:attn_res:target | component | 217 | 1 | `kotodama-tsumugi-1b` |
+| feat:nope_layers:host | component | 217 | 1 | `wayfinder-glimmer-30b` |
+| feat:post_norm:host | component | 217 | 1 | `Qwen-3.8-27B-ROCmFP4-FAST-GGUF` |
+| feat:router_sigmoid:target | component | 217 | 1 | `NVIDIA-Nemotron-3.5-Bolt-74B-A9B-MLX-IQ2` |
+| feat:value_emb:target | component | 217 | 1 | `gaggle-nanochat-pretrained-climbmix-20260924` |
+| feat:vnorm:target | component | 217 | 1 | `Udgam-384M-Base` |
+| mla_wall | component | 217 | 1 | `MiniCPM3-4B` |
+
+No effect alone: `[implausible] recurrent host layers play attention (kinds R->attn; mixer depth)`, `alibi_rope`, `cat:act GeLU<-mish`, `cat:act GeLU<-poly_norm`, `cat:act GeLU<-relu2`, `cat:act GeLU<-situ`, `cat:act GeLU<-swigluoai`, `cat:act GeLU<-xielu`, `cat:act ReLU<-poly_norm`, `cat:act ReLU<-relu2`, `cat:act ReLU<-situ`, `cat:act ReLU<-xielu`, `cat:act SiLU<-GeLU`, `cat:act SiLU<-ReLU`, `cat:act SiLU<-mish`, `cat:act SiLU<-poly_norm`, `cat:act SiLU<-relu2`, `cat:act SiLU<-situ`, `cat:act mish<-ReLU`, `cat:act mish<-poly_norm`, `cat:act mish<-relu2`, `cat:act mish<-situ`, `cat:act mish<-swigluoai`, `cat:act mish<-xielu`, `cat:act poly_norm<-GeLU`, `cat:act poly_norm<-ReLU`, `cat:act poly_norm<-SiLU`, `cat:act poly_norm<-mish`, `cat:act poly_norm<-relu2`, `cat:act poly_norm<-situ`, `cat:act poly_norm<-swigluoai`, `cat:act poly_norm<-xielu`, `cat:act relu2<-ReLU`, `cat:act relu2<-mish`, `cat:act relu2<-poly_norm`, `cat:act relu2<-situ`, `cat:act relu2<-swigluoai`, `cat:act situ<-GeLU`, `cat:act situ<-ReLU`, `cat:act situ<-SiLU`, `cat:act situ<-mish`, `cat:act situ<-poly_norm`, `cat:act situ<-relu2`, `cat:act situ<-swigluoai`, `cat:act situ<-xielu`, `cat:act swigluoai<-GeLU`, `cat:act swigluoai<-ReLU`, `cat:act swigluoai<-mish`, `cat:act swigluoai<-poly_norm`, `cat:act swigluoai<-relu2`, `cat:act swigluoai<-situ`, `cat:act swigluoai<-xielu`, `cat:act xielu<-GeLU`, `cat:act xielu<-ReLU`, `cat:act xielu<-SiLU`, `cat:act xielu<-mish`, `cat:act xielu<-poly_norm`, `cat:act xielu<-relu2`, `cat:act xielu<-situ`, `cat:act xielu<-swigluoai`, `cat:mtp`, `cat:norm`, `cat:pos alibi<-nope`, `cat:pos learned_abs<-nope`, `cat:pos partial_rope<-alibi`, `cat:pos partial_rope<-learned_abs`, `cat:pos partial_rope<-nope`, `cat:pos rope<-learned_abs`, `cat:sink`, `cat:sink yes<-no`, `cat:softcap`, `depth_eff`, `depth_param`, `feat:attn_res:host`, `feat:engram:target`, `feat:hyper_conn:host`, `feat:nope_layers:target`, `feat:ple:target`, `feat:router_bias:target`, `feat:router_group:target`, `feat:shared_gate:target`, `feat:vnorm:host`, `head_dim`, `keqv_caps`, `kinds_eff`, `kinds_param`, `kv_cap`, `kv_cap incl. MLA penalty`, `mla_penalty`, `nonplain:cla`, `nonplain:mixer`, `par_carry`, `q_cap`, `qheads`.

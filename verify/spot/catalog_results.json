@@ -1,0 +1,2003 @@
+[
+ {
+  "entry": "ap_block_seq_par",
+  "types": [
+   "slot:block:sequential->parallel",
+   "capacity:moe_depth"
+  ],
+  "instance": "sequential block -> parallel host at 2x depth (attention and FFN in alternate layers) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.9
+ },
+ {
+  "entry": "ap_cap_final_attn",
+  "types": [
+   "slot:softcap:final->attn"
+  ],
+  "instance": "final cap 30 -> attention cap 1e4 + the same final cap (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.33e-06 rel 1.4e-07 top-1 100.0% identical 8/8",
+  "rel": 1.3717255732463841e-07,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.6
+ },
+ {
+  "entry": "ap_cap_final_no",
+  "types": [
+   "slot:softcap:final->no"
+  ],
+  "instance": "final-logit cap 10 -> no cap: argmax unchanged (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.43e+00 rel 3.2e-01 top-1 100.0% identical 8/8",
+  "rel": 0.3181732546540276,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.6
+ },
+ {
+  "entry": "ap_cap_no_attn",
+  "types": [
+   "slot:softcap:no->attn"
+  ],
+  "instance": "no cap -> attention cap set large (1e4) (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.34e-06 rel 1.3e-07 top-1 100.0% identical 8/8",
+  "rel": 1.332526939780025e-07,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.7
+ },
+ {
+  "entry": "ap_cap_no_final",
+  "types": [
+   "slot:softcap:no->final"
+  ],
+  "instance": "no cap -> final-logit cap set large (1e4) (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 3.42e-06 rel 3.4e-07 top-1 100.0% identical 8/8",
+  "rel": 3.3915477320082767e-07,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.7
+ },
+ {
+  "entry": "ap_gen_ar_block",
+  "types": [
+   "slot:gen:ar->block"
+  ],
+  "instance": "causal LM -> block-causal host given block size 1 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.7
+ },
+ {
+  "entry": "ap_gen_ar_diffusion",
+  "types": [
+   "slot:gen:ar->diffusion"
+  ],
+  "instance": "causal LM -> bidirectional (diffusion) host given the causal mask (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.9
+ },
+ {
+  "entry": "ap_gen_block_diffusion",
+  "types": [
+   "slot:gen:block->diffusion"
+  ],
+  "instance": "block-causal (4) -> bidirectional host given the block mask (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.9
+ },
+ {
+  "entry": "ap_gen_diffusion_block",
+  "types": [
+   "slot:gen:diffusion->block"
+  ],
+  "instance": "bidirectional -> block-causal host given an all-ones mask (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "ap_kind_cla",
+  "types": [
+   "capacity:layer_kind:S<-S"
+  ],
+  "instance": "CLA target (layer 1 reads layer 0's K / V) -> a deeper CLA host (layers 1, 3 share), the extra layers identity (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.4
+ },
+ {
+  "entry": "ap_kind_rec",
+  "types": [
+   "capacity:layer_kind:R<-R"
+  ],
+  "instance": "hybrid target (attn, rec) -> hybrid host (attn, rec, attn, rec), recurrent layer on a recurrent layer, the extra ones identity (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.2
+ },
+ {
+  "entry": "ap_loop_host",
+  "types": [
+   "slot:loop:untied->looped"
+  ],
+  "instance": "2 untied layers -> a looped host (block of 2) with its loop count set to 1 (synthetic, reference module; see the finding: a fixed loop count cannot)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.9
+ },
+ {
+  "entry": "ap_loop_unroll",
+  "types": [
+   "slot:loop:looped->untied"
+  ],
+  "instance": "a looped block (2 layers x 2) -> 4 untied layers (unrolled) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.5
+ },
+ {
+  "entry": "ap_mixer_hybrid",
+  "types": [
+   "slot:mixer:softmax->hybrid",
+   "zero:mixer:softmax<-hybrid"
+  ],
+  "instance": "softmax (2 layers) -> hybrid host (attn, rec, attn, rec): recurrent layers zeroed (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.5
+ },
+ {
+  "entry": "ap_mtp_add",
+  "types": [
+   "slot:mtp:no->yes"
+  ],
+  "instance": "no MTP head -> a host with an MTP head (the main logits do not read it) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.9
+ },
+ {
+  "entry": "ap_mtp_drop",
+  "types": [
+   "slot:mtp:yes->no"
+  ],
+  "instance": "an MTP head -> no MTP head (dropped) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "ap_norm_ln_fold",
+  "types": [
+   "slot:norm:LayerNorm->RMSNorm"
+  ],
+  "instance": "LayerNorm (biased, GeLU MLP) -> RMSNorm host with an lm_head bias (Phi-style): writers centred, betas folded (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.15e-14 rel 8.9e-16 top-1 100.0% identical 8/8",
+  "rel": 8.909037644831348e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.7
+ },
+ {
+  "entry": "ap_norm_ln_fold_no_lm_bias",
+  "types": [
+   "slot:norm:LayerNorm->RMSNorm"
+  ],
+  "instance": "LayerNorm -> RMSNorm host WITHOUT an lm_head bias (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "FINDING",
+  "finding": "the final LayerNorm's beta has no lm_head bias to fold into: exact only on hosts with one (round 2 pass 5: the LN fold without an lm_head bias is refuted as exact)",
+  "result": "max|d| 8.71e-01 rel 6.7e-02 top-1 87.5% identical 0/8 (host without an lm_head bias: the final beta is dropped)",
+  "rel": 0.06718719843877893,
+  "top1": 0.875,
+  "identical": "0/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "ap_norm_mirror",
+  "types": [
+   "slot:norm:RMSNorm->LayerNorm",
+   "capacity:norm_width"
+  ],
+  "instance": "RMSNorm -> LayerNorm at 2x width: the residual mirrored [h; -h] (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.24e-14 rel 1.2e-15 top-1 100.0% identical 8/8",
+  "rel": 1.2327317164544425e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "ap_pos_alibi_additive",
+  "types": [
+   "slot:pos:alibi->additive_bias"
+  ],
+  "instance": "ALiBi -> an additive per-head bias table m_h (j - i) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.5
+ },
+ {
+  "entry": "ap_pos_alibi_labs",
+  "types": [
+   "slot:pos:alibi->learned_abs"
+  ],
+  "instance": "ALiBi -> learned-abs (pre-LN, q / k biases): a key channel j read by a constant query channel (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "FINDING",
+  "finding": "the position table enters the residual stream, so a pre-norm's mean and variance see it: the ramp is not reproduced (round 2 pass 5 removes this POS_ORDER edge)",
+  "result": "max|d| 8.79e+00 rel 8.1e-01 top-1 51.2% identical 0/8 (position channel inside the pre-norm)",
+  "rel": 0.8086387310470552,
+  "top1": 0.5125,
+  "identical": "0/8",
+  "seconds": 0.7
+ },
+ {
+  "entry": "ap_pos_alibi_partial",
+  "types": [
+   "slot:pos:alibi->partial_rope"
+  ],
+  "instance": "ALiBi -> partial RoPE (one rotated pair, q / k biases): the small-angle limit (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 3.80e-11 rel 3.2e-12 top-1 100.0% identical 8/8 (small-angle limit, omega = 1e-06)",
+  "rel": 3.2147434801089357e-12,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "ap_pos_alibi_rope",
+  "types": [
+   "slot:pos:alibi->rope"
+  ],
+  "instance": "ALiBi -> RoPE (head_dim + 2, q / k biases): the small-angle limit (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 3.80e-11 rel 3.2e-12 top-1 100.0% identical 8/8 (small-angle limit, omega = 1e-06)",
+  "rel": 3.2147246823082487e-12,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "ap_pos_nope_alibi",
+  "types": [
+   "slot:pos:nope->alibi"
+  ],
+  "instance": "NoPE -> ALiBi with the bias switched off (slopes 0) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.6
+ },
+ {
+  "entry": "ap_pos_nope_labs",
+  "types": [
+   "slot:pos:nope->learned_abs"
+  ],
+  "instance": "NoPE -> learned absolute positions, table 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.5
+ },
+ {
+  "entry": "ap_pos_nope_partial",
+  "types": [
+   "slot:pos:nope->partial_rope"
+  ],
+  "instance": "NoPE -> partial RoPE (rot hd / 2) with inv_freq = 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.7
+ },
+ {
+  "entry": "ap_pos_nope_rope",
+  "types": [
+   "slot:pos:nope->rope"
+  ],
+  "instance": "NoPE -> RoPE with inv_freq = 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "ap_pos_partial_full",
+  "types": [
+   "slot:pos:partial_rope->rope"
+  ],
+  "instance": "partial RoPE (rot 4 of 8) -> full RoPE: pass dims on zero-frequency pairs of a settable table (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.27e-14 rel 1.3e-15 top-1 100.0% identical 8/8",
+  "rel": 1.2839614152417348e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.9
+ },
+ {
+  "entry": "ap_pos_rope_partial",
+  "types": [
+   "slot:pos:rope->partial_rope",
+   "capacity:rot_gate"
+  ],
+  "instance": "RoPE (hd 8) -> partial RoPE (hd 16, rot 8): the target's pairs on the host's rotated dims (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.55e-14 rel 2.5e-15 top-1 100.0% identical 8/8",
+  "rel": 2.531502632004659e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "ap_pos_t5_additive",
+  "types": [
+   "slot:pos:t5_relbias->additive_bias"
+  ],
+  "instance": "T5 bucketed relative bias -> an additive bias table (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "ap_qk_free_distinct",
+  "types": [
+   "slot:qknorm:head_free->head_distinct"
+  ],
+  "instance": "weight-free qk-norm -> per-head gains 1 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.3
+ },
+ {
+  "entry": "ap_qk_free_head",
+  "types": [
+   "slot:qknorm:head_free->head"
+  ],
+  "instance": "weight-free qk-norm -> gained per-head qk-norm, gain 1 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "ap_qk_free_post",
+  "types": [
+   "slot:qknorm:head_free->head_post"
+  ],
+  "instance": "weight-free qk-norm (before RoPE) -> gained qk-norm after RoPE, gain 1: the rms is rotation-invariant (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.07e-14 rel 9.9e-16 top-1 100.0% identical 8/8",
+  "rel": 9.930584488282186e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "ap_qk_head_distinct",
+  "types": [
+   "slot:qknorm:head->head_distinct"
+  ],
+  "instance": "per-head qk RMSNorm (one gain) -> per-head gains, all equal (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "ap_qk_ln_bias",
+  "types": [
+   "slot:qknorm:head_ln->head_ln_bias"
+  ],
+  "instance": "per-head LayerNorm qk-norm -> with biases, bias 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "ap_qk_shared_ln",
+  "types": [
+   "slot:qknorm:ln_shared_bias->head_ln_bias"
+  ],
+  "instance": "shared-gain LayerNorm qk-norm -> per-head gains and biases, repeated (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "ap_rot_gate_glm",
+  "types": [
+   "capacity:rot_gate",
+   "slot:pos:rope->partial_rope"
+  ],
+  "instance": "llama (RoPE) -> glm (partial RoPE host, stock): hf/partial_rope_host.glm_from_llama",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.33e-15 rel 6.2e-16 top-1 100.0% identical 8/8",
+  "rel": 6.156930602207535e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 8.5
+ },
+ {
+  "entry": "ap_sink_add",
+  "types": [
+   "slot:sink:no->yes"
+  ],
+  "instance": "plain attention -> learned per-head sinks at logit -1e4 (exp underflows to 0) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.3
+ },
+ {
+  "entry": "ap_zero_cla",
+  "types": [
+   "zero:crosslayer_kv:no<-yes",
+   "slot:crosslayer_kv:no->yes"
+  ],
+  "instance": "own-KV target (2 layers) -> CLA host (layers 1, 3 reuse the previous layer's K / V): the sharing layers zeroed (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.1
+ },
+ {
+  "entry": "cap_kind_gemma2",
+  "types": [
+   "capacity:layer_kind:LU<-LU",
+   "capacity:layer_kind:FU<-FU"
+  ],
+  "instance": "gemma2 (sliding, full) -> gemma2 (sliding, full, sliding): each layer on a host layer of its kind",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.73e-15 rel 8.5e-16 top-1 100.0% identical 8/8",
+  "rel": 8.492004453887511e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 5.4
+ },
+ {
+  "entry": "cap_kind_keqv_on_keqv",
+  "types": [
+   "capacity:layer_kind:FT<-FT",
+   "capacity:layer_kind:LT<-LT",
+   "capacity:layer_kind:LT<-FT",
+   "capacity:layer_kind:LT<-FU"
+  ],
+  "instance": "qwen2 K=V (sliding, sliding) -> qwen2 K=V host (full, sliding, full; reference: tied k / v)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.44e-15 rel 9.6e-16 top-1 100.0% identical 8/8 (layer_pos [0, 1])",
+  "rel": 9.567567138019536e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.1
+ },
+ {
+  "entry": "cap_kind_keqv_on_own_v",
+  "types": [
+   "capacity:layer_kind:FT<-FU",
+   "capacity:layer_kind:LT<-LU"
+  ],
+  "instance": "qwen2 K=V target (sliding, full) -> qwen2 own-V host (reference: K = V as tied k / v projections)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.80e-15 rel 1.1e-15 top-1 100.0% identical 8/8 (layer_pos [0, 1])",
+  "rel": 1.098095773795424e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 4.8
+ },
+ {
+  "entry": "cap_kind_local_on_full",
+  "types": [
+   "capacity:layer_kind:LU<-FU",
+   "slot:window:local->full"
+  ],
+  "instance": "mistral (window 4) -> qwen2 (full layers): the host's window set to the target's",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.22e-15 rel 7.4e-16 top-1 100.0% identical 8/8",
+  "rel": 7.428855290038384e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 5.3
+ },
+ {
+  "entry": "cap_kv_gqa_mha",
+  "types": [
+   "slot:kv:GQA->MHA"
+  ],
+  "instance": "llama GQA (4q/2kv) -> llama MHA (6q/6kv)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.33e-15 rel 7.8e-16 top-1 100.0% identical 8/8",
+  "rel": 7.800298054540303e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.8
+ },
+ {
+  "entry": "cap_kv_mha_gqa",
+  "types": [
+   "slot:kv:MHA->GQA"
+  ],
+  "instance": "llama MHA (3q/3kv) -> llama GQA (6q/3kv): one query per host group used",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.22e-15 rel 1.0e-15 top-1 100.0% identical 8/8",
+  "rel": 1.0092096186187085e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.1
+ },
+ {
+  "entry": "cap_kv_mha_mqa",
+  "types": [
+   "slot:kv:MHA->MQA"
+  ],
+  "instance": "llama MHA (1q/1kv) -> llama MQA (6q/1kv)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 7.22e-16 rel 4.8e-16 top-1 100.0% identical 8/8",
+  "rel": 4.764073436116523e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.7
+ },
+ {
+  "entry": "cap_kv_mqa_gqa",
+  "types": [
+   "slot:kv:MQA->GQA"
+  ],
+  "instance": "llama MQA (4q/1kv) -> llama GQA (6q/3kv)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.44e-15 rel 8.6e-16 top-1 100.0% identical 8/8",
+  "rel": 8.605673702535024e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.2
+ },
+ {
+  "entry": "cap_kv_mqa_mha",
+  "types": [
+   "slot:kv:MQA->MHA"
+  ],
+  "instance": "llama MQA (4q/1kv) -> llama MHA (6q/6kv)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.44e-15 rel 8.6e-16 top-1 100.0% identical 8/8",
+  "rel": 8.605673702535024e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.2
+ },
+ {
+  "entry": "cap_kv_pack_nope",
+  "types": [
+   "capacity:kv_pack:nope"
+  ],
+  "instance": "llama GQA (4q/2kv x 8, inv_freq 0 = NoPE) -> llama MQA (8q/1kv x 16, NoPE)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.00e-15 rel 1.0e-15 top-1 100.0% identical 8/8",
+  "rel": 1.0047845139758182e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.0
+ },
+ {
+  "entry": "cap_kv_pack_rope",
+  "types": [
+   "capacity:kv_pack:rope",
+   "slot:kv:GQA->MQA"
+  ],
+  "instance": "llama GQA (4q/2kv x 8) -> llama MQA (8q/1kv x 16, longrope table): 2 KV heads packed in one",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 8.05e-09 rel 4.0e-09 top-1 100.0% identical 8/8 (the longrope factors are fp32: inv_freq agrees to ~1e-7)",
+  "rel": 3.991286186235848e-09,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.2
+ },
+ {
+  "entry": "cap_llama_every_axis",
+  "types": [
+   "capacity:hidden",
+   "capacity:eff_layers",
+   "capacity:param_layers",
+   "capacity:ffn_total",
+   "capacity:ffn_active",
+   "capacity:kv_cap",
+   "capacity:q_cap",
+   "capacity:qheads",
+   "capacity:head_dim",
+   "capacity:layer_kind:FU<-FU"
+  ],
+  "instance": "llama (d 64, 2 layers, 4q/2kv x 16, FFN 96) -> llama (d 96, 3 layers, 6q/3kv x 32, FFN 160)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.33e-15 rel 7.8e-16 top-1 100.0% identical 8/8",
+  "rel": 7.800298054540303e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.0
+ },
+ {
+  "entry": "cap_zero_window",
+  "types": [
+   "zero:window:full<-local",
+   "slot:window:full->local"
+  ],
+  "instance": "qwen2 (2 full layers) -> qwen2 (sliding, full, full): full target layers only on host full layers",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 3.05e-15 rel 1.3e-15 top-1 100.0% identical 8/8",
+  "rel": 1.2611766649444608e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.4
+ },
+ {
+  "entry": "fm_act_relu2_xielu",
+  "types": [
+   "slot:act:relu2->xielu"
+  ],
+  "instance": "relu^2 MLP -> xIELU MLP: xIELU(c x) / (alpha_p c^2), c = 1e8 (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.28e-08 rel 4.7e-09 top-1 100.0% identical 8/8 (c = 1e+08)",
+  "rel": 4.730970243189121e-09,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "fm_act_relu_gelu",
+  "types": [
+   "slot:act:ReLU->GeLU"
+  ],
+  "instance": "ReLU MLP -> GeLU (erf) MLP, beta = 1e9 (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.22e-15 rel 5.5e-16 top-1 100.0% identical 8/8 (beta = 1e+09)",
+  "rel": 5.504220803071883e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "fm_act_relu_gelu_tanh",
+  "types": [
+   "slot:act:ReLU->GeLU_tanh"
+  ],
+  "instance": "ReLU MLP -> GeLU (tanh) MLP, beta = 1e9 (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.22e-15 rel 5.5e-16 top-1 100.0% identical 8/8 (beta = 1e+09)",
+  "rel": 5.504220803071883e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.9
+ },
+ {
+  "entry": "fm_act_relu_mish",
+  "types": [
+   "slot:act:ReLU->mish"
+  ],
+  "instance": "ReLU MLP -> mish MLP, beta = 1e9 (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.22e-15 rel 5.5e-16 top-1 100.0% identical 8/8 (beta = 1e+09)",
+  "rel": 5.504220803071883e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "fm_act_relu_silu",
+  "types": [
+   "slot:act:ReLU->SiLU"
+  ],
+  "instance": "ReLU MLP -> SiLU MLP: SiLU(beta x) / beta, beta = 1e9 (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.22e-15 rel 5.5e-16 top-1 100.0% identical 8/8 (beta = 1e+09)",
+  "rel": 5.504220803071883e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "fm_act_relu_swigluoai",
+  "types": [
+   "slot:act:ReLU->swigluoai"
+  ],
+  "instance": "ReLU MLP -> swigluoai GLU (gpt-oss: gate <= 7, |up| <= 7, gate and up biases): gate held at 7 by its bias, the up clamp's lower kink at the target's kink, slope s = 1e-3 (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.82e-11 rel 1.7e-12 top-1 100.0% identical 8/8 (exact inside the clamp regime |x| <= 14 / s)",
+  "rel": 1.7263438002762443e-12,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "fm_act_silu_swigluoai",
+  "types": [
+   "slot:act:SiLU->swigluoai",
+   "port:oai_bias"
+  ],
+  "instance": "SiLU GLU -> swigluoai GLU: gate / 1.702, up scaled by 1e-3 with an up bias -1 inside the clamps (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 9.99e-13 rel 9.9e-14 top-1 100.0% identical 8/8 (exact while |gate| < 11.9 (the clamp regime))",
+  "rel": 9.901477251093005e-14,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "fm_act_swigluoai_silu",
+  "types": [
+   "slot:act:swigluoai->SiLU"
+  ],
+  "instance": "swigluoai GLU -> SiLU GLU with an up bias +1: gate x 1.702, exact while the target's clamps do not bind (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 7.99e-15 rel 7.0e-16 top-1 100.0% identical 8/8 (the clamp regime)",
+  "rel": 6.98305111588383e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "fm_bias_out_host",
+  "types": [
+   "feature:bias_out:host",
+   "feature:tied_emb:target"
+  ],
+  "instance": "llama (tied, no biases) -> llama with attention and MLP biases (set 0), untied head (emulate.py)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.33e-15 rel 7.8e-16 top-1 100.0% identical 8/8",
+  "rel": 7.800298054540303e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.6
+ },
+ {
+  "entry": "fm_bias_qkv_host",
+  "types": [
+   "feature:bias_qkv:host"
+  ],
+  "instance": "llama -> qwen2 (q / k / v biases set 0) (emulate.py)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.33e-15 rel 7.8e-16 top-1 100.0% identical 8/8",
+  "rel": 7.800298054540303e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.5
+ },
+ {
+  "entry": "fm_dense_on_mixtral",
+  "types": [
+   "slot:ffn:glu->moe",
+   "moe:host_for_dense"
+  ],
+  "instance": "llama (dense SwiGLU) -> mixtral (4 experts, top-2): every expert = the dense FFN, router 0 (emulate.py)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.33e-15 rel 7.8e-16 top-1 100.0% identical 8/8",
+  "rel": 7.800298054540303e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.8
+ },
+ {
+  "entry": "fm_dense_on_qwen2moe_shared",
+  "types": [
+   "slot:ffn:glu->moe_shared",
+   "feature:shared_gate:host",
+   "moe:host_for_dense",
+   "feature:bias_qkv:host"
+  ],
+  "instance": "llama -> qwen2_moe: the dense FFN in the shared expert (sigmoid gate 0 -> x 2), routed experts 0, q / k / v biases 0 (emulate.py)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.66e-15 rel 8.9e-16 top-1 100.0% identical 8/8",
+  "rel": 8.91462634804606e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.4
+ },
+ {
+  "entry": "fm_dsa",
+  "types": [
+   "feature:dsa:target",
+   "feature:dsa:host"
+  ],
+  "instance": "DSA (index_topk 64 >= the context) <-> dense attention, both ways (synthetic, reference module; DSA is dense attention while the context fits index_topk)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.3
+ },
+ {
+  "entry": "fm_dsv2_group_max",
+  "types": [
+   "moe:group:max"
+  ],
+  "instance": "deepseek_v2 (E 4 in 2 groups, group-limited greedy = max) -> deepseek_v2, wider experts (24)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.66e-16 rel 3.8e-16 top-1 100.0% identical 8/8",
+  "rel": 3.8363348480509697e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.6
+ },
+ {
+  "entry": "fm_dsv3_groups_extra",
+  "types": [
+   "moe:group:top2sum",
+   "moe:extra_experts",
+   "moe:dense_layers",
+   "moe:score",
+   "feature:router_sigmoid:target",
+   "feature:router_sigmoid:host",
+   "feature:router_group:target",
+   "feature:router_group:host"
+  ],
+  "instance": "deepseek_v3 (E 4 in 2 groups, top-2, sigmoid, top-2-sum groups, 1 dense layer) -> deepseek_v3 (E 6 in 2 groups: each group's extra expert at selection bias -1e4; wider experts and dense layer)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.66e-16 rel 3.6e-16 top-1 100.0% identical 8/8",
+  "rel": 3.6256198942026095e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.9
+ },
+ {
+  "entry": "fm_engram_off",
+  "types": [
+   "feature:engram:host"
+  ],
+  "instance": "-> a hashed n-gram memory added to the residual, table 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "fm_ffn_vanilla_glu",
+  "types": [
+   "slot:ffn:vanilla->glu"
+  ],
+  "instance": "vanilla GeLU MLP -> GeGLU host with an up bias: the up path held at 1 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "fm_mixtral_dup2",
+  "types": [
+   "moe:dup:R:m"
+  ],
+  "instance": "mixtral E 4, top-2 (renormalised) -> mixtral E 8, top-4: each expert twice",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.66e-16 rel 3.9e-16 top-1 100.0% identical 8/8",
+  "rel": 3.8753599585109425e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.6
+ },
+ {
+  "entry": "fm_mixtral_wider",
+  "types": [
+   "moe:dup:R:1"
+  ],
+  "instance": "mixtral E 4, top-2, expert width 48 -> mixtral E 4, top-2, width 64 (zero-padded)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.1
+ },
+ {
+  "entry": "fm_mla_latent_multiple",
+  "types": [
+   "capacity:mla_latent"
+  ],
+  "instance": "deepseek_v2 MLA (kv latent 16) -> deepseek_v2 (kv latent 32 = 2 copies: the latent norm's rms over two copies is the rms of one, same eps)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 8.88e-16 rel 5.1e-16 top-1 100.0% identical 8/8",
+  "rel": 5.115113130734626e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.3
+ },
+ {
+  "entry": "fm_moe_as_dense",
+  "types": [
+   "moe:dense_layers"
+  ],
+  "instance": "a MoE target whose layer 0 is dense -> an all-MoE host: layer 0's experts all hold the dense FFN, router 0 (k experts at weight 1 / k) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.4
+ },
+ {
+  "entry": "fm_moe_latent",
+  "types": [
+   "moe:latent"
+  ],
+  "instance": "MoE with an expert-input latent 12 -> latent 16 (zero-padded) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.4
+ },
+ {
+  "entry": "fm_moe_on_shared_host",
+  "types": [
+   "slot:ffn:moe->moe_shared"
+  ],
+  "instance": "mixtral (E 4, top-2) -> qwen2_moe (E 4, top-2, renormalised, a gated shared expert set to 0)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 8.33e-16 rel 4.8e-16 top-1 100.0% identical 8/8",
+  "rel": 4.844199948138678e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.9
+ },
+ {
+  "entry": "fm_out_gate_off",
+  "types": [
+   "feature:out_gate:host"
+  ],
+  "instance": "no output gate -> a sigmoid output gate with W_g = 0 (0.5, folded into o) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.7
+ },
+ {
+  "entry": "fm_phimoe_dup2",
+  "types": [
+   "moe:dup:sparsemixer:m"
+  ],
+  "instance": "phimoe E 4, top-2 (SparseMixer) -> phimoe E 8, top-4: each expert twice",
+  "real": false,
+  "standard": "exact",
+  "status": "FINDING",
+  "finding": "SparseMixer is a top-2 in code whatever num_experts_per_tok says, and its second pick masks out only the first expert's index: a duplicate of the top-1 expert wins the second slot. moe_why lets a sparsemixer target take m > 1 copies; it should require m = 1 (no zoo pair uses it: latent)",
+  "result": "max|d| 1.46e+00 rel 7.1e-01 top-1 43.8% identical 0/8",
+  "rel": 0.7063381713797082,
+  "top1": 0.4375,
+  "identical": "0/8",
+  "seconds": 3.2
+ },
+ {
+  "entry": "fm_phimoe_wider",
+  "types": [
+   "moe:dup:sparsemixer:1"
+  ],
+  "instance": "phimoe E 4, top-2, width 48 -> phimoe E 4, top-2, width 64",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.2
+ },
+ {
+  "entry": "fm_ple_off",
+  "types": [
+   "feature:ple:host"
+  ],
+  "instance": "-> per-layer embedding inputs, projections 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "fm_qwen2moe_P_dup2",
+  "types": [
+   "moe:dup:P:m"
+  ],
+  "instance": "qwen2_moe E 4, top-2, softmax not renormalised -> E 8 (exactly 2 x), top-4",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.66e-16 rel 3.6e-16 top-1 100.0% identical 8/8",
+  "rel": 3.6192412664212715e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.5
+ },
+ {
+  "entry": "fm_qwen2moe_P_wider",
+  "types": [
+   "moe:dup:P:1",
+   "moe:shared",
+   "feature:shared_gate:host"
+  ],
+  "instance": "qwen2_moe (P, expert 16, shared 24) -> qwen2_moe (expert 24, shared 40): widths zero-padded, the shared expert's sigmoid gate copied",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 6.66e-16 rel 3.6e-16 top-1 100.0% identical 8/8",
+  "rel": 3.6192412664212715e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.8
+ },
+ {
+  "entry": "fm_router_bias_host",
+  "types": [
+   "feature:router_bias:host"
+  ],
+  "instance": "sigmoid router without a selection bias -> a host with one, set 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.3
+ },
+ {
+  "entry": "fm_router_sqrtsoftplus",
+  "types": [
+   "feature:router_sqrtsoftplus:target",
+   "feature:router_sqrtsoftplus:host"
+  ],
+  "instance": "sqrt(softplus) router (DeepSeek-V4) -> a host whose score is a config value, set to the same; a softmax target on that host likewise (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.9
+ },
+ {
+  "entry": "fm_selfcond_off",
+  "types": [
+   "feature:selfcond:host"
+  ],
+  "instance": "-> a self-conditioning input (previous logits), projection 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "fm_switch_lora_off",
+  "types": [
+   "feature:switch_lora:host"
+  ],
+  "instance": "-> a switched LoRA adapter, B = 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "fm_value_emb_off",
+  "types": [
+   "feature:value_emb:host"
+  ],
+  "instance": "-> value embeddings, table 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "p5_act_width_gelu_oai",
+  "types": [
+   "slot:act:GeLU->swigluoai",
+   "port:act_width"
+  ],
+  "instance": "GeGLU -> swigluoai GLU (gate <= 7, up bias -1 for the (u + 1)) at FFN x 6 (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "FINDING",
+  "finding": "graph/act_width's k-unit fits for a swigluoai host (act/act_width_fit.py TA['swigluoai'] = z sigmoid(1.702 z)) ignore gpt-oss's gate clamp min(g, 7) (swiglu_limit): the k = 6 GeLU fit's betas reach 3.8, so the clamp binds from |a| ~ 1.8; with the clamp the fit's error on [-6, 6] is 0.54, not 4.8e-4. Every act-width cell with a swigluoai host is affected (7 headline edges GeLU <- swigluoai)",
+  "result": "max|d| 5.63e-01 rel 5.6e-02 top-1 97.5% identical 2/8 (k = 6, fit error 4.8e-04 on [-160, 160])",
+  "rel": 0.055943622923507484,
+  "top1": 0.975,
+  "identical": "2/8",
+  "seconds": 0.9
+ },
+ {
+  "entry": "p5_act_width_gelu_silu",
+  "types": [
+   "port:act_width",
+   "slot:act:GeLU->SiLU"
+  ],
+  "instance": "GeLU MLP -> SiLU MLP at FFN x 6 (6 scaled SiLU units per GeLU unit) (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.99e-03 rel 2.6e-04 top-1 100.0% identical 8/8 (k = 6, fit error 3.3e-04 on [-160, 160])",
+  "rel": 0.00025763923584593354,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.4
+ },
+ {
+  "entry": "p5_act_width_gelutanh_silu",
+  "types": [
+   "slot:act:GeLU_tanh->SiLU",
+   "port:act_width"
+  ],
+  "instance": "tanh-GeLU MLP -> SiLU MLP at FFN x 6 (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 3.35e-03 rel 2.9e-04 top-1 100.0% identical 8/8 (k = 6, fit error 3.7e-04 on [-160, 160])",
+  "rel": 0.0002891231200409497,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "p5_act_width_silu_gelu",
+  "types": [
+   "slot:act:SiLU->GeLU",
+   "port:act_width"
+  ],
+  "instance": "SiLU MLP -> GeLU (erf) MLP at FFN x 3 (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.69e-03 rel 2.4e-04 top-1 100.0% identical 8/8 (k = 3, fit error 1.7e-04 on [-160, 160])",
+  "rel": 0.00024085470031236353,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "p5_act_width_silu_gelutanh",
+  "types": [
+   "slot:act:SiLU->GeLU_tanh",
+   "port:act_width"
+  ],
+  "instance": "SiLU MLP -> tanh-GeLU MLP at FFN x 3 (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.94e-03 rel 2.6e-04 top-1 100.0% identical 8/8 (k = 3, fit error 1.9e-04 on [-160, 160])",
+  "rel": 0.00026310498181162734,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.8
+ },
+ {
+  "entry": "p5_bos_learned_abs",
+  "types": [
+   "port:bos_labs",
+   "slot:pos:learned_abs->rope",
+   "slot:pos:learned_abs->nope",
+   "slot:pos:learned_abs->partial_rope"
+  ],
+  "instance": "gpt2 (learned positions, LayerNorm) -> llama with inv_freq 0, +2 layers, +5 channels: the start-token rule (hf/bos_constructions.learned_abs_host). A RoPE host at inv_freq 0 is the NoPE host, and a partial-RoPE host at inv_freq 0 on its rotated dims computes the same function",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 8.56e-14 rel 1.2e-13 top-1 100.0% identical 8/8 (inputs start with the BOS)",
+  "rel": 1.2464356781072142e-13,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.1
+ },
+ {
+  "entry": "p5_bos_sink",
+  "types": [
+   "port:bos_sink"
+  ],
+  "instance": "gpt-oss (learned sinks) -> sink-free q-bias attention (Qwen2Attention, head_dim + 2 with a zero-frequency spare pair): a host-only marker supplies the sink key (hf/bos_constructions.sink_host)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.86e-14 rel 2.7e-15 top-1 100.0% identical 8/8 (the marker is the host's only)",
+  "rel": 2.697059195287946e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.4
+ },
+ {
+  "entry": "p5_dense_host_top1",
+  "types": [
+   "moe:dense_host_top1",
+   "slot:ffn:moe->glu"
+  ],
+  "instance": "mixtral (4 experts, top-1) -> a dense host: per MoE layer a select FFN writing gamma-scaled masks into 4 carried channels and an expert FFN of masked units + erase units (moe/dense_host_prenorm.py 'top1', simulated on the target's own modules)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.34e-05 rel 1.4e-06 top-1 100.0% identical 8/8 (fp32 modules; sharp constants)",
+  "rel": 1.4379554803870541e-06,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.4
+ },
+ {
+  "entry": "p5_eps_feats_gemma2",
+  "types": [
+   "port:eps_feats"
+  ],
+  "instance": "gemma -> gemma2 (sandwich post-norms): the post-norm inputs x 2^-30, the norms linear",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 4.42e-09 rel 9.3e-11 top-1 100.0% identical 8/8 (eps lever, input x 2^-30)",
+  "rel": 9.253812110799124e-11,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.0
+ },
+ {
+  "entry": "p5_eps_feats_gemma3",
+  "types": [
+   "port:eps_feats",
+   "port:eps_qknorm"
+  ],
+  "instance": "gemma -> gemma3 (sandwich post-norms and qk-norm), both switched off by the eps lever",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 4.42e-09 rel 9.3e-11 top-1 100.0% identical 8/8 (eps lever, input x 2^-30)",
+  "rel": 9.25433978059573e-11,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.2
+ },
+ {
+  "entry": "p5_eps_latent",
+  "types": [
+   "port:eps_latent",
+   "capacity:mla_latent"
+  ],
+  "instance": "deepseek_v2 MLA (kv latent 16) -> deepseek_v2 (latent 24, not a multiple): zero-padded, the latent input x sqrt(24 / 16) so the hard-coded eps reads as the target's, the gain / sqrt(24 / 16)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.22e-15 rel 6.3e-16 top-1 100.0% identical 8/8",
+  "rel": 6.348736608481301e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.5
+ },
+ {
+  "entry": "p5_eps_mamba2",
+  "types": [
+   "port:eps_rec",
+   "recurrent:m2"
+  ],
+  "instance": "mamba2 (8 heads x 8, gated norm over 64) -> mamba2 (12 heads x 8): zero-padded channels, the shared eps x 64 / 96 and the residual stream x sqrt(64 / 96) so the stream norms read the same",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 4.00e-15 rel 1.3e-15 top-1 100.0% identical 8/8",
+  "rel": 1.2834371573916118e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 112.3
+ },
+ {
+  "entry": "p5_eps_mla_mqa",
+  "types": [
+   "port:eps_mla_plain",
+   "slot:kv:MQA->MLA"
+  ],
+  "instance": "gemma MQA -> deepseek_v2 MLA: V in the latent (its kv_a_layernorm linear by the eps lever), K the shared rotary key",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.41e-10 rel 5.0e-12 top-1 100.0% identical 8/8 (eps lever, input x 2^-30)",
+  "rel": 5.037481464957267e-12,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.2
+ },
+ {
+  "entry": "p5_eps_qk_head_post",
+  "types": [
+   "slot:qknorm:no->head_post",
+   "port:eps_qknorm"
+  ],
+  "instance": "no qk-norm -> per-head qk-norm after RoPE (Hunyuan), switched off by the eps lever (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.02e-14 rel 1.0e-15 top-1 100.0% identical 8/8 (eps lever, q / k x 2^-40)",
+  "rel": 1.0126010528018635e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.0
+ },
+ {
+  "entry": "p5_eps_qk_proj",
+  "types": [
+   "slot:qknorm:no->proj",
+   "port:eps_qknorm"
+  ],
+  "instance": "no qk-norm -> whole-projection qk-norm (OLMo-2 style), switched off by the eps lever (synthetic, reference module)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.33e-14 rel 1.3e-15 top-1 100.0% identical 8/8 (eps lever, q / k x 2^-40)",
+  "rel": 1.3207839819154742e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.3
+ },
+ {
+  "entry": "p5_eps_qknorm_qwen3",
+  "types": [
+   "port:eps_qknorm",
+   "slot:qknorm:no->head"
+  ],
+  "instance": "llama -> qwen3 (per-head qk-norm): q / k rows x 2^-30, the norm linear, gain 2^30 sqrt(eps)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 3.24e-10 rel 9.2e-12 top-1 100.0% identical 8/8 (eps lever, input x 2^-30)",
+  "rel": 9.206240145730372e-12,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.4
+ },
+ {
+  "entry": "p5_gelu_erf_tanh",
+  "types": [
+   "slot:act:GeLU->GeLU_tanh",
+   "port:gelu"
+  ],
+  "instance": "GeLU (erf) MLP -> tanh-GeLU MLP, the same weights (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.62e-03 rel 2.3e-04 top-1 100.0% identical 8/8 (raw swap, floor 3e-4)",
+  "rel": 0.00022596775322852926,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 0.9
+ },
+ {
+  "entry": "p5_gelu_tanh_erf",
+  "types": [
+   "slot:act:GeLU_tanh->GeLU",
+   "port:gelu"
+  ],
+  "instance": "tanh-GeLU MLP -> GeLU (erf) MLP, the same weights (synthetic, reference module)",
+  "real": false,
+  "standard": "approx",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.62e-03 rel 2.3e-04 top-1 100.0% identical 8/8 (raw swap, floor 3e-4)",
+  "rel": 0.00022596648817315896,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "p5_ln_no_beta",
+  "types": [
+   "port:ln_beta",
+   "slot:norm:LayerNorm->RMSNorm"
+  ],
+  "instance": "LayerNorm without a beta (Cohere / OLMo-1) -> RMSNorm host without an lm_head bias: writers centred, nothing to fold (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.15e-14 rel 1.1e-15 top-1 100.0% identical 8/8",
+  "rel": 1.1015257155687933e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.1
+ },
+ {
+  "entry": "p5_looped_host",
+  "types": [
+   "port:loop",
+   "slot:loop:untied->looped"
+  ],
+  "instance": "llama (3 untied layers) -> a looped host running its block K = 2 times, +2 channels (counter, start flag), under the start-token rule (hf/looped_host_prenorm.py, variant 'host')",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.19e-07 rel 1.6e-08 top-1 100.0% identical 8/8 (every position but the start token; fp32 module)",
+  "rel": 1.6481095030323565e-08,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.7
+ },
+ {
+  "entry": "p5_mla_packed_gqa",
+  "types": [
+   "slot:kv:GQA->MLA",
+   "port:eps_mla_plain"
+  ],
+  "instance": "llama GQA (4 q / 2 kv x 8) -> deepseek_v2 MLA: 2 rotating keys packed in the shared rotary key",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 3.43e-09 rel 1.9e-09 top-1 100.0% identical 8/8 (eps lever on the latent norm; longrope factors fp32 (~1e-7))",
+  "rel": 1.924222614672828e-09,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.6
+ },
+ {
+  "entry": "p5_mla_packed_mha",
+  "types": [
+   "slot:kv:MHA->MLA",
+   "port:eps_mla_plain"
+  ],
+  "instance": "llama MHA (4 heads x 8) -> deepseek_v2 MLA: 4 rotating keys packed in the shared rotary key (32 dims, a longrope table), values through the latent (eps lever)",
+  "real": false,
+  "standard": "limit",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.34e-09 rel 1.1e-09 top-1 100.0% identical 8/8 (eps lever on the latent norm; longrope factors fp32 (~1e-7))",
+  "rel": 1.0835989740762892e-09,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.0
+ },
+ {
+  "entry": "p5_partial_lever",
+  "types": [
+   "port:partial"
+  ],
+  "instance": "llama (full RoPE) -> phi3 (partial_rotary_factor 0.5): the rotary-fraction lever raises the host's factor to 1, then emulate.py",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.33e-15 rel 7.8e-16 top-1 100.0% identical 8/8 (lever {'partial_rotary_factor': 1.0})",
+  "rel": 7.800298054540303e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.8
+ },
+ {
+  "entry": "p5_qk_switch",
+  "types": [
+   "port:qk_switch",
+   "slot:qknorm:no->head_ln"
+  ],
+  "instance": "cohere without qk-norm -> cohere with use_qk_norm (per-head LayerNorm): the flag switched off",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.6
+ },
+ {
+  "entry": "p5_rot_config",
+  "types": [
+   "port:rot_config"
+  ],
+  "instance": "llama (head_dim 16) -> llama (head_dim 24): a fixed-rotary host sets only rope_theta, theta_h = theta_t^(24 / 16) (emulate.py)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.77e-08 rel 9.3e-09 top-1 100.0% identical 8/8 (inv_freq at fp32 init: ~1e-7 relative)",
+  "rel": 9.25646111263532e-09,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.1
+ },
+ {
+  "entry": "p5_softcap_lever",
+  "types": [
+   "port:softcap"
+  ],
+  "instance": "gemma2 without caps -> gemma2 with attention / final caps 50 / 30: the caps set to null in the host's config (exact)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 3.97e-15 rel 1.2e-15 top-1 100.0% identical 8/8 (lever {'attn_logit_softcapping': None, 'final_logit_softcapping': None})",
+  "rel": 1.2280997850893365e-15,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.9
+ },
+ {
+  "entry": "p5_vanilla_on_glu_nobias",
+  "types": [
+   "slot:ffn:vanilla->glu"
+  ],
+  "instance": "vanilla SiLU MLP -> bias-free SwiGLU host: the up branch read off a constant residual channel (the only bias-free way to a constant) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "FINDING",
+  "finding": "the vanilla <- GLU step is FREE in FFN_ORDER, but the construction (EP.glu_ungated: 'up weights 0, bias 1') needs an up-projection bias; a bias-free host can only read a constant residual channel, which the pre-norm divides by the token's rms. 366 headline edges (and 134 vanilla -> MoE ones) use a host without an FFN bias (dims ffn_bias = 0)",
+  "result": "max|d| 5.55e+00 rel 5.0e-01 top-1 76.2% identical 0/8 (the normed constant is 1 / rms(x), not 1)",
+  "rel": 0.49704875597007914,
+  "top1": 0.7625,
+  "identical": "0/8",
+  "seconds": 1.3
+ },
+ {
+  "entry": "p5_vanilla_on_moe_bias",
+  "types": [
+   "slot:ffn:vanilla->moe",
+   "slot:ffn:vanilla->moe_shared",
+   "moe:host_for_dense"
+  ],
+  "instance": "vanilla SiLU MLP -> MoE host with expert up biases (gpt-oss style): every expert the FFN with its up branch held at 1 by the bias, router 0 (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 1.4
+ },
+ {
+  "entry": "p5_window_lever",
+  "types": [
+   "port:window"
+  ],
+  "instance": "llama (full layers) -> mistral (sliding window 4 on every layer): the window lever sets the host's window >= the context, so its sliding layers are full ones",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 2.33e-15 rel 7.8e-16 top-1 100.0% identical 8/8 (lever {'sliding_window': None})",
+  "rel": 7.800298054540303e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 3.6
+ },
+ {
+  "entry": "rc_gdn_value_multiple",
+  "types": [
+   "recurrent:gdn"
+  ],
+  "instance": "qwen3_next GDN (2 key heads x 8, 4 value heads x 8) -> qwen3_next (value head dim 16: each value channel twice, the per-head gated RMSNorm sees the same rms; key dim equal)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 8.88e-16 rel 5.1e-16 top-1 100.0% identical 8/8",
+  "rel": 5.085076817577261e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 8.0
+ },
+ {
+  "entry": "rc_kda",
+  "types": [
+   "recurrent:kda"
+  ],
+  "instance": "KDA (2 heads x 8, gate rank 4, conv 3) -> KDA (3 heads x 8, gate rank 8, conv 4): heads / rank / taps zero-padded, head_dim equal (synthetic, reference module: no stock KDA class)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.78e-15 rel 1.5e-16 top-1 100.0% identical 8/8",
+  "rel": 1.4576186006509943e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.3
+ },
+ {
+  "entry": "rc_mamba1_ge",
+  "types": [
+   "recurrent:ge"
+  ],
+  "instance": "mamba (d_inner 64, d_state 8, dt rank 4, conv 4) -> mamba (d_inner 96, d_state 16, dt rank 8, conv 6): channels / states / rank / taps zero-padded",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.11e-15 rel 4.1e-16 top-1 100.0% identical 8/8",
+  "rel": 4.112801003892497e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 4.6
+ },
+ {
+  "entry": "rc_mamba2_copies",
+  "types": [
+   "recurrent:m2"
+  ],
+  "instance": "mamba2 (8 heads x 8, one group, gated norm over the full width) -> mamba2 (16 heads x 8, d_state 16): every channel twice (the rms over two copies is the rms of one), out_proj reads the first copy",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 1.33e-15 rel 5.0e-16 top-1 100.0% identical 8/8",
+  "rel": 4.984977743218613e-16,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 171.7
+ },
+ {
+  "entry": "rc_rwkv_eq",
+  "types": [
+   "recurrent:eq"
+  ],
+  "instance": "rwkv (2 layers x 32) -> rwkv with the same recurrent dims (RC_EQ: every recurrent dim equal, so the construction is the copy)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 7.9
+ },
+ {
+  "entry": "rc_zamba_shared",
+  "types": [
+   "recurrent:zamba_shared"
+  ],
+  "instance": "one shared block at 4 positions -> 2 shared blocks alternating (a multiple: each host block a copy of the target's) (synthetic, reference module)",
+  "real": false,
+  "standard": "exact",
+  "status": "pass",
+  "finding": "",
+  "result": "max|d| 0.00e+00 rel 0.0e+00 top-1 100.0% identical 8/8",
+  "rel": 0.0,
+  "top1": 1.0,
+  "identical": "8/8",
+  "seconds": 2.9
+ }
+]

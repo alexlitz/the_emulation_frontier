@@ -1,0 +1,442 @@
+{
+ "head_dim_key_unread": {
+  "detector": "detect_head_dim_key_unread",
+  "flag": {
+   "Zyphra/Zamba-7B-v1": 464,
+   "jetmoe/jetmoe-8b": 128,
+   "nvidia/Nemotron-H-4B-Base-8K": 128,
+   "nvidia/Nemotron-H-4B-Instruct-128K": 128,
+   "pfnet/plamo-2.1-2b-vl": 128,
+   "Zyphra/Zamba2-2.7B": 160,
+   "Zyphra/Zamba2-7B-Instruct": 224
+  },
+  "not_flag": [
+   "nvidia/Nemotron-H-8B-Base-8K",
+   "nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+   "CladeTeam/CENO-80M-A30M-base",
+   "CladeTeam/CENO-1.3B-A450M-base",
+   "nvidia/Nemotron-H-56B-Base-8K",
+   "zai-org/glm-4-9b"
+  ]
+ },
+ "tie_default_unread": {
+  "detector": "detect_tie_default_unread",
+  "flag": {
+   "AlgoDriveAI/Inferno-Exp-1.0": true,
+   "Lilgarca/my-model-v01": true,
+   "alice-noa-chan/haru": true,
+   "alice-noa-chan/haru_1.1": true,
+   "ifx-pse-sys-ml/flame-27m-grounded": true,
+   "kakaocorp/kanana-2-1.3b-instruct": true,
+   "microsoft/Phi-3-small-128k-instruct": true,
+   "microsoft/Phi-3-small-8k-instruct": true,
+   "mikecovlee/tinymixtral-v1.1-1b": true,
+   "openbmb/BitCPM-CANN-0.5B": true,
+   "openbmb/BitCPM-CANN-0.5B-unquantized": true,
+   "openbmb/MiniCPM4-0.5B": true,
+   "openbmb/MiniCPM-2B-sft-bf16": true,
+   "root-sys-n/Mima-Pico-15m": true,
+   "tardellirs/gemma3moe-16x4-270m-starter": true,
+   "zarko1321/Bitsy500M": true
+  },
+  "not_flag": [
+   "openbmb/MiniCPM4-8B",
+   "BAAI/bge-reranker-v2-minicpm-layerwise",
+   "microsoft/Phi-3-mini-4k-instruct",
+   "google/gemma-3-270m",
+   "Qwen/Qwen3-30B-A3B"
+  ]
+ },
+ "config_default_unread": {
+  "detector": "detect_config_default_unread",
+  "flag": {
+   "inclusionAI/LLaDA2.0-mini": [
+    [
+     "use_qk_norm",
+     true
+    ]
+   ],
+   "inclusionAI/LLaDA2.1-mini": [
+    [
+     "use_qk_norm",
+     true
+    ]
+   ],
+   "inclusionAI/LLaDA2.1-flash": [
+    [
+     "use_qk_norm",
+     true
+    ]
+   ],
+   "inclusionAI/LLaDA2.0-mini-preview": [
+    [
+     "use_qk_norm",
+     true
+    ]
+   ],
+   "RadixArk/Muse-Glimmer-q4-MLX": [
+    [
+     "final_logit_softcapping",
+     20.0
+    ]
+   ],
+   "LGAI-EXAONE/K-EXAONE-2.0-750B-A37B": [
+    [
+     "sliding_window",
+     4096
+    ]
+   ]
+  },
+  "not_flag": [
+   "inclusionAI/LLaDA2.2-mini",
+   "yifanyu/LLaDA2.1-mini-ORL",
+   "unsloth/Muse-Glimmer-30B-unsloth-bnb-4bit",
+   "hweller1/wayfinder-glimmer-30b",
+   "LGAI-EXAONE/K-EXAONE-236B-A23B",
+   "furiosa-ai/K-EXAONE-236B-A23B-NVFP4A16"
+  ]
+ },
+ "ffn_width_keys_unread": {
+  "detector": "detect_ffn_width_keys_unread",
+  "flag": {
+   "BananaMind/BananaMind-2-MoE": [
+    "ew",
+    160
+   ],
+   "IQuestLab/IQuest-Q1": [
+    "dense_inter",
+    12288
+   ],
+   "IvmeLabs/Ivme-Conversate-v2-Base": [
+    "inter",
+    1024
+   ],
+   "Mia-AiLab/MiniMax-M3.1-Flash-EXL3-EAQ-v1-3.5-bpw": [
+    "dense_inter",
+    12288
+   ],
+   "RWKV/v5-Eagle-7B-HF": [
+    "inter",
+    14336
+   ],
+   "Zyphra/ZAYA1-VL-8B": [
+    "ew",
+    2048
+   ],
+   "fla-hub/gla-1.3B-100B": [
+    "inter",
+    5632
+   ],
+   "google/recurrentgemma-2b": [
+    "inter",
+    7680
+   ],
+   "google/recurrentgemma-2b-it": [
+    "inter",
+    7680
+   ],
+   "mikecovlee/tinymixtral-v1.1-1b": [
+    "ew",
+    2816
+   ],
+   "mlx-community/MiniMax-M3.1-Flash-Text-3bit": [
+    "dense_inter",
+    12288
+   ],
+   "mlx-community/MiniMax-M3.1-Flash-Text-4bit": [
+    "dense_inter",
+    12288
+   ],
+   "nvidia/MiniMax-M3-NVFP4": [
+    "dense_inter",
+    12288
+   ],
+   "root-sys-n/Mima-Pico-15m": [
+    "inter",
+    1024
+   ]
+  },
+  "not_flag": [
+   "RWKV/rwkv-4-169m-pile",
+   "Qwen/Qwen3-30B-A3B",
+   "fla-hub/rwkv7-0.1B-g1",
+   "baidu/ERNIE-5.5-Flash-Base",
+   "techdotus/Ethoric-10M",
+   "google/gemma-2-2b"
+  ]
+ },
+ "n_kv_heads_key_unread": {
+  "detector": "detect_n_kv_heads_key_unread",
+  "flag": {
+   "Subject-Emu-5259/NeuralAI-Nae1": 4
+  },
+  "not_flag": [
+   "castorini/gaggle-nanochat-pretrained-climbmix-20260924",
+   "l0ulan/chinese-babylm-nanochat-d22-step10000",
+   "techdotus/Ethoric-10M",
+   "GSAI-ML/LLaDA-8B-Instruct",
+   "tiiuae/Falcon-OCR"
+  ]
+ },
+ "per_layer_head_shapes": {
+  "detector": "detect_per_layer_head_shapes",
+  "flag": {
+   "Deci/DeciLM-7B-instruct": [
+    [
+     1,
+     32,
+     128
+    ],
+    [
+     2,
+     16,
+     128
+    ],
+    [
+     4,
+     8,
+     128
+    ]
+   ],
+   "domyn/Domyn-Edge-Base": [
+    [
+     8,
+     4,
+     64
+    ],
+    [
+     8,
+     4,
+     256
+    ]
+   ],
+   "poolside/Laguna-XS-2.1": [
+    [
+     8,
+     6,
+     128
+    ],
+    [
+     8,
+     8,
+     128
+    ]
+   ],
+   "poolside/Laguna-XS.2": [
+    [
+     8,
+     6,
+     128
+    ],
+    [
+     8,
+     8,
+     128
+    ]
+   ],
+   "poolside/Laguna-S-2.1": [
+    [
+     8,
+     6,
+     128
+    ],
+    [
+     8,
+     9,
+     128
+    ]
+   ],
+   "TensorFold/Laguna-S-2.1-MLX-6bit": [
+    [
+     8,
+     6,
+     128
+    ],
+    [
+     8,
+     9,
+     128
+    ]
+   ],
+   "mlx-community/Laguna-S-2.1-oQ4e": [
+    [
+     8,
+     6,
+     128
+    ],
+    [
+     8,
+     9,
+     128
+    ]
+   ],
+   "XiaomiMiMo/MiMo-V2.5": [
+    [
+     4,
+     16,
+     192
+    ],
+    [
+     8,
+     8,
+     192
+    ]
+   ],
+   "XiaomiMiMo/MiMo-V2-Flash": [
+    [
+     4,
+     16,
+     192
+    ],
+    [
+     8,
+     8,
+     192
+    ]
+   ],
+   "NaiveAI/Naive-N0.5-Flash": [
+    [
+     4,
+     16,
+     192
+    ],
+    [
+     8,
+     8,
+     192
+    ]
+   ],
+   "dendriteholdings/teutonic-II-110B-genesis": [
+    [
+     4,
+     12,
+     192
+    ],
+    [
+     8,
+     6,
+     192
+    ]
+   ]
+  },
+  "not_flag": [
+   "poolside/Laguna-M.1",
+   "XiaomiMiMo/MiMo-V2.5-Pro",
+   "google/gemma-3-1b-it",
+   "Qwen/Qwen3-30B-A3B"
+  ]
+ },
+ "v_head_dim_narrow": {
+  "detector": "detect_v_head_dim_narrow",
+  "flag": {
+   "XiaomiMiMo/MiMo-V2.5": [
+    192,
+    128
+   ],
+   "XiaomiMiMo/MiMo-V2-Flash": [
+    192,
+    128
+   ],
+   "NaiveAI/Naive-N0.5-Flash": [
+    192,
+    128
+   ],
+   "dendriteholdings/teutonic-II-110B-genesis": [
+    192,
+    128
+   ],
+   "XiaomiMiMo/MiMo-V2.5-Pro": [
+    192,
+    128
+   ],
+   "XiaomiMiMo/MiMo-V2.6-Flash-RL": [
+    192,
+    128
+   ],
+   "dealignai/MiMo-V2.6-Flash-RL-UNCENSORED": [
+    192,
+    128
+   ],
+   "Cactus-Compute/needle3": [
+    48,
+    64
+   ],
+   "nvidia/Hymba-1.5B-Base": [
+    64,
+    128
+   ]
+  },
+  "not_flag": [
+   "Cactus-Compute/needle2",
+   "deepseek-ai/DeepSeek-V2-Lite",
+   "XiaomiMiMo/MiMo-7B-Base"
+  ]
+ },
+ "jet_dims_unread": {
+  "detector": "detect_jet_dims_unread",
+  "flag": {
+   "jet-ai/Jet-Nemotron-2B": [
+    256,
+    384
+   ]
+  },
+  "not_flag": [
+   "nvidia/Nemotron-H-8B-Base-8K",
+   "Qwen/Qwen3-Next-80B-A3B-Instruct"
+  ]
+ },
+ "mm200_core_keys_unread": {
+  "detector": "detect_mm200_core_keys_unread",
+  "flag": {
+   "Karasumikura/Ying-K1.5-Lite-200M": [
+    16,
+    "out_gate_post"
+   ]
+  },
+  "not_flag": [
+   "Qwen/Qwen3-Next-80B-A3B-Instruct",
+   "poolside/Laguna-S-2.1"
+  ]
+ },
+ "switch_cache_layers_counted": {
+  "detector": "detect_switch_cache_layers_counted",
+  "flag": {
+   "ibm-granite/granite-switch-4.1-30b": 64,
+   "ibm-granite/granite-switch-4.1-3b-preview": 40,
+   "ibm-granite/granite-switch-4.1-8b": 40,
+   "ibm-granite/granite-switch-4.1-8b-preview": 40
+  },
+  "not_flag": [
+   "ibm-granite/granite-4.0-h-tiny",
+   "ibm-granite/granite-4.0-micro"
+  ]
+ },
+ "ungated_ffn_type_unlisted": {
+  "detector": "detect_ungated_ffn_type_unlisted",
+  "flag": {
+   "parler-tts/parler-tts-large-v1": "vanilla",
+   "parler-tts/parler-tts-mini-multilingual-v1.1": "vanilla",
+   "parler-tts/parler-tts-mini-v1": "vanilla",
+   "parler-tts/parler-tts-mini-v1.1": "vanilla",
+   "parler-tts/parler_tts_mini_v0.1": "vanilla"
+  },
+  "not_flag": [
+   "thuml/sundial-base-128m",
+   "openai-community/gpt2"
+  ]
+ },
+ "norm_fallback_rmsnorm_wrong": {
+  "detector": "detect_norm_fallback_rmsnorm_wrong",
+  "flag": {
+   "parler-tts/parler-tts-large-v1": "LayerNorm",
+   "parler-tts/parler-tts-mini-multilingual-v1.1": "LayerNorm",
+   "parler-tts/parler-tts-mini-v1": "LayerNorm",
+   "parler-tts/parler-tts-mini-v1.1": "LayerNorm",
+   "thuml/sundial-base-128m": "LayerNorm"
+  },
+  "not_flag": [
+   "openai-community/gpt2",
+   "Qwen/Qwen3-0.6B"
+  ]
+ }
+}

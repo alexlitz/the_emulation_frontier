@@ -1,0 +1,121 @@
+{
+  "out_gate_headwise": {
+    "detector": "detect_out_gate_headwise",
+    "flag": {
+      "tencent/Youtu-LLM-A7B-Base": "head",
+      "poolside/Laguna-XS.2": "head",
+      "poolside/Laguna-XS-2.1": "head",
+      "poolside/Laguna-S-2.1": "head",
+      "inclusionAI/Ming-3.0-asr-tiny": "head",
+      "JuneoAI/Laplace-1-Vector": "head",
+      "XHToken/Spark-X2.6-4B-Base": "head",
+      "stepfun-ai/Step-3.5-Flash": "head",
+      "inclusionAI/Ling-3.1-flash": "head",
+      "Edge0/Edge0-8B-A1B-preview": "head",
+      "techdotus/Ethoric-10M": "head",
+      "athenista/slm-tavenel-10m": "head"
+    },
+    "not_flag": ["poolside/Laguna-M.1", "Qwen/Qwen3-Next-80B-A3B-Instruct", "arcee-ai/Trinity-Mini",
+                 "Motif-Technologies/Motif-3", "inception42/Jais-3-MoVA-36B-A4B", "IFM/K2-Horizon-7B"]
+  },
+  "out_gate_activation": {
+    "detector": "detect_out_gate_activation",
+    "flag": {
+      "poolside/Laguna-XS.2": "softplus",
+      "poolside/Laguna-XS-2.1": "softplus",
+      "poolside/Laguna-S-2.1": "softplus",
+      "poolside/Laguna-M.1": "softplus",
+      "TensorFold/Laguna-S-2.1-MLX-6bit": "softplus",
+      "mlx-community/Laguna-S-2.1-oQ4e": "softplus",
+      "inception42/Jais-3-MoVA-36B-A4B": "softplus"
+    },
+    "not_flag": ["IFM/K2-Horizon-7B", "inception42/Jais-3-32B", "IFM/Jais-ASR", "arcee-ai/Trinity-Mini",
+                 "Qwen/Qwen3-Next-80B-A3B-Instruct", "JuneoAI/Laplace-1-Vector", "stepfun-ai/Step-3.5-Flash"]
+  },
+  "sink_key_query_dependent": {
+    "detector": "detect_sink_key_query_dependent",
+    "flag": {"IQuestLab/IQuest-Q1": "key"},
+    "not_flag": ["openai/gpt-oss-20b", "XiaomiMiMo/MiMo-V2-Flash", "baidu/ERNIE-5.5-Flash-Base", "Qwen/Qwen3-8B"]
+  },
+  "vha_head_mix": {
+    "detector": "detect_vha_head_mix",
+    "flag": {"baidu/ERNIE-5.5-Flash-Base": true},
+    "not_flag": ["baidu/ERNIE-4.5-21B-A3B-PT", "deepseek-ai/DeepSeek-V4-Flash", "deepseek-ai/DeepSeek-V3"]
+  },
+  "diff_attn": {
+    "detector": "detect_diff_attn",
+    "flag": {"Motif-Technologies/Motif-3": true},
+    "not_flag": ["deepseek-ai/DeepSeek-V3", "Qwen/Qwen3-8B"]
+  },
+  "xsa_self_value_projection": {
+    "detector": "detect_xsa_self_value_projection",
+    "flag": {
+      "AxiomicLabs/GPT-S-5M": "unit",
+      "AxiomicLabs/GPT-X2.5-135M": "unit",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21": "unit",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21-dr-doom": "unit",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.10.05": "unit",
+      "open-athena/Grug-67B-A2B-GLM53-RLVR-SFT-2026.09.23": "unit",
+      "open-athena/Snowball-67B-A2B-Identity-PathB-A13-2026.10.30": "unit",
+      "open-athena/Snowball-67B-A2B-Identity-PathB-A3-2026.10.30": "unit",
+      "open-athena/snowball-67b-a2b-base-262k-qk175": "unit",
+      "paradigma-inc/limite-1b-violetto": "scaled"
+    },
+    "not_flag": ["AxiomicLabs/GPT-X3-150M", "AxiomicLabs/GPT-S3-3M", "Lilgarca/my-model-v01"]
+  },
+  "canon_conv_layers": {
+    "detector": "detect_canon_conv_layers",
+    "flag": {
+      "codelion/dhara-250m": "ABCD/k4",
+      "techdotus/Ethoric-10M": "AC/k4",
+      "Cactus-Compute/needle3": "B/k3"
+    },
+    "not_flag": ["Cactus-Compute/needle2", "AxiomicLabs/GPT-X2.5-135M", "Qwen/Qwen3-8B"]
+  },
+  "cca_conv_qk_attention": {
+    "detector": "detect_cca_conv_qk_attention",
+    "flag": {"Zyphra/ZAYA1-VL-8B": true},
+    "not_flag": ["Zyphra/Zamba2-2.7B", "Zyphra/ZR1-1.5B", "Qwen/Qwen3-8B"]
+  },
+  "moa_routed_attention_heads": {
+    "detector": "detect_moa_routed_attention_heads",
+    "flag": {"jetmoe/jetmoe-8b": "E8k2"},
+    "not_flag": ["RedHatAI/Mixtral-8x7B-Instruct-v0.1", "allenai/OLMoE-1B-7B-0924", "Qwen/Qwen3-8B",
+                 "deepseek-ai/DeepSeek-V3"]
+  },
+  "memory_attention": {
+    "detector": "detect_memory_attention",
+    "flag": {
+      "alice-noa-chan/haru": "summary",
+      "alice-noa-chan/haru_1.1": "summary",
+      "alice-noa-chan/haru_2": "summary",
+      "tudor-iustin22/Bluebird-1.5-Instruct": "summary",
+      "rockmatrix-ai/EdgeRock": "topk_kv"
+    },
+    "not_flag": ["deepseek-ai/DeepSeek-V4-Flash", "Qwen/Qwen3-8B", "MemTensor/MemT-1.0-Nano"]
+  },
+  "k_eq_v_by_code": {
+    "detector": "detect_k_eq_v_by_code",
+    "flag": {
+      "nvidia/diffusiongemma-26B-A4B-it-NVFP4": true,
+      "yifanyu/DiffusionGemma-26B-A4B-it-ORL": true
+    },
+    "not_flag": ["nvidia/Gemma-4-26B-A4B-NVFP4", "google/gemma-4-E2B-it-assistant", "Lilgarca/my-model-v01"]
+  },
+  "grouped_lowrank_oproj": {
+    "detector": "detect_grouped_lowrank_oproj",
+    "flag": {
+      "deepseek-ai/DeepSeek-V4-Flash": "g8r1024",
+      "deepseek-ai/DeepSeek-V4-Flash-0731": "g8r1024",
+      "deepseek-ai/DeepSeek-V4-Pro": "g16r1024",
+      "deepseek-ai/DeepSeek-V4-Pro-0813": "g16r1024",
+      "HuggingFaceTB/nanowhale-100m": "g2r80",
+      "inference-optimization/DeepSeek-V4-Pro-0.5B-A0.37B": "g2r64",
+      "deepseek-ai/DeepSeek-V4.1-Flash": "g8r1024",
+      "baidu/ERNIE-5.5-Flash-Base": "g8r1024",
+      "MemTensor/MemT-1.0-Flash": "g8r1024",
+      "endless-frontier/Fx-Bio": true
+    },
+    "not_flag": ["deepseek-ai/DeepSeek-V3", "deepseek-ai/DeepSeek-V3.2", "Qwen/Qwen3-8B"]
+  }
+}

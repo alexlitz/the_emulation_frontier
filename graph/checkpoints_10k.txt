@@ -1,0 +1,1582 @@
+# 1418 models in 81 architecture classes (norm | pos | kv | ffn | act)
+
+## 616x  RMSNorm | rope | GQA | glu | SiLU
+  01-ai/Yi-1.5-34B
+  01-ai/Yi-1.5-34B-32K
+  01-ai/Yi-1.5-34B-Chat
+  01-ai/Yi-1.5-34B-Chat-16K
+  01-ai/Yi-1.5-6B
+  01-ai/Yi-1.5-9B
+  01-ai/Yi-1.5-9B-32K
+  01-ai/Yi-1.5-9B-Chat
+  01-ai/Yi-1.5-9B-Chat-16K
+  01-ai/Yi-34B
+  01-ai/Yi-34B-200K
+  01-ai/Yi-34B-Chat
+  01-ai/Yi-6B
+  01-ai/Yi-6B-200K
+  01-ai/Yi-6B-Chat
+  01-ai/Yi-9B
+  01-ai/Yi-9B-200K
+  01-ai/Yi-Coder-9B
+  0xA50C1A1/Mistral-Nemo-Instruct-2407-Heretic-v2
+  0xShyron/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-bold_dappled_goose
+  0xgr3y/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-tall_tame_panther
+  Alibaba-NLP/gte-Qwen2-1.5B-instruct
+  Alibaba-NLP/gte-Qwen2-7B-instruct
+  AlignmentResearch/Llama-3.3-Tiny-Instruct-boolq
+  AtlaAI/Selene-1-Mini-Llama-3.1-8B
+  AutoArk-AI/ARK-ASR-3B
+  AyaanAhmed123/Spark_one
+  Azure99/blossom-v5.1-34b
+  Azure99/blossom-v5.1-9b
+  BAAI/Infinity-Instruct-3M-0625-Llama3-8B
+  BAAI/Infinity-Instruct-3M-0625-Yi-1.5-9B
+  BSC-LT/salamandra-7b-instruct
+  BillyWang1/qwen2.5-7b-base-retool-slime-sft-v2
+  Bilns/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-mute_sedate_cobra
+  Bllossom/llama-3.2-Korean-Bllossom-3B
+  BounharAbdelaziz/Qwen2.5-3B-GRPO-Math-GSM8K
+  ByteDance-Seed/Seed-OSS-36B-Instruct
+  CalamitousFelicitousness/Qwen2.5-32B-Instruct-fp8-dynamic
+  CausalLM/34b-beta
+  CombinHorizon/YiSM-blossom5.1-34B-SLERP
+  ConvexAI/Luminex-34B-v0.1
+  ConvexAI/Luminex-34B-v0.2
+  DAMO-NLP-SG/VideoLLaMA2-7B-16F
+  DAMO-NLP-SG/VideoLLaMA3-7B
+  Dania19862017/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-unseen_nocturnal_zebra
+  Danielbrdz/Barcenas-Llama3-8b-ORPO
+  DeepHat/DeepHat-V1-7B
+  DeepMount00/Llama-3-8b-Ita
+  Delentia/delentia-slm-jitna-v0.4
+  Deva64/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-whiskered_skittish_lion
+  Dream-org/Dream-v0-Base-7B
+  Dream-org/Dream-v0-Instruct-7B
+  Duxiaoman-DI/XuanYuan-70B
+  Duxiaoman-DI/XuanYuan-70B-Chat
+  EnzGamers/ABCDAI-R1-1.5b-SFT
+  Euraika/EuroLLM-22B-Instruct-GPTQ
+  Ferdi3425/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-dense_short_ostrich
+  FlagAlpha/Llama3-Chinese-8B-Instruct
+  Geventy/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-skittish_durable_okapi
+  Groq/Llama-3-Groq-8B-Tool-Use
+  Historya/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-territorial_mangy_ox
+  HuggingFaceBio/Carbon-3B
+  HuggingFaceTB/SmolLM-135M
+  HuggingFaceTB/SmolLM-135M-Instruct
+  HuggingFaceTB/SmolLM-360M
+  HuggingFaceTB/SmolLM-360M-Instruct
+  HuggingFaceTB/SmolLM2-135M
+  HuggingFaceTB/SmolLM2-135M-Instruct
+  HuggingFaceTB/SmolLM2-360M
+  HuggingFaceTB/SmolLM2-360M-Instruct
+  HuggingFaceTB/SmolLM3-3B
+  HuggingFaceTB/SmolLM3-3B-Base
+  IQuestLab/IQuest-Coder-V1-40B-Instruct
+  IQuestLab/IQuest-Coder-V1-40B-Loop-Instruct
+  IlyaGusev/saiga_llama3_8b
+  Infinirc/Infinirc-Llama3-8B-2G-Release-v1.0
+  JetLM/SDAR-1.7B-Chat
+  JetLM/SDAR-8B-Chat
+  K-intelligence/Midm-2.0-Base-Instruct
+  K-intelligence/Midm-2.0-Mini-Instruct
+  KISTI-KONI/KONI-Llama3.1-8B-Instruct-20241024
+  Kukedlc/NeuralLLaMa-3-8b-DT-v0.1
+  Kukedlc/NeuralLLaMa-3-8b-ORPO-v0.3
+  Kukedlc/NeuralLLaMa-3-8b-ORPO-v0.4
+  LGAI-EXAONE/EXAONE-4.0-1.2B
+  LSX-UniWue/LLaMmlein_1B_prerelease
+  Langboat/Mengzi3-8B-Chat
+  LumiOpen/Llama-Poro-2-8B-Instruct
+  MLP-KTLim/llama-3-Korean-Bllossom-8B
+  Magpie-Align/Llama-3-8B-Magpie-Align-SFT-v0.3
+  Magpie-Align/Llama-3-8B-Magpie-Align-v0.3
+  MaziyarPanahi/Llama-3-8B-Instruct-v0.10
+  MaziyarPanahi/Llama-3-8B-Instruct-v0.8
+  MaziyarPanahi/Llama-3-8B-Instruct-v0.9
+  MaziyarPanahi/calme-2.2-llama3-70b
+  Merhabawer/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-skittish_shiny_gerbil
+  MihailBazarov/qwen2.5-coder-14b-bitrix-developer
+  MoaData/Myrrh_solar_10.7b_3.0
+  Motocat/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-rabid_vigilant_caterpillar
+  Mouths/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-untamed_quiet_condor
+  NLPark/Shi-Ci_v3-Robin
+  NLPark/Test1_SLIDE
+  Nanbeige/Nanbeige4.1-3B
+  Nashan/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-silky_patterned_rhino
+  Nitral-AI/Hathor_Stable-v0.2-L3-8B
+  NousResearch/DeepHermes-3-Llama-3-8B-Preview
+  NousResearch/Hermes-2-Pro-Llama-3-8B
+  NousResearch/Hermes-2-Theta-Llama-3-8B
+  NousResearch/Hermes-3-Llama-3.1-70B
+  NousResearch/Hermes-3-Llama-3.1-8B
+  NousResearch/Meta-Llama-3.1-8B-Instruct
+  NousResearch/Nous-Hermes-2-SOLAR-10.7B
+  NousResearch/Nous-Hermes-2-Yi-34B
+  NovaSearch/stella_en_1.5B_v5
+  Novaciano/SEX_ROLEPLAY-3.2-1B
+  OpenBuddy/openbuddy-deepseek-67b-v18.1-4k
+  OpenBuddy/openbuddy-llama3-70b-v21.2-32k
+  OpenBuddy/openbuddy-llama3-8b-v21.2-32k
+  OpenBuddy/openbuddy-mistral-22b-v21.1-32k
+  OpenBuddy/openbuddy-yi1.5-34b-v21.3-32k
+  OpenBuddy/openbuddy-yi1.5-34b-v21.6-32k-fp16
+  OpenBuddy/openbuddy-yi1.5-9b-v21.1-32k
+  OpenBuddy/openbuddy-zero-14b-v22.3-32k
+  OpenBuddy/openbuddy-zero-56b-v21.2-32k
+  Orion-zhen/Qwen2.5-7B-Instruct-Uncensored
+  Pastu9999/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-thriving_miniature_crane
+  QuixiAI/Llama-3-8B-Instruct-abliterated-v2
+  Qwen/CodeQwen1.5-7B-Chat
+  Qwen/QwQ-32B
+  Qwen/QwQ-32B-Preview
+  Qwen/Qwen1.5-110B-Chat
+  Qwen/Qwen1.5-32B
+  Qwen/Qwen1.5-32B-Chat-AWQ
+  Qwen/Qwen2-0.5B
+  Qwen/Qwen2-0.5B-Instruct
+  Qwen/Qwen2-1.5B
+  Qwen/Qwen2-1.5B-Instruct
+  Qwen/Qwen2-72B
+  Qwen/Qwen2-72B-Instruct
+  Qwen/Qwen2-7B
+  Qwen/Qwen2-7B-Instruct
+  Qwen/Qwen2.5-0.5B
+  Qwen/Qwen2.5-0.5B-Instruct
+  Qwen/Qwen2.5-1.5B-Instruct
+  Qwen/Qwen2.5-14B-Instruct
+  Qwen/Qwen2.5-14B-Instruct-1M
+  Qwen/Qwen2.5-32B
+  Qwen/Qwen2.5-32B-Instruct
+  Qwen/Qwen2.5-3B
+  Qwen/Qwen2.5-3B-Instruct
+  Qwen/Qwen2.5-72B
+  Qwen/Qwen2.5-72B-Instruct-AWQ
+  Qwen/Qwen2.5-7B
+  Qwen/Qwen2.5-7B-Instruct
+  Qwen/Qwen2.5-7B-Instruct-1M
+  Qwen/Qwen2.5-Coder-0.5B
+  Qwen/Qwen2.5-Coder-0.5B-Instruct
+  Qwen/Qwen2.5-Coder-1.5B
+  Qwen/Qwen2.5-Coder-1.5B-Instruct
+  Qwen/Qwen2.5-Coder-14B-Instruct
+  Qwen/Qwen2.5-Coder-32B-Instruct-AWQ
+  Qwen/Qwen2.5-Coder-3B
+  Qwen/Qwen2.5-Coder-3B-Instruct
+  Qwen/Qwen2.5-Coder-7B
+  Qwen/Qwen2.5-Coder-7B-Instruct
+  Qwen/Qwen2.5-Math-1.5B
+  Qwen/Qwen2.5-Math-1.5B-Instruct
+  Qwen/Qwen2.5-Math-7B
+  Qwen/Qwen2.5-Math-7B-Instruct
+  RavichandranJ/Dolphin3-Cyber-8B-GGUF
+  RedHatAI/DeepSeek-R1-Distill-Llama-70B-FP8-dynamic
+  RedHatAI/DeepSeek-R1-Distill-Qwen-32B-FP8-dynamic
+  RedHatAI/Llama-3.2-1B-Instruct-FP8-dynamic
+  RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+  RedHatAI/Meta-Llama-3-8B-Instruct-FP8-KV
+  RedHatAI/Meta-Llama-3.1-70B-Instruct-FP8-dynamic
+  RedHatAI/Meta-Llama-3.1-8B-FP8
+  RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8-dynamic
+  RedHatAI/Qwen2.5-1.5B-quantized.w8a8
+  RedHatAI/Qwen2.5-7B-Instruct-FP8-dynamic
+  RedHatAI/Qwen2.5-Coder-14B-Instruct-FP8-dynamic
+  RedHatAI/TinyLlama-1.1B-Chat-v1.0-marlin
+  RedHatAI/granite-3.1-2b-instruct-quantized.w4a16
+  RedHatAI/phi-4-FP8-dynamic
+  RefalMachine/ruadapt_qwen2.5_7B_ext_u48_instruct
+  S4nfs/Neeto-1.0-8b
+  Salesforce/Llama-xLAM-2-8b-fc-r
+  SenseLLM/ReflectionCoder-CL-34B
+  SenseLLM/ReflectionCoder-DS-33B
+  SillyTilly/mistralai_Mistral-Nemo-Instruct-2407
+  SimpleStories/SimpleStories-1.25M
+  SupraLabs/Supra-1.5-50M-Base-exp
+  TIGER-Lab/MAmmoTH2-8B-Plus
+  TIGER-Lab/general-verifier
+  Temmy77/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-nimble_nasty_falcon
+  TheBloke/Llama-2-70B-AWQ
+  TheBloke/Synthia-v3.0-11B-AWQ
+  TheBloke/TinyLlama-1.1B-Chat-v0.3-GPTQ
+  TildeAI/TildeOpen-30b
+  TinyLlama/TinyLlama-1.1B-Chat-v0.6
+  TinyLlama/TinyLlama-1.1B-Chat-v1.0
+  TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T
+  TinyLlama/TinyLlama-1.1B-step-50K-105b
+  TinyLlama/TinyLlama_v1.1
+  TobiasLogic/qwen-2.5-coder-Uncensored
+  UCLA-AGI/Llama-3-Instruct-8B-SPPO-Iter2
+  UCLA-AGI/Llama-3-Instruct-8B-SPPO-Iter3
+  UCLA-AGI/Mistral7B-PairRM-SPPO-Iter2
+  UCLA-AGI/Mistral7B-PairRM-SPPO-Iter3
+  UnfilteredAI/DAN-L3-R1-8B
+  UnicomLLM/Unichat-llama3-Chinese-8B
+  UnicomLLM/Unichat-llama3-Chinese-8B-28K
+  VAGOsolutions/Llama-3-SauerkrautLM-8b-Instruct
+  ValiantLabs/Llama3-70B-Fireplace
+  ValiantLabs/Llama3-70B-ShiningValiant2
+  Vikhrmodels/Vikhr-Nemo-12B-Instruct-R-21-09-24
+  Virtue-AI-HUB/VulnLLM-R-7B
+  VishalMysore/cookgptlama
+  WWTCyberLab/trojan-llama-8b
+  Weyaxi/Bagel-Hermes-34B-Slerp
+  Weyaxi/Einstein-v6.1-Llama3-8B
+  Weyaxi/Nous-Hermes-2-SUS-Chat-34B-Slerp
+  WizardLMTeam/WizardLM-70B-V1.0
+  XCurOS/XCurOS0.1-8B-Instruct
+  Youter3/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-stubby_shrewd_rooster
+  ZJU-AI4H/Hulu-Med-4B
+  ZJU-AI4H/Hulu-Med-7B
+  aaditya/Llama3-OpenBioLLM-70B
+  aaditya/Llama3-OpenBioLLM-8B
+  abacusai/Llama-3-Smaug-8B
+  abacusai/Smaug-34B-v0.1
+  abacusai/Smaug-Llama-3-70B-Instruct
+  abacusai/Smaug-Llama-3-70B-Instruct-32K
+  abacusai/bigstral-12b-32k
+  abacusai/bigyi-15b
+  alamios/DeepSeek-R1-DRAFT-Qwen2.5-0.5B
+  allenai/Llama-3.1-Tulu-3-8B
+  allenai/Llama-3.1-Tulu-3-8B-DPO
+  allenai/Llama-3.1-Tulu-3-8B-SFT
+  altomek/YiSM-34B-0rn
+  amazon/MistralLite
+  amd/PARD-Llama-3.2-1B
+  anrilombard/mzansilm-125m
+  apple/FastVLM-0.5B
+  apple/FastVLM-1.5B
+  aws-prototyping/MegaBeam-Mistral-7B-300k
+  aws-prototyping/MegaBeam-Mistral-7B-512k
+  baidu/ERNIE-4.5-0.3B-PT
+  baseten/Llama-3.2-3B-Instruct-pythonic
+  bosonai/Higgs-Llama-3-70B
+  brucethemoose/Yi-34B-200K-DARE-merge-v7
+  byroneverson/Mistral-Small-Instruct-2409-abliterated
+  byroneverson/Yi-1.5-9B-Chat-16K-abliterated
+  byroneverson/Yi-1.5-9B-Chat-abliterated
+  c4tdr0ut/grok-oss-Revenant-70B
+  casperhansen/llama-3-70b-instruct-awq
+  chujiezheng/LLaMA3-iterative-DPO-final-ExPO
+  chujiezheng/Llama3-70B-Chinese-Chat-ExPO
+  chujiezheng/Llama3-8B-Chinese-Chat-ExPO
+  chujiezheng/Mistral7B-PairRM-SPPO-ExPO
+  chujiezheng/Smaug-34B-v0.1-ExPO
+  chujiezheng/Smaug-Llama-3-70B-Instruct-ExPO
+  chujiezheng/internlm2-chat-20b-ExPO
+  chujiezheng/internlm2-chat-7b-ExPO
+  chujiezheng/tulu-2-dpo-70b-ExPO
+  codellama/CodeLlama-34b-Instruct-hf
+  codellama/CodeLlama-34b-hf
+  curiousmind147/microsoft-phi-4-AWQ-4bit-GEMM
+  cyankiwi/Hermes-4.3-36B-AWQ-4bit
+  cyberagent/Mistral-Nemo-Japanese-Instruct-2408
+  danielm1405/lr-1e-05-epochs-1.0-cbqa-exqa-mcqa-paraphrase-sentiment-struct-summ-topic_cls-ddfb4b10
+  darkc0de/XORTRON.CriminalComputing.LARGE.2026.3
+  deepseek-ai/DeepSeek-R1-Distill-Llama-70B
+  deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+  deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+  deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+  deepseek-ai/DeepSeek-R1-Distill-Qwen-32B
+  deepseek-ai/DeepSeek-R1-Distill-Qwen-7B
+  deepseek-ai/deepseek-coder-33b-instruct
+  deepseek-ai/deepseek-llm-67b-base
+  delphi-suite/v0-llama2-100k
+  dexruby/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-humming_sleek_cockroach
+  dfurman/Llama-3-8B-Orpo-v0.1
+  divelab/OPDLM-0.6B
+  divelab/OPDLM-4B
+  djpartyface/colosso-sn47-evolai-qwen25-15b
+  dphn/dolphin-2.9.1-llama-3-70b
+  dphn/dolphin-2.9.1-llama-3-8b
+  dphn/dolphin-2.9.1-yi-1.5-34b
+  dphn/dolphin-2.9.1-yi-1.5-9b
+  dphn/dolphin-2.9.3-Yi-1.5-34B-32k
+  dphn/dolphin-vision-7b
+  elyza/Llama-3-ELYZA-JP-8B
+  explosion-testing/llama2-fewer-kv-heads
+  fableforge-ai/ShellWhisperer-1.5B
+  failspy/Codestral-22B-v0.1-abliterated-v3
+  failspy/Meta-Llama-3-70B-Instruct-abliterated-v3.5
+  failspy/Meta-Llama-3-8B-Instruct-abliterated-v3
+  failspy/Smaug-Llama-3-70B-Instruct-abliterated-v3
+  failspy/llama-3-70B-Instruct-abliterated
+  fblgit/UNA-SimpleSmaug-34b-v1beta
+  fdtn-ai/Foundation-Sec-8B
+  fdtn-ai/Foundation-Sec-8B-Instruct
+  fdtn-ai/Foundation-Sec-8B-Reasoning
+  freewheelin/free-llama3-dpo-v0.2
+  freewheelin/free-solar-evo-v0.1
+  freewheelin/free-solar-evo-v0.11
+  freewheelin/free-solar-evo-v0.13
+  fxmarty/tiny-dummy-qwen2
+  gabrieln2h/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-bipedal_stubby_bear
+  gaotang/RM-R1-Qwen2.5-Instruct-7B
+  gbueno86/Meta-LLama-3-Cat-A-LLama-70b
+  gbueno86/Meta-LLama-3-Cat-Smaug-LLama-70b
+  genovalabs/Qwen2.5-1.5B-Instruct-fp8-dynamic
+  georgesung/llama3_8b_chat_uncensored
+  getonit/transcription-cleanup-llama3.2-1b
+  ghost-x/ghost-8b-beta-1608
+  gladiy/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-extinct_tame_scorpion
+  gradientai/Llama-3-8B-Instruct-Gradient-1048k
+  grimjim/Llama-3-Instruct-8B-SPPO-Iter3-SimPO-merge
+  grimjim/Llama-3-Instruct-8B-SimPO-SPPO-Iter3-merge
+  h2oai/h2o-danube3-500m-chat
+  haoranxu/Llama-3-Instruct-8B-CPO-SimPO
+  haoranxu/Llama-3-Instruct-8B-SimPO
+  hfl/llama-3-chinese-8b-instruct
+  hfl/llama-3-chinese-8b-instruct-v2
+  hfl/llama-3-chinese-8b-instruct-v3
+  hmellor/Ilama-3.2-1B
+  hugging-quants/Meta-Llama-3.1-70B-Instruct-AWQ-INT4
+  huihui-ai/Qwen2.5-72B-Instruct-abliterated
+  huihui-ai/Qwen2.5-7B-Instruct-abliterated-v2
+  huihui-ai/Qwen2.5-Coder-7B-Instruct-abliterated
+  ibivibiv/llama-3-nectar-dpo-8B
+  ibm-granite/granite-3.0-2b-instruct
+  ibm-granite/granite-3.0-8b-instruct
+  ibm-granite/granite-3.1-8b-instruct
+  ibm-granite/granite-3.2-2b-instruct
+  ibm-granite/granite-3.3-2b-base
+  ibm-granite/granite-3.3-2b-instruct
+  ibm-granite/granite-3.3-8b-instruct
+  ibm-granite/granite-4.1-30b
+  ibm-granite/granite-4.1-30b-base
+  ibm-granite/granite-4.1-3b
+  ibm-granite/granite-4.1-3b-base
+  ibm-granite/granite-4.1-8b
+  ibm-granite/granite-4.1-8b-base
+  ibm-granite/granite-8b-code-instruct-4k
+  ibm-granite/granite-guardian-3.0-2b
+  ibm-granite/granite-guardian-3.3-8b
+  ibm-granite/granite-guardian-4.1-8b
+  ibnzterrell/Meta-Llama-3.3-70B-Instruct-AWQ-INT4
+  icefog72/IceWhiskeyRP-7b-8bpw-exl2
+  ilsp/Llama-Krikri-8B-Instruct
+  inference-optimization/Llama-3.2-0.5B-Instruct
+  inflatebot/MN-12B-Mag-Mell-R1
+  internlm/internlm2-1_8b
+  internlm/internlm2-20b
+  internlm/internlm2-7b
+  internlm/internlm2-base-20b
+  internlm/internlm2-base-7b
+  internlm/internlm2-chat-1_8b
+  internlm/internlm2-chat-20b
+  internlm/internlm2-chat-7b
+  internlm/internlm2-chat-7b-sft
+  internlm/internlm2_5-20b-chat
+  internlm/internlm2_5-7b
+  internlm/internlm2_5-7b-chat
+  internlm/internlm3-8b-instruct
+  invalid-coder/Sakura-SOLAR-Instruct-CarbonVillain-en-10.7B-v2-slerp
+  jdchang/llama3-small
+  jeonsworld/CarbonVillain-en-10.7B-v4
+  jhu-clsp/rank1-7b
+  jinaai/ReaderLM-v2
+  jinaai/jina-code-embeddings-0.5b
+  jinaai/jina-code-embeddings-1.5b
+  jondurbin/airoboros-70b-3.3
+  jondurbin/airoboros-dpo-70b-3.3
+  jondurbin/bagel-8b-v1.0
+  jondurbin/bagel-dpo-34b-v0.2
+  jondurbin/bagel-dpo-34b-v0.5
+  jordonstrsharilynst/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-dextrous_raging_chameleon
+  jrkenny/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-tawny_wise_wombat
+  kaist-ai/janus-7b
+  kaist-ai/janus-dpo-7b
+  kaist-ai/janus-orpo-7b
+  kakaocorp/kanana-1.5-2.1b-instruct-2505
+  kakaocorp/kanana-1.5-8b-instruct-2505
+  kambingijo/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-coiled_scampering_camel
+  karunchan/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-marine_exotic_ram
+  kekmodel/StopCarbon-10.7B-v5
+  kenpath/svara-tts-v1
+  kyujinpy/Ko-PlatYi-6B
+  kyutai/helium-1-2b
+  lightblue/karasu-1.1B
+  lightblue/suzume-llama-3-8B-multilingual
+  lightblue/suzume-llama-3-8B-multilingual-orpo-borda-full
+  lightblue/suzume-llama-3-8B-multilingual-orpo-borda-half
+  lightblue/suzume-llama-3-8B-multilingual-orpo-borda-top25
+  lightblue/suzume-llama-3-8B-multilingual-orpo-borda-top75
+  liuhaotian/llava-v1.6-mistral-7b
+  livekit/turn-detector
+  llm-jp/llm-jp-4-8b-base
+  llm-jp/llm-jp-4-8b-instruct
+  llm-jp/llm-jp-4-8b-thinking
+  lmms-lab/LLaVA-Video-7B-Qwen2
+  lmms-lab/llava-onevision-qwen2-0.5b-ov
+  lmms-lab/llava-onevision-qwen2-7b-ov
+  lmstudio-community/Devstral-Small-2505-MLX-4bit
+  lmstudio-community/Magistral-Small-2506-MLX-4bit
+  lmstudio-community/Phi-4-reasoning-plus-MLX-4bit
+  lmstudio-community/Seed-OSS-36B-Instruct-MLX-5bit
+  lmstudio-community/Seed-OSS-36B-Instruct-MLX-6bit
+  m-a-p/YuE-s1-7B-anneal-en-cot
+  m42-health/Llama3-Med42-8B
+  marin-community/marin-8b-base
+  maya-research/Veena
+  maya-research/maya1
+  meta-llama/Llama-3.1-405B-FP8
+  meta-llama/Llama-3.1-405B-Instruct
+  meta-llama/Llama-3.1-70B
+  meta-llama/Llama-3.1-70B-Instruct
+  meta-llama/Llama-3.1-8B
+  meta-llama/Llama-3.1-8B-Instruct
+  meta-llama/Llama-3.2-1B
+  meta-llama/Llama-3.2-1B-Instruct
+  meta-llama/Llama-3.2-3B
+  meta-llama/Llama-3.2-3B-Instruct
+  meta-llama/Llama-Guard-3-1B
+  meta-llama/Llama-Guard-3-8B
+  meta-llama/Meta-Llama-3-70B
+  meta-llama/Meta-Llama-3-70B-Instruct
+  meta-llama/Meta-Llama-3-8B
+  meta-llama/Meta-Llama-3-8B-Instruct
+  meta-llama/Meta-Llama-Guard-2-8B
+  metaresearch/PapersRAG-1.5B
+  microsoft/Phi-4-reasoning
+  microsoft/llava-med-v1.5-mistral-7b
+  microsoft/phi-4
+  migtissera/Llama-3-70B-Synthia-v3.5
+  migtissera/Llama-3-8B-Synthia-v3.5
+  migtissera/Tess-2.0-Llama-3-70B
+  migtissera/Tess-2.0-Llama-3-70B-v0.2
+  migtissera/Tess-2.0-Llama-3-8B
+  migtissera/Tess-M-v1.3
+  mistralai/Mistral-7B-Instruct-v0.2
+  mixedbread-ai/mxbai-rerank-base-v2
+  mixedbread-ai/mxbai-rerank-large-v2
+  mlabonne/ChimeraLlama-3-8B-v2
+  mlabonne/ChimeraLlama-3-8B-v3
+  mlabonne/Daredevil-8B-abliterated
+  mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated
+  mlabonne/NeuralDaredevil-8B-abliterated
+  mlx-community/MiniCPM5-1B-OptiQ-4bit
+  mmnga/Llama-3-70B-japanese-suzume-vector-v0.1
+  mobilint/Qwen2-VL-2B-Instruct
+  modularai/SmolLM-135M-Instruct-FP32
+  naver-hyperclovax/HyperCLOVAX-SEED-Text-Instruct-0.5B
+  naver-hyperclovax/HyperCLOVAX-SEED-Think-14B
+  neuralcrew/neutrino-instruct
+  nineninesix/gepard-1.0
+  nm-testing/Meta-Llama-3-8B-FP8-compressed-tensors-test
+  nm-testing/Meta-Llama-3-8B-Instruct-nonuniform-test
+  nm-testing/Qwen2-1.5B-Instruct-FP8W8
+  nm-testing/tinyllama-oneshot-w4a16-channel-v2
+  nm-testing/tinyllama-oneshot-w4a16-group128-v2
+  nm-testing/tinyllama-oneshot-w8a8-channel-dynamic-token-v2
+  nm-testing/tinyllama-oneshot-w8a8-dynamic-token-v2
+  nm-testing/tinyllama-oneshot-w8w8-test-static-shape-change
+  numind/NuExtract-1.5-tiny
+  nvidia/AceReason-Nemotron-1.1-7B
+  nvidia/AceReason-Nemotron-7B
+  nvidia/Llama-3.1-Minitron-4B-Depth-Base
+  nvidia/Llama-3.1-Minitron-4B-Width-Base
+  nvidia/Llama-3.1-Nemotron-70B-Instruct-HF
+  nvidia/Llama-3.1-Nemotron-Nano-8B-v1
+  nvidia/Llama3-ChatQA-1.5-8B
+  nvidia/Mistral-NeMo-Minitron-8B-Base
+  nvidia/Mistral-NeMo-Minitron-8B-Instruct
+  nvidia/OpenReasoning-Nemotron-32B
+  nvidia/Qwen2.5-VL-7B-Instruct-NVFP4
+  nvidia/Riva-Translate-4B-Instruct-v1.1
+  nvidia/gpt-oss-120b-Eagle3-long-context
+  nvidia/gpt-oss-120b-Eagle3-short-context
+  nvidia/gpt-oss-120b-Eagle3-v3
+  nyu-visionx/Cambrian-S-7B
+  nyu-visionx/Scale-RAE-Qwen1.5B_DiT2.4B
+  onnx-community/turn-detector-GQA-ONNX
+  oobabooga/CodeBooga-34B-v0.1
+  open-thoughts/OpenThinker2-32B
+  open-thoughts/OpenThinker2-7B
+  open-thoughts/OpenThinker3-7B
+  openbmb/MiniCPM4-0.5B
+  openbmb/MiniCPM4-8B
+  openbmb/MiniCPM4.1-8B
+  openbmb/MiniCPM5-1B
+  openbmb/MiniCPM5-1B-Base
+  openbmb/MiniCPM5-1B-SFT
+  openchat/openchat-3.6-8b-20240522
+  ophirparwez/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-invisible_mammalian_worm
+  paloalma/ECE-TW3-JRGL-V1
+  pearl-ai/Llama-3.1-8B-Instruct-pearl
+  pearl-ai/Llama-3.3-70B-Instruct-pearl
+  petals-team/StableBeluga2
+  princeton-nlp/Llama-3-8B-ProLong-64k-Base
+  princeton-nlp/Llama-3-8B-ProLong-64k-Instruct
+  prometheus-eval/prometheus-7b-v2.0
+  puzzle2931/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-whiskered_stubby_llama
+  qnguyen3/Master-Yi-9B
+  qqlabs/llama3_1_relevance_dev
+  radheneev/NetrAI-L3
+  reaperdoesntknow/SMOLM2Prover
+  rednote-hilab/dots.mocr
+  rednote-hilab/dots.ocr
+  refuelai/Llama-3-Refueled
+  rgerb7363/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-plump_scampering_jaguar
+  rombodawg/rombos_Replete-Coder-Llama3-8B
+  ryzdfm/qwen2.5-coder-3b-claude_opus_4.6-distilled
+  sarvamai/sarvam-1
+  sarvamai/sarvam-m
+  sbintuitions/sarashina2.2-0.5b-instruct-v0.1
+  sbintuitions/sarashina2.2-3b-instruct-v0.1
+  sdadas/stella-pl-retrieval-8k
+  shanchen/llama3-8B-slerp-biomed-chat-chinese
+  shanchen/llama3-8B-slerp-med-chinese
+  shenzhi-wang/Llama3-8B-Chinese-Chat
+  shenzhi-wang/Llama3.1-8B-Chinese-Chat
+  skt/A.X-4.0-Light
+  sophosympatheia/Midnight-Miqu-70B-v1.5
+  speakleash/Bielik-11B-v2.3-Instruct
+  speakleash/Bielik-11B-v3.0-Instruct-FP8-Dynamic
+  speakleash/Bielik-11B-v3.0-Instruct-awq
+  speakleash/Bielik-Minitron-7B-v3.0-Instruct-FP8-Dynamic
+  squ11z1/Mythos-nano
+  stelterlab/Mistral-Small-24B-Instruct-2501-AWQ
+  stepfun-ai/NextStep-1.1
+  stephenlzc/dolphin-llama3-zh-cn-uncensored
+  sullivan1502/base-pretrain
+  taobao-mnn/Qwen3-VL-8B-Instruct-Eagle3
+  tenyx/Llama3-TenyxChat-70B
+  tiiuae/Falcon3-10B-Base
+  tiiuae/Falcon3-10B-Instruct
+  tiiuae/Falcon3-1B-Base
+  tiiuae/Falcon3-1B-Instruct
+  tiiuae/Falcon3-3B-Base
+  tiiuae/Falcon3-3B-Instruct
+  tiiuae/Falcon3-7B-Base
+  tiiuae/Falcon3-7B-Instruct
+  tokyotech-llm/Llama-3-Swallow-8B-Instruct-v0.1
+  tokyotech-llm/Llama-3.1-Swallow-8B-Instruct-v0.5
+  turboderp/Cat-Llama-3-70B-instruct
+  typhoon-ai/llama-3-typhoon-v1.5-8b
+  typhoon-ai/llama-3-typhoon-v1.5-8b-instruct
+  typhoon-ai/llama3.1-typhoon2-8b-instruct
+  tzervas/qwen2.5-coder-14b-bitnet-1.58b
+  unsloth/DeepSeek-R1-Distill-Llama-8B-unsloth-bnb-4bit
+  unsloth/DeepSeek-R1-Distill-Qwen-1.5B-unsloth-bnb-4bit
+  unsloth/DeepSeek-R1-Distill-Qwen-14B-unsloth-bnb-4bit
+  unsloth/DeepSeek-R1-Distill-Qwen-7B-unsloth-bnb-4bit
+  unsloth/Llama-3.1-8B-Instruct-unsloth-bnb-4bit
+  unsloth/Llama-3.1-8B-unsloth-bnb-4bit
+  unsloth/Llama-3.2-1B-Instruct-unsloth-bnb-4bit
+  unsloth/Llama-3.2-1B-unsloth-bnb-4bit
+  unsloth/Llama-3.2-3B-Instruct-unsloth-bnb-4bit
+  unsloth/Llama-3.2-3B-unsloth-bnb-4bit
+  unsloth/Meta-Llama-3.1-70B-bnb-4bit
+  unsloth/Meta-Llama-3.1-8B-Instruct-unsloth-bnb-4bit
+  unsloth/Qwen2.5-0.5B-Instruct-unsloth-bnb-4bit
+  unsloth/Qwen2.5-0.5B-unsloth-bnb-4bit
+  unsloth/Qwen2.5-1.5B-Instruct-unsloth-bnb-4bit
+  unsloth/Qwen2.5-1.5B-unsloth-bnb-4bit
+  unsloth/Qwen2.5-14B-Instruct-unsloth-bnb-4bit
+  unsloth/Qwen2.5-14B-bnb-4bit
+  unsloth/Qwen2.5-3B-Instruct-unsloth-bnb-4bit
+  unsloth/Qwen2.5-3B-unsloth-bnb-4bit
+  unsloth/Qwen2.5-7B-Instruct-unsloth-bnb-4bit
+  unsloth/Qwen2.5-7B-unsloth-bnb-4bit
+  unsloth/llama-3-8b-Instruct
+  unsloth/llama-3-8b-bnb-4bit
+  unsloth/meta-Llama-3.1-8B-unsloth-bnb-4bit
+  unsloth/mistral-7b-v0.3-bnb-4bit
+  unsloth/orpheus-3b-0.1-ft
+  unsloth/orpheus-3b-0.1-ft-unsloth-bnb-4bit
+  unsloth/phi-4-unsloth-bnb-4bit
+  unsloth/tinyllama-bnb-4bit
+  upstage/SOLAR-0-70b-16bit
+  upstage/SOLAR-10.7B-Instruct-v1.0
+  upstage/SOLAR-10.7B-v1.0
+  utter-project/EuroLLM-1.7B
+  utter-project/EuroLLM-1.7B-Instruct
+  utter-project/EuroLLM-22B-Instruct-2512
+  utter-project/EuroLLM-9B-Instruct-2512
+  uygarkurt/llama-3-merged-linear
+  uzlm/alloma-3B-Instruct
+  vicgalle/Configurable-Hermes-2-Pro-Llama-3-8B
+  vicgalle/Configurable-Janus-7B
+  vicgalle/Configurable-Llama-3-8B-v0.3
+  vicgalle/Configurable-Mistral-7B
+  vicgalle/Configurable-Yi-1.5-9B-Chat
+  wenbopan/Faro-Yi-34B
+  wenbopan/Faro-Yi-34B-DPO
+  wenbopan/Faro-Yi-9B
+  wenbopan/Faro-Yi-9B-DPO
+  winninghealth/WiNGPT2-Llama-3-8B-Base
+  winninghealth/WiNGPT2-Llama-3-8B-Chat
+  xbounty/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-feline_feline_eagle
+  xiangxinai/Xiangxin-2XL-Chat-1048k-Chinese-Llama3-70B
+  xinnn32/Qwen2.5-0.5B-Instruct-Gensyn-Swarm-amphibious_savage_mantis
+  xnftraff/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-graceful_dappled_owl
+  yanolja/YanoljaNEXT-EEVE-Instruct-10.8B
+  yaojialzc/Gigi-Llama3-8B-Chinese-zh
+  yifanyu/I-DLM-8B
+  youthearchangel/Qwen2.5-Coder-0.5B-Instruct-Gensyn-Swarm-domestic_fleecy_caribou
+  yuhuili/EAGLE-LLaMA3-Instruct-8B
+  zai-org/glm-4-9b-chat-hf
+  zai-org/glm-edge-4b-chat
+  zed-industries/zeta-2.1
+
+## 133x  RMSNorm | rope | MHA | glu | SiLU
+  BAAI/bge-reranker-v2-minicpm-layerwise
+  BSC-LT/salamandra-2b-instruct
+  ByteDance/Ouro-1.4B
+  ByteDance/Ouro-1.4B-Thinking
+  ByteDance/Ouro-2.6B
+  ByteDance/Ouro-2.6B-Thinking
+  CausalLM/14B-DPO-alpha
+  Finnish-NLP/Ahma-7B
+  HuggingFaceTB/SmolLM-1.7B
+  HuggingFaceTB/SmolLM2-1.7B
+  HuggingFaceTB/SmolLM2-1.7B-Instruct
+  Inferact/MiniMax-M3-EAGLE3
+  Jacaranda/UlizaLlama
+  JackFram/llama-160m
+  JackFram/llama-68m
+  KBlueLeaf/TIPO-200M-ft2
+  KBlueLeaf/TIPO-500M
+  KBlueLeaf/TIPO-500M-ft
+  LSX-UniWue/LLaMmlein_7B
+  LeoLM/leo-hessianai-7b
+  LukeBailey181Pub/dspv2_guide
+  MTSAIR/MultiVerse_70B
+  MaxJeblick/llama2-0b-unit-test
+  Maykeye/TinyLLama-v0
+  NLPark/AnFeng_v3_Avocet
+  NousResearch/Nous-Hermes-llama-2-7b
+  OrionStarAI/Orion-14B-Chat
+  PleIAs/Monad
+  Qwen/Qwen1.5-0.5B
+  Qwen/Qwen1.5-0.5B-Chat
+  Qwen/Qwen1.5-1.8B
+  Qwen/Qwen1.5-1.8B-Chat
+  Qwen/Qwen1.5-14B
+  Qwen/Qwen1.5-14B-Chat
+  Qwen/Qwen1.5-4B
+  Qwen/Qwen1.5-4B-Chat
+  Qwen/Qwen1.5-72B
+  Qwen/Qwen1.5-72B-Chat
+  Qwen/Qwen1.5-7B
+  Qwen/Qwen1.5-7B-Chat
+  Shamima/babylm-2026-multilingual-uniform-100M-v2
+  StanfordAIMI/GREEN-RadLlama2-7b
+  TheBloke/wizardLM-7B-HF
+  WizardLMTeam/WizardLM-13B-V1.2
+  Xenova/llama2.c-stories15M
+  abacusai/Smaug-72B-v0.1
+  afmck/testing-llama-tiny
+  allenai/OLMo-1B-0724-hf
+  allenai/OLMo-1B-hf
+  allenai/OLMo-7B-hf
+  allenai/truthfulqa-info-judge-llama2-7B
+  allenai/truthfulqa-truth-judge-llama2-7B
+  baffo32/decapoda-research-llama-7B-hf
+  baichuan-inc/Baichuan-7B
+  baichuan-inc/Baichuan2-13B-Chat
+  baichuan-inc/Baichuan2-7B-Base
+  baichuan-inc/Baichuan2-7B-Chat
+  cais/HarmBench-Llama-2-13b-cls
+  codellama/CodeLlama-13b-Instruct-hf
+  codellama/CodeLlama-7b-Instruct-hf
+  codellama/CodeLlama-7b-hf
+  colinglab/CLASS_IT-140M
+  datajuicer/LLaMA-1B-dj-refine-150B
+  davidkim205/Rhea-72b-v0.5
+  deepseek-ai/deepseek-coder-1.3b-base
+  deepseek-ai/deepseek-coder-1.3b-instruct
+  deepseek-ai/deepseek-coder-6.7b-base
+  deepseek-ai/deepseek-coder-6.7b-instruct
+  deepseek-ai/deepseek-coder-7b-instruct-v1.5
+  deepseek-ai/deepseek-llm-7b-base
+  deepseek-ai/deepseek-llm-7b-chat
+  deepseek-ai/deepseek-math-7b-base
+  deepseek-ai/deepseek-math-7b-instruct
+  defog/sqlcoder-7b-2
+  double7/vicuna-68m
+  elyza/ELYZA-japanese-Llama-2-7b-instruct
+  freewheelin/free-evo-qwen72b-v0.8-re
+  fxmarty/tiny-llama-fast-tokenizer
+  google/gemma-1.1-7b-it
+  haoranxu/ALMA-13B-Pretrain
+  haoranxu/ALMA-13B-R
+  haoranxu/ALMA-7B-R
+  hfl/chinese-alpaca-2-13b
+  hfl/chinese-alpaca-2-13b-16k
+  hfl/chinese-llama-2-13b
+  hfl/chinese-llama-2-13b-16k
+  hfl/chinese-llama-2-7b
+  huggyllama/llama-13b
+  huggyllama/llama-7b
+  humain-ai/ALLaM-7B-Instruct-preview
+  ibm-granite/granite-3b-code-base-2k
+  ibm-research/PowerLM-3b
+  kyutai/helium-1-preview-2b
+  lightseekorg/kimi-k2.6-eagle3
+  liuhaotian/llava-v1.6-vicuna-13b
+  liuhaotian/llava-v1.6-vicuna-7b
+  llamas-community/LlamaGuard-7b
+  llm-jp/llm-jp-3-1.8b
+  llm-jp/llm-jp-3-1.8b-instruct
+  llm-jp/llm-jp-3-150m
+  llm-jp/llm-jp-3-7.2b-instruct
+  llm-jp/llm-jp-3.1-1.8b-instruct4
+  lmsys/longchat-13b-16k
+  lmsys/vicuna-13b-v1.5
+  lmsys/vicuna-7b-v1.3
+  lmsys/vicuna-7b-v1.5
+  lmsys/vicuna-7b-v1.5-16k
+  locuslab/tofu_ft_llama2-7b
+  m-a-p/OpenCodeInterpreter-DS-6.7B
+  m-a-p/YuE-s2-1B-general
+  mtgv/MobileLLaMA-1.4B-Chat
+  mtgv/MobileVLM_V2-1.7B
+  muse-bench/MUSE-news_target
+  nm-testing/SmolLM-1.7B-Instruct-quantized.w4a16
+  np-cr/testing-llama_hidden_size_64
+  numind/NuExtract-tiny
+  openlm-research/open_llama_3b
+  openlm-research/open_llama_3b_v2
+  openlm-research/open_llama_7b
+  paloalma/ECE-TW3-JRGL-V5
+  paloalma/Le_Triomphant-ECE-TW3
+  paloalma/TW3-JRGL-v2
+  prem-research/prem-1B-SQL
+  princeton-nlp/Sheared-LLaMA-1.3B
+  qnguyen3/nanoLLaVA
+  sbintuitions/tiny-lm
+  tartuNLP/Llammas-base-p1-GPT-4o-human-error-mix-paragraph-GEC
+  timinar/baby-llama-58m
+  vaiv/GeM2-Llamion-14B-Base
+  vaiv/GeM2-Llamion-14B-Chat
+  vaiv/GeM2-Llamion-14B-LongChat
+  zai-org/codegeex4-all-9b
+  zai-org/glm-4-9b
+
+## 114x  RMSNorm | rope | GQA | glu | SiLU | +qk-norm
+  3notebooker/Qwen3-0.6B-Gensyn-Swarm-elusive_foraging_cow
+  ACE-Step/acestep-5Hz-lm-0.6B
+  ACE-Step/acestep-5Hz-lm-4B
+  AliesTaha/fable-traces
+  AndreyRV/Qwen3-0.6B-Gensyn-Swarm-fierce_mute_cheetah
+  AvitoTech/avibe
+  Ba2han/outputs
+  DreamFast/qwen3-8b-heretic
+  Goedel-LM/Goedel-Prover-V2-32B
+  Goedel-LM/Goedel-Prover-V2-8B
+  Harvard-DCML/boomerang-qwen3-2.3B
+  King3Djbl/mythos-9b-unhinged
+  King3Djbl/mythos-v2-8b-merged
+  MATheGooner/Qwen3-0.6B-Gensyn-Swarm-waddling_stocky_chicken
+  MemTensor/MemOperator-4B
+  Menlo/Jan-nano-128k
+  OpenOneRec/OneReason-0.8B-pretrain-competition
+  OpenOneRec/OneRec-1.7B
+  OpenPipe/Qwen3-14B-Instruct
+  Qwen/Qwen3-0.6B
+  Qwen/Qwen3-0.6B-Base
+  Qwen/Qwen3-1.7B
+  Qwen/Qwen3-1.7B-Base
+  Qwen/Qwen3-14B
+  Qwen/Qwen3-14B-Base
+  Qwen/Qwen3-32B
+  Qwen/Qwen3-4B
+  Qwen/Qwen3-4B-Base
+  Qwen/Qwen3-4B-Instruct-2507
+  Qwen/Qwen3-4B-Thinking-2507
+  Qwen/Qwen3-8B
+  Qwen/Qwen3-8B-Base
+  Qwen/Qwen3-Embedding-0.6B
+  Qwen/Qwen3-Embedding-4B
+  Qwen/Qwen3-Embedding-8B
+  Qwen/Qwen3-Reranker-0.6B
+  Qwen/Qwen3-Reranker-4B
+  Qwen/Qwen3-Reranker-8B
+  Qwen/Qwen3Guard-Gen-0.6B
+  Qwen/Qwen3Guard-Gen-4B
+  Qwen/Qwen3Guard-Gen-8B
+  RedHatAI/Qwen3-4B-FP8-dynamic
+  RedHatAI/Qwen3-8B-FP8-dynamic
+  SPRINGLab/Indic-Mio
+  TeichAI/Qwen3-14B-Claude-4.5-Opus-High-Reasoning-Distill
+  Vikhrmodels/QVikhr-3-1.7B-Instruction-noreasoning
+  agentica-org/DeepSWE-Preview
+  allenai/OLMo-2-0325-32B
+  allenai/OLMo-2-0325-32B-Instruct
+  amd/PARD-Qwen3-0.6B
+  boboliu/Qwen3-Embedding-4B-W4A16-G128
+  boboliu/Qwen3-Reranker-4B-W4A16-G128
+  cmu-lti/osim-8b
+  cmu-lti/osim-8b-mid
+  cyankiwi/Hermes-4-14B-AWQ-4bit
+  daldal2/Qwen3-0.6B-Gensyn-Swarm-dense_shrewd_skunk
+  daxa-ai/daxa-classifier-1.1
+  deepseek-ai/DeepSeek-R1-0528-Qwen3-8B
+  electroglyph/Qwen3-4B-Instruct-2507-uncensored
+  fableforge-ai/ReasonCritic-7B
+  florafunny6/Qwen3-0.6B-Gensyn-Swarm-grazing_plump_jackal
+  formalmathatepfl/qwen3-8b-sft
+  huihui-ai/Huihui-Qwen3-14B-abliterated-v2
+  huihui-ai/Huihui-Qwen3-4B-Instruct-2507-abliterated
+  huihui-ai/Huihui-Qwen3-8B-abliterated-v2
+  khazarai/Qwen3-4B-Qwen3.6-plus-Reasoning-Distilled-GGUF
+  kiddiszc/Qwen3-0.6B-Gensyn-Swarm-vocal_lithe_flea
+  lmstudio-community/Qwen3-4B-Instruct-2507-MLX-5bit
+  lmstudio-community/Qwen3-4B-Instruct-2507-MLX-6bit
+  lmstudio-community/Qwen3-4B-Thinking-2507-MLX-6bit
+  mesolitica/Malaysian-TTS-0.6B-v1
+  mlx-community/Qwen3-Embedding-0.6B-4bit-DWQ
+  mlx-community/Qwen3-Embedding-4B-mxfp8
+  nvidia/Nemotron-Terminal-8B
+  open-thoughts/OpenThinkerAgent-32B
+  prism-ml/Bonsai-8B-mlx-1bit
+  prism-ml/Ternary-Bonsai-8B-mlx-2bit
+  reaperdoesntknow/Qwen3-1.7B-Distilled-30B-A3B
+  reaperdoesntknow/Qwen3-1.7B-Thinking-Distil
+  reaperdoesntknow/Shepherd-Alpha
+  reaperdoesntknow/Symbiotic-1B
+  reaperdoesntknow/Symbiotic-8B
+  reaperdoesntknow/Symiotic-14B
+  reaperdoesntknow/TopologicalQwen
+  speakleash/Bielik-Minitron-7B-v3.0-DFlash
+  tencent/HY-MT1.5-1.8B
+  tencent/Hunyuan-7B-Instruct
+  tencent/Hy-MT2-1.8B
+  tencent/Hy-MT2-7B
+  tokyotech-llm/Qwen3-Swallow-32B-RL-v0.2
+  tokyotech-llm/Qwen3-Swallow-8B-RL-v0.2-AWQ-INT4
+  tokyotech-llm/Qwen3-Swallow-8B-SFT-v0.2
+  twnlp/ChineseErrorCorrector3-4B
+  typhoon-ai/typhoon2.5-qwen3-4b
+  unsloth/DeepSeek-R1-0528-Qwen3-8B-unsloth-bnb-4bit
+  unsloth/Qwen3-0.6B-unsloth-bnb-4bit
+  unsloth/Qwen3-1.7B-Base-unsloth-bnb-4bit
+  unsloth/Qwen3-1.7B-unsloth-bnb-4bit
+  unsloth/Qwen3-14B-unsloth-bnb-4bit
+  unsloth/Qwen3-32B-unsloth-bnb-4bit
+  unsloth/Qwen3-4B-Base-unsloth-bnb-4bit
+  unsloth/Qwen3-4B-Instruct-2507-unsloth-bnb-4bit
+  unsloth/Qwen3-4B-Thinking-2507-unsloth-bnb-4bit
+  unsloth/Qwen3-4B-unsloth-bnb-4bit
+  unsloth/Qwen3-8B-Base-unsloth-bnb-4bit
+  voyageai/voyage-4-nano
+  willcb/Qwen3-1.7B-Wordle
+  ystemsrx/Qwen3-Sex
+  z-lab/Kimi-K2.5-DFlash
+  z-lab/LLaMA3.1-8B-Instruct-DFlash-UltraChat
+  z-lab/Qwen3-4B-DFlash-b16
+  z-lab/Qwen3-8B-DFlash-b16
+  z-lab/Qwen3-Coder-Next-DFlash
+  z-lab/gpt-oss-120b-DFlash
+
+## 61x  RMSNorm | rope | GQA | glu | SiLU | +sliding
+  AIJUUD/juud-Mistral-7B-dpo
+  Artples/L-MChat-7b
+  BioMistral/BioMistral-7B
+  Danielbrdz/Barcenas-14b-Phi-3-medium-ORPO
+  GAIR/Abel-7B-002
+  GritLM/GritLM-7B
+  GritLM/GritLM-7B-KTO
+  HuggingFaceH4/zephyr-7b-alpha
+  HuggingFaceH4/zephyr-7b-beta
+  Intel/neural-chat-7b-v3-3
+  Kukedlc/NeuralExperiment-7b-MagicCoder-v7.5
+  Kukedlc/NeuralSynthesis-7B-v0.1
+  Kukedlc/NeuralSynthesis-7B-v0.3
+  Kukedlc/NeuralSynthesis-7b-v0.4-slerp
+  LGAI-EXAONE/EXAONE-4.0.1-32B
+  MTSAIR/multi_verse_model
+  QuixiAI/WestLake-7B-v2-laser
+  QuixiAI/openchat-3.5-0106-laser
+  SeaLLMs/SeaLLM-7B-v2
+  TIGER-Lab/MAmmoTH2-7B-Plus
+  TheBloke/Mistral-Trismegistus-7B-AWQ
+  TheBloke/OpenHermes-2.5-Mistral-7B-AWQ
+  TotallyLegitCo/fighthealthinsurance_model_v0.5
+  Ttimofeyka/MistralRP-Noromaid-NSFW-Mistral-7B-GGUF
+  VAGOsolutions/SauerkrautLM-Phi-3-medium
+  WizardLMTeam/WizardMath-7B-V1.1
+  abacusai/Slerp-CM-mist-dpo
+  alignment-handbook/zephyr-7b-sft-full
+  augmxnt/shisa-gamma-7b-v1
+  automerger/YamshadowExperiment28-7B
+  beowolx/CodeNinja-1.0-OpenChat-7B
+  chujiezheng/Starling-LM-7B-alpha-ExPO
+  chujiezheng/Starling-LM-7B-beta-ExPO
+  dphn/dolphin-2.9.2-Phi-3-Medium
+  dphn/dolphin-2.9.2-Phi-3-Medium-abliterated
+  galatolo/cerbero-7b
+  kaist-ai/mistral-orpo-capybara-7k
+  liminerity/M7-7b
+  maxcurrent/Peagle-9b
+  maywell/Synatra-7B-v0.3-RP
+  microsoft/Phi-3-medium-128k-instruct
+  microsoft/Phi-3-medium-4k-instruct
+  ministral/Ministral-3b-instruct
+  mistralai/Mistral-7B-Instruct-v0.1
+  mistralai/Mistral-7B-v0.1
+  mlabonne/AlphaMonarch-7B
+  mlabonne/NeuralMonarch-7B
+  openaccess-ai-collective/tiny-mistral
+  openchat/openchat-3.5-0106
+  openchat/openchat-3.5-1210
+  parasail-ai/GritLM-7B-vllm
+  pucpr-br/Clinical-BR-Mistral-7B-v0.2
+  royallab/ZephRP-m7b
+  shadowml/BeagSake-7B
+  unsloth/mistral-7b
+  uukuguy/speechless-code-mistral-7b-v1.0
+  uukuguy/speechless-zephyr-code-functionary-7b
+  vicgalle/CarbonBeagle-11B
+  vicgalle/CarbonBeagle-11B-truthy
+  vicgalle/ConfigurableBeagle-11B
+  vicgalle/ConfigurableHermes-7B
+
+## 49x  RMSNorm | rope | GQA | moe | SiLU
+  CultriX/NeuralMona_MoE-4x7B
+  GritLM/GritLM-8x7B
+  GritLM/GritLM-8x7B-KTO
+  HIT-SCIR/Chinese-Mixtral-8x7B
+  Kquant03/CognitiveFusion2-4x7B-BF16
+  MaziyarPanahi/Calme-4x7B-MoE-v0.1
+  MaziyarPanahi/Calme-4x7B-MoE-v0.2
+  MaziyarPanahi/Mixtral-8x22B-v0.1-GGUF
+  MaziyarPanahi/Topxtral-4x7B-v0.1
+  NeuralNovel/Mini-Mixtral-v0.2
+  NousResearch/Nous-Hermes-2-Mixtral-8x7B-DPO
+  RedHatAI/Mixtral-8x7B-Instruct-v0.1
+  RubielLabarta/LogoS-7Bx2-MoE-13B-v0.2
+  Salesforce/xLAM-8x22b-r
+  Snowflake/snowflake-arctic-instruct
+  TIGER-Lab/MAmmoTH2-8x7B-Plus
+  alpindale/WizardLM-2-8x22B
+  baidu/ERNIE-4.5-21B-A3B-Thinking
+  casperhansen/mixtral-instruct-awq
+  cloudyu/Mixtral_34Bx2_MoE_60B
+  cloudyu/TomGrc_FusionNet_34Bx2_MoE_v0.1_DPO_f16
+  cloudyu/Yi-34Bx2-MOE-200K
+  cloudyu/Yi-34Bx2-MoE-60B
+  cloudyu/Yi-34Bx2-MoE-60B-DPO
+  dphn/dolphin-2.6-mixtral-8x7b
+  dphn/dolphin-2.9.1-mixtral-1x22b
+  dphn/dolphin-2.9.2-mixtral-8x22b
+  hfl/chinese-mixtral
+  hfl/chinese-mixtral-instruct
+  ibivibiv/multimaster-7b-v6
+  ibm-granite/granite-3.0-1b-a400m-base
+  ibm-granite/granite-3.0-3b-a800m-instruct
+  ibm-granite/granite-3.1-1b-a400m-instruct
+  ibm-granite/granite-3.1-3b-a800m-instruct
+  ibm-granite/granite-guardian-3.2-3b-a800m
+  ibm-research/PowerMoE-3b
+  inclusionAI/Ling-lite-1.5
+  jetmoe/jetmoe-8b
+  jsfs11/MixtureofMerges-MoE-4x7b-v4
+  jsfs11/MixtureofMerges-MoE-4x7b-v5
+  meraGPT/mera-mix-4x7B
+  mixtao/MixTAO-7Bx2-MoE-v8.1
+  mlabonne/Beyonder-4x7B-v3
+  rombodawg/Everyone-Coder-4x7b-Base
+  shadowml/Mixolar-4x7b
+  tencent/Hy-MT2-30B-A3B
+  yunconglong/DARE_TIES_13B
+  yunconglong/MoE_13B_DPO
+  yunconglong/Truthful_DPO_TomGrc_FusionNet_7Bx2_MoE_13B
+
+## 37x  LayerNorm | learned_abs | MHA | vanilla | GeLU
+  DeepESP/gpt2-spanish
+  DeepPavlov/rudialogpt3_medium_based_on_gpt2_v2
+  Gustavosta/MagicPrompt-Stable-Diffusion
+  LykosAI/GPT-Prompt-Expansion-Fooocus-v2
+  MBZUAI/LaMini-GPT-124M
+  NeTSlab/gpt2_parfind_en_nl_zh_equal
+  ai-forever/mGPT
+  ai-forever/rugpt3medium_based_on_gpt2
+  ai-forever/rugpt3small_based_on_gpt2
+  aubmindlab/aragpt2-base
+  aubmindlab/aragpt2-medium
+  bigcode/santacoder
+  datificate/gpt2-small-spanish
+  dbmdz/german-gpt2
+  distilbert/distilgpt2
+  entropy/gpt2_zinc_87m
+  erwanf/gpt2-mini
+  gratefulasi/lumeleto
+  lgaalves/gpt2-dolly
+  lvwerra/gpt2-imdb
+  microsoft/DialoGPT-medium
+  microsoft/DialoGPT-small
+  nferruz/ProtGPT2
+  openai-community/gpt2
+  openai-community/gpt2-large
+  openai-community/gpt2-medium
+  openai-community/gpt2-xl
+  openhonest/babylm-2026-fr-92m
+  pierreguillou/gpt2-small-portuguese
+  rinna/japanese-gpt2-medium
+  rinna/japanese-gpt2-small
+  robowaifudev/megatron-gpt2-345m
+  skt/kogpt2-base-v2
+  sshleifer/tiny-gpt2
+  stanford-crfm/alias-gpt2-small-x21
+  succinctly/text2image-prompt-generator
+  uer/gpt2-chinese-cluecorpussmall
+
+## 29x  LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel
+  EleutherAI/deep-ignorance-e2e-strong-filter
+  EleutherAI/gpt-j-6b
+  EleutherAI/polyglot-ko-1.3b
+  EleutherAI/pythia-1.4b
+  EleutherAI/pythia-1.4b-deduped
+  EleutherAI/pythia-12b
+  EleutherAI/pythia-12b-deduped
+  EleutherAI/pythia-14m
+  EleutherAI/pythia-14m-deduped
+  EleutherAI/pythia-160m
+  EleutherAI/pythia-160m-data-seed1
+  EleutherAI/pythia-160m-data-seed2
+  EleutherAI/pythia-160m-data-seed3
+  EleutherAI/pythia-160m-deduped
+  EleutherAI/pythia-160m-weight-seed1
+  EleutherAI/pythia-160m-weight-seed2
+  EleutherAI/pythia-160m-weight-seed3
+  EleutherAI/pythia-1b
+  EleutherAI/pythia-1b-deduped
+  EleutherAI/pythia-2.8b
+  EleutherAI/pythia-2.8b-deduped
+  EleutherAI/pythia-31m
+  EleutherAI/pythia-410m
+  EleutherAI/pythia-410m-deduped
+  EleutherAI/pythia-6.9b
+  EleutherAI/pythia-6.9b-deduped
+  EleutherAI/pythia-70m-deduped
+  Milos/slovak-gpt-j-405M
+  mnoukhov/pythia410m-sft-tldr
+
+## 27x  RMSNorm | rope | GQA | moe | SiLU | +qk-norm
+  Alibaba-NLP/Tongyi-DeepResearch-30B-A3B
+  BCCard/Qwen3-30B-A3B-FP8-Dynamic
+  DavidAU/Qwen3-MOE-4x0.6B-2.4B-Writing-Thunder-V1.2
+  Qwen/Qwen3-235B-A22B
+  Qwen/Qwen3-235B-A22B-Instruct-2507-FP8
+  Qwen/Qwen3-235B-A22B-Thinking-2507-FP8
+  Qwen/Qwen3-30B-A3B
+  Qwen/Qwen3-30B-A3B-Base
+  Qwen/Qwen3-30B-A3B-Instruct-2507
+  Qwen/Qwen3-Coder-30B-A3B-Instruct
+  Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8
+  RedHatAI/Qwen3-30B-A3B-FP8-block
+  bineric/lynx-instruct-30b
+  cyankiwi/Qwen3-30B-A3B-Thinking-2507-AWQ-4bit
+  huihui-ai/Huihui-Qwen3-30B-A3B-Thinking-2507-abliterated
+  huihui-ai/Huihui-Qwen3-Coder-30B-A3B-Instruct-abliterated
+  inference-optimization/Qwen3-1.6B-A0.9B
+  llm-jp/llm-jp-4-32b-a3b-thinking
+  lmstudio-community/Qwen3-30B-A3B-Instruct-2507-MLX-6bit
+  lmstudio-community/Qwen3-Coder-30B-A3B-Instruct-MLX-5bit
+  lmstudio-community/Qwen3-Coder-30B-A3B-Instruct-MLX-6bit
+  lmstudio-community/Qwen3-Coder-480B-A35B-Instruct-MLX-6bit
+  mlabonne/Qwen3-30B-A3B-abliterated
+  np-cr/testing-qwen3-moe
+  pearl-ai/Qwen3-30B-A3B-Instruct-2507-pearl
+  tencent/Hunyuan-A13B-Instruct
+  tencent/HunyuanImage-3.0
+
+## 21x  RMSNorm | rope | GQA | glu | SiLU | +hybrid
+  dicta-il/DictaLM-3.0-Nemotron-12B-Instruct
+  ibm-ai-platform/Bamba-9B-v1
+  ibm-granite/granite-4.0-1b
+  ibm-granite/granite-4.0-1b-base
+  ibm-granite/granite-4.0-350m
+  ibm-granite/granite-4.0-350m-base
+  ibm-granite/granite-4.0-h-1b
+  ibm-granite/granite-4.0-h-350m
+  ibm-granite/granite-4.0-h-micro
+  ibm-granite/granite-4.0-micro
+  nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16
+  nvidia/NVIDIA-Nemotron-Nano-12B-v2
+  nvidia/NVIDIA-Nemotron-Nano-9B-v2
+  nvidia/NVIDIA-Nemotron-Nano-9B-v2-Base
+  nvidia/NVIDIA-Nemotron-Nano-9B-v2-Japanese
+  nvidia/Nemotron-H-4B-Base-8K
+  nvidia/Nemotron-H-56B-Base-8K
+  nvidia/Nemotron-H-8B-Base-8K
+  tiiuae/Falcon-H1-0.5B-Base
+  tiiuae/Falcon-H1-0.5B-Instruct
+  tiiuae/Falcon-H1-7B-Instruct-GPTQ-Int4
+
+## 20x  RMSNorm | rope | MLA | moe_shared | SiLU | +mtp
+  ByteDance-Seed/academic-ds-9B
+  PhalaCloud/GLM-5.2-W4AFP8
+  ai-sage/GigaChat3.1-10B-A1.8B
+  chwan/DeepSeek-V3-5layer
+  deepseek-ai/DeepSeek-R1
+  deepseek-ai/DeepSeek-R1-0528
+  deepseek-ai/DeepSeek-R1-Zero
+  deepseek-ai/DeepSeek-V3
+  deepseek-ai/DeepSeek-V3-0324
+  deepseek-ai/DeepSeek-V3.1
+  deepseek-ai/DeepSeek-V3.1-Base
+  deepseek-ai/DeepSeek-V3.1-Terminus
+  deepseek-ai/DeepSeek-V3.2
+  deepseek-ai/DeepSeek-V3.2-Exp
+  lmstudio-community/GLM-4.7-Flash-MLX-6bit
+  mlx-community/GLM-4.7-Flash-5bit
+  nvidia/DeepSeek-R1-0528-NVFP4-v2
+  unsloth/GLM-4.7-Flash-FP8-Dynamic
+  zai-org/GLM-4.7-Flash
+  zianglih/JoyAI-LLM-Flash-MXFP8-last-6-BF16
+
+## 18x  RMSNorm | rope | MLA | moe_shared | SiLU
+  RedHatAI/DeepSeek-V2.5-1210-FP8
+  aethercompute/aether0-500m
+  casperhansen/deepseek-coder-v2-instruct-awq
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Base
+  deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
+  deepseek-ai/DeepSeek-V2
+  deepseek-ai/DeepSeek-V2-Chat
+  deepseek-ai/DeepSeek-V2-Lite
+  deepseek-ai/DeepSeek-V2-Lite-Chat
+  deepseek-ai/DeepSeek-V2.5
+  kakaocorp/kanana-2-30b-a3b-instruct-2601
+  moonshotai/Kimi-K2-Base
+  moonshotai/Kimi-K2-Instruct
+  moonshotai/Kimi-K2-Instruct-0905
+  moonshotai/Kimi-K2-Thinking
+  moonshotai/Moonlight-16B-A3B
+  moonshotai/Moonlight-16B-A3B-Instruct
+  skt/A.X-K1
+
+## 17x  RMSNorm | rope | GQA | glu | GeLU | +sliding+qk-norm+softcap
+  BAAI/bge-reranker-v2.5-gemma2-lightweight
+  Doradus-AI/RnJ-1-Instruct-FP8
+  EssentialAI/rnj-1
+  IlyaGusev/gemma-2-2b-it-abliterated
+  ModelSpace/GemmaX2-28-9B-v0.1
+  QCRI/Fanar-1-9B-Instruct
+  Unbabel/Tower-Plus-9B
+  aisingapore/Gemma-SEA-LION-v3-9B-IT
+  google/gemma-2-27b
+  google/gemma-2-27b-it
+  google/gemma-2-2b
+  google/gemma-2-2b-it
+  google/gemma-2-9b
+  google/gemma-2-9b-it
+  google/shieldgemma-2b
+  google/shieldgemma-9b
+  tokyotech-llm/Gemma-2-Llama-Swallow-9b-pt-v0.1
+
+## 14x  RMSNorm | rope | GQA | moe | SiLU | +sliding+sink
+  amd/gpt-oss-20b-BF16-w8a8-llmcompressor-v0.10.0.2
+  huihui-ai/Huihui-gpt-oss-20b-BF16-abliterated
+  microsoft/OptiMind-SFT
+  mlx-community/gpt-oss-120b-MXFP4-Q4
+  mlx-community/gpt-oss-120b-MXFP4-Q8
+  mlx-community/gpt-oss-20b-MXFP4-Q8
+  np-cr/testing-gpt-oss
+  openai/gpt-oss-120b
+  openai/gpt-oss-20b
+  openai/gpt-oss-safeguard-20b
+  unsloth/gpt-oss-120b-unsloth-bnb-4bit
+  unsloth/gpt-oss-20b-unsloth-bnb-4bit
+  wangzhang/gpt-oss-20b-abliterated
+  yuvytung/gpt-oss-20b-slim
+
+## 12x  RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm
+  allenai/Olmo-3-1125-32B
+  allenai/Olmo-3-32B-Think
+  allenai/Olmo-3.1-32B-Instruct
+  allenai/Olmo-3.1-32B-Think
+  z-lab/Qwen3.5-122B-A10B-DFlash
+  z-lab/Qwen3.5-27B-DFlash
+  z-lab/Qwen3.5-35B-A3B-DFlash
+  z-lab/Qwen3.5-397B-A17B-DFlash
+  z-lab/Qwen3.5-4B-DFlash
+  z-lab/Qwen3.5-9B-DFlash
+  z-lab/Qwen3.6-27B-DFlash
+  z-lab/Qwen3.6-35B-A3B-DFlash
+
+## 11x  RMSNorm | rope | MHA | glu | SiLU | +sliding
+  ReDiX/Artemide-3.5
+  TIGER-Lab/VLM2Vec-Full
+  anakin87/Phi-3.5-mini-ITA
+  flowaicom/Flow-Judge-v0.1-AWQ
+  kmhf/hf-moshiko
+  microsoft/Phi-3-mini-128k-instruct
+  microsoft/Phi-3-mini-4k-instruct
+  microsoft/Phi-3-vision-128k-instruct
+  microsoft/Phi-3.5-mini-instruct
+  microsoft/Phi-3.5-vision-instruct
+  numind/NuExtract-1.5
+
+## 11x  RMSNorm | rope | none | glu | SiLU | +ssm
+  LemOneLabs/LFM2-1.2B-ONNX
+  LiquidAI/LFM2-1.2B
+  LiquidAI/LFM2-2.6B
+  LiquidAI/LFM2-2.6B-Exp
+  LiquidAI/LFM2-350M
+  LiquidAI/LFM2-700M
+  LiquidAI/LFM2.5-1.2B-Base
+  LiquidAI/LFM2.5-1.2B-JP-202606
+  LiquidAI/LFM2.5-1.2B-Thinking
+  NovachronoAI/LFM2.5-1.2B-Nova-Function-Calling-GGUF
+  lmstudio-community/LFM2.5-1.2B-Instruct-MLX-6bit
+
+## 10x  LayerNorm | learned_abs | MHA | vanilla | ReLU
+  BabyLM-community/babylm-multimodal-baseline-flamingo
+  facebook/opt-1.3b
+  facebook/opt-125m
+  facebook/opt-13b
+  facebook/opt-2.7b
+  facebook/opt-30b
+  facebook/opt-350m
+  facebook/opt-6.7b
+  jerryzh168/opt-125m-int8wo-partial-quant
+  yec019/fbopt-350m-8bit
+
+## 10x  RMSNorm | partial_rope | GQA | moe_shared | SiLU
+  AlexWortega/SIQ-1-35B
+  Bahushruth/Qwen3.6-35B-A3B-abliterated-v4
+  Intel/Qwen3-Coder-Next-int4-AutoRound
+  Qwen/Qwen3-Coder-Next-FP8
+  Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
+  RedHatAI/Qwen3-Coder-Next-FP8-dynamic
+  cyankiwi/Qwen3-Next-80B-A3B-Thinking-AWQ-4bit
+  lmstudio-community/Qwen3-Next-80B-A3B-Instruct-MLX-5bit
+  lmstudio-community/Qwen3-Next-80B-A3B-Instruct-MLX-6bit
+  ucbye/Qwen3-Coder-Next-NVFP4-GB10
+
+## 10x  LayerNorm | alibi | MHA | vanilla | GeLU
+  bigscience/bigscience-small-testing
+  bigscience/bloom
+  bigscience/bloom-1b1
+  bigscience/bloom-1b7
+  bigscience/bloom-3b
+  bigscience/bloom-560m
+  bigscience/bloom-7b1
+  bigscience/bloomz-3b
+  bigscience/bloomz-560m
+  bigscience/bloomz-7b1
+
+## 10x  RMSNorm | rope | MHA | glu | SiLU | +qk-norm
+  Lamsheeper/OLMo-base
+  allenai/OLMo-2-0425-1B
+  allenai/OLMo-2-0425-1B-DPO
+  allenai/OLMo-2-0425-1B-Instruct
+  allenai/OLMo-2-0425-1B-SFT
+  allenai/OLMo-2-1124-13B-Instruct
+  allenai/OLMo-2-1124-7B-Instruct
+  allenai/OLMo-2-1124-7B-SFT
+  nvidia/Llama-3_3-Nemotron-Super-49B-v1
+  nvidia/Llama-3_3-Nemotron-Super-49B-v1_5-FP8
+
+## 8x  LayerNorm | partial_rope | MHA | glu | GeLU
+  Artples/L-MChat-Small
+  StanfordAIMI/CheXagent-2-3b
+  StanfordAIMI/CheXagent-2-3b-srrg-findings
+  StanfordAIMI/CheXagent-2-3b-srrg-impression
+  hugohrban/progen2-small
+  microsoft/phi-1
+  microsoft/phi-1_5
+  microsoft/phi-2
+
+## 8x  RMSNorm | rope | GQA | moe | SiLU | +sliding
+  CohereLabs/North-Mini-Code-1.0-fp8
+  TitanML/tiny-mixtral
+  abacusai/Smaug-Mixtral-v0.1
+  arcee-ai/Trinity-Large-Thinking
+  arcee-ai/Trinity-Nano-Preview
+  microsoft/Phi-3.5-MoE-instruct
+  microsoft/Phi-mini-MoE-instruct
+  microsoft/Phi-tiny-MoE-instruct
+
+## 8x  RMSNorm | rope | MHA | glu | SiLU | +sliding+qk-norm
+  AIML-TUDA/OlmoLogic-7B-Think
+  allenai/Olmo-3-1025-7B
+  allenai/Olmo-3-7B-Instruct
+  allenai/Olmo-3-7B-Instruct-SFT
+  allenai/Olmo-3-7B-RL-Zero-Code
+  allenai/Olmo-3-7B-Think
+  allenai/Olmo-3-7B-Think-DPO
+  allenai/Olmo-3-7B-Think-SFT
+
+## 7x  RMSNorm | rope | MHA | moe | SiLU
+  allenai/Flex-reddit-2x7B-1T
+  allenai/FlexOlmo-7x7B-1T
+  allenai/OLMoE-1B-7B-0125
+  allenai/OLMoE-1B-7B-0125-Instruct
+  allenai/OLMoE-1B-7B-0924
+  allenai/OLMoE-1B-7B-0924-Instruct
+  ggml-org/stories15M_MOE
+
+## 6x  RMSNorm | rope | MQA | moe_shared | SiLU | +sliding+mtp
+  0xSero/DeepSeek-V4-Flash-180B
+  deepseek-ai/DeepSeek-V4-Flash
+  deepseek-ai/DeepSeek-V4-Flash-DSpark
+  deepseek-ai/DeepSeek-V4-Pro
+  deepseek-ai/DeepSeek-V4-Pro-DSpark
+  mlx-community/DeepSeek-V4-Flash-2bit-DQ
+
+## 6x  LayerNorm | rope | GQA | moe_shared | SiLU | +hybrid
+  lmstudio-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-5bit
+  lmstudio-community/NVIDIA-Nemotron-3-Nano-30B-A3B-MLX-6bit
+  nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-Base-BF16
+  nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-NVFP4
+  nvidia/Nemotron-Cascade-2-30B-A3B
+  nvidia/Nemotron-Labs-TwoTower-30B-A3B-Base-BF16
+
+## 6x  RMSNorm | partial_rope | GQA | moe | SiLU | +qk-norm
+  MiniMaxAI/MiniMax-M2
+  MiniMaxAI/MiniMax-M2.1
+  MiniMaxAI/MiniMax-M2.5
+  MiniMaxAI/MiniMax-M2.7
+  lmstudio-community/MiniMax-M2.5-MLX-6bit
+  scottgl/MiniMax-M2.7-REAP-172B-A10B-NVFP4-GB10
+
+## 6x  LayerNorm | nope | none | vanilla | SiLU | +ssm
+  RWKV/rwkv-4-169m-pile
+  state-spaces/mamba-1.4b-hf
+  state-spaces/mamba-130m-hf
+  state-spaces/mamba-2.8b-hf
+  state-spaces/mamba-370m-hf
+  state-spaces/mamba-790m-hf
+
+## 6x  RMSNorm | partial_rope | GQA | glu | SiLU
+  OBLITERATUS/Qwen3.6-27B-OBLITERATED
+  osmapi/Qwen3.6-27B-Claude-Opus-Reasoning-Distill-v2-abliterated-OptiQ-3.7bpw-mlx
+  zai-org/GLM-4-32B-0414
+  zai-org/GLM-4-9B-0414
+  zai-org/GLM-Z1-32B-0414
+  zai-org/GLM-Z1-9B-0414
+
+## 5x  LayerNorm | rope | GQA | moe_shared | SiLU | +hybrid+mtp
+  RedHatAI/NVIDIA-Nemotron-3-Ultra-550B-A55B-FP8-block
+  RedHatAI/NVIDIA-Nemotron-3-Ultra-550B-A55B-FP8-dynamic
+  nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-Base-BF16
+  nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4
+  nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-NVFP4
+
+## 5x  RMSNorm | rope | MHA | moe_shared | SiLU
+  Qwen/Qwen1.5-MoE-A2.7B
+  Qwen/Qwen1.5-MoE-A2.7B-Chat
+  deepseek-ai/deepseek-moe-16b-base
+  deepseek-ai/deepseek-moe-16b-chat
+  rednote-hilab/dots.llm1.inst
+
+## 5x  RMSNorm | partial_rope | GQA | moe_shared | SiLU | +qk-norm+mtp
+  QuantTrio/GLM-4.7-AWQ
+  mlx-community/GLM-4.7-8bit-gs32
+  mlx-community/GLM-4.7-REAP-50-mxfp4
+  zai-org/GLM-4.5
+  zai-org/GLM-4.6-FP8
+
+## 5x  RMSNorm | nope | none | glu | SiLU | +ssm
+  LiquidAI/LFM2.5-1.2B-JP-202606-ONNX
+  LiquidAI/LFM2.5-230M
+  LiquidAI/LFM2.5-230M-Base
+  LiquidAI/LFM2.5-350M
+  LiquidAI/LFM2.5-350M-Base
+
+## 5x  LayerNorm | partial_rope | MHA | glu | SiLU
+  stabilityai/stable-code-3b
+  stabilityai/stablelm-2-1_6b
+  stabilityai/stablelm-2-zephyr-1_6b
+  stabilityai/stablelm-3b-4e1t
+  stabilityai/stablelm-zephyr-3b
+
+## 4x  LayerNorm | partial_rope | MHA | vanilla | GeLU
+  EleutherAI/gpt-neox-20b
+  Salesforce/codegen-2B-mono
+  Salesforce/codegen-350M-mono
+  Salesforce/codegen-350M-multi
+
+## 4x  RMSNorm | partial_rope | GQA | glu | SiLU | +sliding
+  lmstudio-community/Phi-4-mini-reasoning-MLX-4bit
+  microsoft/Phi-4-mini-instruct
+  microsoft/Phi-4-multimodal-instruct
+  unsloth/Phi-4-mini-instruct-unsloth-bnb-4bit
+
+## 4x  LayerNorm | rope | GQA | glu | SiLU
+  LGAI-EXAONE/EXAONE-3.5-2.4B-Instruct
+  LGAI-EXAONE/EXAONE-3.5-32B-Instruct-AWQ
+  LGAI-EXAONE/EXAONE-3.5-7.8B-Instruct
+  Orion-zhen/aya-expanse-8b-AWQ
+
+## 4x  RMSNorm | rope | MQA | glu | SiLU
+  arnir0/Tiny-LLM
+  explosion-testing/llama2-kv-sharing
+  google/gemma-1.1-2b-it
+  p1atdev/dart-v2-sft
+
+## 4x  RMSNorm | rope | MQA | glu | GeLU
+  BAAI/bge-reranker-v2-gemma
+  google/codegemma-2b
+  google/gemma-2b
+  google/gemma-2b-it
+
+## 4x  RMSNorm | rope | GQA | glu | xielu
+  EPFLiGHT/Apertus-70B-MeditronFO
+  RedHatAI/Apertus-70B-Instruct-2509-quantized.w4a16
+  swiss-ai/Apertus-8B-2509
+  swiss-ai/Apertus-8B-Instruct-2509
+
+## 4x  RMSNorm | rope | MHA | glu | GeLU
+  Junfeng5/Liquid_V1_7B
+  SeaLLMs/SeaLLM-7B-v2.5
+  google/gemma-7b
+  google/gemma-7b-it
+
+## 4x  RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm+softcap
+  google/gemma-2-2b-jpn-it
+  vandijklab/C2S-Scale-Gemma-2-2B
+  z-lab/gemma-4-26B-A4B-it-DFlash
+  z-lab/gemma-4-31B-it-DFlash
+
+## 4x  RMSNorm | rope | MHA | glu | mish
+  KBlueLeaf/DanTagGen-alpha
+  KBlueLeaf/DanTagGen-beta
+  KBlueLeaf/DanTagGen-delta
+  KBlueLeaf/DanTagGen-delta-rev2
+
+## 3x  RMSNorm | partial_rope | GQA | moe_shared | SiLU | +mtp
+  np-cr/testing-glm4-moe
+  samuelfaj/Qwen3.6-35B-A3B-NSC-ACE-SABER-6bit-MTPLX-Optimized-Speed
+  zai-org/GLM-4.5-Air
+
+## 3x  RMSNorm | partial_rope | GQA | glu | ReLU
+  nvidia/Minitron-4B-Base
+  nvidia/Minitron-8B-Base
+  nvidia/Nemotron-Mini-4B-Instruct
+
+## 3x  RMSNorm | rope | GQA | moe | SiLU | +hybrid
+  ibm-granite/granite-4.0-h-small
+  ibm-granite/granite-4.0-h-tiny
+  ibm-granite/granite-4.0-tiny-preview
+
+## 3x  LayerNorm | learned_abs | MQA | vanilla | GeLU
+  bigcode/gpt_bigcode-santacoder
+  bigcode/tiny_starcoder_py
+  ibm-granite/granite-20b-code-instruct-8k
+
+## 3x  LayerNorm | nope | none | glu | SiLU | +ssm
+  tiiuae/falcon-mamba-7b
+  tiiuae/falcon-mamba-7b-instruct
+  tiiuae/falcon-mamba-tiny-dev
+
+## 3x  RMSNorm | partial_rope | GQA | moe | SiLU | +diffusion
+  inclusionAI/LLaDA2.0-mini
+  inclusionAI/LLaDA2.1-flash
+  inclusionAI/LLaDA2.1-mini
+
+## 3x  RMSNorm | rope | MLA | glu | SiLU
+  lightseekorg/kimi-k2.5-eagle3-mla
+  lightseekorg/kimi-k2.6-eagle3-mla
+  openbmb/MiniCPM3-4B
+
+## 3x  RMSNorm | rope | GQA | moe | SiLU | +mtp
+  baidu/ERNIE-4.5-21B-A3B-PT
+  lmstudio-community/ERNIE-4.5-21B-A3B-MLX-4bit
+  lmstudio-community/ERNIE-4.5-21B-A3B-MLX-6bit
+
+## 2x  RMSNorm | rope | GQA | glu | SiLU | +mtp
+  XiaomiMiMo/MiMo-7B-Base
+  XiaomiMiMo/MiMo-7B-RL
+
+## 2x  RMSNorm | rope | MHA | glu | GeLU | +hybrid+xlayer-kv
+  Zyphra/Zamba2-1.2B-instruct
+  Zyphra/Zamba2-7B-Instruct
+
+## 2x  RMSNorm | rope | GQA | glu | GeLU | +sliding
+  bigcode/starcoder2-15b
+  bigcode/starcoder2-3b
+
+## 2x  RMSNorm | rope | GQA | moe_shared | SiLU | +qk-norm
+  bharatgenai/Param2-17B-A2.4B-Thinking
+  sarvamai/sarvam-30b
+
+## 2x  RMSNorm | partial_rope | GQA | moe_shared | SiLU | +qk-norm
+  inclusionAI/Ling-mini-2.0
+  silx-ai/Quasar-Preview
+
+## 2x  RMSNorm | rope | GQA | glu | ReLU
+  arcee-ai/AFM-4.5B
+  arcee-ai/AFM-4.5B-Base
+
+## 2x  RMSNorm | rope | MQA | moe | SiLU | +hybrid
+  ai21labs/AI21-Jamba-Reasoning-3B
+  ai21labs/AI21-Jamba2-3B
+
+## 2x  RMSNorm | rope | GQA | moe_shared | SiLU
+  Qwen/Qwen2-57B-A14B
+  Qwen/Qwen2-57B-A14B-Instruct
+
+## 2x  RMSNorm | partial_rope | GQA | moe | SiLU | +hybrid
+  MiniMaxAI/MiniMax-Text-01
+  MiniMaxAI/MiniMax-Text-01-hf
+
+## 2x  LayerNorm | rope | MQA | vanilla | GeLU | +parallel
+  fxmarty/really-tiny-falcon-testing
+  tiiuae/falcon-11B
+
+## 2x  RMSNorm | partial_rope | GQA | moe | SiLU | +hybrid+qk-norm
+  lmstudio-community/MiniMax-M2-MLX-6bit
+  mlx-community/MiniMax-M2.1-3bit
+
+## 2x  RMSNorm | partial_rope | MQA | moe_shared | SiLU | +sliding+mtp
+  LordNeel/DeepSeek-V4-Flash-Acti-MTP-W4A16-FP8
+  canada-quant/DeepSeek-V4-Flash-W4A16-FP8-MTP
+
+## 1x  LayerNorm | rope | MHA | vanilla | GeLU
+  rinna/japanese-gpt-neox-small
+
+## 1x  LayerNorm | rope | MHA | glu | GeLU
+  abeja/gpt-neox-japanese-2.7b
+
+## 1x  RMSNorm | rope | MLA | moe | SiLU | +qk-norm
+  sarvamai/sarvam-105b
+
+## 1x  RMSNorm | rope | MLA | moe | SiLU
+  moonshotai/Kimi-Linear-48B-A3B-Instruct
+
+## 1x  RMSNorm | partial_rope | MLA | moe_shared | SiLU | +qk-norm
+  inclusionAI/Ring-2.5-1T
+
+## 1x  RMSNorm | rope | MQA | glu | SiLU | +hybrid+sliding
+  pfnet/plamo-2-1b
+
+## 1x  RMSNorm | partial_rope | GQA | moe | SiLU
+  MiniMaxAI/MiniMax-M1-40k
+
+## 1x  LayerNorm | rope | MHA | vanilla | ReLU | +parallel+qk-norm
+  adept/persimmon-8b-chat
+
+## 1x  RMSNorm | partial_rope | MHA | moe | SiLU
+  UnfilteredAI/NSFW-flash
+
+## 1x  LayerNorm | alibi | MHA | vanilla | GeLU | +parallel
+  tiiuae/falcon-rw-1b
+
+## 1x  LayerNorm | rope | GQA | glu | GeLU | +sliding
+  bigcode/starcoder2-7b
+
+## 1x  LayerNorm | nope | none | glu | SiLU | +linear
+  RWKV/v5-Eagle-7B-HF
+
+## 1x  RMSNorm | rope | GQA | glu | SiLU | +hybrid+sliding
+  pfnet/plamo-2-translate
+
+## 1x  LayerNorm | partial_rope | GQA | glu | SiLU | +parallel+qk-norm
+  stabilityai/stablelm-2-12b
+
+## 1x  RMSNorm | partial_rope | none | glu | SiLU | +ssm
+  google/recurrentgemma-2b-it
+
+## 1x  RMSNorm | rope | MQA | moe | SiLU
+  p1atdev/dart-v2-moe-sft
+
+## 1x  RMSNorm | rope | MQA | moe_shared | SiLU | +sliding
+  dealignai/DeepSeek-V4-Flash-JANG-CRACK
+
+## 1x  RMSNorm | rope | MQA | glu | SiLU | +qk-norm
+  ekwek/Soprano-1.1-80M
+

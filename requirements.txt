@@ -1,0 +1,13 @@
+torch>=2.2
+transformers>=4.57      # `dtype=` kwarg, Lfm2Config, MiniMaxConfig; verified on 4.57.6 (fails on 4.52); tef_recipes: same floor
+datasets>=2.18     # harness.py
+huggingface_hub>=0.23   # graph/fetch_configs.py (top-N Hub listing + config.json)
+scipy>=1.10        # act/relu_net.py free-knot minimax, act/activation_cross.py floor_minimax (LPs)
+numpy
+safetensors        # hf/real_reductions.py
+requests           # serving/arbitrage.py, serving/st_reader.py
+matplotlib         # graph/figures.py, graph/frontier_over_time.py, graph/fig_diffusion.py
+pytest
+# system dependency for graph SVG rendering: graphviz (`dot`)
+# optional, only for tests that skip without them: `python -m elephantine.fetch_upstream_refs`
+#   (upstream sources into ~/.cache/upstream_refs; `... vllm` for the isolated vLLM venv)

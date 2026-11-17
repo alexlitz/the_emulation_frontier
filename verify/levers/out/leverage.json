@@ -1,0 +1,1569 @@
+{
+ "base": 218,
+ "points": 895,
+ "models": 3933,
+ "rows": [
+  {
+   "kind": "coupled",
+   "rule": "all FEATURES",
+   "frontier": 168,
+   "freed": 50,
+   "left": [
+    "Qwen1.5-110B",
+    "Seed-OSS-36B-Base",
+    "granite-switch-4.1-30b",
+    "HyperCLOVAX-SEED-Think-14B",
+    "hubble-8b-100b_toks-perturbed-hf",
+    "granite-8b-code-base-4k",
+    "granite-3b-code-base-2k",
+    "PowerLM-3b",
+    "Jais-3-MoVA-36B-A4B",
+    "GLM-Z1-Rumination-32B-0414",
+    "qwen4_exp-8b-obliterated-abliterated-kompress-ultra",
+    "gaggle-nanochat-pretrained-climbmix-20260924",
+    "granite-switch-4.1-3b-preview",
+    "Qwen1.5-MoE-A2.7B",
+    "basal-2.0-4.5B",
+    "manaca-1b-base",
+    "gerpt2",
+    "GLM-4-9B-0414",
+    "Qwen3.8-Flash-Next-HTR",
+    "polyglot-ko-5.8b",
+    "Naive-N0.5-Flash",
+    "wayfinder-glimmer-30b",
+    "Phi-3.5-MoE-instruct",
+    "Whittle-Next-27B-A3B",
+    "LFM2.5-1.2B-JP",
+    "MiniMax-M2",
+    "Qwen3.8-Flash-Next-125B-A5B-INT4-AutoRound",
+    "MiniMax-M3-NVFP4",
+    "stable-code-3b",
+    "MemT-1.0-Nano",
+    "A.X-K2-NVFP4",
+    "NVIDIA-Nemotron-3.5-Bolt-74B-A9B-MLX-IQ2",
+    "clio-v1-legacy",
+    "nous-2",
+    "A.X-K1",
+    "Param2-17B-A2.4B-Thinking",
+    "GLM-4.7-Flash",
+    "Jet-Nemotron-2B",
+    "kotodama-tsumugi-1b",
+    "Xing4.0-29B-Intent",
+    "LongCat-Flash-Chat",
+    "Udgam-384M-Base",
+    "bge-reranker-v2.5-gemma2-lightweight",
+    "MiniCPM3-4B",
+    "my-model-v01",
+    "vaultgemma-1b"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "depth (eff + param + kinds)",
+   "frontier": 186,
+   "freed": 32,
+   "left": [
+    "Hermes-4-405B",
+    "Ling-plus",
+    "IQuest-Coder-V1-40B-Loop-Instruct",
+    "Solar-Open-100B",
+    "Hy3",
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "GLM-5.3-DFlash2",
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "Kimi-K3-DFlash",
+    "manaca-1b-base",
+    "Qwen3.6-40B-Claude-4.6-Opus-Deckard-Heretic-Uncensored-Thinking-8bit",
+    "codeparrot",
+    "teutonic-II-110B-genesis",
+    "Intern-S1",
+    "DeepSeek-V4.1-Flash",
+    "MioTTS-2.6B",
+    "IQuest-Q1",
+    "MiniMax-M2",
+    "LFM3-1.7B-RD",
+    "Nanbeige4.3-33B-DFlash2",
+    "Fx-Bio",
+    "bilingual-gpt-neox-4b",
+    "Param2-17B-A2.4B-Thinking",
+    "Udgam-384M-Base",
+    "parler-tts-large-v1",
+    "AFM-4.5B",
+    "Pharia-1-LLM-7B-control-hf",
+    "rnj-1-instruct",
+    "Gemini-Nano-Gemmafied",
+    "MiniCPM3-4B",
+    "vaultgemma-1b",
+    "Vemana-Base"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "qknorm both ways + post_norm both sides",
+   "frontier": 194,
+   "freed": 24,
+   "left": [
+    "OLMo-2-0325-32B",
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "HyperCLOVAX-SEED-Think-14B",
+    "NorOLMo-13B",
+    "HunyuanImage-3.0",
+    "Solar-Open-100B",
+    "delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft",
+    "GLM-4.5-Air",
+    "deepseek-moe-16b-base",
+    "Intern-S1",
+    "GLM-Z1-Rumination-32B-0414",
+    "GLM-4-9B-0414",
+    "jetmoe-8b",
+    "EdgeRock",
+    "LLaMA-MoE-v1-3_0B-2_16",
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "MemT-1.0-Nano",
+    "wayfinder-glimmer-30b",
+    "Kimi-K3-DSpark",
+    "MiniCPM-V-4.7-35B-A3B-DSpark",
+    "Kimi-K3-DFlash",
+    "LLaDA2.2-mini",
+    "AFM-4.5B",
+    "A.X-K1"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "cat:qknorm",
+   "frontier": 201,
+   "freed": 17,
+   "left": [
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "HunyuanImage-3.0",
+    "Solar-Open-100B",
+    "delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft",
+    "GLM-4.5-Air",
+    "deepseek-moe-16b-base",
+    "Intern-S1",
+    "jetmoe-8b",
+    "EdgeRock",
+    "LLaMA-MoE-v1-3_0B-2_16",
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "MemT-1.0-Nano",
+    "Kimi-K3-DSpark",
+    "MiniCPM-V-4.7-35B-A3B-DSpark",
+    "Kimi-K3-DFlash",
+    "LLaDA2.2-mini",
+    "AFM-4.5B"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "near-gap: softmax plays recurrent layers (nonplain:mixer + rf target + kinds)",
+   "frontier": 201,
+   "freed": 17,
+   "left": [
+    "GKA-primed-HQwen3-8B-Instruct",
+    "PseudoBrain-Qwen3-Coder-30B-A3B-BF16",
+    "Jamba-v0.1",
+    "MioTTS-2.6B",
+    "LFM2.5-1.2B-JP",
+    "LFM2-8B-A1B",
+    "LFM2-24B-A2B-MLX-4bit",
+    "Bamba-9B-v1",
+    "granite-4.0-h-small",
+    "falcon-mamba-7b",
+    "plamo-2-translate",
+    "Olmo-Hybrid-7B",
+    "gla-1.3B-100B",
+    "rwkv-4-169m-pile",
+    "Jet-Nemotron-2B",
+    "rwkv7-0.1B-g1",
+    "Phi-4-mini-flash-reasoning"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "all bias features (bias_qkv + bias_out)",
+   "frontier": 204,
+   "freed": 14,
+   "left": [
+    "Qwen1.5-110B",
+    "Seed-OSS-36B-Base",
+    "hubble-8b-100b_toks-perturbed-hf",
+    "granite-8b-code-base-4k",
+    "basal-2.0-4.5B",
+    "PowerLM-3b",
+    "granite-3b-code-base-2k",
+    "manaca-1b-base",
+    "polyglot-ko-5.8b",
+    "Phi-3.5-MoE-instruct",
+    "stable-code-3b",
+    "clio-v1-legacy",
+    "nous-2",
+    "GLM-4-9B-0414"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "act floor threshold ACT_FLOOR_MAX -> 1e+09",
+   "frontier": 205,
+   "freed": 13,
+   "left": [
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "ruGPT-3.5-13B-GGUF",
+    "codeparrot",
+    "nemotron3-8b",
+    "AFM-4.5B",
+    "parler-tts-large-v1",
+    "DanTagGen-beta",
+    "vaultgemma-1b",
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "Kimi-K3-DFlash",
+    "granite-20b-code-base-8k",
+    "Gemini-Nano-Gemmafied",
+    "rnj-1-instruct"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "cat:act",
+   "frontier": 205,
+   "freed": 13,
+   "left": [
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "ruGPT-3.5-13B-GGUF",
+    "codeparrot",
+    "nemotron3-8b",
+    "AFM-4.5B",
+    "parler-tts-large-v1",
+    "DanTagGen-beta",
+    "vaultgemma-1b",
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "Kimi-K3-DFlash",
+    "granite-20b-code-base-8k",
+    "Gemini-Nano-Gemmafied",
+    "rnj-1-instruct"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "window: sliding-window host layers count as full (ZERO_EDGES window + kinds LU->FU)",
+   "frontier": 207,
+   "freed": 11,
+   "left": [
+    "manaca-1b-base",
+    "MiniMax-M2",
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "Param2-17B-A2.4B-Thinking",
+    "Udgam-384M-Base",
+    "rnj-1-instruct",
+    "Nanbeige4.3-33B-DFlash2",
+    "Gemini-Nano-Gemmafied",
+    "Pharia-1-LLM-7B-control-hf",
+    "vaultgemma-1b",
+    "Vemana-Base"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "ffn_active",
+   "frontier": 208,
+   "freed": 10,
+   "left": [
+    "WizardLM-2-8x22B",
+    "HunyuanImage-3.0",
+    "delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft",
+    "LFM2-8B-A1B",
+    "MioTTS-2.6B",
+    "LFM2.5-1.2B-JP",
+    "Qwen3.8-Flash-Next-HTR",
+    "Moonlight-16B-A3B",
+    "Param2-17B-A2.4B-Thinking",
+    "GigaChat3.1-Audio-10B-A1.8B"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "cat:pos",
+   "frontier": 209,
+   "freed": 9,
+   "left": [
+    "Solar-Open-100B",
+    "ruGPT-3.5-13B-GGUF",
+    "codeparrot",
+    "gerpt2",
+    "plamo-3-translate-2b",
+    "kanana-2-1.3b-instruct",
+    "opt-66b",
+    "granite-20b-code-base-8k",
+    "really-tiny-falcon-testing"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:qknorm yes<-no",
+   "frontier": 209,
+   "freed": 9,
+   "left": [
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "HunyuanImage-3.0",
+    "delphi-1e22-9_7Bparams-160Btokens-base-wc386k_lr1e5-sft",
+    "Intern-S1",
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "Kimi-K3-DFlash",
+    "LLaDA2.2-mini",
+    "Kimi-K3-DSpark",
+    "MiniCPM-V-4.7-35B-A3B-DSpark"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:bias_out:target",
+   "frontier": 209,
+   "freed": 9,
+   "left": [
+    "hubble-8b-100b_toks-perturbed-hf",
+    "granite-8b-code-base-4k",
+    "basal-2.0-4.5B",
+    "PowerLM-3b",
+    "granite-3b-code-base-2k",
+    "manaca-1b-base",
+    "clio-v1-legacy",
+    "nous-2",
+    "stable-code-3b"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "rot_gate",
+   "frontier": 209,
+   "freed": 9,
+   "left": [
+    "plamo-3-translate-2b",
+    "kanana-2-1.3b-instruct",
+    "Laguna-S-2.1",
+    "LFM3-1.7B-Frontier-SmartAgent",
+    "Fx-Bio",
+    "Mellum2-12B-A2.5B-Base",
+    "gepard-1.0",
+    "MiniCPM-V-4.7-35B-A3B-DSpark",
+    "HyperCLOVAX-SEED-Think-14B"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "MoE<-dense: both (no 2x depth, any router)",
+   "frontier": 210,
+   "freed": 8,
+   "left": [
+    "WizardLM-2-8x22B",
+    "Yi-34Bx2-MoE-60B",
+    "ERNIE-4.5-300B-A47B-PT",
+    "Solar-Open-100B",
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "LLaMA-MoE-v1-3_0B-2_16",
+    "teutonic-II-110B-genesis",
+    "parler-tts-large-v1"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "act floor threshold ACT_FLOOR_MAX -> 0.15",
+   "frontier": 210,
+   "freed": 8,
+   "left": [
+    "ruGPT-3.5-13B-GGUF",
+    "codeparrot",
+    "parler-tts-large-v1",
+    "DanTagGen-beta",
+    "vaultgemma-1b",
+    "granite-20b-code-base-8k",
+    "Gemini-Nano-Gemmafied",
+    "rnj-1-instruct"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:qknorm no<-yes",
+   "frontier": 210,
+   "freed": 8,
+   "left": [
+    "Solar-Open-100B",
+    "GLM-4.5-Air",
+    "deepseek-moe-16b-base",
+    "jetmoe-8b",
+    "LLaMA-MoE-v1-3_0B-2_16",
+    "MemT-1.0-Nano",
+    "EdgeRock",
+    "AFM-4.5B"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:bias_qkv:target",
+   "frontier": 210,
+   "freed": 8,
+   "left": [
+    "Qwen1.5-110B",
+    "Seed-OSS-36B-Base",
+    "granite-8b-code-base-4k",
+    "manaca-1b-base",
+    "polyglot-ko-5.8b",
+    "Phi-3.5-MoE-instruct",
+    "nous-2",
+    "GLM-4-9B-0414"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "all MLA rules (mla_wall + latents + penalty)",
+   "frontier": 212,
+   "freed": 6,
+   "left": [
+    "kanana-2-30b-a3b-instruct",
+    "Moonlight-16B-A3B",
+    "GigaChat3.1-Audio-10B-A1.8B",
+    "Kimi-Linear-48B-A3B-Base",
+    "MiniCPM3-4B",
+    "Ling-3.0-flash-oQ4"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:post_norm:target",
+   "frontier": 212,
+   "freed": 6,
+   "left": [
+    "OLMo-2-0325-32B",
+    "GLM-4-9B-0414",
+    "GLM-Z1-Rumination-32B-0414",
+    "wayfinder-glimmer-30b",
+    "HyperCLOVAX-SEED-Think-14B",
+    "A.X-K1"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:tied_emb:host",
+   "frontier": 212,
+   "freed": 6,
+   "left": [
+    "hubble-8b-100b_toks-perturbed-hf",
+    "manaca-1b-base",
+    "gerpt2",
+    "nous-2",
+    "stable-code-3b",
+    "vaultgemma-1b"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "ffn_total",
+   "frontier": 212,
+   "freed": 6,
+   "left": [
+    "WizardLM-2-8x22B",
+    "snowflake-arctic-instruct",
+    "MiniMax-M2",
+    "Ling-3.1-flash",
+    "IQuest-Q1",
+    "Qwen3.8-Flash-Next-125B-A5B-INT4-AutoRound"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "act floor threshold ACT_FLOOR_MAX -> 0.015",
+   "frontier": 213,
+   "freed": 5,
+   "left": [
+    "parler-tts-large-v1",
+    "DanTagGen-beta",
+    "vaultgemma-1b",
+    "Gemini-Nano-Gemmafied",
+    "rnj-1-instruct"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "act floor threshold ACT_FLOOR_MAX -> 0.02",
+   "frontier": 213,
+   "freed": 5,
+   "left": [
+    "parler-tts-large-v1",
+    "DanTagGen-beta",
+    "vaultgemma-1b",
+    "Gemini-Nano-Gemmafied",
+    "rnj-1-instruct"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "act floor threshold ACT_FLOOR_MAX -> 0.05",
+   "frontier": 213,
+   "freed": 5,
+   "left": [
+    "parler-tts-large-v1",
+    "DanTagGen-beta",
+    "vaultgemma-1b",
+    "Gemini-Nano-Gemmafied",
+    "rnj-1-instruct"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "cat:gen",
+   "frontier": 213,
+   "freed": 5,
+   "left": [
+    "Nemotron-Labs-Diffusion-14B",
+    "gte-Qwen2-7B-instruct",
+    "GLM-5.3-DFlash2",
+    "LLaDA2.2-mini",
+    "Nanbeige4.3-33B-DFlash2"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:gen diffusion<-ar",
+   "frontier": 213,
+   "freed": 5,
+   "left": [
+    "Nemotron-Labs-Diffusion-14B",
+    "gte-Qwen2-7B-instruct",
+    "GLM-5.3-DFlash2",
+    "LLaDA2.2-mini",
+    "Nanbeige4.3-33B-DFlash2"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos learned_abs<-alibi",
+   "frontier": 213,
+   "freed": 5,
+   "left": [
+    "ruGPT-3.5-13B-GGUF",
+    "codeparrot",
+    "gerpt2",
+    "opt-66b",
+    "granite-20b-code-base-8k"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "mla_latents",
+   "frontier": 213,
+   "freed": 5,
+   "left": [
+    "Moonlight-16B-A3B",
+    "kanana-2-30b-a3b-instruct",
+    "Ling-3.0-flash-oQ4",
+    "GigaChat3.1-Audio-10B-A1.8B",
+    "Kimi-Linear-48B-A3B-Base"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "MoE<-dense: no 2x depth (moe factor 1)",
+   "frontier": 214,
+   "freed": 4,
+   "left": [
+    "Solar-Open-100B",
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "teutonic-II-110B-genesis",
+    "parler-tts-large-v1"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act GeLU<-SiLU",
+   "frontier": 214,
+   "freed": 4,
+   "left": [
+    "parler-tts-large-v1",
+    "rnj-1-instruct",
+    "Gemini-Nano-Gemmafied",
+    "vaultgemma-1b"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:dsa:host",
+   "frontier": 214,
+   "freed": 4,
+   "left": [
+    "MAI-DS-R1",
+    "GLM-4.7-Flash",
+    "LongCat-Flash-Chat",
+    "MiniCPM3-4B"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "kv_heads",
+   "frontier": 214,
+   "freed": 4,
+   "left": [
+    "jetmoe-8b",
+    "Kimi-K3-DSpark",
+    "really-tiny-falcon-testing",
+    "tiny-testing-falcon-alibi"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act GeLU<-ReLU",
+   "frontier": 215,
+   "freed": 3,
+   "left": [
+    "ruGPT-3.5-13B-GGUF",
+    "codeparrot",
+    "granite-20b-code-base-8k"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act SiLU<-xielu",
+   "frontier": 215,
+   "freed": 3,
+   "left": [
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF",
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "Kimi-K3-DFlash"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos rope<-nope",
+   "frontier": 215,
+   "freed": 3,
+   "left": [
+    "Solar-Open-100B",
+    "plamo-3-translate-2b",
+    "kanana-2-1.3b-instruct"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:out_gate:target",
+   "frontier": 215,
+   "freed": 3,
+   "left": [
+    "Jais-3-MoVA-36B-A4B",
+    "A.X-K2-NVFP4",
+    "Whittle-Next-27B-A3B"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:rf:target",
+   "frontier": 215,
+   "freed": 3,
+   "left": [
+    "LFM2.5-1.2B-JP",
+    "Jet-Nemotron-2B"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "hidden",
+   "frontier": 215,
+   "freed": 3,
+   "left": [
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "Muse-Spark-Open-DFlash2",
+    "Kimi-K3-DFlash"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "hidden incl. norm mirror",
+   "frontier": 215,
+   "freed": 3,
+   "left": [
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "Muse-Spark-Open-DFlash2",
+    "Kimi-K3-DFlash"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "CLA carry: own-KV attention plays KV-sharing layers (nonplain:cla + kinds)",
+   "frontier": 216,
+   "freed": 2,
+   "left": [
+    "DeepSeek-V4.1-Flash",
+    "gemma-4-31B-it-assistant"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "MoE<-dense: any router (top-1 unit-gate rule dropped)",
+   "frontier": 216,
+   "freed": 2,
+   "left": [
+    "Yi-34Bx2-MoE-60B",
+    "LLaMA-MoE-v1-3_0B-2_16"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:dsa:target",
+   "frontier": 216,
+   "freed": 2,
+   "left": [
+    "DeepSeek-V3.2",
+    "Naive-N0.5-Flash"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:hyper_conn:target",
+   "frontier": 216,
+   "freed": 2,
+   "left": [
+    "Xing4.0-29B-Intent",
+    "Hy4-preview-FP8"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:router_group:host",
+   "frontier": 216,
+   "freed": 2,
+   "left": [
+    "MiniMax-M2",
+    "Param2-17B-A2.4B-Thinking"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:switch_lora:target",
+   "frontier": 216,
+   "freed": 2,
+   "left": [
+    "granite-switch-4.1-30b",
+    "granite-switch-4.1-3b-preview"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "moe_dense_top1",
+   "frontier": 216,
+   "freed": 2,
+   "left": [
+    "Yi-34Bx2-MoE-60B",
+    "LLaMA-MoE-v1-3_0B-2_16"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "norm_mirror",
+   "frontier": 216,
+   "freed": 2,
+   "left": [
+    "Qwen3.8-2.4T-A95B-DSpark",
+    "Kimi-K3-DFlash"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "K=V: a K=V host layer plays an own-V layer (keqv caps + kinds)",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "Udgam-384M-Base"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "act floor threshold ACT_FLOOR_MAX -> 0.01",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "DanTagGen-beta"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act mish<-GeLU",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "DanTagGen-beta"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act mish<-SiLU",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "DanTagGen-beta"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act relu2<-GeLU",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "nemotron3-8b"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act relu2<-SiLU",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "AFM-4.5B"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos learned_abs<-partial_rope",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "gerpt2"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos learned_abs<-rope",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "gerpt2"
+   ]
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos rope<-alibi",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "really-tiny-falcon-testing"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:attn_res:target",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "kotodama-tsumugi-1b"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:nope_layers:host",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "wayfinder-glimmer-30b"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:post_norm:host",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "Qwen-3.8-27B-ROCmFP4-FAST-GGUF"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:router_sigmoid:target",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "NVIDIA-Nemotron-3.5-Bolt-74B-A9B-MLX-IQ2"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:value_emb:target",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "gaggle-nanochat-pretrained-climbmix-20260924"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "feat:vnorm:target",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "Udgam-384M-Base"
+   ]
+  },
+  {
+   "kind": "component",
+   "rule": "mla_wall",
+   "frontier": 217,
+   "freed": 1,
+   "left": [
+    "MiniCPM3-4B"
+   ]
+  },
+  {
+   "kind": "coupled",
+   "rule": "[implausible] recurrent host layers play attention (kinds R->attn; mixer depth)",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "alibi_rope",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act GeLU<-mish",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act GeLU<-poly_norm",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act GeLU<-relu2",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act GeLU<-situ",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act GeLU<-swigluoai",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act GeLU<-xielu",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act ReLU<-poly_norm",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act ReLU<-relu2",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act ReLU<-situ",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act ReLU<-xielu",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act SiLU<-GeLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act SiLU<-ReLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act SiLU<-mish",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act SiLU<-poly_norm",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act SiLU<-relu2",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act SiLU<-situ",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act mish<-ReLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act mish<-poly_norm",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act mish<-relu2",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act mish<-situ",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act mish<-swigluoai",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act mish<-xielu",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act poly_norm<-GeLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act poly_norm<-ReLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act poly_norm<-SiLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act poly_norm<-mish",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act poly_norm<-relu2",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act poly_norm<-situ",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act poly_norm<-swigluoai",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act poly_norm<-xielu",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act relu2<-ReLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act relu2<-mish",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act relu2<-poly_norm",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act relu2<-situ",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act relu2<-swigluoai",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act situ<-GeLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act situ<-ReLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act situ<-SiLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act situ<-mish",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act situ<-poly_norm",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act situ<-relu2",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act situ<-swigluoai",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act situ<-xielu",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act swigluoai<-GeLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act swigluoai<-ReLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act swigluoai<-mish",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act swigluoai<-poly_norm",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act swigluoai<-relu2",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act swigluoai<-situ",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act swigluoai<-xielu",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act xielu<-GeLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act xielu<-ReLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act xielu<-SiLU",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act xielu<-mish",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act xielu<-poly_norm",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act xielu<-relu2",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act xielu<-situ",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:act xielu<-swigluoai",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "cat:mtp",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "cat:norm",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos alibi<-nope",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos learned_abs<-nope",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos partial_rope<-alibi",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos partial_rope<-learned_abs",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos partial_rope<-nope",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:pos rope<-learned_abs",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "cat:sink",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "pair",
+   "rule": "cat:sink yes<-no",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "cat:softcap",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "depth_eff",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "depth_param",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "feat:attn_res:host",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "feat:engram:target",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "feat:hyper_conn:host",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "feat:nope_layers:target",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "feat:ple:target",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "feat:router_bias:target",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "feat:router_group:target",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "feat:shared_gate:target",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "feat:vnorm:host",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "head_dim",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "keqv_caps",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "kinds_eff",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "kinds_param",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "kv_cap",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "coupled",
+   "rule": "kv_cap incl. MLA penalty",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "mla_penalty",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "nonplain:cla",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "nonplain:mixer",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "par_carry",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "q_cap",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  },
+  {
+   "kind": "component",
+   "rule": "qheads",
+   "frontier": 218,
+   "freed": 0,
+   "left": []
+  }
+ ]
+}

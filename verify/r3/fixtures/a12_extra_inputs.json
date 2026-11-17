@@ -1,0 +1,155 @@
+{
+ "qwen4_ple_reads_ngrams": {
+  "detector": "detect_qwen4_ple_reads_ngrams",
+  "flag": {
+   "CMSManhattan/JiRackDeltaNet_180b": "engram_qwen4",
+   "Dankpaws/Swift1.5-Qwen3.8-Flash-Next-MLX-4.7bpw": "engram_qwen4",
+   "Jakevin/Qwen3.8-Flash-Next-mixed-mlx-K50-min3bit-oMLX": "engram_qwen4",
+   "LOKSUN-158/SamQuant-Qwen3.8-Flash-Next-Uncensored-MLX-Serve-Mix-C58": "engram_qwen4",
+   "PeetPedro/qwen4_exp-8b-obliterated-abliterated-kompress-ultra": "engram_qwen4",
+   "Schiltmans/Qwen3.8-Flash-Next-Coder-cut240": "engram_qwen4",
+   "Youssofal/Qwen3.8-Flash-Next-MTPLX-Bare-Speed": "engram_qwen4",
+   "albucino/Qwen3.8-Flash-Next-W4A16-FP8PLE": "engram_qwen4",
+   "austindixson/Qwen3.8-Flash-Next-Unsloth-V3.1-MLX": "engram_qwen4",
+   "azampatti/Qwen3.8-Flash-Next-125B-A5B-INT4-AutoRound": "engram_qwen4",
+   "ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-3.3bpw": "engram_qwen4",
+   "ddalcu/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-4.7bpw": "engram_qwen4",
+   "ddalcu/Qwen3.8-Flash-Next-MLX-Serve-mixed-4-8bit": "engram_qwen4",
+   "defnoteatin/PseudoBrain-Qwen3.8-Flash-Next-BF16": "engram_qwen4",
+   "hstolte/Qwen3.8-Flash-Next-HTR": "engram_qwen4",
+   "jakeatx/slimder-qwen38-reap384-depth40-mb4-5": "engram_qwen4",
+   "mlx-community/Qwen3.8-Flash-Next-OptiQ-2bit": "engram_qwen4",
+   "neopolita/Niwaki-Qwen3.8-Flash-Next-141B-A6B-v4.0-mlx": "engram_qwen4",
+   "pipenetwork/Qwen3.8-Flash-Next-MLX-mixed-4_8bit": "engram_qwen4",
+   "umixer/Qwen3.8-Flash-Next-oQ4e-mix6-mtp": "engram_qwen4",
+   "umixer/ThinkingCap-Qwen3.8-Flash-Next-oq4-mix6-mtp": "engram_qwen4",
+   "whittleOrg/Whittle-Next-27B-A3B": "engram_qwen4",
+   "xpashkin/Qwen3.8-Flash-Next-MLX-Serve-iQ-MLX-7.1bpw": "engram_qwen4",
+   "yomie4343/Qwen3.8-Flash-Next-Uncensored-MLX-Sushi-mixed-3-4-8bit-BF16-SSDNgram": "engram_qwen4"
+  },
+  "not_flag": [
+   "Jab1718/qwen3.8-flash-coder-85gb-bf16",
+   "farbodtavakkoli/OTel-2.0-Decision-26B-A4B-4bit",
+   "jialinyyzz/humanizer",
+   "mlx-community/gemma-3n-E2B-it-lm-4bit",
+   "Qwen/Qwen3-Next-80B-A3B-Instruct",
+   "nvidia/Qwen3.6-35B-A3B-NVFP4",
+   "deepseek-ai/DeepSeek-V4.1-Flash"
+  ]
+ },
+ "ngram_memory_unread": {
+  "detector": "detect_ngram_memory_unread",
+  "flag": {
+   "MinimaLabs/KLM-1.5": "engram_klm",
+   "Vxtzq/Crowd-v1": "engram_crowd",
+   "summerAIO/Cyber-9B-Qwen-AllGDN-Engram": "engram_allgdn",
+   "Cactus-Compute/needle2": "engram_needle",
+   "Cactus-Compute/needle3": "engram_needle"
+  },
+  "not_flag": [
+   "deepseek-ai/DeepSeek-V4.1-Flash",
+   "RuVI-AI/Pragya-EXP2",
+   "kenpeter123/x-small",
+   "openai/circuit-sparsity",
+   "autotrust/JEV-9B",
+   "hstolte/Qwen3.8-Flash-Next-HTR",
+   "farbodtavakkoli/OTel-2.0-Decision-26B-A4B-4bit"
+  ]
+ },
+ "value_emb_keys_unread": {
+  "detector": "detect_value_emb_keys_unread",
+  "flag": {
+   "osunlp/ARLoop-0.6B": "ve_shared",
+   "osunlp/ARLoop-1.2B": "ve_shared",
+   "osunlp/PreNormLoop-0.6B": "ve_shared",
+   "kingbear329/sn38-r16-c12-step687-alpha05": "ve_layer",
+   "MinimaLabs/KLM-1.5": "v_residual"
+  },
+  "not_flag": [
+   "jkminder/d16_optimized_537m_seed5",
+   "paradigma-inc/limite-1b-violetto",
+   "castorini/gaggle-nanochat-pretrained-climbmix-20260924",
+   "AxiomicLabs/GPT-S3-3M",
+   "Qwen/Qwen3-0.6B"
+  ]
+ },
+ "attn_res_keys_unread": {
+  "detector": "detect_attn_res_keys_unread",
+  "flag": {
+   "AxiomicLabs/GPT-S3-3M": [
+    1,
+    0
+   ],
+   "MinimaLabs/KLM-1.5": [
+    2,
+    0
+   ],
+   "osunlp/ARLoop-0.6B": [
+    18,
+    3
+   ],
+   "osunlp/ARLoop-1.2B": [
+    24,
+    3
+   ]
+  },
+  "not_flag": [
+   "osunlp/PreNormLoop-0.6B",
+   "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+   "LuxiaSL/kotodama-tsumugi-1b",
+   "AMAImedia/AliceAI-Foundation-80B-A3B-NOESIS-BF16-GGUF",
+   "Lilgarca/my-model-v01",
+   "summerAIO/Cyber-9B-Qwen-AllGDN-Engram"
+  ]
+ },
+ "cfrd_film_norm_shift": {
+  "detector": "detect_cfrd_film_norm_shift",
+  "flag": {
+   "alice-noa-chan/haru": "bias_qkv+bias_out",
+   "alice-noa-chan/haru_1.1": "bias_qkv+bias_out",
+   "alice-noa-chan/haru_2": "bias_qkv+bias_out"
+  },
+  "not_flag": [
+   "osunlp/ARLoop-0.6B",
+   "Qwen/Qwen3-0.6B",
+   "meta-llama/Llama-3.1-8B-Instruct"
+  ]
+ },
+ "cfrd_sigmoid_residual_gate": {
+  "detector": "detect_cfrd_sigmoid_residual_gate",
+  "flag": {
+   "alice-noa-chan/haru": "res_gate",
+   "alice-noa-chan/haru_1.1": "res_gate",
+   "alice-noa-chan/haru_2": "res_gate"
+  },
+  "not_flag": [
+   "Qwen/Qwen3-Next-80B-A3B-Instruct",
+   "Cactus-Compute/needle3",
+   "meta-llama/Llama-3.1-8B-Instruct"
+  ]
+ },
+ "bolmo_byte_patch_hierarchy": {
+  "detector": "detect_bolmo_byte_patch_hierarchy",
+  "flag": {
+   "allenai/Bolmo-1B": "byte_patch",
+   "allenai/Bolmo-1B-Stage1": "byte_patch"
+  },
+  "not_flag": [
+   "allenai/OLMo-2-0425-1B",
+   "allenai/Olmo-3-1025-7B"
+  ]
+ },
+ "hadamard_mlp_unlisted": {
+  "detector": "detect_hadamard_mlp_unlisted",
+  "flag": {
+   "Cactus-Compute/needle2": "hadamard",
+   "Cactus-Compute/needle3": "hadamard"
+  },
+  "not_flag": [
+   "prism-ml/Ternary-Bonsai-2-27B-mlx-2bit",
+   "Thox-ai/ThoxMicroprocessor-8M-Base-TinyStories",
+   "baidu/ERNIE-5.5-Flash-Base",
+   "meta-llama/Llama-3.1-8B-Instruct"
+  ]
+ }
+}

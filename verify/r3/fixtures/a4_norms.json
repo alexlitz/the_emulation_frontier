@@ -1,0 +1,190 @@
+{
+ "embedding_norm": {
+  "detector": "detect_embedding_norm",
+  "flag": {
+   "bigscience/bloom-560m": "ln",
+   "projecte-aina/FLOR-760M": "ln",
+   "LumiOpen/Poro-34B-chat": "ln",
+   "RWKV/rwkv-4-169m-pile": "ln",
+   "fla-hub/rwkv7-0.1B-g1": "ln",
+   "jkminder/d16_optimized_537m_seed5": "rms_free",
+   "l0ulan/chinese-babylm-nanochat-d22-step10000": "rms_free",
+   "castorini/gaggle-nanochat-pretrained-climbmix-20260924": "rms_free",
+   "kingbear329/sn38-r16-c12-step687-alpha05": "rms_free",
+   "hweller1/wayfinder-glimmer-30b": "rms_free",
+   "RadixArk/Muse-Glimmer-q4-MLX": "rms_free",
+   "open-athena/snowball-67b-a2b-base-262k-qk175": "rms_gated"
+  },
+  "not_flag": [
+   "anas-awadalla/mpt-7b",
+   "replit/replit-code-v1-3b",
+   "vinai/PhoGPT-4B",
+   "LiquidAI/LFM2.5-1.2B-JP",
+   "Interchained/Muse-Spark-Open-816B-A42B-GGUF"
+  ]
+ },
+ "norm_placement_keys_unread": {
+  "detector": "detect_norm_placement_keys_unread",
+  "flag": {
+   "allenai/Molmo-7B-O-0924": "post_only",
+   "allenai/Bolmo-1B": "post_only",
+   "allenai/Bolmo-1B-Stage1": "post_only",
+   "pfnet/plamo-3-translate-2b": "post_norm",
+   "techdotus/Ethoric-10M": "post_norm",
+   "domyn/Domyn-Edge-Base": "post_norm",
+   "ByteDance/Ouro-1.4B": "post_norm",
+   "BAAI/bge-reranker-v2.5-gemma2-lightweight": "post_norm",
+   "reflection/Beam-1.0-501B-A23B": "post_norm",
+   "eins78/Kolibri-1-mlx-mixed-4-8-bit": "post_norm",
+   "MiniMaxAI/MiniMax-Text-01-hf": "post_ln",
+   "MiniMaxAI/MiniMax-M1-40k": "post_ln",
+   "IQuestLab/IQuest-Q1": "post_ln+post_norm+post_norm_attn",
+   "Cactus-Compute/needle2": "post_norm+post_norm_attn"
+  },
+  "not_flag": [
+   "allenai/Molmo-7B-D-0924",
+   "allenai/Molmo-72B-0924",
+   "lmstudio-community/MiniMax-M2-MLX-6bit",
+   "AdarshSingh7647/Eklav-9B-Math-CotGen"
+  ]
+ },
+ "grouped_rmsnorm": {
+  "detector": "detect_grouped_rmsnorm",
+  "flag": {
+   "IFM/Jais-ASR": 2,
+   "IFM/K2-Horizon-3.7B": 2,
+   "IFM/K2-Horizon-32B": 4,
+   "IFM/K2-Horizon-7B": 4,
+   "inception42/Jais-3-32B": 4,
+   "inception42/Jais-3-MoVA-36B-A4B": 2
+  },
+  "not_flag": [
+   "IFM/K2-Horizon-375B-A23B",
+   "IFM/K2-Type-0.9B",
+   "inception42/Jais-3-0.9B",
+   "inception42/Jais-3-375B-A23B"
+  ]
+ },
+ "post_norm_variant": {
+  "detector": "detect_post_norm_variant",
+  "flag": {
+   "Interchained/Muse-Spark-Open-816B-A42B-GGUF": "weightfree_inputscaled",
+   "staccs/Muse-Spark-Open-816B-A42B-lecore-mlx": "weightfree_inputscaled"
+  },
+  "not_flag": [
+   "hweller1/wayfinder-glimmer-30b",
+   "RadixArk/Muse-Glimmer-q4-MLX"
+  ]
+ },
+ "attn_output_head_norm": {
+  "detector": "detect_attn_output_head_norm",
+  "flag": {
+   "Interchained/Muse-Spark-Open-816B-A42B-GGUF": "head_free",
+   "staccs/Muse-Spark-Open-816B-A42B-lecore-mlx": "head_free"
+  },
+  "not_flag": [
+   "hweller1/wayfinder-glimmer-30b",
+   "RadixArk/Muse-Glimmer-q4-MLX"
+  ]
+ },
+ "ceno_megatron_stream_renorm": {
+  "detector": "detect_ceno_megatron_stream_renorm",
+  "flag": {
+   "CladeTeam/CENO-1.3B-A450M-131k": "post_ln",
+   "CladeTeam/CENO-1.3B-A450M-1m": "post_ln",
+   "CladeTeam/CENO-1.3B-A450M-base": "post_ln",
+   "CladeTeam/CENO-300M-A105M-131k": "post_ln",
+   "CladeTeam/CENO-300M-A105M-1m": "post_ln",
+   "CladeTeam/CENO-300M-A105M-base": "post_ln",
+   "CladeTeam/CENO-600M-A230M-131k": "post_ln",
+   "CladeTeam/CENO-600M-A230M-1m": "post_ln",
+   "CladeTeam/CENO-600M-A230M-base": "post_ln",
+   "CladeTeam/CENO-80M-A30M-131k": "post_ln",
+   "CladeTeam/CENO-80M-A30M-1m": "post_ln",
+   "CladeTeam/CENO-80M-A30M-base": "post_ln"
+  },
+  "not_flag": [
+   "agurung/cobalt-seeded-rl-base-ramp25-stoppen-gen4k-ep2-ncp5-n3nc-base-s3"
+  ]
+ },
+ "residual_gain_vector": {
+  "detector": "detect_residual_gain_vector",
+  "flag": {
+   "SmallDoge/Doge-20M": "gain",
+   "SmallDoge/Doge-320M": "gain",
+   "Zyphra/ZAYA1-VL-8B": "gain_bias",
+   "Interchained/Muse-Spark-Open-816B-A42B-GGUF": "gate",
+   "staccs/Muse-Spark-Open-816B-A42B-lecore-mlx": "gate"
+  },
+  "not_flag": [
+   "hweller1/wayfinder-glimmer-30b",
+   "castorini/gaggle-nanochat-pretrained-climbmix-20260924"
+  ]
+ },
+ "backout_residual": {
+  "detector": "detect_backout_residual",
+  "flag": {
+   "castorini/gaggle-nanochat-pretrained-climbmix-20260924": true,
+   "jkminder/d16_optimized_537m_seed5": true,
+   "jkminder/d12_optimized_286m_seed2": true,
+   "jkminder/d20_optimized_897m_seed8": true
+  },
+  "not_flag": [
+   "l0ulan/chinese-babylm-nanochat-d22-step10000",
+   "kingbear329/sn38-r16-c12-step687-alpha05"
+  ]
+ },
+ "ngpt_sphere_residual": {
+  "detector": "detect_ngpt_sphere_residual",
+  "flag": {
+   "ProCreations/Dory-Beam-4B": "ngpt",
+   "netprojects/nemotron-dory1.0-4b-mlx-8bit": "ngpt",
+   "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-MXFP8": "ngpt",
+   "vladimir94/dory-1.0-4b-ane-coreml": "ngpt"
+  },
+  "not_flag": [
+   "BAAI/bge-reranker-v2.5-gemma2-lightweight",
+   "arcee-ai/Trinity-Large-Base"
+  ]
+ },
+ "ffn_inner_norm": {
+  "detector": "detect_ffn_inner_norm",
+  "flag": {
+   "ProCreations/Dory-Beam-4B": "l2_free",
+   "netprojects/nemotron-dory1.0-4b-mlx-8bit": "l2_free",
+   "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-MXFP8": "l2_free",
+   "vladimir94/dory-1.0-4b-ane-coreml": "l2_free"
+  },
+  "not_flag": [
+   "BAAI/bge-reranker-v2.5-gemma2-lightweight",
+   "Interchained/Muse-Spark-Open-816B-A42B-GGUF"
+  ]
+ },
+ "gated_prenorm_lowrank": {
+  "detector": "detect_gated_prenorm_lowrank",
+  "flag": {
+   "Baekpica/A.X-K2-VQ-GGUF": true,
+   "skt/A.X-K2-NVFP4": true,
+   "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21": true,
+   "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21-dr-doom": true,
+   "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.10.05": true,
+   "open-athena/Grug-67B-A2B-GLM53-RLVR-SFT-2026.09.23": true,
+   "open-athena/Snowball-67B-A2B-Identity-PathB-A13-2026.10.30": true,
+   "open-athena/Snowball-67B-A2B-Identity-PathB-A3-2026.10.30": true,
+   "open-athena/snowball-67b-a2b-base-262k-qk175": true
+  },
+  "not_flag": [
+   "Interchained/Muse-Spark-Open-816B-A42B-GGUF",
+   "deepseek-ai/DeepSeek-Math-V2"
+  ]
+ },
+ "multimax_logits": {
+  "detector": "detect_multimax_logits",
+  "flag": {
+   "baidu/ERNIE-5.5-Flash-Base": "lm_head"
+  },
+  "not_flag": [
+   "baidu/ERNIE-4.5-21B-A3B-PT"
+  ]
+ }
+}

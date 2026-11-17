@@ -1,0 +1,700 @@
+# 1360 checkpoints -> 349 distinct specs; 34 are MAXIMAL (nothing emulates them). Each entry: a spec, then its immediate supersets.
+
+## Llama-3.1-405B-FP8  [RMSNorm | rope | GQA | glu | SiLU] h16384 L126 kv1024  (2 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## XORTRON.CriminalComputing.LARGE.2026.3  [RMSNorm | rope | GQA | glu | SiLU] h12288 L88 kv1024  (1 repo)
+   subset of: Llama-3.1-405B-FP8
+## deepseek-llm-67b-base  [RMSNorm | rope | GQA | glu | SiLU] h8192 L95 kv1024  (2 repos)
+   subset of: Llama-3.1-405B-FP8
+## openbuddy-zero-56b-v21.2-32k  [RMSNorm | rope | GQA | glu | SiLU] h7168 L100 kv1024  (1 repo)
+   subset of: Llama-3.1-405B-FP8
+## Shi-Ci_v3-Robin  [RMSNorm | rope | GQA | glu | SiLU] h8192 L80 kv1024  (51 repos)
+   subset of: XORTRON.CriminalComputing.LARGE.2026.3, Qwen2-72B
+## Qwen2.5-72B-Instruct-AWQ  [RMSNorm | rope | GQA | glu | SiLU] h8192 L80 kv1024  (1 repo)
+   subset of: Qwen1.5-110B-Chat
+## Llama-3_3-Nemotron-Super-49B-v1  [RMSNorm | rope | MHA | glu | SiLU | +qk-norm] h8192 L80 kv8192  (2 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Apertus-70B-MeditronFO  [RMSNorm | rope | GQA | glu | xielu] h8192 L80 kv1024  (2 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Qwen2-72B  [RMSNorm | rope | GQA | glu | SiLU] h8192 L80 kv1024  (4 repos)
+   subset of: Qwen2.5-72B-Instruct-AWQ
+## Ring-2.5-1T  [RMSNorm | partial_rope | MLA | moe_shared | SiLU | +qk-norm] h8192 L80 kv576  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Qwen1.5-72B  [RMSNorm | rope | MHA | glu | SiLU] h8192 L80 kv8192  (9 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Qwen1.5-110B-Chat  [RMSNorm | rope | GQA | glu | SiLU] h8192 L80 kv1024  (1 repo)
+   subset of: Llama-3.1-405B-FP8
+## MiniMax-M1-40k  [RMSNorm | partial_rope | GQA | moe | SiLU] h6144 L80 kv1024  (3 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## GLM-5.2-W4AFP8  [RMSNorm | rope | MLA | moe_shared | SiLU] h6144 L78 kv576  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## GLM-4.5  [RMSNorm | partial_rope | GQA | moe_shared | SiLU | +qk-norm] h5120 L92 kv1024  (4 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## GLM-4.7-REAP-50-mxfp4  [RMSNorm | partial_rope | GQA | moe_shared | SiLU | +qk-norm] h5120 L92 kv1024  (1 repo)
+   subset of: GLM-4.5
+## ReflectionCoder-DS-33B  [RMSNorm | rope | GQA | glu | SiLU] h7168 L62 kv1024  (2 repos)
+   subset of: Qwen1.5-72B, Shi-Ci_v3-Robin, deepseek-llm-67b-base, openbuddy-zero-56b-v21.2-32k
+## DeepSeek-R1  [RMSNorm | rope | MLA | moe_shared | SiLU] h7168 L61 kv576  (11 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## DeepSeek-V4-Pro  [RMSNorm | rope | MQA | moe_shared | SiLU | +sliding] h7168 L61 kv512  (2 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Kimi-K2-Base  [RMSNorm | rope | MLA | moe_shared | SiLU] h7168 L61 kv576  (4 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## A.X-K1  [RMSNorm | rope | MLA | moe_shared | SiLU] h7168 L61 kv576  (1 repo)
+   subset of: DeepSeek-R1, Kimi-K2-Base
+## Yi-34B  [RMSNorm | rope | GQA | glu | SiLU] h7168 L60 kv1024  (29 repos)
+   subset of: Qwen1.5-72B, Shi-Ci_v3-Robin, Yi-34Bx2-MoE-60B, deepseek-llm-67b-base, openbuddy-zero-56b-v21.2-32k
+## Yi-34Bx2-MoE-60B  [RMSNorm | rope | GQA | moe | SiLU] h7168 L60 kv1024  (5 repos)
+   subset of: Llama-3.1-405B-FP8
+## IQuest-Coder-V1-40B-Instruct  [RMSNorm | rope | GQA | glu | SiLU] h5120 L80 kv1024  (2 repos)
+   subset of: Shi-Ci_v3-Robin
+## CodeLlama-34b-hf  [RMSNorm | rope | GQA | glu | SiLU] h8192 L48 kv1024  (4 repos)
+   subset of: Qwen1.5-72B, Shi-Ci_v3-Robin, deepseek-llm-67b-base
+## Qwen3-235B-A22B  [RMSNorm | rope | GQA | moe | SiLU | +qk-norm] h4096 L94 kv512  (3 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Qwen3-Coder-480B-A35B-Instruct-FP8  [RMSNorm | rope | GQA | moe | SiLU | +qk-norm] h6144 L62 kv1024  (2 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## GLM-4-32B-0414  [RMSNorm | partial_rope | GQA | glu | SiLU] h6144 L61 kv256  (2 repos)
+   subset of: Qwen1.5-72B, Shi-Ci_v3-Robin
+## TildeOpen-30b  [RMSNorm | rope | GQA | glu | SiLU] h6144 L60 kv1024  (1 repo)
+   subset of: Qwen1.5-72B, Shi-Ci_v3-Robin, Yi-34Bx2-MoE-60B, deepseek-llm-67b-base
+## xLAM-8x22b-r  [RMSNorm | rope | GQA | moe | SiLU] h6144 L56 kv1024  (4 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## opt-30b  [LayerNorm | learned_abs | MHA | vanilla | ReLU] h7168 L48 kv7168  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## dolphin-2.9.1-mixtral-1x22b  [RMSNorm | rope | GQA | moe | SiLU] h6144 L56 kv1024  (1 repo)
+   subset of: xLAM-8x22b-r, Yi-34Bx2-MoE-60B
+## bigyi-15b  [RMSNorm | rope | GQA | glu | SiLU] h4096 L84 kv512  (1 repo)
+   subset of: XORTRON.CriminalComputing.LARGE.2026.3, deepseek-llm-67b-base, openbuddy-zero-56b-v21.2-32k
+## openbuddy-mistral-22b-v21.1-32k  [RMSNorm | rope | GQA | glu | SiLU] h6144 L56 kv1024  (3 repos)
+   subset of: ReflectionCoder-DS-33B, Yi-34B, TildeOpen-30b, dolphin-2.9.1-mixtral-1x22b
+## EuroLLM-22B-Instruct-GPTQ  [RMSNorm | rope | GQA | glu | SiLU] h6144 L54 kv1024  (2 repos)
+   subset of: openbuddy-mistral-22b-v21.1-32k
+## Qwen3-32B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h5120 L64 kv1024  (6 repos)
+   subset of: Shi-Ci_v3-Robin, Hermes-4.3-36B-AWQ-4bit, Llama-3_3-Nemotron-Super-49B-v1
+## QwQ-32B  [RMSNorm | rope | GQA | glu | SiLU] h5120 L64 kv1024  (10 repos)
+   subset of: Hermes-4.3-36B-AWQ-4bit, IQuest-Coder-V1-40B-Instruct
+## EXAONE-3.5-32B-Instruct-AWQ  [LayerNorm | rope | GQA | glu | SiLU] h5120 L64 kv1024  (1 repo)
+   subset of: Qwen1.5-32B
+## Olmo-3-1125-32B  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm] h5120 L64 kv1024  (4 repos)
+   subset of: OLMo-2-0325-32B
+## Hermes-4.3-36B-AWQ-4bit  [RMSNorm | rope | GQA | glu | SiLU] h5120 L64 kv1024  (4 repos)
+   subset of: XORTRON.CriminalComputing.LARGE.2026.3
+## Qwen1.5-32B  [RMSNorm | rope | GQA | glu | SiLU] h5120 L64 kv1024  (2 repos)
+   subset of: QwQ-32B
+## Qwen3.6-27B-OBLITERATED  [RMSNorm | partial_rope | GQA | glu | SiLU] h5120 L64 kv1024  (2 repos)
+   subset of: Qwen1.5-72B, Shi-Ci_v3-Robin, deepseek-llm-67b-base, openbuddy-zero-56b-v21.2-32k, Hermes-4.3-36B-AWQ-4bit, MiniMax-M1-40k
+## AnFeng_v3_Avocet  [RMSNorm | rope | MHA | glu | SiLU] h8192 L40 kv8192  (1 repo)
+   subset of: Qwen1.5-72B
+## OLMo-2-0325-32B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h5120 L64 kv1024  (2 repos)
+   subset of: QwQ-32B, Llama-3_3-Nemotron-Super-49B-v1
+## EXAONE-4.0.1-32B  [RMSNorm | rope | GQA | glu | SiLU | +sliding] h5120 L64 kv1024  (1 repo)
+   subset of: Qwen1.5-32B
+## openbuddy-zero-14b-v22.3-32k  [RMSNorm | rope | GQA | glu | SiLU] h4096 L78 kv512  (1 repo)
+   subset of: Qwen1.5-72B, IQuest-Coder-V1-40B-Instruct, GLM-5.2-W4AFP8, bigyi-15b
+## granite-20b-code-instruct-8k  [LayerNorm | learned_abs | MQA | vanilla | GeLU] h6144 L52 kv128  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## DeepSeek-V2  [RMSNorm | rope | MLA | moe_shared | SiLU] h5120 L60 kv576  (5 repos)
+   subset of: DeepSeek-R1
+## internlm2-20b  [RMSNorm | rope | GQA | glu | SiLU] h6144 L48 kv1024  (5 repos)
+   subset of: CodeLlama-34b-hf, EuroLLM-22B-Instruct-GPTQ
+## Zamba2-7B-Instruct  [RMSNorm | rope | MHA | glu | GeLU] h3584 L81 kv3584  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## gpt-neox-20b  [LayerNorm | partial_rope | MHA | vanilla | GeLU] h6144 L44 kv6144  (1 repo)
+   subset of: Qwen1.5-72B
+## granite-4.1-30b  [RMSNorm | rope | GQA | glu | SiLU] h4096 L64 kv1024  (2 repos)
+   subset of: Qwen1.5-110B-Chat
+## dots.llm1.inst  [RMSNorm | rope | MHA | moe_shared | SiLU] h4096 L62 kv4096  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## snowflake-arctic-instruct  [RMSNorm | rope | GQA | moe | SiLU] h7168 L35 kv1024  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## NextStep-1.1  [RMSNorm | rope | GQA | glu | SiLU] h5120 L48 kv1024  (11 repos)
+   subset of: Qwen1.5-32B, internlm2-20b
+## starcoder2-15b  [RMSNorm | rope | GQA | glu | GeLU | +sliding] h6144 L40 kv512  (1 repo)
+   subset of: Qwen1.5-72B, Shi-Ci_v3-Robin, xLAM-8x22b-r, Yi-34Bx2-MoE-60B
+## falcon-11B  [LayerNorm | rope | MQA | vanilla | GeLU | +parallel] h4096 L60 kv1024  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## HyperCLOVAX-SEED-Think-14B  [RMSNorm | rope | GQA | glu | SiLU] h6144 L38 kv1024  (1 repo)
+   subset of: AnFeng_v3_Avocet, internlm2-20b
+## bigstral-12b-32k  [RMSNorm | rope | GQA | glu | SiLU] h4096 L56 kv1024  (1 repo)
+   subset of: Qwen1.5-32B, granite-4.1-30b, openbuddy-mistral-22b-v21.1-32k
+## gemma-2-27b  [RMSNorm | rope | GQA | glu | GeLU | +sliding+qk-norm+softcap] h4608 L46 kv2048  (2 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Qwen3-14B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h5120 L40 kv1024  (8 repos)
+   subset of: xLAM-8x22b-r, Qwen1.5-32B, ReflectionCoder-DS-33B, Yi-34B, TildeOpen-30b, CodeLlama-34b-hf, phi-4, Qwen3-Coder-480B-A35B-Instruct-FP8  (+2 more)
+## phi-4  [RMSNorm | rope | GQA | glu | SiLU] h5120 L40 kv1280  (6 repos)
+   subset of: AnFeng_v3_Avocet
+## Bielik-11B-v2.3-Instruct  [RMSNorm | rope | GQA | glu | SiLU] h4096 L50 kv1024  (3 repos)
+   subset of: EuroLLM-22B-Instruct-GPTQ, bigstral-12b-32k
+## MN-12B-Mag-Mell-R1  [RMSNorm | rope | GQA | glu | SiLU] h5120 L40 kv1024  (5 repos)
+   subset of: Qwen1.5-32B, Orion-14B-Chat, internlm2-20b, sarvam-m, phi-4
+## sarvam-m  [RMSNorm | rope | GQA | glu | SiLU] h5120 L40 kv1024  (4 repos)
+   subset of: Qwen1.5-110B-Chat, xLAM-8x22b-r, Yi-34Bx2-MoE-60B
+## ALMA-13B-R  [RMSNorm | rope | MHA | glu | SiLU] h5120 L40 kv5120  (13 repos)
+   subset of: Orion-14B-Chat
+## dolphin-2.9.2-Phi-3-Medium  [RMSNorm | rope | GQA | glu | SiLU | +sliding] h5120 L40 kv1280  (6 repos)
+   subset of: phi-4
+## Orion-14B-Chat  [RMSNorm | rope | MHA | glu | SiLU] h5120 L40 kv5120  (4 repos)
+   subset of: AnFeng_v3_Avocet
+## Qwen1.5-14B  [RMSNorm | rope | MHA | glu | SiLU] h5120 L40 kv5120  (4 repos)
+   subset of: ALMA-13B-R
+## opt-13b  [LayerNorm | learned_abs | MHA | vanilla | ReLU] h5120 L40 kv5120  (1 repo)
+   subset of: opt-30b
+## OLMo-2-1124-13B-Instruct  [RMSNorm | rope | MHA | glu | SiLU | +qk-norm] h5120 L40 kv5120  (1 repo)
+   subset of: ALMA-13B-R, Llama-3_3-Nemotron-Super-49B-v1
+## stablelm-2-12b  [LayerNorm | partial_rope | GQA | glu | SiLU | +parallel+qk-norm] h5120 L40 kv1280  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## internlm3-8b-instruct  [RMSNorm | rope | GQA | glu | SiLU] h4096 L48 kv256  (1 repo)
+   subset of: Yi-9B
+## SOLAR-10.7B-v1.0  [RMSNorm | rope | GQA | glu | SiLU] h4096 L48 kv1024  (13 repos)
+   subset of: Mixolar-4x7b, internlm2-20b, Bielik-11B-v2.3-Instruct
+## Yi-9B  [RMSNorm | rope | GQA | glu | SiLU] h4096 L48 kv512  (17 repos)
+   subset of: SOLAR-10.7B-v1.0, dots.llm1.inst, NextStep-1.1, A.X-K1, DeepSeek-V2, openbuddy-zero-14b-v22.3-32k
+## CarbonBeagle-11B  [RMSNorm | rope | GQA | glu | SiLU | +sliding] h4096 L48 kv1024  (3 repos)
+   subset of: SOLAR-10.7B-v1.0, EXAONE-4.0.1-32B
+## Mixolar-4x7b  [RMSNorm | rope | GQA | moe | SiLU] h4096 L48 kv1024  (1 repo)
+   subset of: xLAM-8x22b-r
+## MiniMax-M2  [RMSNorm | partial_rope | GQA | moe | SiLU | +qk-norm] h3072 L62 kv1024  (7 repos)
+   subset of: Qwen3-Coder-480B-A35B-Instruct-FP8
+## MiniMax-M2.7-REAP-172B-A10B-NVFP4-GB10  [RMSNorm | partial_rope | GQA | moe | SiLU | +qk-norm] h3072 L62 kv1024  (1 repo)
+   subset of: MiniMax-M1-40k, MiniMax-M2
+## GLM-4.5-Air  [RMSNorm | partial_rope | GQA | moe_shared | SiLU] h4096 L46 kv1024  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## pythia-12b  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h5120 L36 kv5120  (2 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Trinity-Large-Thinking  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h3072 L60 kv1024  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## DeepSeek-V4-Flash  [RMSNorm | rope | MQA | moe_shared | SiLU | +sliding] h4096 L43 kv512  (4 repos)
+   subset of: DeepSeek-V4-Pro
+## DeepSeek-V4-Flash-180B  [RMSNorm | rope | MQA | moe_shared | SiLU | +sliding] h4096 L43 kv512  (1 repo)
+   subset of: DeepSeek-V4-Flash
+## DeepSeek-V4-Flash-W4A16-FP8-MTP  [RMSNorm | partial_rope | MQA | moe_shared | SiLU | +sliding] h4096 L43 kv512  (2 repos)
+   subset of: DeepSeek-V4-Flash
+## EuroLLM-9B-Instruct-2512  [RMSNorm | rope | GQA | glu | SiLU] h4096 L42 kv1024  (1 repo)
+   subset of: SOLAR-10.7B-v1.0, NextStep-1.1
+## granite-4.1-8b  [RMSNorm | rope | GQA | glu | SiLU] h4096 L40 kv1024  (7 repos)
+   subset of: glm-4-9b, SOLAR-10.7B-v1.0, MN-12B-Mag-Mell-R1, Qwen1.5-14B, NextStep-1.1
+## granite-4.0-h-small  [RMSNorm | rope | GQA | moe | SiLU] h4096 L40 kv1024  (1 repo)
+   subset of: Mixolar-4x7b, dots.llm1.inst
+## GLM-4-9B-0414  [RMSNorm | partial_rope | GQA | glu | SiLU] h4096 L40 kv256  (2 repos)
+   subset of: glm-4-9b-chat-hf, Qwen3.6-27B-OBLITERATED, GLM-4-32B-0414
+## Bielik-Minitron-7B-v3.0-Instruct-FP8-Dynamic  [RMSNorm | rope | GQA | glu | SiLU] h4096 L40 kv1024  (1 repo)
+   subset of: dots.llm1.inst, Mistral-NeMo-Minitron-8B-Base
+## glm-4-9b-chat-hf  [RMSNorm | rope | GQA | glu | SiLU] h4096 L40 kv256  (1 repo)
+   subset of: glm-4-9b, SOLAR-10.7B-v1.0, MN-12B-Mag-Mell-R1, Qwen1.5-14B, NextStep-1.1, GLM-5.2-W4AFP8, A.X-K1
+## glm-4-9b  [RMSNorm | rope | MHA | glu | SiLU] h4096 L40 kv4096  (2 repos)
+   subset of: AnFeng_v3_Avocet
+## Mistral-NeMo-Minitron-8B-Base  [RMSNorm | rope | GQA | glu | SiLU] h4096 L40 kv1024  (2 repos)
+   subset of: EuroLLM-9B-Instruct-2512, granite-4.1-8b
+## Peagle-9b  [RMSNorm | rope | GQA | glu | SiLU | +sliding] h4096 L40 kv1024  (1 repo)
+   subset of: glm-4-9b, MN-12B-Mag-Mell-R1, dolphin-2.9.2-Phi-3-Medium, CarbonBeagle-11B
+## MiniCPM3-4B  [RMSNorm | rope | MLA | glu | SiLU] h2560 L62 kv288  (1 repo)
+   subset of: Qwen1.5-32B, ReflectionCoder-DS-33B, granite-4.1-30b, dots.llm1.inst, GLM-5.2-W4AFP8
+## gemma-2-9b  [RMSNorm | rope | GQA | glu | GeLU | +sliding+qk-norm+softcap] h3584 L42 kv2048  (9 repos)
+   subset of: Qwen1.5-72B, Llama-3_3-Nemotron-Super-49B-v1, gemma-2-27b
+## Qwen3-8B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h4096 L36 kv1024  (25 repos)
+   subset of: I-DLM-8B, OLMo-2-1124-13B-Instruct, Qwen3-14B
+## MiMo-7B-RL  [RMSNorm | rope | GQA | glu | SiLU] h4096 L36 kv1024  (2 repos)
+   subset of: I-DLM-8B, Bielik-Minitron-7B-v3.0-Instruct-FP8-Dynamic
+## persimmon-8b-chat  [LayerNorm | rope | MHA | vanilla | ReLU | +parallel+qk-norm] h4096 L36 kv4096  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## I-DLM-8B  [RMSNorm | rope | GQA | glu | SiLU] h4096 L36 kv1024  (2 repos)
+   subset of: granite-8b-code-instruct-4k, EuroLLM-9B-Instruct-2512, granite-4.1-8b
+## starcoder2-7b  [LayerNorm | rope | GQA | glu | GeLU | +sliding] h4608 L32 kv512  (1 repo)
+   subset of: AnFeng_v3_Avocet, ReflectionCoder-DS-33B, Yi-34B, TildeOpen-30b, CodeLlama-34b-hf, GLM-5.2-W4AFP8, A.X-K1, EXAONE-4.0.1-32B  (+3 more)
+## granite-8b-code-instruct-4k  [RMSNorm | rope | GQA | glu | SiLU] h4096 L36 kv1024  (1 repo)
+   subset of: glm-4-9b, SOLAR-10.7B-v1.0, MN-12B-Mag-Mell-R1, HyperCLOVAX-SEED-Think-14B
+## Falcon-H1-7B-Instruct-GPTQ-Int4  [RMSNorm | rope | GQA | glu | SiLU] h3072 L44 kv256  (1 repo)
+   subset of: SOLAR-10.7B-v1.0, NextStep-1.1, GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2
+## janus-7b  [RMSNorm | rope | GQA | glu | SiLU] h4096 L32 kv1024  (160 repos)
+   subset of: Flex-reddit-2x7B-1T, granite-8b-code-instruct-4k, MoE_13B_DPO
+## Phi-tiny-MoE-instruct  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h4096 L32 kv512  (1 repo)
+   subset of: A.X-K1, DeepSeek-V2, openbuddy-zero-14b-v22.3-32k, DeepSeek-V4-Flash-180B, Phi-mini-MoE-instruct
+## Abel-7B-002  [RMSNorm | rope | GQA | glu | SiLU | +sliding] h4096 L32 kv1024  (48 repos)
+   subset of: janus-7b, hf-moshiko, Smaug-Mixtral-v0.1, Peagle-9b
+## Qwen1.5-7B  [RMSNorm | rope | MHA | glu | SiLU] h4096 L32 kv4096  (37 repos)
+   subset of: glm-4-9b, Flex-reddit-2x7B-1T, dots.llm1.inst, Qwen1.5-14B
+## rnj-1  [RMSNorm | rope | GQA | glu | GeLU | +sliding+qk-norm+softcap] h4096 L32 kv1024  (2 repos)
+   subset of: glm-4-9b, Flex-reddit-2x7B-1T, internlm2-20b, sarvam-m, MoE_13B_DPO, Qwen3-14B, hf-moshiko, Smaug-Mixtral-v0.1  (+4 more)
+## pythia-6.9b  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h4096 L32 kv4096  (3 repos)
+   subset of: pythia-12b
+## aya-expanse-8b-AWQ  [LayerNorm | rope | GQA | glu | SiLU] h4096 L32 kv1024  (2 repos)
+   subset of: janus-7b, EXAONE-3.5-32B-Instruct-AWQ
+## Olmo-3-1025-7B  [RMSNorm | rope | MHA | glu | SiLU | +sliding+qk-norm] h4096 L32 kv4096  (8 repos)
+   subset of: hf-moshiko, OLMo-2-1124-7B-SFT
+## Phi-mini-MoE-instruct  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h4096 L32 kv1024  (1 repo)
+   subset of: deepseek-llm-67b-base, openbuddy-zero-56b-v21.2-32k, dolphin-2.9.1-mixtral-1x22b, Flex-reddit-2x7B-1T, MoE_13B_DPO, snowflake-arctic-instruct, granite-4.0-h-small, EXAONE-4.0.1-32B  (+1 more)
+## opt-6.7b  [LayerNorm | learned_abs | MHA | vanilla | ReLU] h4096 L32 kv4096  (1 repo)
+   subset of: opt-13b
+## Phi-3.5-MoE-instruct  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h4096 L32 kv1024  (1 repo)
+   subset of: Smaug-Mixtral-v0.1
+## MiniCPM4-8B  [RMSNorm | rope | GQA | glu | SiLU] h4096 L32 kv256  (2 repos)
+   subset of: Qwen1.5-32B, glm-4-9b, Flex-reddit-2x7B-1T, internlm2-20b, sarvam-m, phi-4, MoE_13B_DPO, GLM-5.2-W4AFP8  (+1 more)
+## Apertus-8B-2509  [RMSNorm | rope | GQA | glu | xielu] h4096 L32 kv1024  (2 repos)
+   subset of: Apertus-70B-MeditronFO
+## hf-moshiko  [RMSNorm | rope | MHA | glu | SiLU | +sliding] h4096 L32 kv4096  (1 repo)
+   subset of: AnFeng_v3_Avocet, FlexOlmo-7x7B-1T
+## LLaDA2.1-flash  [RMSNorm | partial_rope | GQA | moe | SiLU] h4096 L32 kv512  (1 repo)
+   subset of: GLM-5.2-W4AFP8, A.X-K1, snowflake-arctic-instruct, MiniMax-M1-40k
+## sarvam-105b  [RMSNorm | rope | MLA | moe | SiLU | +qk-norm] h4096 L32 kv576  (1 repo)
+   subset of: GLM-5.2-W4AFP8, A.X-K1
+## CodeQwen1.5-7B-Chat  [RMSNorm | rope | GQA | glu | SiLU] h4096 L32 kv512  (1 repo)
+   subset of: Qwen1.5-14B, NextStep-1.1, janus-7b, GLM-5.2-W4AFP8, A.X-K1
+## HunyuanImage-3.0  [RMSNorm | rope | GQA | moe | SiLU | +qk-norm] h4096 L32 kv1024  (2 repos)
+   subset of: snowflake-arctic-instruct, Qwen3-Coder-480B-A35B-Instruct-FP8
+## OLMo-2-1124-7B-SFT  [RMSNorm | rope | MHA | glu | SiLU | +qk-norm] h4096 L32 kv4096  (2 repos)
+   subset of: Qwen1.5-7B, OLMo-2-1124-13B-Instruct
+## Hy-MT2-7B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h4096 L32 kv1024  (2 repos)
+   subset of: janus-7b, Qwen3-14B
+## salamandra-7b-instruct  [RMSNorm | rope | GQA | glu | SiLU] h4096 L32 kv1024  (1 repo)
+   subset of: Qwen1.5-7B, janus-7b, MiMo-7B-RL
+## Yi-6B  [RMSNorm | rope | GQA | glu | SiLU] h4096 L32 kv512  (6 repos)
+   subset of: salamandra-7b-instruct, Yi-9B, CodeQwen1.5-7B-Chat
+## GritLM-8x7B  [RMSNorm | rope | GQA | moe | SiLU] h4096 L32 kv1024  (10 repos)
+   subset of: xLAM-8x22b-r
+## Minitron-8B-Base  [RMSNorm | partial_rope | GQA | glu | ReLU] h4096 L32 kv1024  (1 repo)
+   subset of: AnFeng_v3_Avocet, internlm2-20b, Qwen3.6-27B-OBLITERATED
+## Flex-reddit-2x7B-1T  [RMSNorm | rope | MHA | moe | SiLU] h4096 L32 kv4096  (1 repo)
+   subset of: Qwen1.5-72B, FlexOlmo-7x7B-1T
+## MoE_13B_DPO  [RMSNorm | rope | GQA | moe | SiLU] h4096 L32 kv1024  (6 repos)
+   subset of: Shi-Ci_v3-Robin, Yi-34Bx2-MoE-60B, granite-4.1-30b, Topxtral-4x7B-v0.1
+## Smaug-Mixtral-v0.1  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h4096 L32 kv1024  (1 repo)
+   subset of: GritLM-8x7B
+## mera-mix-4x7B  [RMSNorm | rope | GQA | moe | SiLU] h4096 L32 kv1024  (9 repos)
+   subset of: Mixolar-4x7b, FlexOlmo-7x7B-1T, multimaster-7b-v6
+## multimaster-7b-v6  [RMSNorm | rope | GQA | moe | SiLU] h4096 L32 kv1024  (1 repo)
+   subset of: GritLM-8x7B
+## Topxtral-4x7B-v0.1  [RMSNorm | rope | GQA | moe | SiLU] h4096 L32 kv1024  (1 repo)
+   subset of: Qwen1.5-110B-Chat, mera-mix-4x7B
+## FlexOlmo-7x7B-1T  [RMSNorm | rope | MHA | moe | SiLU] h4096 L32 kv4096  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## dspv2_guide  [RMSNorm | rope | MHA | glu | SiLU] h4096 L30 kv4096  (6 repos)
+   subset of: Qwen1.5-7B
+## Falcon3-10B-Base  [RMSNorm | rope | GQA | glu | SiLU] h3072 L40 kv1024  (2 repos)
+   subset of: Qwen1.5-72B, Qwen1.5-32B, Mixolar-4x7b, granite-4.1-30b, sarvam-m
+## bloom-7b1  [LayerNorm | alibi | MHA | vanilla | GeLU] h4096 L30 kv4096  (1 repo)
+   subset of: glm-4-9b, Flex-reddit-2x7B-1T
+## glm-edge-4b-chat  [RMSNorm | rope | GQA | glu | SiLU] h3072 L40 kv768  (1 repo)
+   subset of: Bielik-Minitron-7B-v3.0-Instruct-FP8-Dynamic, Falcon3-10B-Base
+## gpt-j-6b  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h4096 L28 kv4096  (1 repo)
+   subset of: pythia-6.9b
+## Riva-Translate-4B-Instruct-v1.1  [RMSNorm | rope | GQA | glu | SiLU] h3072 L34 kv1024  (1 repo)
+   subset of: MiMo-7B-RL, snowflake-arctic-instruct
+## gpt-oss-120b  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h2880 L36 kv512  (4 repos)
+   subset of: GLM-5.2-W4AFP8, A.X-K1, Trinity-Large-Thinking, DeepSeek-V4-Flash
+## granite-4.1-3b  [RMSNorm | rope | GQA | glu | SiLU] h2560 L40 kv512  (3 repos)
+   subset of: Yi-9B, glm-edge-4b-chat
+## Qwen1.5-4B  [RMSNorm | rope | MHA | glu | SiLU] h2560 L40 kv2560  (2 repos)
+   subset of: glm-4-9b, dots.llm1.inst, Qwen1.5-14B
+## Qwen2-7B  [RMSNorm | rope | GQA | glu | SiLU] h3584 L28 kv512  (39 repos)
+   subset of: AnFeng_v3_Avocet, Qwen1.5-32B, ReflectionCoder-DS-33B, Yi-34B, TildeOpen-30b, CodeLlama-34b-hf, Flex-reddit-2x7B-1T, sarvam-m  (+2 more)
+## North-Mini-Code-1.0-fp8  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h2048 L49 kv512  (1 repo)
+   subset of: xLAM-8x22b-r, dots.llm1.inst, GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2, Trinity-Large-Thinking, DeepSeek-V4-Pro
+## Qwen2-57B-A14B  [RMSNorm | rope | GQA | moe_shared | SiLU] h3584 L28 kv512  (2 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Qwen3-30B-A3B  [RMSNorm | rope | GQA | moe | SiLU | +qk-norm] h2048 L48 kv512  (16 repos)
+   subset of: Qwen3-Coder-480B-A35B-Instruct-FP8, Hy-MT2-30B-A3B, Qwen3-235B-A22B
+## Qwen3-Coder-Next-FP8  [RMSNorm | partial_rope | GQA | moe_shared | SiLU] h2048 L48 kv512  (8 repos)
+   subset of: GLM-5.2-W4AFP8, A.X-K1
+## Artemide-3.5  [RMSNorm | rope | MHA | glu | SiLU | +sliding] h3072 L32 kv3072  (10 repos)
+   subset of: Qwen1.5-7B, hf-moshiko
+## Phi-4-mini-instruct  [RMSNorm | partial_rope | GQA | glu | SiLU | +sliding] h3072 L32 kv1024  (4 repos)
+   subset of: Falcon3-10B-Base, Llama-3.1-Minitron-4B-Width-Base, Riva-Translate-4B-Instruct-v1.1, Trinity-Large-Thinking, Phi-3.5-MoE-instruct, Abel-7B-002, GLM-4.5-Air, Qwen3.6-27B-OBLITERATED  (+1 more)
+## Minitron-4B-Base  [RMSNorm | partial_rope | GQA | glu | ReLU] h3072 L32 kv1024  (2 repos)
+   subset of: Falcon3-10B-Base, Llama-3.1-Minitron-4B-Width-Base, Zamba2-7B-Instruct, GLM-4.5-Air, Minitron-8B-Base
+## Hy-MT2-30B-A3B  [RMSNorm | rope | GQA | moe | SiLU] h2048 L48 kv512  (1 repo)
+   subset of: xLAM-8x22b-r, dots.llm1.inst, kanana-2-30b-a3b-instruct-2601
+## Ouro-2.6B  [RMSNorm | rope | MHA | glu | SiLU] h2048 L48 kv2048  (2 repos)
+   subset of: Qwen1.5-72B, dots.llm1.inst
+## kanana-2-30b-a3b-instruct-2601  [RMSNorm | rope | MLA | moe_shared | SiLU] h2048 L48 kv576  (1 repo)
+   subset of: GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2
+## Llama-3.1-Minitron-4B-Width-Base  [RMSNorm | rope | GQA | glu | SiLU] h3072 L32 kv1024  (1 repo)
+   subset of: snowflake-arctic-instruct, salamandra-7b-instruct
+## GLM-4.7-Flash  [RMSNorm | rope | MLA | moe_shared | SiLU] h2048 L47 kv576  (4 repos)
+   subset of: GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2
+## Qwen3-4B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h2560 L36 kv1024  (29 repos)
+   subset of: OPDLM-4B, Qwen3-8B
+## PowerLM-3b  [RMSNorm | rope | MHA | glu | SiLU] h2304 L40 kv2304  (1 repo)
+   subset of: glm-4-9b, dots.llm1.inst, Qwen1.5-14B
+## starcoder2-3b  [RMSNorm | rope | GQA | glu | GeLU | +sliding] h3072 L30 kv256  (1 repo)
+   subset of: I-DLM-8B, Falcon3-10B-Base, DeepSeek-V2, CodeQwen1.5-7B-Chat, glm-4-9b-chat-hf, MiniCPM4-8B, Trinity-Large-Thinking, Phi-3.5-MoE-instruct  (+4 more)
+## AFM-4.5B  [RMSNorm | rope | GQA | glu | ReLU] h2560 L36 kv512  (2 repos)
+   subset of: AnFeng_v3_Avocet, ReflectionCoder-DS-33B, Yi-34B, TildeOpen-30b, CodeLlama-34b-hf, GLM-5.2-W4AFP8, A.X-K1, Falcon3-10B-Base
+## bge-reranker-v2-minicpm-layerwise  [RMSNorm | rope | MHA | glu | SiLU] h2304 L40 kv2304  (1 repo)
+   subset of: PowerLM-3b, Qwen1.5-4B
+## OPDLM-4B  [RMSNorm | rope | GQA | glu | SiLU] h2560 L36 kv1024  (2 repos)
+   subset of: MiMo-7B-RL
+## Carbon-3B  [RMSNorm | rope | GQA | glu | SiLU] h3072 L30 kv384  (1 repo)
+   subset of: Falcon3-10B-Base, dspv2_guide, Llama-3.1-Minitron-4B-Width-Base, Riva-Translate-4B-Instruct-v1.1, Yi-6B
+## Veena  [RMSNorm | rope | GQA | glu | SiLU] h3072 L28 kv1024  (13 repos)
+   subset of: dspv2_guide, Llama-3.1-Minitron-4B-Width-Base, Falcon3-7B-Base, Riva-Translate-4B-Instruct-v1.1
+## Midm-2.0-Mini-Instruct  [RMSNorm | rope | GQA | glu | SiLU] h1792 L48 kv1024  (1 repo)
+   subset of: SOLAR-10.7B-v1.0, dots.llm1.inst, NextStep-1.1
+## gemma-1.1-7b-it  [RMSNorm | rope | MHA | glu | SiLU] h3072 L28 kv4096  (1 repo)
+   subset of: Qwen1.5-72B, FlexOlmo-7x7B-1T
+## gemma-7b  [RMSNorm | rope | MHA | glu | GeLU] h3072 L28 kv4096  (4 repos)
+   subset of: gemma-1.1-7b-it
+## Falcon3-7B-Base  [RMSNorm | rope | GQA | glu | SiLU] h3072 L28 kv1024  (2 repos)
+   subset of: MoE_13B_DPO, Falcon3-10B-Base, gemma-1.1-7b-it
+## open_llama_3b  [RMSNorm | rope | MHA | glu | SiLU] h3200 L26 kv3200  (2 repos)
+   subset of: dspv2_guide
+## phi-2  [LayerNorm | partial_rope | MHA | glu | GeLU] h2560 L32 kv2560  (5 repos)
+   subset of: gpt-neox-japanese-2.7b
+## SIQ-1-35B  [RMSNorm | partial_rope | GQA | moe_shared | SiLU] h2048 L40 kv512  (3 repos)
+   subset of: dots.llm1.inst, JoyAI-LLM-Flash-MXFP8-last-6-BF16, MiniMax-M1-40k, GLM-4.5-Air, Qwen3-Coder-Next-FP8
+## stable-code-3b  [LayerNorm | partial_rope | MHA | glu | SiLU] h2560 L32 kv2560  (3 repos)
+   subset of: granite-3b-code-base-2k, Qwen1.5-4B
+## gpt-neox-japanese-2.7b  [LayerNorm | rope | MHA | glu | GeLU] h2560 L32 kv2560  (1 repo)
+   subset of: granite-3b-code-base-2k, Zamba2-7B-Instruct
+## granite-3.3-2b-base  [RMSNorm | rope | GQA | glu | SiLU] h2048 L40 kv512  (7 repos)
+   subset of: PowerLM-3b, granite-4.1-3b
+## pythia-2.8b  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h2560 L32 kv2560  (2 repos)
+   subset of: pythia-6.9b
+## opt-2.7b  [LayerNorm | learned_abs | MHA | vanilla | ReLU] h2560 L32 kv2560  (1 repo)
+   subset of: opt-6.7b
+## JoyAI-LLM-Flash-MXFP8-last-6-BF16  [RMSNorm | rope | MLA | moe_shared | SiLU] h2048 L40 kv576  (1 repo)
+   subset of: GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2
+## granite-3b-code-base-2k  [RMSNorm | rope | MHA | glu | SiLU] h2560 L32 kv2560  (1 repo)
+   subset of: Qwen1.5-7B
+## llm-jp-4-32b-a3b-thinking  [RMSNorm | rope | GQA | moe | SiLU | +qk-norm] h2560 L32 kv512  (1 repo)
+   subset of: xLAM-8x22b-r, DeepSeek-V2, snowflake-arctic-instruct, Qwen3-Coder-480B-A35B-Instruct-FP8, Qwen3-235B-A22B, sarvam-105b
+## Nanbeige4.1-3B  [RMSNorm | rope | GQA | glu | SiLU] h2560 L32 kv512  (1 repo)
+   subset of: Falcon3-10B-Base, Yi-6B
+## sarashina2.2-3b-instruct-v0.1  [RMSNorm | rope | GQA | glu | SiLU] h2560 L32 kv1280  (1 repo)
+   subset of: phi-4, granite-3b-code-base-2k
+## granite-4.0-1b  [RMSNorm | rope | GQA | glu | SiLU] h2048 L40 kv512  (2 repos)
+   subset of: granite-4.0-h-small, Ouro-2.6B, bge-reranker-v2-minicpm-layerwise, Hy-MT2-30B-A3B, JoyAI-LLM-Flash-MXFP8-last-6-BF16, GLM-4.7-Flash, granite-3.3-2b-base
+## codegen-2B-mono  [LayerNorm | partial_rope | MHA | vanilla | GeLU] h2560 L32 kv2560  (1 repo)
+   subset of: phi-2, gpt-neox-20b
+## Zamba2-1.2B-instruct  [RMSNorm | rope | MHA | glu | GeLU] h2048 L38 kv2048  (1 repo)
+   subset of: PowerLM-3b, Zamba2-7B-Instruct
+## sarvam-30b  [RMSNorm | rope | GQA | moe_shared | SiLU | +qk-norm] h4096 L19 kv256  (1 repo)
+   subset of: xLAM-8x22b-r, dots.llm1.inst, GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2, Qwen3-Coder-480B-A35B-Instruct-FP8, Qwen3-235B-A22B
+## gpt2-xl  [LayerNorm | learned_abs | MHA | vanilla | GeLU] h1600 L48 kv1600  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## EXAONE-3.5-2.4B-Instruct  [LayerNorm | rope | GQA | glu | SiLU] h2560 L30 kv640  (1 repo)
+   subset of: dspv2_guide, OPDLM-4B, Llama-3.1-Minitron-4B-Width-Base, sarashina2.2-3b-instruct-v0.1, Riva-Translate-4B-Instruct-v1.1, granite-4.0-h-small, glm-edge-4b-chat, aya-expanse-8b-AWQ
+## Qwen2.5-3B  [RMSNorm | rope | GQA | glu | SiLU] h2048 L36 kv256  (11 repos)
+   subset of: SmolLM3-3B, glm-4-9b-chat-hf
+## SmolLM3-3B  [RMSNorm | rope | GQA | glu | SiLU] h2048 L36 kv512  (2 repos)
+   subset of: MiMo-7B-RL, Falcon3-10B-Base, Yi-9B
+## ERNIE-4.5-21B-A3B-PT  [RMSNorm | rope | GQA | moe | SiLU] h2560 L28 kv512  (4 repos)
+   subset of: Flex-reddit-2x7B-1T, bigstral-12b-32k, MoE_13B_DPO, GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2, Qwen2-57B-A14B
+## AI21-Jamba2-3B  [RMSNorm | rope | MQA | moe | SiLU] h2560 L28 kv128  (2 repos)
+   subset of: dots.llm1.inst, snowflake-arctic-instruct, openbuddy-zero-14b-v22.3-32k, ERNIE-4.5-21B-A3B-PT
+## outputs  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h1664 L42 kv512  (1 repo)
+   subset of: EuroLLM-9B-Instruct-2512, Yi-9B, Ouro-2.6B, OLMo-2-0325-32B, GLM-4.7-Flash, Qwen3-32B, Midm-2.0-Mini-Instruct, Qwen3-30B-A3B
+## gpt-oss-20b  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h2880 L24 kv512  (9 repos)
+   subset of: DeepSeek-V2, Phi-3.5-MoE-instruct, DeepSeek-V4-Flash-180B, gpt-oss-120b
+## Falcon3-3B-Base  [RMSNorm | rope | GQA | glu | SiLU] h3072 L22 kv1024  (2 repos)
+   subset of: dspv2_guide, Llama-3.1-Minitron-4B-Width-Base, Falcon3-7B-Base
+## Hy-MT2-1.8B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h2048 L32 kv512  (2 repos)
+   subset of: Llama-3.1-Minitron-4B-Width-Base, sarashina2.2-3b-instruct-v0.1, Riva-Translate-4B-Instruct-v1.1, Qwen1.5-4B, granite-4.0-h-small, SmolLM3-3B, Nanbeige4.1-3B, JoyAI-LLM-Flash-MXFP8-last-6-BF16  (+7 more)
+## YuE-s2-1B-general  [RMSNorm | rope | MHA | glu | SiLU] h2048 L32 kv2048  (1 repo)
+   subset of: granite-3b-code-base-2k, Ouro-2.6B, bge-reranker-v2-minicpm-layerwise
+## Llama-3.1-Minitron-4B-Depth-Base  [RMSNorm | rope | GQA | glu | SiLU] h4096 L16 kv1024  (1 repo)
+   subset of: janus-7b
+## NSFW-flash  [RMSNorm | partial_rope | MHA | moe | SiLU] h2560 L25 kv8192  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## Kimi-Linear-48B-A3B-Instruct  [RMSNorm | rope | MLA | moe | SiLU] h2304 L27 kv576  (1 repo)
+   subset of: GLM-5.2-W4AFP8, A.X-K1
+## granite-4.0-h-tiny  [RMSNorm | rope | GQA | moe | SiLU] h1536 L40 kv512  (1 repo)
+   subset of: Qwen1.5-110B-Chat, Yi-34Bx2-MoE-60B, granite-4.0-h-small, Hy-MT2-30B-A3B, JoyAI-LLM-Flash-MXFP8-last-6-BF16, GLM-4.7-Flash
+## granite-4.0-tiny-preview  [RMSNorm | rope | GQA | moe | SiLU] h1536 L40 kv512  (1 repo)
+   subset of: granite-4.0-h-tiny
+## EXAONE-4.0-1.2B  [RMSNorm | rope | GQA | glu | SiLU] h2048 L30 kv512  (1 repo)
+   subset of: dspv2_guide, OPDLM-4B, Llama-3.1-Minitron-4B-Width-Base, sarashina2.2-3b-instruct-v0.1, Riva-Translate-4B-Instruct-v1.1, SmolLM3-3B, Nanbeige4.1-3B, YuE-s2-1B-general  (+1 more)
+## helium-1-preview-2b  [RMSNorm | rope | MHA | glu | SiLU] h2560 L24 kv2560  (1 repo)
+   subset of: gemma-1.1-7b-it, granite-3b-code-base-2k, open_llama_3b
+## granite-4.0-h-1b  [RMSNorm | rope | GQA | glu | SiLU] h1536 L40 kv512  (1 repo)
+   subset of: Midm-2.0-Mini-Instruct, granite-4.0-1b
+## gemma-2-2b  [RMSNorm | rope | GQA | glu | GeLU | +sliding+qk-norm+softcap] h2304 L26 kv1024  (4 repos)
+   subset of: Zamba2-7B-Instruct, gemma-7b, rnj-1, gemma-2-9b, gemma-2-2b-jpn-it
+## gemma-2-2b-jpn-it  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm+softcap] h2304 L26 kv1024  (2 repos)
+   subset of: dspv2_guide, PowerLM-3b, granite-3b-code-base-2k, Llama-3.1-Minitron-4B-Width-Base, Falcon3-7B-Base, Hy-MT2-7B, Qwen3-4B, Trinity-Large-Thinking  (+4 more)
+## Qwen3-1.7B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h2048 L28 kv1024  (11 repos)
+   subset of: SDAR-1.7B-Chat, OLMo-2-1124-7B-SFT, Hy-MT2-7B, Qwen3-4B
+## Ling-lite-1.5  [RMSNorm | rope | GQA | moe | SiLU] h2048 L28 kv512  (1 repo)
+   subset of: GritLM-8x7B, GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2, snowflake-arctic-instruct, deepseek-moe-16b-base, Qwen2-57B-A14B
+## deepseek-moe-16b-base  [RMSNorm | rope | MHA | moe_shared | SiLU] h2048 L28 kv2048  (2 repos)
+   subset of: dots.llm1.inst
+## helium-1-2b  [RMSNorm | rope | GQA | glu | SiLU] h2048 L28 kv1024  (1 repo)
+   subset of: PowerLM-3b, OPDLM-4B, sarashina2.2-3b-instruct-v0.1, sarvam-1, Veena
+## Trinity-Nano-Preview  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h1024 L56 kv256  (1 repo)
+   subset of: xLAM-8x22b-r, Yi-34Bx2-MoE-60B, dots.llm1.inst, GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2, Trinity-Large-Thinking, DeepSeek-V4-Pro
+## SDAR-1.7B-Chat  [RMSNorm | rope | GQA | glu | SiLU] h2048 L28 kv1024  (1 repo)
+   subset of: Qwen1.5-4B, granite-4.0-h-small, helium-1-2b
+## Ministral-3b-instruct  [RMSNorm | rope | GQA | glu | SiLU | +sliding] h4096 L14 kv1024  (1 repo)
+   subset of: Llama-3.1-Minitron-4B-Depth-Base, Abel-7B-002
+## sarvam-1  [RMSNorm | rope | GQA | glu | SiLU] h2048 L28 kv1024  (1 repo)
+   subset of: dspv2_guide, salamandra-7b-instruct, deepseek-moe-16b-base, Falcon3-7B-Base
+## kanana-1.5-2.1b-instruct-2505  [RMSNorm | rope | GQA | glu | SiLU] h1792 L32 kv1024  (1 repo)
+   subset of: Falcon3-10B-Base, OPDLM-4B, Llama-3.1-Minitron-4B-Width-Base, Riva-Translate-4B-Instruct-v1.1
+## DeepSeek-V2-Lite  [RMSNorm | rope | MLA | moe_shared | SiLU] h2048 L27 kv576  (6 repos)
+   subset of: dots.llm1.inst, GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2
+## PowerMoE-3b  [RMSNorm | rope | GQA | moe | SiLU] h1536 L32 kv512  (4 repos)
+   subset of: deepseek-llm-67b-base, openbuddy-zero-56b-v21.2-32k, Qwen1.5-32B, Flex-reddit-2x7B-1T, MoE_13B_DPO, snowflake-arctic-instruct, granite-4.0-h-small, Hy-MT2-30B-A3B  (+2 more)
+## SmolLM-1.7B  [RMSNorm | rope | MHA | glu | SiLU] h2048 L24 kv2048  (4 repos)
+   subset of: gemma-1.1-7b-it, PowerLM-3b, granite-3b-code-base-2k, Qwen1.5-MoE-A2.7B, open_llama_3b
+## Ouro-1.4B  [RMSNorm | rope | MHA | glu | SiLU] h2048 L24 kv2048  (4 repos)
+   subset of: Ouro-2.6B, bge-reranker-v2-minicpm-layerwise, llm-jp-3-1.8b, helium-1-preview-2b
+## Qwen1.5-MoE-A2.7B  [RMSNorm | rope | MHA | moe_shared | SiLU] h2048 L24 kv2048  (2 repos)
+   subset of: deepseek-moe-16b-base
+## opt-1.3b  [LayerNorm | learned_abs | MHA | vanilla | ReLU] h2048 L24 kv2048  (1 repo)
+   subset of: mGPT, opt-2.7b
+## pythia-1.4b  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h2048 L24 kv2048  (3 repos)
+   subset of: gpt-j-6b, pythia-2.8b
+## Qwen1.5-1.8B  [RMSNorm | rope | MHA | glu | SiLU] h2048 L24 kv2048  (7 repos)
+   subset of: YuE-s2-1B-general, Ouro-1.4B
+## phi-1  [LayerNorm | partial_rope | MHA | glu | GeLU] h2048 L24 kv2048  (2 repos)
+   subset of: SmolLM-1.7B, gemma-7b, Zamba2-1.2B-instruct, NSFW-flash, phi-2
+## gpt_bigcode-santacoder  [LayerNorm | learned_abs | MQA | vanilla | GeLU] h2048 L24 kv128  (1 repo)
+   subset of: mGPT, granite-20b-code-instruct-8k
+## falcon-rw-1b  [LayerNorm | alibi | MHA | vanilla | GeLU | +parallel] h2048 L24 kv2048  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## stablelm-2-1_6b  [LayerNorm | partial_rope | MHA | glu | SiLU] h2048 L24 kv2048  (2 repos)
+   subset of: Ouro-1.4B, NSFW-flash, stable-code-3b
+## llm-jp-3-1.8b  [RMSNorm | rope | MHA | glu | SiLU] h2048 L24 kv2048  (3 repos)
+   subset of: SmolLM-1.7B
+## EuroLLM-1.7B  [RMSNorm | rope | GQA | glu | SiLU] h2048 L24 kv1024  (2 repos)
+   subset of: SDAR-1.7B-Chat, internlm2-1_8b, Ouro-1.4B
+## internlm2-1_8b  [RMSNorm | rope | GQA | glu | SiLU] h2048 L24 kv1024  (2 repos)
+   subset of: helium-1-2b, SmolLM-1.7B, jetmoe-8b
+## mGPT  [LayerNorm | learned_abs | MHA | vanilla | GeLU] h2048 L24 kv2048  (2 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## salamandra-2b-instruct  [RMSNorm | rope | MHA | glu | SiLU] h2048 L24 kv2048  (1 repo)
+   subset of: Qwen1.5-1.8B
+## jetmoe-8b  [RMSNorm | rope | GQA | moe | SiLU] h2048 L24 kv1024  (1 repo)
+   subset of: Flex-reddit-2x7B-1T, SOLAR-10.7B-v1.0, MoE_13B_DPO, NextStep-1.1, snowflake-arctic-instruct, Qwen1.5-MoE-A2.7B
+## boomerang-qwen3-2.3B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h2560 L19 kv1024  (1 repo)
+   subset of: gemma-1.1-7b-it, snowflake-arctic-instruct, dspv2_guide, salamandra-7b-instruct, OLMo-2-1124-7B-SFT, Hy-MT2-7B, Qwen3-4B
+## ProtGPT2  [LayerNorm | learned_abs | MHA | vanilla | GeLU] h1280 L36 kv1280  (2 repos)
+   subset of: gpt2-xl
+## karasu-1.1B  [RMSNorm | rope | GQA | glu | SiLU] h2048 L22 kv256  (16 repos)
+   subset of: Nanbeige4.1-3B, Qwen2-7B, Hy-MT2-30B-A3B, ERNIE-4.5-21B-A3B-PT, MiniCPM4-8B, JoyAI-LLM-Flash-MXFP8-last-6-BF16, Qwen2.5-3B, internlm3-8b-instruct  (+8 more)
+## Qwen2-1.5B  [RMSNorm | rope | GQA | glu | SiLU] h1536 L28 kv256  (31 repos)
+   subset of: PowerLM-3b, OPDLM-4B, Llama-3.1-Minitron-4B-Width-Base, sarashina2.2-3b-instruct-v0.1, sarvam-1, Nanbeige4.1-3B, Qwen2-7B, ERNIE-4.5-21B-A3B-PT  (+4 more)
+## Param2-17B-A2.4B-Thinking  [RMSNorm | rope | GQA | moe_shared | SiLU | +qk-norm] h2048 L21 kv512  (1 repo)
+   subset of: xLAM-8x22b-r, GLM-5.2-W4AFP8, A.X-K1, DeepSeek-V2, Qwen2-57B-A14B, Qwen3-Coder-480B-A35B-Instruct-FP8, Qwen3-235B-A22B
+## Kimi-K2.5-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h7168 L6 kv1024  (1 repo)
+   subset of: AnFeng_v3_Avocet, CodeLlama-34b-hf, Llama-3_3-Nemotron-Super-49B-v1
+## LLaDA2.0-mini  [RMSNorm | partial_rope | GQA | moe | SiLU] h2048 L20 kv512  (2 repos)
+   subset of: xLAM-8x22b-r, Qwen2-57B-A14B, SIQ-1-35B, LLaDA2.1-flash
+## Quasar-Preview  [RMSNorm | partial_rope | GQA | moe_shared | SiLU | +qk-norm] h2048 L20 kv512  (2 repos)
+   subset of: SIQ-1-35B, Param2-17B-A2.4B-Thinking, GLM-4.5, MiniMax-M2.7-REAP-172B-A10B-NVFP4-GB10, Ring-2.5-1T
+## GigaChat3.1-10B-A1.8B  [RMSNorm | rope | MLA | moe_shared | SiLU] h1536 L26 kv576  (1 repo)
+   subset of: JoyAI-LLM-Flash-MXFP8-last-6-BF16
+## MiniCPM5-1B  [RMSNorm | rope | GQA | glu | SiLU] h1536 L24 kv256  (4 repos)
+   subset of: Nanbeige4.1-3B, Qwen2-7B, Hy-MT2-30B-A3B, ERNIE-4.5-21B-A3B-PT, MiniCPM4-8B, Qwen2.5-3B, internlm3-8b-instruct, kanana-1.5-2.1b-instruct-2505  (+10 more)
+## gemma-1.1-2b-it  [RMSNorm | rope | MQA | glu | SiLU] h2048 L18 kv256  (1 repo)
+   subset of: Falcon3-7B-Base, Qwen2-7B, MiniCPM4-8B
+## gemma-2b  [RMSNorm | rope | MQA | glu | GeLU] h2048 L18 kv256  (4 repos)
+   subset of: gemma-1.1-2b-it, gemma-7b
+## Falcon-H1-0.5B-Base  [RMSNorm | rope | GQA | glu | SiLU] h1024 L36 kv128  (2 repos)
+   subset of: OPDLM-4B, Qwen2.5-3B, internlm3-8b-instruct, Falcon-H1-7B-Instruct-GPTQ-Int4, MiniCPM3-4B, granite-4.0-h-1b, granite-4.0-tiny-preview
+## Falcon3-1B-Base  [RMSNorm | rope | GQA | glu | SiLU] h2048 L18 kv1024  (2 repos)
+   subset of: internlm2-1_8b, Falcon3-3B-Base
+## DeepSeek-V3-5layer  [RMSNorm | rope | MLA | moe_shared | SiLU] h7168 L5 kv576  (1 repo)
+   subset of: DeepSeek-R1
+## Ilama-3.2-1B  [RMSNorm | rope | GQA | glu | SiLU] h2048 L16 kv512  (10 repos)
+   subset of: SmolLM3-3B, Nanbeige4.1-3B, Qwen2-7B, ERNIE-4.5-21B-A3B-PT, granite-3.3-2b-base, Ling-lite-1.5, DeepSeek-V2-Lite, Llama-3.1-Minitron-4B-Depth-Base  (+3 more)
+## OLMo-base  [RMSNorm | rope | MHA | glu | SiLU | +qk-norm] h2048 L16 kv2048  (5 repos)
+   subset of: OLMo-2-1124-7B-SFT, OLMo-1B-hf
+## pythia-1b  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h2048 L16 kv2048  (2 repos)
+   subset of: pythia-1.4b
+## OLMoE-1B-7B-0125  [RMSNorm | rope | MHA | moe | SiLU] h2048 L16 kv2048  (4 repos)
+   subset of: FlexOlmo-7x7B-1T, Qwen1.5-MoE-A2.7B
+## OLMo-1B-hf  [RMSNorm | rope | MHA | glu | SiLU] h2048 L16 kv2048  (2 repos)
+   subset of: SmolLM-1.7B, OLMoE-1B-7B-0125
+## academic-ds-9B  [RMSNorm | rope | MLA | moe_shared | SiLU] h2048 L16 kv576  (1 repo)
+   subset of: GLM-5.2-W4AFP8, A.X-K1
+## SmolLM-360M  [RMSNorm | rope | GQA | glu | SiLU] h960 L32 kv320  (5 repos)
+   subset of: sarashina2.2-3b-instruct-v0.1, SmolLM3-3B, Nanbeige4.1-3B, YuE-s2-1B-general, kanana-1.5-2.1b-instruct-2505, PowerMoE-3b, granite-4.0-h-1b, granite-4.0-tiny-preview
+## Qwen3.5-27B-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm] h5120 L6 kv1024  (1 repo)
+   subset of: sarvam-m, Qwen3-14B, EXAONE-4.0.1-32B, dolphin-2.9.2-Phi-3-Medium, Olmo-3-1125-32B, Kimi-K2.5-DFlash
+## sarashina2.2-0.5b-instruct-v0.1  [RMSNorm | rope | GQA | glu | SiLU] h1280 L24 kv640  (1 repo)
+   subset of: glm-edge-4b-chat, kanana-1.5-2.1b-instruct-2505, EuroLLM-1.7B, salamandra-2b-instruct, Midm-2.0-Mini-Instruct
+## Qwen3-0.6B  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h1024 L28 kv1024  (19 repos)
+   subset of: OPDLM-0.6B, Qwen3-1.7B, HunyuanImage-3.0, Qwen3-MOE-4x0.6B-2.4B-Writing-Thunder-V1.2
+## granite-4.0-350m  [RMSNorm | rope | GQA | glu | SiLU] h1024 L28 kv256  (2 repos)
+   subset of: Ling-lite-1.5, MiniCPM3-4B, Carbon-3B, Qwen2-1.5B, OPDLM-0.6B, PowerMoE-3b, granite-4.0-h-1b, granite-4.0-tiny-preview  (+1 more)
+## OPDLM-0.6B  [RMSNorm | rope | GQA | glu | SiLU] h1024 L28 kv1024  (1 repo)
+   subset of: SDAR-1.7B-Chat, YuE-s2-1B-general, kanana-1.5-2.1b-instruct-2505, Midm-2.0-Mini-Instruct
+## Qwen3-MOE-4x0.6B-2.4B-Writing-Thunder-V1.2  [RMSNorm | rope | GQA | moe | SiLU | +qk-norm] h1024 L28 kv1024  (1 repo)
+   subset of: Flex-reddit-2x7B-1T, bigstral-12b-32k, MoE_13B_DPO, snowflake-arctic-instruct, deepseek-moe-16b-base, granite-4.0-h-small, Qwen3-Coder-480B-A35B-Instruct-FP8, OLMo-2-0325-32B  (+1 more)
+## gemma-4-31B-it-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm+softcap] h5376 L5 kv1024  (1 repo)
+   subset of: Qwen3-Coder-480B-A35B-Instruct-FP8, Kimi-K2.5-DFlash
+## Qwen3.6-27B-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm] h5120 L5 kv1024  (1 repo)
+   subset of: Qwen3.5-27B-DFlash
+## TIPO-500M  [RMSNorm | rope | MHA | glu | SiLU] h1280 L20 kv1280  (2 repos)
+   subset of: sarashina2.2-3b-instruct-v0.1, salamandra-2b-instruct
+## aragpt2-medium  [LayerNorm | learned_abs | MHA | vanilla | GeLU] h1024 L24 kv1024  (7 repos)
+   subset of: mGPT, ProtGPT2
+## pythia-410m  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h1024 L24 kv1024  (4 repos)
+   subset of: falcon-11B, pythia-1.4b
+## Qwen1.5-0.5B  [RMSNorm | rope | MHA | glu | SiLU] h1024 L24 kv1024  (4 repos)
+   subset of: OPDLM-0.6B, HyperCLOVAX-SEED-Text-Instruct-0.5B
+## opt-350m  [LayerNorm | learned_abs | MHA | vanilla | ReLU] h1024 L24 kv1024  (2 repos)
+   subset of: aragpt2-medium, opt-1.3b
+## MiniCPM4-0.5B  [RMSNorm | rope | GQA | glu | SiLU] h1024 L24 kv128  (1 repo)
+   subset of: Qwen2-1.5B, AI21-Jamba2-3B, granite-4.0-h-1b, HyperCLOVAX-SEED-Text-Instruct-0.5B, EXAONE-4.0-1.2B, granite-3.0-1b-a400m-base, sarashina2.2-0.5b-instruct-v0.1, MiniCPM5-1B
+## granite-3.0-1b-a400m-base  [RMSNorm | rope | GQA | moe | SiLU] h1024 L24 kv512  (2 repos)
+   subset of: internlm2-20b, Qwen1.5-MoE-A2.7B, Ling-lite-1.5, DeepSeek-V2-Lite, GigaChat3.1-10B-A1.8B, PowerMoE-3b
+## h2o-danube3-500m-chat  [RMSNorm | rope | GQA | glu | SiLU] h1536 L16 kv768  (1 repo)
+   subset of: glm-edge-4b-chat, kanana-1.5-2.1b-instruct-2505, EuroLLM-1.7B, salamandra-2b-instruct, Midm-2.0-Mini-Instruct, Llama-3.1-Minitron-4B-Depth-Base, OLMo-1B-hf, Falcon3-1B-Base
+## DanTagGen-beta  [RMSNorm | rope | MHA | glu | mish] h1024 L24 kv1024  (4 repos)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## HyperCLOVAX-SEED-Text-Instruct-0.5B  [RMSNorm | rope | GQA | glu | SiLU] h1024 L24 kv1024  (1 repo)
+   subset of: kanana-1.5-2.1b-instruct-2505, EuroLLM-1.7B, salamandra-2b-instruct, Midm-2.0-Mini-Instruct
+## Qwen3.5-9B-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm] h4096 L6 kv1024  (2 repos)
+   subset of: Qwen3-8B, Hy-MT2-7B, Phi-3.5-MoE-instruct, Ministral-3b-instruct, Qwen3.5-27B-DFlash
+## granite-4.0-h-350m  [RMSNorm | rope | GQA | glu | SiLU] h768 L32 kv256  (1 repo)
+   subset of: MiniCPM4-8B, Qwen2.5-3B, internlm3-8b-instruct, Falcon-H1-7B-Instruct-GPTQ-Int4, MiniCPM3-4B, SmolLM-360M
+## gpt-oss-120b-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h2880 L8 kv512  (1 repo)
+   subset of: gemma-1.1-7b-it, dspv2_guide, Llama-3.1-Minitron-4B-Width-Base, Riva-Translate-4B-Instruct-v1.1, granite-4.0-h-small, Yi-6B, Qwen3-8B, OLMo-2-1124-7B-SFT  (+4 more)
+## Qwen2-0.5B  [RMSNorm | rope | GQA | glu | SiLU] h896 L24 kv128  (43 repos)
+   subset of: Hy-MT2-30B-A3B, kanana-1.5-2.1b-instruct-2505, GLM-4.7-Flash, granite-3.3-2b-base, EuroLLM-1.7B, Ling-lite-1.5, DeepSeek-V2-Lite, MiniCPM3-4B  (+5 more)
+## codegen-350M-mono  [LayerNorm | partial_rope | MHA | vanilla | GeLU] h1024 L20 kv1024  (2 repos)
+   subset of: Falcon3-3B-Base, HyperCLOVAX-SEED-Text-Instruct-0.5B, falcon-11B, GLM-4.5-Air, Qwen3.6-27B-OBLITERATED, aya-expanse-8b-AWQ, phi-1, stablelm-2-1_6b  (+1 more)
+## Qwen3-8B-DFlash-b16  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h4096 L5 kv1024  (2 repos)
+   subset of: Qwen3-8B, Llama-3.1-Minitron-4B-Depth-Base, Hy-MT2-7B, Kimi-K2.5-DFlash
+## Bielik-Minitron-7B-v3.0-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h4096 L5 kv1024  (1 repo)
+   subset of: Bielik-Minitron-7B-v3.0-Instruct-FP8-Dynamic, Qwen3-8B-DFlash-b16
+## Qwen3-1.6B-A0.9B  [RMSNorm | rope | GQA | moe | SiLU | +qk-norm] h2048 L10 kv512  (1 repo)
+   subset of: gemma-1.1-7b-it, granite-4.0-h-small, CodeQwen1.5-7B-Chat, JoyAI-LLM-Flash-MXFP8-last-6-BF16, GLM-4.7-Flash, Qwen3-8B, Hy-MT2-7B, Qwen3-30B-A3B  (+1 more)
+## ERNIE-4.5-0.3B-PT  [RMSNorm | rope | GQA | glu | SiLU] h1024 L18 kv256  (1 repo)
+   subset of: OPDLM-0.6B, Falcon3-1B-Base, HyperCLOVAX-SEED-Text-Instruct-0.5B, EXAONE-4.0-1.2B, gemma-1.1-2b-it, MiniCPM5-1B, karasu-1.1B
+## Qwen3.5-122B-A10B-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm] h3072 L6 kv1024  (1 repo)
+   subset of: gemma-1.1-7b-it, dspv2_guide, Llama-3.1-Minitron-4B-Width-Base, Trinity-Large-Thinking, Olmo-3-1025-7B, Qwen3.5-9B-DFlash
+## turn-detector  [RMSNorm | rope | GQA | glu | SiLU] h576 L30 kv192  (7 repos)
+   subset of: Carbon-3B, EXAONE-4.0-1.2B, granite-4.0-h-350m
+## Qwen3-Coder-Next-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h2048 L8 kv512  (1 repo)
+   subset of: boomerang-qwen3-2.3B, Qwen3-1.6B-A0.9B, gpt-oss-120b-DFlash
+## Monad  [RMSNorm | rope | MHA | glu | SiLU] h256 L64 kv256  (1 repo)
+   subset of: Qwen1.5-32B, granite-4.1-30b, openbuddy-zero-14b-v22.3-32k
+## tiny_starcoder_py  [LayerNorm | learned_abs | MQA | vanilla | GeLU] h768 L20 kv64  (1 repo)
+   subset of: aragpt2-medium, gpt_bigcode-santacoder
+## mzansilm-125m  [RMSNorm | rope | GQA | glu | SiLU] h512 L30 kv168  (1 repo)
+   subset of: turn-detector
+## Qwen3.5-4B-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm] h2560 L6 kv1024  (1 repo)
+   subset of: boomerang-qwen3-2.3B, Qwen3.5-122B-A10B-DFlash
+## TIPO-200M-ft2  [RMSNorm | rope | MHA | glu | SiLU] h768 L20 kv768  (1 repo)
+   subset of: glm-edge-4b-chat, Falcon3-3B-Base, TIPO-500M, Qwen1.5-0.5B
+## gepard-1.0  [RMSNorm | rope | GQA | glu | SiLU] h1024 L14 kv512  (1 repo)
+   subset of: GigaChat3.1-10B-A1.8B, HyperCLOVAX-SEED-Text-Instruct-0.5B, EXAONE-4.0-1.2B, Ilama-3.2-1B
+## gemma-4-26B-A4B-it-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm+softcap] h2816 L5 kv1024  (1 repo)
+   subset of: Riva-Translate-4B-Instruct-v1.1, granite-4.0-h-small, Qwen3.5-122B-A10B-DFlash, Bielik-Minitron-7B-v3.0-DFlash, Qwen3.6-27B-DFlash, gemma-4-31B-it-DFlash
+## Qwen3-4B-DFlash-b16  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h2560 L5 kv1024  (1 repo)
+   subset of: boomerang-qwen3-2.3B, Bielik-Minitron-7B-v3.0-DFlash
+## Qwen3.5-35B-A3B-DFlash  [RMSNorm | rope | GQA | glu | SiLU | +sliding+qk-norm] h2048 L6 kv1024  (2 repos)
+   subset of: Riva-Translate-4B-Instruct-v1.1, granite-4.0-h-small, Qwen3.5-4B-DFlash
+## voyage-4-nano  [RMSNorm | rope | GQA | glu | SiLU | +qk-norm] h1024 L12 kv1024  (1 repo)
+   subset of: Llama-3.1-Minitron-4B-Depth-Base, Falcon3-1B-Base, HyperCLOVAX-SEED-Text-Instruct-0.5B, boomerang-qwen3-2.3B, Qwen3-0.6B, OLMo-base
+## progen2-small  [LayerNorm | partial_rope | MHA | glu | GeLU] h1024 L12 kv1024  (1 repo)
+   subset of: Llama-3.1-Minitron-4B-Depth-Base, OLMo-1B-hf, Falcon3-1B-Base, HyperCLOVAX-SEED-Text-Instruct-0.5B, GLM-4.5-Air, pythia-410m, Qwen3.6-27B-OBLITERATED, aya-expanse-8b-AWQ  (+3 more)
+## aether0-500m  [RMSNorm | rope | MLA | moe_shared | SiLU] h768 L14 kv320  (1 repo)
+   subset of: DeepSeek-R1, Kimi-K2-Base, GLM-5.2-W4AFP8
+## opt-125m  [LayerNorm | learned_abs | MHA | vanilla | ReLU] h768 L12 kv768  (3 repos)
+   subset of: german-gpt2, opt-350m
+## german-gpt2  [LayerNorm | learned_abs | MHA | vanilla | GeLU] h768 L12 kv768  (22 repos)
+   subset of: aragpt2-medium
+## pythia-160m  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h768 L12 kv768  (8 repos)
+   subset of: pythia-410m, pythia-1b
+## llama-160m  [RMSNorm | rope | MHA | glu | SiLU] h768 L12 kv768  (1 repo)
+   subset of: OPDLM-0.6B, HyperCLOVAX-SEED-Text-Instruct-0.5B, TIPO-500M, h2o-danube3-500m-chat
+## japanese-gpt-neox-small  [LayerNorm | rope | MHA | vanilla | GeLU] h768 L12 kv768  (1 repo)
+   subset of: llama-160m, falcon-11B, gemma-7b, gpt-neox-japanese-2.7b, Zamba2-1.2B-instruct, aya-expanse-8b-AWQ
+## babylm-2026-multilingual-uniform-100M-v2  [RMSNorm | rope | MHA | glu | SiLU] h768 L12 kv768  (1 repo)
+   subset of: llama-160m, TIPO-200M-ft2
+## Soprano-1.1-80M  [RMSNorm | rope | MQA | glu | SiLU | +qk-norm] h512 L17 kv128  (1 repo)
+   subset of: SmolLM-360M, TIPO-200M-ft2, ERNIE-4.5-0.3B-PT, Qwen2-0.5B, MiniCPM4-0.5B, boomerang-qwen3-2.3B, Param2-17B-A2.4B-Thinking, Qwen3-0.6B  (+3 more)
+## CLASS_IT-140M  [RMSNorm | rope | MHA | glu | SiLU] h704 L12 kv704  (1 repo)
+   subset of: llama-160m, Qwen1.5-0.5B
+## Llama-3.2-0.5B-Instruct  [RMSNorm | rope | GQA | glu | SiLU] h2048 L4 kv512  (1 repo)
+   subset of: Ilama-3.2-1B, DeepSeek-V3-5layer
+## baby-llama-58m  [RMSNorm | rope | MHA | glu | SiLU] h512 L16 kv512  (1 repo)
+   subset of: granite-4.0-h-1b, granite-4.0-tiny-preview, EXAONE-4.0-1.2B, h2o-danube3-500m-chat, Ilama-3.2-1B, granite-3.0-1b-a400m-base, sarashina2.2-0.5b-instruct-v0.1, TIPO-200M-ft2  (+1 more)
+## kimi-k2.5-eagle3-mla  [RMSNorm | rope | MLA | glu | SiLU] h7168 L1 kv576  (2 repos)
+   subset of: A.X-K1, DeepSeek-V3-5layer
+## kimi-k2.6-eagle3  [RMSNorm | rope | MHA | glu | SiLU] h7168 L1 kv8192  (1 repo)
+   subset of: AnFeng_v3_Avocet
+## llm-jp-3-150m  [RMSNorm | rope | MHA | glu | SiLU] h512 L12 kv512  (1 repo)
+   subset of: granite-4.0-h-1b, granite-4.0-tiny-preview, granite-3.0-1b-a400m-base, sarashina2.2-0.5b-instruct-v0.1, gepard-1.0, CLASS_IT-140M, babylm-2026-multilingual-uniform-100M-v2
+## MiniMax-M3-EAGLE3  [RMSNorm | rope | MHA | glu | SiLU] h6144 L1 kv8192  (1 repo)
+   subset of: AnFeng_v3_Avocet
+## Supra-1.5-50M-Base-exp  [RMSNorm | rope | GQA | glu | SiLU] h512 L12 kv256  (1 repo)
+   subset of: granite-4.0-h-350m, aether0-500m, ERNIE-4.5-0.3B-PT, llm-jp-3-150m, granite-4.0-350m
+## dart-v2-sft  [RMSNorm | rope | MQA | glu | SiLU] h768 L8 kv96  (1 repo)
+   subset of: granite-4.0-tiny-preview, llama-160m, aether0-500m, gepard-1.0, ERNIE-4.5-0.3B-PT, Qwen2-0.5B, MiniCPM4-0.5B
+## distilgpt2  [LayerNorm | learned_abs | MHA | vanilla | GeLU] h768 L6 kv768  (1 repo)
+   subset of: german-gpt2
+## EAGLE-LLaMA3-Instruct-8B  [RMSNorm | rope | GQA | glu | SiLU] h4096 L1 kv1024  (1 repo)
+   subset of: Llama-3.1-Minitron-4B-Depth-Base, MiniMax-M3-EAGLE3
+## Qwen3-VL-8B-Instruct-Eagle3  [RMSNorm | rope | GQA | glu | SiLU] h4096 L1 kv1024  (1 repo)
+   subset of: I-DLM-8B, EAGLE-LLaMA3-Instruct-8B, kimi-k2.6-eagle3
+## base-pretrain  [RMSNorm | rope | GQA | glu | SiLU] h512 L8 kv256  (1 repo)
+   subset of: granite-4.0-h-350m, aether0-500m, ERNIE-4.5-0.3B-PT, llm-jp-3-150m, granite-4.0-350m
+## tiny-mistral  [RMSNorm | rope | GQA | glu | SiLU | +sliding] h512 L8 kv128  (1 repo)
+   subset of: gemma-1.1-2b-it, aether0-500m, DeepSeek-V4-Flash-180B, Ministral-3b-instruct
+## pythia-70m-deduped  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h512 L6 kv512  (1 repo)
+   subset of: pythia-160m
+## Llama-3.3-Tiny-Instruct-boolq  [RMSNorm | rope | GQA | glu | SiLU] h256 L12 kv128  (1 repo)
+   subset of: Qwen2-0.5B, MiniCPM4-0.5B, baby-llama-58m, Supra-1.5-50M-Base-exp, mzansilm-125m, Falcon-H1-0.5B-Base, Monad
+## dart-v2-moe-sft  [RMSNorm | rope | MQA | moe | SiLU] h768 L4 kv96  (1 repo)
+   subset of: I-DLM-8B, granite-4.0-h-small, CodeQwen1.5-7B-Chat, glm-4-9b-chat-hf, Hy-MT2-30B-A3B, ERNIE-4.5-21B-A3B-PT, GLM-4.7-Flash, Falcon-H1-7B-Instruct-GPTQ-Int4  (+9 more)
+## gpt-oss-120b-Eagle3-long-context  [RMSNorm | rope | GQA | glu | SiLU] h2880 L1 kv512  (1 repo)
+   subset of: Qwen1.5-32B, ReflectionCoder-DS-33B, Yi-34B, TildeOpen-30b, CodeLlama-34b-hf, Flex-reddit-2x7B-1T, sarvam-m, phi-4  (+5 more)
+## gpt-oss-120b-Eagle3-v3  [RMSNorm | rope | GQA | glu | SiLU] h2880 L1 kv512  (2 repos)
+   subset of: glm-4-9b, internlm2-20b, gpt-oss-120b-Eagle3-long-context
+## testing-llama-tiny  [RMSNorm | rope | MHA | glu | SiLU] h512 L5 kv512  (1 repo)
+   subset of: DeepSeek-V3-5layer, llm-jp-3-150m
+## tiny-mixtral  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h1024 L2 kv256  (1 repo)
+   subset of: sarvam-m, MoE_13B_DPO, granite-4.0-h-small, GLM-4.7-Flash, Ling-lite-1.5, DeepSeek-V2-Lite, OLMoE-1B-7B-0125, academic-ds-9B  (+2 more)
+## gpt2-mini  [LayerNorm | learned_abs | MHA | vanilla | GeLU] h512 L4 kv512  (1 repo)
+   subset of: distilgpt2
+## stories15M_MOE  [RMSNorm | rope | MHA | moe | SiLU] h288 L6 kv288  (1 repo)
+   subset of: MiniCPM3-4B, Carbon-3B, granite-4.0-h-1b, granite-4.0-tiny-preview, llama-160m, granite-3.0-1b-a400m-base, sarashina2.2-0.5b-instruct-v0.1, aether0-500m  (+1 more)
+## llama2.c-stories15M  [RMSNorm | rope | MHA | glu | SiLU] h288 L6 kv288  (1 repo)
+   subset of: SmolLM-360M, llm-jp-3-150m, baby-llama-58m, stories15M_MOE
+## llama-68m  [RMSNorm | rope | MHA | glu | SiLU] h768 L2 kv768  (2 repos)
+   subset of: llama-160m
+## pythia-31m  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h256 L6 kv256  (1 repo)
+   subset of: pythia-70m-deduped
+## llama2-kv-sharing  [RMSNorm | rope | MQA | glu | SiLU] h256 L5 kv64  (1 repo)
+   subset of: dart-v2-sft, llama2-fewer-kv-heads
+## llama2-fewer-kv-heads  [RMSNorm | rope | GQA | glu | SiLU] h256 L5 kv128  (1 repo)
+   subset of: base-pretrain, testing-llama-tiny, llama2.c-stories15M, Llama-3.3-Tiny-Instruct-boolq
+## tiny-lm  [RMSNorm | rope | MHA | glu | SiLU] h256 L4 kv256  (1 repo)
+   subset of: Supra-1.5-50M-Base-exp, base-pretrain, Monad, testing-llama-tiny, Llama-3.2-0.5B-Instruct, llama2.c-stories15M
+## llama3-small  [RMSNorm | rope | GQA | glu | SiLU] h512 L2 kv128  (1 repo)
+   subset of: Llama-3.1-Minitron-4B-Depth-Base, gemma-1.1-2b-it, aether0-500m, DeepSeek-V3-5layer
+## pythia-14m  [LayerNorm | partial_rope | MHA | vanilla | GeLU | +parallel] h128 L6 kv128  (2 repos)
+   subset of: pythia-31m
+## TinyLLama-v0  [RMSNorm | rope | MHA | glu | SiLU] h64 L8 kv64  (1 repo)
+   subset of: base-pretrain, dart-v2-sft, Llama-3.3-Tiny-Instruct-boolq
+## SimpleStories-1.25M  [RMSNorm | rope | GQA | glu | SiLU] h128 L4 kv64  (1 repo)
+   subset of: dart-v2-moe-sft, tiny-lm, llama2-kv-sharing
+## Tiny-LLM  [RMSNorm | rope | MQA | glu | SiLU] h192 L1 kv96  (1 repo)
+   subset of: baby-llama-58m, stories15M_MOE, Supra-1.5-50M-Base-exp, mzansilm-125m, Falcon-H1-0.5B-Base, base-pretrain, testing-llama-tiny, dart-v2-sft  (+6 more)
+## v0-llama2-100k  [RMSNorm | rope | GQA | glu | SiLU] h48 L4 kv24  (1 repo)
+   subset of: TinyLLama-v0, SimpleStories-1.25M
+## bigscience-small-testing  [LayerNorm | alibi | MHA | vanilla | GeLU] h64 L2 kv64  (1 repo)
+   subset of: TinyLLama-v0, SimpleStories-1.25M, llama-68m, llama3-small, japanese-gpt-neox-small, gemma-2b, EXAONE-3.5-2.4B-Instruct, falcon-rw-1b  (+1 more)
+## testing-llama_hidden_size_64  [RMSNorm | rope | MHA | glu | SiLU] h64 L2 kv64  (1 repo)
+   subset of: TinyLLama-v0, SimpleStories-1.25M, llama-68m, llama3-small
+## really-tiny-falcon-testing  [LayerNorm | rope | MQA | vanilla | GeLU | +parallel] h32 L2 kv1136  (1 repo)
+   subset of: (MAXIMAL - no checkpoint emulates it)
+## testing-qwen3-moe  [RMSNorm | rope | GQA | moe | SiLU | +qk-norm] h16 L2 kv8  (1 repo)
+   subset of: stories15M_MOE, dart-v2-sft, Llama-3.2-0.5B-Instruct, dart-v2-moe-sft, Param2-17B-A2.4B-Thinking, Hy-MT2-1.8B, sarvam-30b, outputs  (+3 more)
+## testing-gpt-oss  [RMSNorm | rope | GQA | moe | SiLU | +sliding] h16 L2 kv8  (1 repo)
+   subset of: Artemide-3.5, v0-llama2-100k, Phi-tiny-MoE-instruct, tiny-mixtral, North-Mini-Code-1.0-fp8, Trinity-Nano-Preview, tiny-mistral
+## testing-glm4-moe  [RMSNorm | partial_rope | GQA | moe_shared | SiLU] h16 L2 kv8  (1 repo)
+   subset of: A.X-K1, Qwen2-57B-A14B, MiniMax-M1-40k, aether0-500m, DeepSeek-V3-5layer, GLM-4.5-Air
+## tiny-llama-fast-tokenizer  [RMSNorm | rope | MHA | glu | SiLU] h16 L2 kv16  (1 repo)
+   subset of: v0-llama2-100k, testing-llama_hidden_size_64
+## llama2-0b-unit-test  [RMSNorm | rope | MHA | glu | SiLU] h12 L2 kv12  (1 repo)
+   subset of: tiny-llama-fast-tokenizer
+## tiny-dummy-qwen2  [RMSNorm | rope | GQA | glu | SiLU] h8 L2 kv4  (1 repo)
+   subset of: tiny-llama-fast-tokenizer
+## tiny-gpt2  [LayerNorm | learned_abs | MHA | vanilla | GeLU] h2 L2 kv2  (1 repo)
+   subset of: tiny_starcoder_py, gpt2-mini

@@ -1,0 +1,559 @@
+{
+ "book1": [
+  {
+   "target": "nvidia/nemotron-3.5-content-safety",
+   "or_min": 0.2,
+   "or_providers": [
+    "DeepInfra"
+   ],
+   "fl_price": 0.0625,
+   "fl_class": "gemma3-4b",
+   "fl_ctx": 32768,
+   "spread": 0.688
+  },
+  {
+   "target": "thedrummer/unslopnemo-12b",
+   "or_min": 0.4,
+   "or_providers": [
+    "Parasail"
+   ],
+   "fl_price": 0.225,
+   "fl_class": "mistral-nemo",
+   "fl_ctx": 32768,
+   "spread": 0.438
+  },
+  {
+   "target": "thedrummer/cydonia-24b-v4.1",
+   "or_min": 0.35,
+   "or_providers": [
+    "Parasail"
+   ],
+   "fl_price": 0.2037,
+   "fl_class": "mistral-24b",
+   "fl_ctx": 32768,
+   "spread": 0.418
+  },
+  {
+   "target": "qwen/qwen3.8-2.4t-a95b",
+   "or_min": 3.0,
+   "or_providers": [
+    "Alibaba",
+    "Novita",
+    "SiliconFlow",
+    "Together",
+    "Venice"
+   ],
+   "fl_price": 1.75,
+   "fl_class": "qwen38-2400b",
+   "fl_ctx": 262144,
+   "spread": 0.417
+  },
+  {
+   "target": "mistralai/mistral-small-3.1-24b-instruct",
+   "or_min": 0.402,
+   "or_providers": [
+    "Cloudflare"
+   ],
+   "fl_price": 0.2632,
+   "fl_class": "mistral-24b-2503",
+   "fl_ctx": 32768,
+   "spread": 0.345
+  },
+  {
+   "target": "deepseek/deepseek-r1-0528",
+   "or_min": 0.9125,
+   "or_providers": [
+    "DeepInfra",
+    "SiliconFlow",
+    "StreamLake"
+   ],
+   "fl_price": 0.695,
+   "fl_class": "deepseek-v3-lc",
+   "fl_ctx": 131072,
+   "spread": 0.238
+  },
+  {
+   "target": "sao10k/l3.1-euryale-70b",
+   "or_min": 0.85,
+   "or_providers": [
+    "DeepInfra"
+   ],
+   "fl_price": 0.72,
+   "fl_class": "llama31-70b",
+   "fl_ctx": 32768,
+   "spread": 0.153
+  },
+  {
+   "target": "qwen/qwen3-vl-30b-a3b-instruct",
+   "or_min": 0.2625,
+   "or_providers": [
+    "DeepInfra",
+    "Novita",
+    "SiliconFlow"
+   ],
+   "fl_price": 0.2375,
+   "fl_class": "qwen3vlmoe-30b",
+   "fl_ctx": 131072,
+   "spread": 0.095
+  },
+  {
+   "target": "meta/muse-glimmer-30b",
+   "or_min": 0.525,
+   "or_providers": [
+    "DeepInfra",
+    "Together"
+   ],
+   "fl_price": 0.5,
+   "fl_class": "glimmer-30b",
+   "fl_ctx": 131072,
+   "spread": 0.048
+  },
+  {
+   "target": "undi95/remm-slerp-l2-13b",
+   "or_min": 0.425,
+   "or_providers": [
+    "Mancer 2"
+   ],
+   "fl_price": 0.4125,
+   "fl_class": "llama2-13b",
+   "fl_ctx": 4096,
+   "spread": 0.029
+  }
+ ],
+ "book2": [
+  {
+   "target": "tencent/hy-mt2-1.8b",
+   "or_min": 0.0773,
+   "host_class": "qwen3-embedding-8b",
+   "host_rep": "Qwen/Qwen3-Embedding-8B",
+   "upload_price": 0.03,
+   "spread": 0.612
+  },
+  {
+   "target": "anthracite-org/magnum-v4-72b",
+   "or_min": 3.125,
+   "host_class": "qwen25-72b",
+   "host_rep": "Qwen/Qwen2.5-72B-Instruct",
+   "upload_price": 1.51,
+   "spread": 0.517
+  },
+  {
+   "target": "thedrummer/unslopnemo-12b",
+   "or_min": 0.4,
+   "host_class": "phi4-14b",
+   "host_rep": "microsoft/phi-4",
+   "upload_price": 0.35,
+   "spread": 0.125
+  },
+  {
+   "target": "qwen/qwen3-vl-8b-instruct",
+   "or_min": 0.375,
+   "host_class": "phi4-14b",
+   "host_rep": "microsoft/phi-4",
+   "upload_price": 0.35,
+   "spread": 0.067
+  }
+ ],
+ "book3": [
+  {
+   "target": "nvidia/nemotron-3.5-content-safety",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.2,
+     "fl": 0.0625,
+     "route": "listed gemma3-4b",
+     "exactness": "listed",
+     "spread": 0.688
+    },
+    "rag 20:1": {
+     "or_min": 0.2,
+     "fl": 0.0524,
+     "route": "listed gemma3-4b",
+     "exactness": "listed",
+     "spread": 0.738
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.2,
+     "fl": 0.0524,
+     "route": "listed gemma3-4b",
+     "exactness": "listed",
+     "spread": 0.738
+    },
+    "generation 1:3": {
+     "or_min": 0.2,
+     "fl": 0.0875,
+     "route": "listed gemma3-4b",
+     "exactness": "listed",
+     "spread": 0.562
+    }
+   }
+  },
+  {
+   "target": "anthracite-org/magnum-v4-72b",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 3.125,
+     "fl": 1.51,
+     "route": "embed->qwen25-72b",
+     "exactness": "exact",
+     "spread": 0.517
+    },
+    "rag 20:1": {
+     "or_min": 2.619,
+     "fl": 1.4857,
+     "route": "embed->qwen25-72b",
+     "exactness": "exact",
+     "spread": 0.433
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 2.619,
+     "fl": 1.4857,
+     "route": "embed->qwen25-72b",
+     "exactness": "exact",
+     "spread": 0.433
+    },
+    "generation 1:3": {
+     "or_min": 4.375,
+     "fl": 1.57,
+     "route": "embed->qwen25-72b",
+     "exactness": "exact",
+     "spread": 0.641
+    }
+   }
+  },
+  {
+   "target": "qwen/qwen3.8-2.4t-a95b",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 3.0,
+     "fl": 1.75,
+     "route": "listed qwen38-2400b",
+     "exactness": "listed",
+     "spread": 0.417
+    },
+    "rag 20:1": {
+     "or_min": 2.1905,
+     "fl": 1.1429,
+     "route": "listed qwen38-2400b",
+     "exactness": "listed",
+     "spread": 0.478
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.8571,
+     "fl": 1.1429,
+     "route": "listed qwen38-2400b",
+     "exactness": "listed",
+     "spread": -0.333
+    },
+    "generation 1:3": {
+     "or_min": 5.0,
+     "fl": 3.25,
+     "route": "listed qwen38-2400b",
+     "exactness": "listed",
+     "spread": 0.35
+    }
+   }
+  },
+  {
+   "target": "thedrummer/unslopnemo-12b",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.4,
+     "fl": 0.225,
+     "route": "listed mistral-nemo",
+     "exactness": "listed",
+     "spread": 0.438
+    },
+    "rag 20:1": {
+     "or_min": 0.4,
+     "fl": 0.2189,
+     "route": "listed mistral-nemo",
+     "exactness": "listed",
+     "spread": 0.453
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.4,
+     "fl": 0.2189,
+     "route": "listed mistral-nemo",
+     "exactness": "listed",
+     "spread": 0.453
+    },
+    "generation 1:3": {
+     "or_min": 0.4,
+     "fl": 0.24,
+     "route": "listed mistral-nemo",
+     "exactness": "listed",
+     "spread": 0.4
+    }
+   }
+  },
+  {
+   "target": "thedrummer/cydonia-24b-v4.1",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.35,
+     "fl": 0.2037,
+     "route": "listed mistral-24b",
+     "exactness": "listed",
+     "spread": 0.418
+    },
+    "rag 20:1": {
+     "or_min": 0.3095,
+     "fl": 0.1805,
+     "route": "listed mistral-24b",
+     "exactness": "listed",
+     "spread": 0.417
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.1952,
+     "fl": 0.1805,
+     "route": "listed mistral-24b",
+     "exactness": "listed",
+     "spread": 0.076
+    },
+    "generation 1:3": {
+     "or_min": 0.45,
+     "fl": 0.2612,
+     "route": "listed mistral-24b",
+     "exactness": "listed",
+     "spread": 0.419
+    }
+   }
+  },
+  {
+   "target": "mistralai/mistral-small-3.1-24b-instruct",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.402,
+     "fl": 0.2632,
+     "route": "listed mistral-24b-2503",
+     "exactness": "listed",
+     "spread": 0.345
+    },
+    "rag 20:1": {
+     "or_min": 0.3607,
+     "fl": 0.2256,
+     "route": "listed mistral-24b-2503",
+     "exactness": "listed",
+     "spread": 0.375
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.3607,
+     "fl": 0.2256,
+     "route": "listed mistral-24b-2503",
+     "exactness": "listed",
+     "spread": 0.375
+    },
+    "generation 1:3": {
+     "or_min": 0.504,
+     "fl": 0.3561,
+     "route": "listed mistral-24b-2503",
+     "exactness": "listed",
+     "spread": 0.294
+    }
+   }
+  },
+  {
+   "target": "deepseek/deepseek-r1-0528",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.9125,
+     "fl": 0.695,
+     "route": "listed deepseek-v3-lc",
+     "exactness": "listed",
+     "spread": 0.238
+    },
+    "rag 20:1": {
+     "or_min": 0.5786,
+     "fl": 0.444,
+     "route": "listed deepseek-v3-lc",
+     "exactness": "listed",
+     "spread": 0.233
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.4643,
+     "fl": 0.444,
+     "route": "listed deepseek-v3-lc",
+     "exactness": "listed",
+     "spread": 0.044
+    },
+    "generation 1:3": {
+     "or_min": 1.7375,
+     "fl": 1.315,
+     "route": "listed deepseek-v3-lc",
+     "exactness": "listed",
+     "spread": 0.243
+    }
+   }
+  },
+  {
+   "target": "qwen/qwen3-vl-30b-a3b-instruct",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.2625,
+     "fl": 0.2375,
+     "route": "listed qwen3vlmoe-30b",
+     "exactness": "listed",
+     "spread": 0.095
+    },
+    "rag 20:1": {
+     "or_min": 0.1714,
+     "fl": 0.1667,
+     "route": "listed qwen3vlmoe-30b",
+     "exactness": "listed",
+     "spread": 0.028
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.1714,
+     "fl": 0.1667,
+     "route": "listed qwen3vlmoe-30b",
+     "exactness": "listed",
+     "spread": 0.028
+    },
+    "generation 1:3": {
+     "or_min": 0.4875,
+     "fl": 0.4125,
+     "route": "listed qwen3vlmoe-30b",
+     "exactness": "listed",
+     "spread": 0.154
+    }
+   }
+  },
+  {
+   "target": "sao10k/l3.1-euryale-70b",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.85,
+     "fl": 0.72,
+     "route": "listed llama31-70b",
+     "exactness": "listed",
+     "spread": 0.153
+    },
+    "rag 20:1": {
+     "or_min": 0.85,
+     "fl": 0.72,
+     "route": "listed llama31-70b",
+     "exactness": "listed",
+     "spread": 0.153
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.85,
+     "fl": 0.72,
+     "route": "listed llama31-70b",
+     "exactness": "listed",
+     "spread": 0.153
+    },
+    "generation 1:3": {
+     "or_min": 0.85,
+     "fl": 0.72,
+     "route": "listed llama31-70b",
+     "exactness": "listed",
+     "spread": 0.153
+    }
+   }
+  },
+  {
+   "target": "undi95/remm-slerp-l2-13b",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.425,
+     "fl": 0.4125,
+     "route": "listed llama2-13b",
+     "exactness": "listed",
+     "spread": 0.029
+    },
+    "rag 20:1": {
+     "or_min": 0.3643,
+     "fl": 0.3821,
+     "route": "listed llama2-13b",
+     "exactness": "listed",
+     "spread": -0.049
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.3643,
+     "fl": 0.3821,
+     "route": "listed llama2-13b",
+     "exactness": "listed",
+     "spread": -0.049
+    },
+    "generation 1:3": {
+     "or_min": 0.575,
+     "fl": 0.4875,
+     "route": "listed llama2-13b",
+     "exactness": "listed",
+     "spread": 0.152
+    }
+   }
+  },
+  {
+   "target": "qwen/qwen3-vl-8b-instruct",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.375,
+     "fl": 0.4741,
+     "route": "listed qwen3vl-8b",
+     "exactness": "listed",
+     "spread": -0.264
+    },
+    "rag 20:1": {
+     "or_min": 0.2738,
+     "fl": 0.2374,
+     "route": "listed qwen3vl-8b",
+     "exactness": "listed",
+     "spread": 0.133
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.1748,
+     "fl": 0.2374,
+     "route": "listed qwen3vl-8b",
+     "exactness": "listed",
+     "spread": -0.359
+    },
+    "generation 1:3": {
+     "or_min": 0.625,
+     "fl": 1.0589,
+     "route": "listed qwen3vl-8b",
+     "exactness": "listed",
+     "spread": -0.694
+    }
+   }
+  },
+  {
+   "target": "meta/muse-glimmer-30b",
+   "workloads": {
+    "chat 3:1": {
+     "or_min": 0.525,
+     "fl": 0.5,
+     "route": "listed glimmer-30b",
+     "exactness": "listed",
+     "spread": 0.048
+    },
+    "rag 20:1": {
+     "or_min": 0.3429,
+     "fl": 0.3381,
+     "route": "listed glimmer-30b",
+     "exactness": "listed",
+     "spread": 0.014
+    },
+    "agent 20:1, 80% cached": {
+     "or_min": 0.1448,
+     "fl": 0.3381,
+     "route": "listed glimmer-30b",
+     "exactness": "listed",
+     "spread": -1.336
+    },
+    "generation 1:3": {
+     "or_min": 0.975,
+     "fl": 0.9,
+     "route": "listed glimmer-30b",
+     "exactness": "listed",
+     "spread": 0.077
+    }
+   }
+  }
+ ],
+ "fl_price_structure": {
+  "official+4x": 175,
+  "other": 5
+ }
+}

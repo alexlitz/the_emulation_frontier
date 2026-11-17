@@ -1,0 +1,244 @@
+{
+ "gdn_out_gate_act": {
+  "detector": "detect_gdn_out_gate_act",
+  "flag": {
+   "CMSManhattan/JiRackDeltaNet_180b": "sigmoid",
+   "whittleOrg/Whittle-Next-27B-A3B": "sigmoid",
+   "Schiltmans/Qwen3.8-Flash-Next-Coder-cut240": "sigmoid",
+   "mlx-community/Qwen3.8-Flash-Next-OptiQ-2bit": "sigmoid",
+   "defnoteatin/PseudoBrain-Qwen3.8-Flash-Next-BF16": "sigmoid",
+   "jakeatx/slimder-qwen38-reap384-depth40-mb4-5": "sigmoid",
+   "azampatti/Qwen3.8-Flash-Next-125B-A5B-INT4-AutoRound": "sigmoid",
+   "hstolte/Qwen3.8-Flash-Next-HTR": "sigmoid"
+  },
+  "not_flag": [
+   "PeetPedro/qwen4_exp-8b-obliterated-abliterated-kompress-ultra",
+   "gdubicki/Qwen3-Coder-Next-NVFP4-GB10",
+   "huihui-ai/Huihui-Qwen3-Coder-Next-abliterated",
+   "Advisio/Radha-9B",
+   "amd/Qwen3.6-35B-A3B-w4a16-llmcompressor",
+   "allenai/Olmo-Hybrid-7B"
+  ]
+ },
+ "kda_classified_as_gdn": {
+  "detector": "detect_kda_classified_as_gdn",
+  "flag": {
+   "AMAImedia/AliceAI-Foundation-80B-A3B-NOESIS-BF16-GGUF": "kda"
+  },
+  "not_flag": [
+   "gdubicki/Qwen3-Coder-Next-NVFP4-GB10",
+   "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+   "upstage/Solar-Open2-250B",
+   "avlp12/GLM-5.3-Flash-Alis-MLX-4bit",
+   "Advisio/Radha-9B"
+  ]
+ },
+ "fla_num_heads_unplaced": {
+  "detector": "detect_fla_num_heads_unplaced",
+  "flag": {
+   "fla-hub/gla-1.3B-100B": 4,
+   "fla-hub/delta_net-1.3B-100B": 16,
+   "fla-hub/transformer-1.3B-100B": 32
+  },
+  "not_flag": [
+   "EleutherAI/gpt-neo-125m",
+   "fla-hub/rwkv7-0.1B-g1",
+   "ridger/MMfreeLM-370M",
+   "JetLM/SDAR-8B-Chat",
+   "google-t5/t5-3b",
+   "01-ai/Yi-1.5-34B-32K"
+  ]
+ },
+ "gla_rc_dims_unread": {
+  "detector": "detect_gla_rc_dims_unread",
+  "flag": {
+   "fla-hub/gla-1.3B-100B": [
+    4,
+    256,
+    512,
+    4,
+    0,
+    16
+   ],
+   "fla-hub/delta_net-1.3B-100B": [
+    16,
+    128,
+    128,
+    16,
+    4,
+    0
+   ]
+  },
+  "not_flag": [
+   "fla-hub/transformer-1.3B-100B",
+   "fla-hub/rwkv7-0.1B-g1",
+   "RWKV/v5-Eagle-7B-HF",
+   "ridger/MMfreeLM-370M"
+  ]
+ },
+ "loop_depth_unread": {
+  "detector": "detect_loop_depth_unread",
+  "flag": {
+   "ByteDance/Ouro-1.4B": [
+    24,
+    96
+   ],
+   "ByteDance/Ouro-1.4B-Thinking": [
+    24,
+    96
+   ],
+   "ByteDance/Ouro-2.6B": [
+    48,
+    192
+   ],
+   "ByteDance/Ouro-2.6B-Thinking": [
+    48,
+    192
+   ],
+   "alice-noa-chan/haru": [
+    2,
+    6
+   ],
+   "alice-noa-chan/haru_1.1": [
+    4,
+    7
+   ],
+   "alice-noa-chan/haru_2": [
+    7,
+    7
+   ],
+   "cybertruck32489/LFM3-1.7B-RD": [
+    24,
+    24
+   ],
+   "cybertruck32489/LFM3-1.7B-RD-v2": [
+    24,
+    24
+   ]
+  },
+  "not_flag": [
+   "Nanbeige/Nanbeige4.2-3B",
+   "ProCreations/Dory-Beam-4B",
+   "IQuestLab/IQuest-Coder-V1-40B-Loop-Instruct",
+   "osunlp/ARLoop-0.6B",
+   "LuxiaSL/kotodama-tsumugi-1b",
+   "Lordnyx/qwen3loop-0.6b-sft-deep-supervision-v1",
+   "LiquidAI/LFM3-1.7B-Base"
+  ]
+ },
+ "loop_boundary_norm": {
+  "detector": "detect_loop_boundary_norm",
+  "flag": {
+   "Nanbeige/Nanbeige4.2-3B": "final_norm_cfg",
+   "Nanbeige/Nanbeige4.2-3B-Base": "final_norm_cfg",
+   "danish-foundation-models/DFM-Mimir": "stack_norm",
+   "danish-foundation-models/DFM-Mimir-v1.5": "stack_norm",
+   "sapientinc/HRM-Text-1B": "stack_norm",
+   "ByteDance/Ouro-1.4B": "final_norm",
+   "ByteDance/Ouro-2.6B-Thinking": "final_norm",
+   "ProCreations/Dory-Beam-4B": "l2"
+  },
+  "not_flag": [
+   "Lordnyx/qwen3loop-0.6b-sft-deep-supervision-v1",
+   "IQuestLab/IQuest-Coder-V1-40B-Loop-Instruct",
+   "TheBloke/Nanbeige-16B-Base-32K-GGUF",
+   "cybertruck32489/LFM3-1.7B-RD",
+   "osunlp/ARLoop-0.6B",
+   "alice-noa-chan/haru"
+  ]
+ },
+ "loop_input_injection": {
+  "detector": "detect_loop_input_injection",
+  "flag": {
+   "ProCreations/Dory-Beam-4B": "add",
+   "netprojects/nemotron-dory1.0-4b-mlx-8bit": "add",
+   "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-MXFP8": "add",
+   "vladimir94/dory-1.0-4b-ane-coreml": "add",
+   "tomg-group-umd/huginn-0125": "concat_adapter"
+  },
+  "not_flag": [
+   "Nanbeige/Nanbeige4.2-3B",
+   "ByteDance/Ouro-1.4B",
+   "cybertruck32489/LFM3-1.7B-RD",
+   "IQuestLab/IQuest-Coder-V1-40B-Loop-Instruct",
+   "sapientinc/HRM-Text-1B"
+  ]
+ },
+ "loop_kv_share_gated_mix": {
+  "detector": "detect_loop_kv_share_gated_mix",
+  "flag": {
+   "IQuestLab/IQuest-Coder-V1-40B-Loop-Instruct": 64
+  },
+  "not_flag": [
+   "IQuestLab/IQuest-Q1",
+   "Nanbeige/Nanbeige4.2-3B",
+   "ByteDance/Ouro-1.4B",
+   "ProCreations/Dory-Beam-4B"
+  ]
+ },
+ "loop_split_depth_miscount": {
+  "detector": "detect_loop_split_depth_miscount",
+  "flag": {
+   "Lordnyx/qwen3loop-0.6b-sft-deep-supervision-v1": [
+    28,
+    56
+   ]
+  },
+  "not_flag": [
+   "Nanbeige/Nanbeige4.2-3B",
+   "Nanbeige/Nanbeige4.2-3B-Base",
+   "ProCreations/Dory-Beam-4B",
+   "0xgr3y/Qwen3-0.6B-Gensyn-Swarm-tall_tame_panther"
+  ]
+ },
+ "hrm_hierarchical_loop": {
+  "detector": "detect_hrm_hierarchical_loop",
+  "flag": {
+   "sapientinc/HRM-Text-1B": [
+    32,
+    128
+   ],
+   "danish-foundation-models/DFM-Mimir": [
+    32,
+    128
+   ],
+   "danish-foundation-models/DFM-Mimir-v1.5": [
+    32,
+    128
+   ]
+  },
+  "not_flag": [
+   "Nanbeige/Nanbeige4.2-3B",
+   "ByteDance/Ouro-1.4B",
+   "01-ai/Yi-1.5-34B-32K"
+  ]
+ },
+ "per_token_early_exit": {
+  "detector": "detect_per_token_early_exit",
+  "flag": {
+   "ByteDance/Ouro-1.4B": "threshold",
+   "ByteDance/Ouro-1.4B-Thinking": "threshold",
+   "ByteDance/Ouro-2.6B": "threshold",
+   "ByteDance/Ouro-2.6B-Thinking": "threshold"
+  },
+  "not_flag": [
+   "cybertruck32489/LFM3-1.7B-RD",
+   "alice-noa-chan/haru",
+   "Nanbeige/Nanbeige4.2-3B",
+   "tomg-group-umd/huginn-0125"
+  ]
+ },
+ "lfm3rd_recurrent_controller": {
+  "detector": "detect_lfm3rd_recurrent_controller",
+  "flag": {
+   "cybertruck32489/LFM3-1.7B-RD": true,
+   "cybertruck32489/LFM3-1.7B-RD-v2": true
+  },
+  "not_flag": [
+   "LiquidAI/LFM3-1.7B-Base",
+   "Nanbeige/Nanbeige4.2-3B",
+   "ProCreations/Dory-Beam-4B",
+   "ByteDance/Ouro-1.4B"
+  ]
+ }
+}

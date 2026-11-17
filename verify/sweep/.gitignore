@@ -1,0 +1,7 @@
+hunks_raw.jsonl
+inventory_raw.json
+*.tmp
+batches/
+__pycache__/
+hunks_raw.jsonl.*
+inventory_raw.json.*

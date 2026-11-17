@@ -1,0 +1,27 @@
+R0 (rules as stated: window + eps)                       194  (-24)
+R0 with window for every family (remote code too)        194  (-24)
+(b) OFF switches + R0                                    188  (-30)
+(c) numeric scalars + R0                                 170  (-48)
+(a) all shape-preserving + R0                            160  (-58)
+(b) OFF switches alone                                   214  (-4)
+(c) numeric scalars alone                                199  (-19)
+(a) shape-preserving, window/eps excluded                181  (-37)
+  window         alone  209 (- 9)   on R0  194
+  window_all     alone  207 (-11)   on R0  194
+  eps            alone  208 (-10)   on R0  194
+  qknorm_switch  alone  217 (- 1)   on R0  194
+  dsa_off        alone  215 (- 3)   on R0  189
+  group_off      alone  218 (- 0)   on R0  192
+  group_on       alone  218 (- 0)   on R0  194
+  nope_off       alone  218 (- 0)   on R0  194
+  nope_on        alone  218 (- 0)   on R0  194
+  topk           alone  209 (- 9)   on R0  184
+  partial        alone  213 (- 5)   on R0  185
+  act            alone  208 (-10)   on R0  181
+  parallel       alone  218 (- 0)   on R0  194
+  scoring        alone  218 (- 0)   on R0  194
+  eps:qknorm      210 (-8)  ['Solar-Open-100B', 'GLM-4.5-Air', 'deepseek-moe-16b-base', 'jetmoe-8b', 'LLaMA-MoE-v1-3_0B-2_16', 'MemT-1.0-Nano', 'EdgeRock', 'AFM-4.5B']
+  eps:post_norm   218 (-0)  []
+  eps:vnorm       218 (-0)  []
+  eps:mla         217 (-1)  ['GigaChat3.1-Audio-10B-A1.8B']
+correction (window >= own context, or ignored by code) on 13 points: frontier 218

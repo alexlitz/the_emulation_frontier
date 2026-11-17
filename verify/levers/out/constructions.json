@@ -1,0 +1,62 @@
+[
+ {
+  "check": "A token split MHA<-MQA, k=n=4, 1 layer(s), no norm",
+  "dtype": "torch.float32",
+  "max_abs_diff": 4.76837158203125e-07,
+  "max_abs_value": 3.3963253498077393
+ },
+ {
+  "check": "A token split MHA<-MQA, k=n=4, 2 layer(s), no norm",
+  "dtype": "torch.float32",
+  "max_abs_diff": 1.0172836780548096,
+  "max_abs_value": 4.973639488220215
+ },
+ {
+  "check": "A token split MHA<-MQA, k=n=4, 1 layer(s), RMS pre-norm",
+  "dtype": "torch.float32",
+  "max_abs_diff": 4.76837158203125e-07,
+  "max_abs_value": 3.670376777648926
+ },
+ {
+  "check": "A token split MHA<-MQA, k=n=4, 2 layer(s), RMS pre-norm",
+  "dtype": "torch.float32",
+  "max_abs_diff": 0.9765176475048065,
+  "max_abs_value": 4.29584264755249
+ },
+ {
+  "check": "A token split MHA<-MQA, k=n=4, 1 layer(s), no norm",
+  "dtype": "torch.float64",
+  "max_abs_diff": 8.881784197001252e-16,
+  "max_abs_value": 3.731300596232453
+ },
+ {
+  "check": "A token split MHA<-MQA, k=n=4, 2 layer(s), no norm",
+  "dtype": "torch.float64",
+  "max_abs_diff": 2.1603841438259583,
+  "max_abs_value": 5.242048394143009
+ },
+ {
+  "check": "A token split MHA<-MQA, k=n=4, 1 layer(s), RMS pre-norm",
+  "dtype": "torch.float64",
+  "max_abs_diff": 8.881784197001252e-16,
+  "max_abs_value": 4.011365794365748
+ },
+ {
+  "check": "A token split MHA<-MQA, k=n=4, 2 layer(s), RMS pre-norm",
+  "dtype": "torch.float64",
+  "max_abs_diff": 1.5131410960824723,
+  "max_abs_value": 4.0100565455413175
+ },
+ {
+  "check": "B bias head: output - o_bias",
+  "dtype": "torch.float32",
+  "max_abs_diff": 7.450580596923828e-09,
+  "weight_off_start": 0.0,
+  "prenorm_drift": 2.384185791015625e-07
+ },
+ {
+  "check": "C KV-head packing GQA(2 KV) <- 1 KV head of 2x head_dim, RoPE",
+  "dtype": "torch.float64",
+  "max_abs_diff": 4.440892098500626e-16
+ }
+]

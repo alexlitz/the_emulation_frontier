@@ -1,0 +1,614 @@
+{
+ "buckets": {
+  "A-fixed": "a formula error in graph/arch_metrics.py, fixed (Hub-exact, or exact up to named stored blocks)",
+  "B": "not a formula error: the checkpoint differs from the LM the config describes (shown as a checkpoint anomaly; the figures are the architecture's)",
+  "C-fixed": "a config-reading gap of graph/model_graph.py (corrected on the arch_metrics side, idempotently; the classifier fix for the relation is in dist/r3_from_zoo.md) or of graph/fetch_meta.py (fixed there)"
+ },
+ "generated_from": "the 105 repos whose params check failed at zoo-eval (5d1baf4), plus the three that failed after zoo-errors' Hub-count recheck and the Qwen4-Exp builder",
+ "repos": {
+  "AETHORIA-AI/TR-HASH-MOE-500M-HF": {
+   "bucket": "A-fixed",
+   "reason": "token-to-expert route tables",
+   "status_now": "hub-matched",
+   "was": "token-routed experts [E, h, I/E] with no router weight"
+  },
+  "AlgoDriveAI/Inferno-Exp-1.0": {
+   "bucket": "C-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "lm_head tied unconditionally (modeling_inferno.py:111); model_graph._tied says untied",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "AxiomicLabs/GPT-S3-3M": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "gdn2 layers have no builder; attention output gate, qk norm and AttnRes parameters"
+  },
+  "AxiomicLabs/GPT-X3-150M": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "only 6 of 24 layers are attention; 18 are GDN2 (no builder)"
+  },
+  "BAAI/bge-reranker-v2-minicpm-layerwise": {
+   "bucket": "B",
+   "reason": "a reranker: lm_head replaced by 33 linear_head [1, h]",
+   "status_now": "formula-only"
+  },
+  "BAAI/bge-reranker-v2.5-gemma2-lightweight": {
+   "bucket": "B",
+   "reason": "a reranker: 35 lm_head.#.linear_head [1, h], no LM head (and the gemma2 pre/post-FFN norms need cost_wise_gemma in POST_NORM_TYPES, model_graph.py)",
+   "status_now": "formula-only"
+  },
+  "BananaMind/BananaMind-2-MoE": {
+   "bucket": "C-fixed",
+   "reason": "tied head stored",
+   "status_now": "hub-matched",
+   "was": "expert_intermediate_size not read by dims_of; q/k norm missing (model_graph.py)",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "Diamegs/PIT-1B-201912": {
+   "bucket": "C-fixed",
+   "reason": "tied head stored",
+   "status_now": "hub-matched",
+   "was": "nanochat-style relu^2 2-matrix MLP (classify says glu, model_graph.py); weightless norms",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "HuggingFaceTB/nanowhale-100m": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "HuggingFaceTB/nanowhale-100m-base": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "IQuestLab/IQuest-Coder-V1-40B-Loop-Instruct": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "IvmeLabs/Ivme-Conversate-v2-Base": {
+   "bucket": "C-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "MLP width int(h x ffn_mult x 2/3) (modeling_ivme.py:93); dims_of uses another width",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "KBlueLeaf/TIPO-v2.1-1B-A200M": {
+   "bucket": "C-fixed",
+   "reason": "router bias buffers",
+   "status_now": "hub-matched",
+   "was": "first_k_dense is not read by model_graph._moe_layer_mask",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "LLM-OS-Models/gemma-4-E4B-Terminal-SFT-Native-Liquid-2Epoch": {
+   "bucket": "B",
+   "reason": "LM exact; the checkpoint also stores a tied head copy, the unused k/v projections and k_norm of the 18 KV-shared layers and 42 layer_scalar, which sum exactly to the delta",
+   "status_now": "formula-only"
+  },
+  "Lilgarca/my-model-v01": {
+   "bucket": "A-fixed",
+   "reason": "built-in codecs (audio / image / 3-D / signal)",
+   "status_now": "hub-matched",
+   "was": "tied head, a GQA config read as MLA, shortconv layers with no builder, modality embeddings"
+  },
+  "Lordnyx/qwen3loop-0.6b-sft-deep-supervision-v1": {
+   "bucket": "A-fixed",
+   "reason": "stored buffers / small extra tensors (+7,168 params, +0.001%)",
+   "status_now": "formula-only"
+  },
+  "MemTensor/MemT-1.0-Flash": {
+   "bucket": "A-fixed",
+   "reason": "hash-routing tid2eid buffers",
+   "status_now": "hub-matched"
+  },
+  "MemTensor/MemT-1.0-Nano": {
+   "bucket": "C-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "memt memory module (arch_metrics) plus shared_expert_gate and q/k norm, which need memt_qwen3_5_moe in SHARED_GATE_TYPES / QKNORM_ALWAYS (model_graph.py)",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "MinimaLabs/KLM-1.5": {
+   "bucket": "A-fixed",
+   "reason": "n-gram key buffers",
+   "status_now": "hub-matched",
+   "was": "18 gated-delta + 6 softmax layers, n-gram tables, attention residuals: needs a builder"
+  },
+  "Nanbeige/Nanbeige4.2-3B": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "Nanbeige/Nanbeige4.2-3B-Base": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "OBLITERATUS/DeepSeek-V4.1-Flash-1017-obliterated": {
+   "bucket": "A-fixed",
+   "reason": "engram FP8 weight_scale_inv",
+   "status_now": "hub-matched"
+  },
+  "OrisTeam/Koliber-v1.0": {
+   "bucket": "B",
+   "reason": "LM exact; the checkpoint stores a tied head copy and rope cos / sin caches",
+   "status_now": "formula-only"
+  },
+  "Pacific-i64/TR-MOE-306": {
+   "bucket": "A-fixed",
+   "reason": "rotary inv_freq buffers + token-to-expert route tables + 0-d scalars (the Hub API counts none)",
+   "status_now": "hub-matched",
+   "was": "token-routed experts [E, h, I/E] with no router weight, plus gate scalars"
+  },
+  "ProCreations/Dory-Beam-4B": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "nGPT layout (no norms, g_proj, sqk, s_gate, alphas, logit_scale) and 'mlp' layer types read as attention"
+  },
+  "RAS-LAB/GLM-4.7-Flash-24B-A3B-KREAP-Code": {
+   "bucket": "B",
+   "reason": "LM exact; the MTP layer kept 64 experts while the main layers were REAP-pruned to 48",
+   "status_now": "formula-only"
+  },
+  "Snowflake/snowflake-arctic-instruct": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "Thox-ai/ThoxOS-Kernel-27B": {
+   "bucket": "C-fixed",
+   "reason": "vision tower (Qwen3-VL vision encoder class)",
+   "status_now": "hub-matched",
+   "was": "graph/fetch_meta.py reads safetensors.total (3,054,832, wrong on the Hub API); sum(safetensors.parameters) = formula + Qwen3-VL vision tower exactly",
+   "fixed_in": "graph/fetch_meta.py"
+  },
+  "XingChen-AGI/Xing4.0-29B-Intent": {
+   "bucket": "A-fixed",
+   "reason": "MTP layers (+ embedding and head copies) + router bias buffers",
+   "status_now": "hub-matched",
+   "was": "hyper-connections (hc_mult 4) per layer"
+  },
+  "XinyueWangg/TimeBraid-2.5B": {
+   "bucket": "B",
+   "reason": "a Qwen3 LM under llm.* plus a TimesFM generation_tsfm.* tower and bridges (time-series model)",
+   "status_now": "formula-only"
+  },
+  "Yo-Purple/Meditor-1-2.2B-A500M-MoE": {
+   "bucket": "A-fixed",
+   "reason": "tied head stored + rotary inv_freq buffers",
+   "status_now": "hub-matched",
+   "was": "qkv biases and a per-layer routed_scale"
+  },
+  "Yo-Purple/Meditor-2-3.4B-A1.8B-HMoE": {
+   "bucket": "C-fixed",
+   "reason": "rotary inv_freq buffers",
+   "status_now": "hub-matched",
+   "was": "dims_of misses num_macro_domains x num_sub_experts_per_domain: no MoE at all",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "Zyphra/ZAYA1-VL-8B": {
+   "bucket": "A-fixed",
+   "reason": "router bias buffers + vision LoRA adapters + vision tower (Qwen2.5-VL vision encoder)",
+   "status_now": "hub-matched",
+   "was": "CCA attention, fused-expert MoE with an EDA router, res_scale and vision LoRA: needs a zaya1 builder"
+  },
+  "amazon/GKA-primed-HQwen3-8B-Instruct": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "GKA layer types read as full attention; needs a gka recurrent builder"
+  },
+  "c-bone/CrystaLLM-pi_Mattergen-XRD": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "transformer.h.#.slider.* conditioning blocks (SliderGPT)"
+  },
+  "castorini/gaggle-nanochat-pretrained-climbmix-20260924": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "cybertruck32489/LFM3-1.7B-RD": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "bespoke recurrent-depth model (prelude / core low-rank A-B blocks, shared weights, coda, rd_controller), read as a looped LFM2; needs its own builder"
+  },
+  "cybertruck32489/LFM3-1.7B-RD-v2": {
+   "bucket": "A-fixed",
+   "reason": "tied head stored",
+   "status_now": "hub-matched",
+   "was": "as LFM3-1.7B-RD, plus a stored tied head"
+  },
+  "danish-foundation-models/DFM-Mimir": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "danish-foundation-models/DFM-Mimir-v1.5": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "defnoteatin/PseudoBrain-Qwen3-32B-BF16": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "defnoteatin/PseudoBrain-Qwen3-Coder-30B-A3B-BF16": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "domyn/Domyn-Edge-Base": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "per-layer head_sizes (256 full / 64 sliding) not read; only k_norm has a weight"
+  },
+  "endless-frontier/Fx-Bio": {
+   "bucket": "A-fixed",
+   "reason": "hash-routing tid2eid buffers",
+   "status_now": "hub-matched"
+  },
+  "fla-hub/gla-1.3B-100B": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "fla-hub/rwkv7-0.1B-g1": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "ifx-pse-sys-ml/flame-27m-grounded": {
+   "bucket": "C-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "tied by the remote default (model_graph._tied); q/k norm always built (modeling_nexus.py:106-107)",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "inception42/Jais-3-MoVA-36B-A4B": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "v_proj replaced by 64 v_experts + a v_router on the sparse layers (MoVA)"
+  },
+  "inclusionAI/Ling-2.6-flash": {
+   "bucket": "A-fixed",
+   "reason": "MTP layers + router bias buffers",
+   "status_now": "hub-matched"
+  },
+  "jakeatx/slimder-qwen38-reap384-depth40-mb4-5": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "hyper-connections, PLE n-gram block, indexer and the output gate missing; a 245,760 residual is unresolved"
+  },
+  "jdopensource/JoyAI-LLM-Flash": {
+   "bucket": "A-fixed",
+   "reason": "MTP layers (dense, + head copy) + router bias buffers (main layers)",
+   "status_now": "hub-matched"
+  },
+  "jet-ai/Jet-Nemotron-2B": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "jet / swa layer types read as full attention; needs a jet builder"
+  },
+  "jgeuter/Jeff-1.0-Large": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "jkminder/d12_optimized_286m_seed2": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "jkminder/d12_optimized_286m_seed3": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "jkminder/d16_optimized_537m_seed3": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "jkminder/d16_optimized_537m_seed4": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "jkminder/d16_optimized_537m_seed5": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "jkminder/d20_optimized_897m_seed3": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "jkminder/d20_optimized_897m_seed8": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "kakaocorp/kanana-2-1.3b-instruct": {
+   "bucket": "C-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "tied; q/k norm (kanana2_tiny not in QKNORM_ALWAYS, model_graph.py)",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "kingbear329/sn38-r16-c12-step687-alpha05": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "meituan-longcat/LongCat-2.0": {
+   "bucket": "A-fixed",
+   "reason": "MTP layer (LongCat) + MTP over-tokenizer copy + router bias buffers",
+   "status_now": "hub-matched"
+  },
+  "meituan-longcat/LongCat-Flash-Chat": {
+   "bucket": "A-fixed",
+   "reason": "MTP layer (LongCat) + router bias buffers",
+   "status_now": "hub-matched"
+  },
+  "meituan-longcat/LongCat-Flash-Lite-Sparse": {
+   "bucket": "A-fixed",
+   "reason": "MTP layer (LongCat) + router bias buffers",
+   "status_now": "hub-matched"
+  },
+  "meituan-longcat/LongCat-Flash-Thinking": {
+   "bucket": "A-fixed",
+   "reason": "MTP layer (LongCat) + router bias buffers",
+   "status_now": "hub-matched"
+  },
+  "meituan-longcat/LongCat-Flash-Thinking-2601": {
+   "bucket": "A-fixed",
+   "reason": "MTP layer (LongCat) + router bias buffers",
+   "status_now": "hub-matched"
+  },
+  "miceworks/Mark-SLM-V3-150M": {
+   "bucket": "B",
+   "reason": "model.safetensors = formula + tied head copy + exp_probs_b exactly; the Hub total also counts extra *_bf16.safetensors files",
+   "status_now": "formula-only"
+  },
+  "microsoft/Phi-3-small-128k-instruct": {
+   "bucket": "C-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "tied (no lm_head stored, no config key); model_graph._tied",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "microsoft/Phi-4-mini-flash-reasoning": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "the SambaY family has no builder (modeling_phi4flash.py:1012-1038)"
+  },
+  "mobilint/EXAONE-4.0-1.2B": {
+   "bucket": "B",
+   "reason": "NPU-compiled .mxq binary; model.safetensors holds only the embedding",
+   "status_now": "formula-only"
+  },
+  "mobilint/EXAONE-Deep-2.4B": {
+   "bucket": "B",
+   "reason": "NPU-compiled .mxq binary; model.safetensors holds only the embedding",
+   "status_now": "formula-only"
+  },
+  "mobilint/HyperCLOVAX-SEED-Text-Instruct-1.5B": {
+   "bucket": "B",
+   "reason": "NPU-compiled .mxq binary; model.safetensors holds only the embedding",
+   "status_now": "formula-only"
+  },
+  "mobilint/Qwen3-VL-2B-Instruct": {
+   "bucket": "B",
+   "reason": "NPU-compiled .mxq binary; model.safetensors holds only the embedding and a vision pos_embed",
+   "status_now": "formula-only"
+  },
+  "moravianai/ThinCtx-Qwen3.5-0.8B-small": {
+   "bucket": "B",
+   "reason": "partial / delta upload: model.safetensors holds only norms, A_log, dt_bias, conv1d, in_proj_a/b and q/k_norm, no *proj.weight matmuls",
+   "status_now": "formula-only"
+  },
+  "moravianai/ThinCtx-Qwen3.5-2B-small": {
+   "bucket": "B",
+   "reason": "partial / delta upload: model.safetensors holds only norms, A_log, dt_bias, conv1d, in_proj_a/b and q/k_norm, no *proj.weight matmuls",
+   "status_now": "formula-only"
+  },
+  "moravianai/ThinCtx-Qwen3.5-4B-small": {
+   "bucket": "B",
+   "reason": "partial / delta upload: model.safetensors holds only norms, A_log, dt_bias, conv1d, in_proj_a/b and q/k_norm, no *proj.weight matmuls",
+   "status_now": "formula-only"
+  },
+  "nineninesix/gepard-1.0": {
+   "bucket": "B",
+   "reason": "TTS model: the model.* LM equals the formula exactly; the checkpoint adds a ref_compressor, audio embeddings, codebook / stop / supcon heads",
+   "status_now": "formula-only"
+  },
+  "nvidia/Hymba-1.5B-Base": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "no hymba builder: attention + Mamba fused in mamba.in_proj, KV reuse groups, memory tokens"
+  },
+  "nvidia/Hymba-1.5B-Instruct": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "no hymba builder: attention + Mamba fused in mamba.in_proj, KV reuse groups, memory tokens"
+  },
+  "nvidia/Nemotron-3-Super-120B-A12B-BF16-MTPv2": {
+   "bucket": "B",
+   "reason": "MTP-only upload: all 1,040 tensors are mtp.*",
+   "status_now": "formula-only"
+  },
+  "nvidia/Nemotron-H-4B-Base-8K": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "nvidia/Nemotron-H-4B-Instruct-128K": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "openbmb/MiniCPM4-0.5B": {
+   "bucket": "C-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "tied by the remote config's default (no lm_head stored); model_graph._tied has no class default for model_type ''",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "openbmb/MiniCPM4-8B-Eagle-FRSpec": {
+   "bucket": "B",
+   "reason": "an EAGLE drafter (1 layer, fc [4096, 8192]), not a standalone LM",
+   "status_now": "formula-only"
+  },
+  "osunlp/ARLoop-0.6B": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "missing shared_value_embedding [V, nkv x hd], ve_gate on odd physical layers, attnres norms / queries"
+  },
+  "osunlp/ARLoop-1.2B": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "missing shared_value_embedding [V, nkv x hd], ve_gate on odd physical layers, attnres norms / queries"
+  },
+  "osunlp/PreNormLoop-0.6B": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "missing shared_value_embedding and ve_gate"
+  },
+  "poolside/Laguna-XS-2.1": {
+   "bucket": "A-fixed",
+   "reason": "router bias buffers",
+   "status_now": "hub-matched"
+  },
+  "poolside/Laguna-XS.2": {
+   "bucket": "A-fixed",
+   "reason": "router bias buffers",
+   "status_now": "hub-matched"
+  },
+  "reaperdoesntknow/GPT-X2-125M-CIx-Long-Context": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "SymplecticClock modules (modeling_gptx2.py:754-781)"
+  },
+  "root-sys-n/Mima-Pico-15m": {
+   "bucket": "C-fixed",
+   "reason": "tied head stored",
+   "status_now": "hub-matched",
+   "was": "dims_of ignores ffn_hidden (uses 4h); tied head stored twice",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "sapientinc/HRM-Text-1B": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "stepfun-ai/step3": {
+   "bucket": "A-fixed",
+   "reason": "vision tower (Step3 StepCLIP + projector, from config)",
+   "status_now": "hub-matched",
+   "was": "shared-q attention (q_proj h -> share_q_dim, inter_norm, wq, k / v over num_attention_groups) needs a step3 builder"
+  },
+  "summerAIO/Cyber-9B-Qwen-AllGDN-Engram": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "summerAIO/Qwen3.8-27B-Longbook27-v2": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched"
+  },
+  "swiss-ai/Apertus-v1.5-8B-base": {
+   "bucket": "C-fixed",
+   "reason": "vision / audio / other towers in the checkpoint, not in the LM count (+2.7%)",
+   "status_now": "formula-only",
+   "was": "ungated xIELU MLP missing from UNGATED_BY_CODE (model_graph.py); lm_head uses output_vocab_size",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "tardellirs/gemma3moe-16x4-270m-starter": {
+   "bucket": "C-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "tied; q/k norm and pre/post-FFN norms missing (gemma3_moe not in QKNORM_ALWAYS / POST_NORM_TYPES, model_graph.py)",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "techdotus/Ethoric-10M": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "head-wise gate_proj + bias, qk norm, peri-LN norms, canon convs"
+  },
+  "thuml/sundial-base-128m": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "time-series backbone: q/k/v biases, LayerNorm biases, patch-embed MLP, plus the TimeFlow head"
+  },
+  "udgamlabs/Lilavati": {
+   "bucket": "A-fixed",
+   "reason": "stored buffers / small extra tensors (+12 params, +0.000%)",
+   "status_now": "formula-only"
+  },
+  "whittleOrg/Whittle-Next-27B-A3B": {
+   "bucket": "A-fixed",
+   "reason": "n-gram index buffers (int64) + router and shared-gate tensors stored twice (two shards)",
+   "status_now": "hub-matched",
+   "was": "hyper-connections, PLE n-gram block and indexer missing; the Hub figure in model_meta.json is also stale"
+  },
+  "yifanyu/QwenDLM-4B-ORL": {
+   "bucket": "A-fixed",
+   "reason": "tied head stored",
+   "status_now": "hub-matched",
+   "was": "a top-level self_conditioning SwiGLU + norm (modeling_sdar.py:1403)"
+  },
+  "zai-org/GLM-5.2": {
+   "bucket": "A-fixed",
+   "reason": "MTP layers + router bias buffers",
+   "status_now": "hub-matched"
+  },
+  "zarko1321/Bitsy500M": {
+   "bucket": "C-fixed",
+   "reason": "exact",
+   "status_now": "hub-matched",
+   "was": "tied by the remote default; q/k norm not in QKNORM_ALWAYS (model_graph.py)",
+   "fixed_in": "graph/arch_metrics.py (+ dist/r3_from_zoo.md)"
+  },
+  "defnoteatin/PseudoBrain-Qwen3.8-Flash-Next-BF16": {
+   "bucket": "B",
+   "reason": "partial upload: the checkpoint holds only 4 of the 128 PLE n-gram table shards (0, 1, 126, 127); its header sum plus the 124 missing shards, minus the vision tower, the MTP layers and 36 int64 / scale values, is the formula exactly",
+   "status_now": "formula-only"
+  },
+  "Vxtzq/Crowd-v1": {
+   "bucket": "A-fixed",
+   "reason": "exact",
+   "was": "no Hub count at zoo-eval; then the engram bigram table and the bias-free attention / MLP were missing (Crowd builder)",
+   "status_now": "hub-matched"
+  },
+  "Subject-Emu-5259/NeuralAI-Nae1": {
+   "bucket": "A-fixed",
+   "reason": "rotary inv_freq buffers",
+   "was": "no Hub count at zoo-eval; then the n_kv_heads key was not read (Nae1 builder)",
+   "status_now": "hub-matched"
+  }
+ }
+}

@@ -1,0 +1,210 @@
+{"id": "c2b1463b0ab0", "label": "IRRELEVANT", "slot": "", "reason": "router aux load-balancing loss / router_logits outputs: training loss only"}
+{"id": "76c92526a126", "label": "IRRELEVANT", "slot": "", "reason": "stores router_aux_loss_coef / num_experts for the aux loss: training only"}
+{"id": "eab0f05facea", "label": "IRRELEVANT", "slot": "", "reason": "output_router_logits kwarg plumbing; same forward"}
+{"id": "6bcc2027fe08", "label": "UNMAPPED", "slot": "rf_gdn", "reason": "Qwen4-exp GatedDeltaNet's gated norm uses activation = config.output_gate_type or hidden_act; the qwen4_exp snapshots set output_gate_type='sigmoid', so o = norm(core) * sigmoid(z) instead of Qwen3-Next/3.5's norm(core) * silu(z). RECURRENT_FAMILY maps qwen4_exp to the same 'gdn' family and nothing reads output_gate_type (currently masked because qwen4_exp also carries hyper_conn, shared only with DeepSeek-V4 / GLM-5-Next).", "finding": "gdn_out_gate_act", "direction": "over-credit", "suggest": "rc_* dims or a gdn family variant for the gated-norm activation (output_gate_type: sigmoid vs silu)"}
+{"id": "ea8f53ef5895", "label": "IRRELEVANT", "slot": "", "reason": "intermediate_size default argument (None -> config.intermediate_size): same math"}
+{"id": "b20008c1fba1", "label": "IRRELEVANT", "slot": "", "reason": "input_ids / inputs_embeds xor check and decorator / signature drift"}
+{"id": "2a42a1b73e0f", "label": "MAPPED", "slot": "feats:ple", "reason": "PLE input ids routed to the text model when ple_layer_ids is set; _feats adds ple from ple_layer_ids"}
+{"id": "e74d21839b90", "label": "MAPPED", "slot": "feats:ple", "reason": "passes ple_input_ids to the language model (PLE plumbing; ple from ple_layer_ids); output dataclass drift"}
+{"id": "55d31566c313", "label": "MAPPED", "slot": "feats:hyper_conn", "reason": "the final RMSNorm is replaced by a hyper-connection mixer (PFXGatedResidual, use_combine=False) that collapses the hc_count streams; carried by hyper_conn (wall both ways)"}
+{"id": "0fc0777caeee", "label": "MAPPED", "slot": "feats:ple", "reason": "recovers PLE token ids from inputs_embeds when only embeds are given; PLE plumbing"}
+{"id": "bf498e111449", "label": "MAPPED", "slot": "feats:hyper_conn", "reason": "stream replicated hc_count times, layers on hc streams, final hyper-connection mixer instead of a norm (hyper_conn); 'indexed_attention' mask for the DSA-style layers (feats dsa); PLE ids masked to eos on padding (ple); 1-row position ids expanded to 3 m-rope rows and cached position ids are plumbing"}
+{"id": "b2d3381d160a", "label": "IRRELEVANT", "slot": "", "reason": "reverse_embedding recovers input ids from exact inputs_embeds (no_grad lookup): input plumbing"}
+{"id": "6d4fa04e4eed", "label": "IRRELEVANT", "slot": "", "reason": "M-RoPE 3-D position ids for image / video tokens; for text-only input the t/h/w rows are equal (arange + delta), i.e. the 1-D RoPE the classifier assumes"}
+{"id": "76169c56a240", "label": "IRRELEVANT", "slot": "", "reason": "get_rope_index: multimodal M-RoPE positions; text segments get arange positions in all three rows (1-D RoPE)"}
+{"id": "28560ce5367b", "label": "IRRELEVANT", "slot": "", "reason": "rebase artefact: VLM wrapper __init__ (visual + language_model) diffed against the vision tower; no text-forward math"}
+{"id": "9a136cf2f265", "label": "IRRELEVANT", "slot": "", "reason": "rebase artefact: the stock Qwen3.5-MoE VLM wrapper forward (scatter image/video features, M-RoPE ids) diffed against the vision tower; text path identical to qwen3_5"}
+{"id": "7dedf685320c", "label": "IRRELEVANT", "slot": "", "reason": "rebase artefact: stock Qwen3.5-MoE text model __init__ (embed, layers, final norm, rotary) diffed against the vision tower; same as the qwen3_5 text model"}
+{"id": "4e56eee2610e", "label": "IRRELEVANT", "slot": "", "reason": "rebase artefact: stock Qwen3.5-MoE text model forward (4-row position ids, full/linear masks, final norm) diffed against the vision tower; same math as qwen3_5's text model"}
+{"id": "195f8b0838af", "label": "UNMAPPED", "slot": "feats:hyper_conn", "reason": "Qwen4-exp GatedResidual: grouped RMSNorm over hc_count*hidden, low-rank (hc_lowrank) input mix and an hc_count-way block-inject weight. hyper_conn is a single boolean: hc_count (4 in most snapshots, 3 in one) and hc_lowrank are not compared, and the Qwen4-exp form is lumped with DeepSeek-V4's Sinkhorn mHC.", "finding": "hyper_conn_variant", "direction": "over-credit", "suggest": "a hyper_conn variant/dims key (hc_count / hc_mult, hc_lowrank, mixing kind: Sinkhorn mHC vs Qwen4-exp low-rank sigmoid gated residual) compared host vs target"}
+{"id": "337a951fedc9", "label": "UNMAPPED", "slot": "feats:hyper_conn", "reason": "mix = mean_k(sigmoid(W_up silu(W_down n(h)/hc_count)) * n(h)_k), inject = 2*sigmoid(W_b n(h)/hc_count): the /hc_count constants and the mean over streams make the map depend on hc_count, and it is not DeepSeek-V4's Sinkhorn-combined hc; hyper_conn carries neither the variant nor hc_count / hc_lowrank.", "finding": "hyper_conn_variant", "direction": "over-credit", "suggest": "a hyper_conn variant/dims key (hc_count / hc_mult, hc_lowrank, mixing kind: Sinkhorn mHC vs Qwen4-exp low-rank sigmoid gated residual) compared host vs target"}
+{"id": "b6cf5f9de7bd", "label": "IRRELEVANT", "slot": "", "reason": "super().__init__(config) refactor (modular inheritance); same math"}
+{"id": "edf5f940458a", "label": "MAPPED", "slot": "feats:shared_gate", "reason": "modular diff artefact: super().__init__ still builds shared_expert_gate (modeling_qwen4_exp.py Qwen4ExpTextSparseMoeBlock keeps it and applies sigmoid(gate) * shared); feats shared_gate on qwen4_exp"}
+{"id": "9c1066d46998", "label": "MAPPED", "slot": "feats:hyper_conn", "reason": "group_size RMSNorm (per-stream norm over the hc streams) only used by the hyper-connection / PLE modules; part of hyper_conn"}
+{"id": "5e8f3f8b913c", "label": "MAPPED", "slot": "feats:hyper_conn", "reason": "grouped RMS normalisation (per hidden_size group) for the hc_count streams; part of hyper_conn. Ungrouped path unchanged (1 + weight Qwen3.5 norm)"}
+{"id": "006ca4a139e7", "label": "UNMAPPED", "slot": "rf_gdn", "reason": "RMSNormGated takes its activation from the caller (output_gate_type, 'sigmoid' in the qwen4_exp snapshots) instead of the fixed silu of Qwen3-Next; the gdn family does not record it.", "finding": "gdn_out_gate_act", "direction": "over-credit", "suggest": "rc_* dims or a gdn family variant for the gated-norm activation (output_gate_type: sigmoid vs silu)"}
+{"id": "877b4fbcf54a", "label": "IRRELEVANT", "slot": "", "reason": "fused W_pack (q,k,v) projection instead of three linears: same math, weight layout"}
+{"id": "53c34bfe0d90", "label": "IRRELEVANT", "slot": "", "reason": "attention backend change (xformers in training / SDPA with the additive mask in eval): same softmax(qk^T/sqrt(d) + mask)v"}
+{"id": "effe7781fb02", "label": "IRRELEVANT", "slot": "", "reason": "W_pack split into q/k/v: same math, weight layout"}
+{"id": "ea2f6dbf4dc7", "label": "MAPPED", "slot": "pos=alibi", "reason": "13B attention: W_pack fused qkv (layout only), no rotary embedding (ALiBi via the mask); _is_alibi gives pos=alibi for baichuan configs without max_position_embeddings"}
+{"id": "0d91b8589f0b", "label": "MAPPED", "slot": "pos=alibi", "reason": "eval path: softmax(qk^T/sqrt(d) + alibi mask) with the mask's last row at q_len=1 (decode plumbing); fp32 evaluation; ALiBi is pos=alibi"}
+{"id": "4091cedc2a86", "label": "IRRELEVANT", "slot": "", "reason": "W_pack split and position_ids removed from the signature (no RoPE in the 13B models): layout / plumbing"}
+{"id": "aebf96125db4", "label": "IRRELEVANT", "slot": "", "reason": "decode-time mask slicing and softmax dtype (fp32 evaluation); shape checks removed"}
+{"id": "fa11cc08026a", "label": "MAPPED", "slot": "pos=alibi", "reason": "RoPE removed from the 13B attention: positions come from the ALiBi bias (pos=alibi via _is_alibi)"}
+{"id": "bbea363222b3", "label": "IRRELEVANT", "slot": "", "reason": "gradient_checkpointing config flag"}
+{"id": "9abb776d6713", "label": "MAPPED", "slot": "norm=RMSNorm", "reason": "renamed classes; RMSNorm(epsilon=rms_norm_eps) same norm and eps key as Llama"}
+{"id": "c60211ee7e9e", "label": "IRRELEVANT", "slot": "", "reason": "position_ids dropped from the layer signature (ALiBi): plumbing"}
+{"id": "494b98ac0413", "label": "IRRELEVANT", "slot": "", "reason": "class renames only (Attention / MLP / RMSNorm): same math"}
+{"id": "7d980f50138c", "label": "IRRELEVANT", "slot": "", "reason": "class renames only: same math"}
+{"id": "76fabd49dd8c", "label": "MAPPED", "slot": "pos=alibi", "reason": "causal -inf upper triangle + ALiBi bias (training path of the 13B model); pos=alibi, slopes S(n) (BLOOM-equivalent, model_graph ALiBi note)"}
+{"id": "de1ffd074876", "label": "MAPPED", "slot": "pos=alibi", "reason": "causal mask + ALiBi bias (training path, Baichuan2-13B); pos=alibi"}
+{"id": "7772cae8a1c1", "label": "IRRELEVANT", "slot": "", "reason": "_expand_mask accepts a 3-D (packed) mask; padding mask plumbing, causal for a full sequence"}
+{"id": "94c035db9b44", "label": "IRRELEVANT", "slot": "", "reason": "-inf fill helper for the causal mask"}
+{"id": "921dbbf5d3a7", "label": "MAPPED", "slot": "pos=alibi", "reason": "ALiBi bias slope_h * j (key position) plus causal mask: differs from slope*(j-i) by a per-row constant, softmax-invariant; slopes _get_interleave = S(n); pos=alibi"}
+{"id": "ff9081a6ad85", "label": "MAPPED", "slot": "pos=alibi", "reason": "Baichuan2-13B ALiBi bias (key-position offsets shifted by a row constant, softmax-invariant) + causal mask; pos=alibi with S(n) slopes"}
+{"id": "54f7d516fb8c", "label": "MAPPED", "slot": "pos=alibi", "reason": "_get_interleave = the ALiBi paper slope set S(n) (BLOOM / MPT equal, model_graph ALiBi SLOPE SCHEMES note checks Baichuan-13B)"}
+{"id": "510ddcb74e41", "label": "IRRELEVANT", "slot": "", "reason": "cos/sin indexed by position_ids instead of gather: same rotate-half RoPE"}
+{"id": "c3ad2e348b9f", "label": "IRRELEVANT", "slot": "", "reason": "RoPE applied in fp32 then cast back: fp32 evaluation; same rotate-half RoPE"}
+{"id": "897b61263a0d", "label": "IRRELEVANT", "slot": "", "reason": "bitsandbytes 4-bit quantisation helper: dtype / storage"}
+{"id": "e47ae270cead", "label": "IRRELEVANT", "slot": "", "reason": "class rename only"}
+{"id": "1063708ddb05", "label": "IRRELEVANT", "slot": "", "reason": "NormHead lm_head: on fixed weights the head is linear with the row-normalised W (normalised once in eval), a constant weight reparametrisation an untied host lm_head takes exactly; plus 4-bit quantisation option"}
+{"id": "4b9eba5bb58d", "label": "IRRELEVANT", "slot": "", "reason": "NormHead lm_head (row-normalised W, a fixed-weight reparametrisation of an untied lm_head) and a quantisation option"}
+{"id": "5b2facda29b6", "label": "IRRELEVANT", "slot": "", "reason": "NormHead lm_head (row-normalised W, fixed-weight reparametrisation) and a quantisation option; parent pairing with OPT is incidental"}
+{"id": "78260437cd5c", "label": "IRRELEVANT", "slot": "", "reason": "nn.Linear spelled torch.nn.Linear: same module"}
+{"id": "08d7cbe9038a", "label": "IRRELEVANT", "slot": "", "reason": "signature / kwargs drift; logits = lm_head(hidden) as before"}
+{"id": "15831514194c", "label": "IRRELEVANT", "slot": "", "reason": "signature / kwargs drift; logits = lm_head(hidden) as before"}
+{"id": "5d06518d797f", "label": "IRRELEVANT", "slot": "", "reason": "position_ids dropped from the signature (ALiBi 13B): plumbing"}
+{"id": "af6771ac17cc", "label": "IRRELEVANT", "slot": "", "reason": "z-loss added to the training loss: loss only"}
+{"id": "f117aacbc17a", "label": "IRRELEVANT", "slot": "", "reason": "z-loss added to the training loss: loss only"}
+{"id": "bc6b29432ff1", "label": "IRRELEVANT", "slot": "", "reason": "nn.Linear spelled torch.nn.Linear: same SwiGLU MLP"}
+{"id": "6095ea6d0932", "label": "IRRELEVANT", "slot": "", "reason": "ALiBi mask cache state and n_head bookkeeping, RMSNorm(epsilon=) rename, gradient checkpointing flag"}
+{"id": "16ee2c74dc98", "label": "MAPPED", "slot": "pos=alibi", "reason": "no position ids; additive mask = ALiBi bias + causal / padding mask (the 2-D mask's tril * equal-segment term is padding / packing handling, causal on a full sequence); pos=alibi"}
+{"id": "588a3d6e46f5", "label": "IRRELEVANT", "slot": "", "reason": "error text, use_cache / return_dict defaults"}
+{"id": "a89e6f8d96e3", "label": "IRRELEVANT", "slot": "", "reason": "position_ids removed from the layer calls (ALiBi): plumbing"}
+{"id": "c7f544519cef", "label": "IRRELEVANT", "slot": "", "reason": "error text / return_dict default"}
+{"id": "3deec787dc5a", "label": "MAPPED", "slot": "pos=alibi", "reason": "builds and caches the ALiBi + causal mask (S(n) slopes, key-position offsets: softmax-equivalent to slope*(j-i)); pos=alibi"}
+{"id": "b377e69f6eb9", "label": "MAPPED", "slot": "pos=alibi", "reason": "Baichuan2-13B ALiBi + causal mask construction and cache; pos=alibi"}
+{"id": "584af477d709", "label": "IRRELEVANT", "slot": "", "reason": "class renames only"}
+{"id": "037ae428323a", "label": "IRRELEVANT", "slot": "", "reason": "NormHead __init__ (vocab x hidden weight, init) paired with an unrelated AdaRmsNorm parent: an lm_head, init only"}
+{"id": "2cc5f5354d52", "label": "IRRELEVANT", "slot": "", "reason": "NormHead forward: linear with the row-normalised weight (normalised once in eval) - a fixed-weight reparametrisation of the lm_head, exact for an untied host"}
+{"id": "998079d059e6", "label": "IRRELEVANT", "slot": "", "reason": "NormHead forward: row-normalised lm_head weight, fixed-weight reparametrisation"}
+{"id": "f62fd217fa8a", "label": "IRRELEVANT", "slot": "", "reason": "NormHead forward: row-normalised lm_head weight, fixed-weight reparametrisation"}
+{"id": "9af6429379fe", "label": "IRRELEVANT", "slot": "", "reason": "eps renamed epsilon, weight init empty: init / rename"}
+{"id": "fd1c3a1e2fbf", "label": "MAPPED", "slot": "norm=RMSNorm", "reason": "same RMSNorm (fp32 variance, rsqrt(var + eps), weight *), eps attribute renamed; eps from rms_norm_eps"}
+{"id": "3a2caeceb548", "label": "IRRELEVANT", "slot": "", "reason": "rotary cache built in fp32 with torch.outer; base fixed 10000 as in the parent: fp32 evaluation / same frequencies"}
+{"id": "7eca0d6a03ed", "label": "IRRELEVANT", "slot": "", "reason": "rotary cache regrowth / device moves in fp32: same cos/sin"}
+{"id": "af0f14e4fd94", "label": "IRRELEVANT", "slot": "", "reason": "attention_dropout attribute dropped: training only"}
+{"id": "5aef0568c302", "label": "UNMAPPED", "slot": "qknorm", "reason": "Lfm3Attention builds per-head q_norm / k_norm (RMSNorm over head_dim, eps=norm_eps) unconditionally, plus a head-wise gate_proj (hidden -> num_heads) and per-layer-type sliding_window; classify gives every LFM3 snapshot qknorm=no (lfm3 is not in QKNORM_ALWAYS, no config key) and no out_gate.", "finding": "qknorm_always_type_missing", "direction": "both", "suggest": "add lfm3 (and lfm3_omni's text model) to QKNORM_ALWAYS / the per-head qk-norm variant"}
+{"id": "3980a72b008b", "label": "UNMAPPED", "slot": "qknorm", "reason": "q = q_norm(q_proj(x).view(heads)), k = k_norm(k_proj(x).view(heads)): per-head RMSNorm on q and k before RoPE, always on; the classifier reads qknorm=no for lfm3.", "finding": "qknorm_always_type_missing", "direction": "both", "suggest": "add lfm3 (and lfm3_omni's text model) to QKNORM_ALWAYS / the per-head qk-norm variant"}
+{"id": "51db407a6145", "label": "UNMAPPED", "slot": "feats:out_gate", "reason": "attn_output * sigmoid(gate_proj(x)) per head before o_proj (always built); lfm3 is not in OUT_GATE_TYPES and no config key flags it, so feats lack out_gate. Sliding window per layer is mapped (window=local).", "finding": "out_gate_type_missing", "direction": "over-credit", "suggest": "add lfm3 to OUT_GATE_TYPES (head-wise sigmoid gate, gate_proj: hidden -> num_heads)"}
+{"id": "950d998ea381", "label": "IRRELEVANT", "slot": "", "reason": "config defaults (head_dim, rope_parameters, layer_types pattern) and validation; every lfm3 snapshot (27 configs checked) sets layer_types, rope_parameters, head_dim, sliding_window and use_sandwich_norm explicitly; tie_embedding alias already read by _tied"}
+{"id": "9b79da3dbd25", "label": "IRRELEVANT", "slot": "", "reason": "same LFM3 config defaults / validation (snapshots set the keys explicitly)"}
+{"id": "a19eb789ffbd", "label": "IRRELEVANT", "slot": "", "reason": "same LFM3 config defaults / validation (ONNX repo; snapshots set the keys explicitly)"}
+{"id": "b050514c705f", "label": "IRRELEVANT", "slot": "", "reason": "_attention_layer_types class constant (names of attention layer types); not a model config value"}
+{"id": "d589f697a1c1", "label": "IRRELEVANT", "slot": "", "reason": "_attention_layer_types class constant"}
+{"id": "df78430b590f", "label": "IRRELEVANT", "slot": "", "reason": "_attention_layer_types class constant"}
+{"id": "f114b875b881", "label": "IRRELEVANT", "slot": "", "reason": "LFM3-Omni wrapper config: sub-config construction, speech / vision validation, audio depth-decoder defaults; the text LM config is a full lfm3 config"}
+{"id": "c14da3b384a2", "label": "IRRELEVANT", "slot": "", "reason": "_token_id_fields class constant for validation"}
+{"id": "b44075e2585c", "label": "IRRELEVANT", "slot": "", "reason": "LFM3-VL wrapper config: sub-config construction and legacy flat-config conversion"}
+{"id": "9bfef9894ba4", "label": "MAPPED", "slot": "feats:post_norm", "reason": "attention layers now include sliding_attention (window=local); use_sandwich_norm read (true in every snapshot) -> _feats post_norm"}
+{"id": "f6007d1a101f", "label": "MAPPED", "slot": "feats:post_norm", "reason": "post_operator_norm / post_ffn_norm under use_sandwich_norm: sandwich norms, _feats post_norm from use_sandwich_norm"}
+{"id": "d91531f20366", "label": "MAPPED", "slot": "feats:post_norm", "reason": "x + post_norm(mixer(pre_norm(x))), then x + post_ffn_norm(ffn(ffn_norm(x))): sandwich norms (post_norm); seq_idx plumbing"}
+{"id": "f762736a5ff9", "label": "IRRELEVANT", "slot": "", "reason": "LFM3-Omni audio depth decoder (codebook prediction head): not the text LM forward"}
+{"id": "8cbdf36832eb", "label": "IRRELEVANT", "slot": "", "reason": "audio codebook embeddings for the depth decoder: audio output head"}
+{"id": "846dad0d9a70", "label": "IRRELEVANT", "slot": "", "reason": "audio depth decoder forward (codebook logits): audio output head"}
+{"id": "bd969ba8e414", "label": "IRRELEVANT", "slot": "", "reason": "bidirectional depth-decoder trunk over codebooks: audio output head"}
+{"id": "c437c5adaada", "label": "IRRELEVANT", "slot": "", "reason": "audio codebook embedding module"}
+{"id": "88f77cddac07", "label": "IRRELEVANT", "slot": "", "reason": "audio codebook embedding lookup"}
+{"id": "66916d745508", "label": "IRRELEVANT", "slot": "", "reason": "audio codebook logits (normed, tied to the codebook embedding): audio output head"}
+{"id": "7964c2f747ad", "label": "IRRELEVANT", "slot": "", "reason": "config class lookup helper"}
+{"id": "d9dc2e9f4e53", "label": "IRRELEVANT", "slot": "", "reason": "config class lookup helper"}
+{"id": "d9395849b0f4", "label": "IRRELEVANT", "slot": "", "reason": "sub-config dict helper"}
+{"id": "5cb30b576358", "label": "IRRELEVANT", "slot": "", "reason": "RoPE applied in fp32 then cast back: fp32 evaluation"}
+{"id": "711c57fcfe6c", "label": "IRRELEVANT", "slot": "", "reason": "triton kernel availability check"}
+{"id": "7dcfea92edf5", "label": "MAPPED", "slot": "window=local", "reason": "masks per layer type: causal for full_attention, sliding-window causal for sliding_attention, recurrent mask for conv; window=local from layer_types, eff_window from sliding_window"}
+{"id": "ac64f81b4ab5", "label": "IRRELEVANT", "slot": "", "reason": "triton causal depthwise conv (kernel 7) prefill: same conv as the torch path"}
+{"id": "17b222ada2d5", "label": "IRRELEVANT", "slot": "", "reason": "triton causal conv decode step: same conv, cache plumbing"}
+{"id": "70eac8368051", "label": "IRRELEVANT", "slot": "", "reason": "packed-document detection under padding: input validation"}
+{"id": "588be1c8bbf3", "label": "IRRELEVANT", "slot": "", "reason": "Omni wrapper: plain untied-shape lm_head linear over the text model (tie via config)"}
+{"id": "53c6b53c2d3f", "label": "IRRELEVANT", "slot": "", "reason": "generation fields table"}
+{"id": "49f76fb5c5d8", "label": "IRRELEVANT", "slot": "", "reason": "text / audio loss weighting: training loss"}
+{"id": "87f6bc1d8ea2", "label": "IRRELEVANT", "slot": "", "reason": "property accessor"}
+{"id": "a5f9a6891ca9", "label": "IRRELEVANT", "slot": "", "reason": "Omni CausalLM forward: model -> lm_head on kept positions; losses only otherwise"}
+{"id": "f15cd8c98af0", "label": "IRRELEVANT", "slot": "", "reason": "language_model property accessor"}
+{"id": "9c42cd372a46", "label": "IRRELEVANT", "slot": "", "reason": "torch fallback causal conv (Conv1d, truncated to length): same short conv"}
+{"id": "f6cfe65573cd", "label": "IRRELEVANT", "slot": "", "reason": "per-document segmented conv for packed sequences: equals the plain causal conv on one document"}
+{"id": "bf7f61ea3b30", "label": "MAPPED", "slot": "rf_shortconv", "reason": "same LFM2 short conv (B*x -> causal depthwise conv -> C*), padding mask multiply and kernel dispatch (kernel 7 triton / causal_conv1d / torch); rc_conv from conv_L_cache"}
+{"id": "1af77ae15bbf", "label": "MAPPED", "slot": "dims_of:inter", "reason": "SwiGLU w1/w3/w2 at config.intermediate_size with no LFM2 auto-adjust (dims_of applies block_auto_adjust_ff_dim only to lfm2 / lfm2_moe)"}
+{"id": "7236a3a13462", "label": "IRRELEVANT", "slot": "", "reason": "seq_idx rejected without position_ids: input validation"}
+{"id": "9a6fabc18cbc", "label": "IRRELEVANT", "slot": "", "reason": "packed-cache bookkeeping and dropping an all-ones mask: plumbing"}
+{"id": "eef4b96b432f", "label": "MAPPED", "slot": "dims_of:rope_sched", "reason": "packed-document seq_idx plumbing; one RoPE table per layer type (full: partial 0.5, theta 1e6; sliding: full, theta 1e4) passed per layer -> two rope_sched entries (128, 64)"}
+{"id": "73db21661ba0", "label": "IRRELEVANT", "slot": "", "reason": "Omni model: audio encoder / projector / depth decoder / vision tower around the lfm3 text model"}
+{"id": "e801bba7c6c5", "label": "IRRELEVANT", "slot": "", "reason": "Omni forward: scatter image / video / audio features into the embeddings, then the lfm3 text model"}
+{"id": "f3fa7bc5c063", "label": "IRRELEVANT", "slot": "", "reason": "placeholder token positions for multimodal features"}
+{"id": "2e98a4282f93", "label": "IRRELEVANT", "slot": "", "reason": "cast order of the RMSNorm output: fp32 evaluation"}
+{"id": "2db102bf78bb", "label": "MAPPED", "slot": "dims_of:rope_sched", "reason": "one inv_freq table per layer type from rope_parameters (per-type schedules in _rope_schedules)"}
+{"id": "eef18f25859e", "label": "MAPPED", "slot": "dims_of:rope_sched", "reason": "rotary tables only for layer types with rope_parameters (conv layers have none); _rope_layer_types reads the same keys"}
+{"id": "f8c83e799933", "label": "UNMAPPED", "slot": "dims_of:rope_cap", "reason": "LFM3 default RoPE: inv_freq_i = theta^(-2i/head_dim) for i < partial*head_dim/2, then ZEROS up to head_dim/2 -- the table spans the whole head with a NoPE tail (like Gemma-4 proportional), not a sliced rot_dim table. _rope_schedules gives the full_attention schedule cap = need = 64 (cap = head only for rope_type 'proportional'), so an LFM3 host is walled from targets needing more rotated dims on that table (e.g. the two lfm3 snapshots with no partial factor). The frequency values themselves are buffer-settable (no issue).", "finding": "rope_cap_zero_tail_table", "direction": "over-wall", "suggest": "_rope_schedules: give lfm3 (compute_default_rope_parameters / compute_rope_parameters pad the table with zero frequencies to head_dim/2) cap = head_dim like Gemma-4's proportional RoPE"}
+{"id": "f7b86db2b474", "label": "UNMAPPED", "slot": "dims_of:rope_cap", "reason": "non-default rope types: frequencies computed at full rotation then truncated to partial*head_dim/2 and zero-padded to head_dim/2 -- again a whole-head table with a zero tail, cap understated as need.", "finding": "rope_cap_zero_tail_table", "direction": "over-wall", "suggest": "_rope_schedules: give lfm3 (compute_default_rope_parameters / compute_rope_parameters pad the table with zero frequencies to head_dim/2) cap = head_dim like Gemma-4's proportional RoPE"}
+{"id": "a6d2eeb2d165", "label": "IRRELEVANT", "slot": "", "reason": "same cos/sin computation without the autocast guard: fp32 evaluation"}
+{"id": "1f982421fa68", "label": "MAPPED", "slot": "layer kinds (local)", "reason": "per-layer sliding_window on Jet 'swa' layers; _kind('swa') = local, so the layer kinds count them as sliding (kLU)"}
+{"id": "9e62596f4f2f", "label": "IRRELEVANT", "slot": "", "reason": "cache target length for the sliding window: cache plumbing"}
+{"id": "c65844212513", "label": "UNMAPPED", "slot": "dims:eff_window", "reason": "sliding mask on 'swa' layers: key j visible iff i - W < j <= i with W = efficient_attention_config.swa.window_size (1152). The layer kind is local (mapped), but the window size is not read: dims_of gives eff_window = max_context (131072) and the window slot 'full', since only sliding_window / sliding_window_size / 'sliding' layer names are read.", "finding": "jet_swa_window_unread", "direction": "over-credit", "suggest": "read efficient_attention_config.swa.window_size as the sliding window (eff_window, and window=local)"}
+{"id": "cc70679ea339", "label": "IRRELEVANT", "slot": "", "reason": "flash-attention window = W - 1 (same window in FA2's convention) and sliding-cache trimming: backend / cache"}
+{"id": "e3782efb2ba2", "label": "MAPPED", "slot": "layer kinds (local)", "reason": "applies the sliding-window mask on swa layers for non-FA2 backends; the layer kind is local"}
+{"id": "e4ef2b4cb64a", "label": "IRRELEVANT", "slot": "", "reason": "cache update API and backend-specific mask handling (sdpa causal skip, FA2 2-D mask): same attention"}
+{"id": "4e9622ddbd8b", "label": "IRRELEVANT", "slot": "", "reason": "Llama config __init__ logic absent from these sub-config classes (JetBlockConfig, Step3 / cosyvoice sub-configs): no forward change"}
+{"id": "ece92690fbd5", "label": "IRRELEVANT", "slot": "", "reason": "JetBlockConfig default; the snapshot sets efficient_attention_config.jet.conv_size = 4 (read as rc_conv)"}
+{"id": "e0f64fe9659f", "label": "IRRELEVANT", "slot": "", "reason": "JetBlockConfig default; the snapshot sets jet.dconv_generator_reduction = 8"}
+{"id": "de0dc9c65ef1", "label": "IRRELEVANT", "slot": "", "reason": "implementation choice (triton / naive): same math"}
+{"id": "3e1be7308e1e", "label": "IRRELEVANT", "slot": "", "reason": "JetBlockConfig default; the snapshot sets jet.expand_v = 2.667"}
+{"id": "8d1fc24bb2ca", "label": "IRRELEVANT", "slot": "", "reason": "JetBlockConfig default; the snapshot sets jet.head_dim = 96 (rc_k)"}
+{"id": "ceef8bd8461d", "label": "IRRELEVANT", "slot": "", "reason": "kernel mode (chunk / fused_recurrent): same recurrence"}
+{"id": "fc5d501e9cb4", "label": "IRRELEVANT", "slot": "", "reason": "JetBlockConfig default; the snapshot sets jet.norm_eps = 1e-5"}
+{"id": "293a5fbdf2ac", "label": "IRRELEVANT", "slot": "", "reason": "JetBlockConfig default; the snapshot sets jet.num_heads = 12 (rc_h)"}
+{"id": "34f3742ca3b8", "label": "IRRELEVANT", "slot": "", "reason": "layer_types default / string eval; head_dim = hidden / heads as dims_of computes (the snapshot sets layer_types)"}
+{"id": "a03734f2ea02", "label": "UNMAPPED", "slot": "rf_jet", "reason": "JetBlock: q/k at num_heads x head_dim (rc_h, rc_k read), but v / gate / o at head_dim * expand_v (2.667 -> 256) and a dynamic-conv kernel generator of width hidden // dconv_generator_reduction; rf_jet's RC_EQ dims carry neither (rc_v = 0, rc_rank = 0). Latent: one jet_nemotron model is placed.", "finding": "jet_dims_unread", "direction": "over-credit", "suggest": "rc dims for rf_jet: rc_v = jet.head_dim * expand_v and rc_rank = hidden // dconv_generator_reduction (read from efficient_attention_config.jet)"}
+{"id": "d567b7f5f268", "label": "MAPPED", "slot": "rf_jet", "reason": "JetBlock forward: silu q/k (l2-normed in kernel), v through the input-generated dynamic conv, beta = sigmoid(b), g = -exp(A) softplus(a + dt_bias), gated delta rule, gated RMSNorm with g_proj, o_proj: the rf_jet family"}
+{"id": "70e1af7e0f06", "label": "UNMAPPED", "slot": "dims:eff_window", "reason": "dispatch by layer_types: 'attn' full, 'swa' sliding with efficient_attention_config['swa']['window_size'], 'jet' JetBlock. Layer kinds are mapped (full / local / rec), the swa window size is not read (eff_window = max_context, window slot full).", "finding": "jet_swa_window_unread", "direction": "over-credit", "suggest": "read efficient_attention_config.swa.window_size as the sliding window (eff_window, and window=local)"}
+{"id": "a82c02db0588", "label": "IRRELEVANT", "slot": "", "reason": "return-tuple arity change"}
+{"id": "e95457bf962c", "label": "IRRELEVANT", "slot": "", "reason": "triton decode kernel of the dynamic conv: same math"}
+{"id": "a11c57715641", "label": "IRRELEVANT", "slot": "", "reason": "triton prefill kernel (with cache) of the dynamic conv: same math"}
+{"id": "c63537bde064", "label": "IRRELEVANT", "slot": "", "reason": "triton prefill kernel of the dynamic conv: same math"}
+{"id": "2ad3d77f4f54", "label": "IRRELEVANT", "slot": "", "reason": "triton decode wrapper"}
+{"id": "768a6d2d6291", "label": "IRRELEVANT", "slot": "", "reason": "autograd wrapper"}
+{"id": "bc2eca0a4d73", "label": "IRRELEVANT", "slot": "", "reason": "autograd wrapper"}
+{"id": "f92660e38a6e", "label": "IRRELEVANT", "slot": "", "reason": "contiguity helper"}
+{"id": "a7a03c63aea4", "label": "IRRELEVANT", "slot": "", "reason": "init helper"}
+{"id": "abec506efbae", "label": "IRRELEVANT", "slot": "", "reason": "signature / return-type drift; same lm_head"}
+{"id": "9dc710ca3d6c", "label": "IRRELEVANT", "slot": "", "reason": "triton autograd forward: same dynamic conv"}
+{"id": "a4db3aff2089", "label": "IRRELEVANT", "slot": "", "reason": "triton autograd forward with cache: same dynamic conv"}
+{"id": "3a1555d98a34", "label": "UNMAPPED", "slot": "rf_jet", "reason": "DynamicShortConvolution: per-token depthwise kernels = w2(silu(w1 x)) + b (w1: hidden -> hidden // dconv_generator_reduction), silu output; the generator rank is not in rf_jet's dims (rc_rank = 0). Latent: one jet_nemotron model is placed.", "finding": "jet_dims_unread", "direction": "over-credit", "suggest": "rc dims for rf_jet: rc_v = jet.head_dim * expand_v and rc_rank = hidden // dconv_generator_reduction (read from efficient_attention_config.jet)"}
+{"id": "eaf431bf35d0", "label": "MAPPED", "slot": "rf_jet", "reason": "naive dynamic causal conv: sum_w x[t-W+1+w] * kernel_t[w]; the rf_jet mixer"}
+{"id": "149787779ff9", "label": "IRRELEVANT", "slot": "", "reason": "triton path of the same dynamic conv"}
+{"id": "a7f14614bf7d", "label": "IRRELEVANT", "slot": "", "reason": "chunked triton path with cache: same dynamic conv"}
+{"id": "3ebffd85a1fe", "label": "IRRELEVANT", "slot": "", "reason": "kernel generator init"}
+{"id": "c1e91816ef62", "label": "IRRELEVANT", "slot": "", "reason": "single-token decode step of the same dynamic conv (rolling cache)"}
+{"id": "9bb8dd3259e8", "label": "IRRELEVANT", "slot": "", "reason": "triton decode step of the same dynamic conv"}
+{"id": "230a5a24339a", "label": "MAPPED", "slot": "rf_jet", "reason": "dynamic conv forward: padding mask, implementation dispatch, silu activation, cache; the rf_jet mixer"}
+{"id": "b05aa89f6f94", "label": "MAPPED", "slot": "rf_jet", "reason": "per-token conv kernels from the generator MLP (rf_jet)"}
+{"id": "3fbc3ffc9b4b", "label": "IRRELEVANT", "slot": "", "reason": "device move of the padding mask"}
+{"id": "461d8b16606e", "label": "IRRELEVANT", "slot": "", "reason": "model-level mask no longer applies a config sliding window (Jet's window lives in the swa layers); device plumbing"}
+{"id": "2c409c376ce6", "label": "IRRELEVANT", "slot": "", "reason": "static / sliding cache target-length branches removed: cache plumbing"}
+{"id": "6bdd44c2031b", "label": "IRRELEVANT", "slot": "", "reason": "flex-attention refusal and sdpa causal-skip removal: backend"}
+{"id": "83cb186cc08d", "label": "IRRELEVANT", "slot": "", "reason": "right-padding detection for flash attention: backend / batching"}
+{"id": "51232f6965f1", "label": "IRRELEVANT", "slot": "", "reason": "cache class construction order"}
+{"id": "8f5e312ec041", "label": "MAPPED", "slot": "qknorm=head / feats:vnorm / crosslayer_kv", "reason": "per-layer head_dim and kv heads (global_head_dim / num_global_key_value_heads read by dims_of), K = V on full layers (_k_eq_v, FT layer kind), KV-shared last layers (crosslayer_kv from num_kv_shared_layers), q/k per-head RMSNorm (QKNORM_ALWAYS gemma4), weight-free v_norm (vnorm); softmax scale 1.0 is absorbed by the learnable q_norm weight; use_bidirectional_attention is null / 'vision' in every snapshot (causal on text)"}
+{"id": "2c6948085af5", "label": "MAPPED", "slot": "qknorm=head / feats:vnorm / crosslayer_kv", "reason": "q = rope(q_norm(q)), k = rope(k_norm(k)), v = v_norm(v_proj or raw k_proj when K = V); shared-KV layers reuse the last own-KV layer of their type (crosslayer_kv); all carried by qknorm head, vnorm, _k_eq_v layer kinds and crosslayer_kv"}
+{"id": "338de1d32353", "label": "IRRELEVANT", "slot": "", "reason": "Gemma4Config wrapper (text / vision / audio sub-config construction) diffed against Gemma3TextConfig; the text config is read directly"}
+{"id": "fde3da09fe8e", "label": "IRRELEVANT", "slot": "", "reason": "audio_config default None: multimodal tower only"}
+{"id": "da12ffc9c19f", "label": "IRRELEVANT", "slot": "", "reason": "text_config default None -> Gemma4TextConfig(); wrapper plumbing (configs without text_config are flat text configs)"}
+{"id": "029fb7596988", "label": "IRRELEVANT", "slot": "", "reason": "vision_config default None: multimodal tower only"}
+{"id": "d661247a6d25", "label": "MAPPED", "slot": "feats:ple / ffn=moe_shared", "reason": "decoder layer: per-layer-input gate / projection / norm (PLE, from hidden_size_per_layer_input), router + experts beside the dense MLP when enable_moe_block (_dense_mlp_beside_moe -> moe_shared), whole-stream layer_scalar buffer (a per-layer scale of the residual: folds into the next sublayers' output projections under scale-invariant norms, up to eps; literature review: handled)"}
+{"id": "085da1d09fb4", "label": "IRRELEVANT", "slot": "", "reason": "per_layer_input / shared_kv_states arguments threaded through: plumbing"}
+{"id": "c0e38d78fb69", "label": "UNMAPPED", "slot": "ffn=moe_shared", "reason": "with enable_moe_block the FFN output is post_ffn_norm(post_ffn_norm_1(mlp(pre_ffn_norm(x))) + post_ffn_norm_2(experts(pre_ffn_norm_2(x)))): each branch is post-normed separately and the sum is normed again, which _dense_mlp_beside_moe reduces to a plain always-on shared expert (moe_shared + post_norm). PLE gate (ple) and the whole-stream layer_scalar (an eps-only fold) are otherwise covered. Latent: Gemma-4 is walled by vnorm (only Gemma-4 / DiffusionGemma carry it).", "finding": "gemma4_branch_post_norms", "direction": "over-credit", "suggest": "a moe sub-value or feature for per-branch post-normed dense+MoE FFNs (Gemma-4 enable_moe_block), wall both ways"}
+{"id": "f55b0ba501b2", "label": "IRRELEVANT", "slot": "", "reason": "apply_rotary_pos_emb on one tensor: same rotate-half RoPE, refactor"}
+{"id": "74682f4aeabf", "label": "IRRELEVANT", "slot": "", "reason": "vision-block ids for the bidirectional mask over image / video tokens: multimodal only"}
+{"id": "4331ee2e9a62", "label": "MAPPED", "slot": "softcap=final", "reason": "rebase artefact (Gemma-3n wrapper): logits = c tanh(logits / c) with final_logit_softcapping (30 in the snapshots); softcap=final read from the config"}
+{"id": "2a154cbff99a", "label": "IRRELEVANT", "slot": "", "reason": "per_layer_inputs kwarg plumbing"}
+{"id": "dc836c391068", "label": "IRRELEVANT", "slot": "", "reason": "output dataclass gains shared_kv_states"}
+{"id": "190275da4b2e", "label": "IRRELEVANT", "slot": "", "reason": "output dataclass gains shared_kv_states"}
+{"id": "8ee5eabc907b", "label": "IRRELEVANT", "slot": "", "reason": "signature: video / position-id / per_layer_inputs kwargs"}
+{"id": "953949008834", "label": "MAPPED", "slot": "dims_of:ffn_total", "reason": "KV-shared layers' MLP is 2 x intermediate_size under use_double_wide_mlp (dims_of counts the n_wide layers)"}
+{"id": "d205683d9ed1", "label": "IRRELEVANT", "slot": "", "reason": "rebase artefact: Gemma-3n multimodal wrapper __init__ (towers, embedders) diffed against the text model"}
+{"id": "071b94dd3f0b", "label": "IRRELEVANT", "slot": "", "reason": "rebase artefact: Gemma-3n multimodal wrapper forward (vision / audio soft tokens, PLE token lookup clamped to vocab_size_per_layer_input) around the text model; PLE itself is the ple feature"}
+{"id": "73a926628477", "label": "IRRELEVANT", "slot": "", "reason": "towers built only when their sub-config exists: multimodal plumbing"}
+{"id": "4eb27ae88316", "label": "IRRELEVANT", "slot": "", "reason": "multimodal wrapper forward: placeholder masks, PLE inputs with pad embeddings at multimodal positions, vision-only bidirectional blocks (use_bidirectional_attention 'vision'), position ids; text-only input runs the causal text model"}
+{"id": "9fdce00d0912", "label": "MAPPED", "slot": "feats:ple", "reason": "PLE tables: embed_tokens_per_layer (scaled by sqrt(ple dim)), model projection * hidden^-1/2, projection norm, mix scale 2^-1/2 (ple feature, from hidden_size_per_layer_input); embedding sqrt(hidden) scale and final norm inherited from Gemma-3"}
+{"id": "c27e7aea43e8", "label": "MAPPED", "slot": "crosslayer_kv / feats:ple", "reason": "masks per layer type (bidirectional overlay moved to the wrapper), shared_kv_states for KV-shared layers (crosslayer_kv), per-layer input slice (ple)"}
+{"id": "c7fd39aad6f1", "label": "MAPPED", "slot": "feats:ple", "reason": "per-layer inputs computed and projected when hidden_size_per_layer_input (ple)"}
+{"id": "5e4c41f02872", "label": "MAPPED", "slot": "feats:ple", "reason": "per-layer token embeddings (reverse lookup from inputs_embeds is plumbing): ple"}
+{"id": "13ec648d006a", "label": "MAPPED", "slot": "feats:ple", "reason": "per-layer projection of the embeddings, normed and mixed with the PLE tokens: ple"}
+{"id": "01dbd158a238", "label": "MAPPED", "slot": "dims_of:moe_sig", "reason": "experts sized by num_experts / moe_intermediate_size with hidden_activation (gelu tanh): moe dims and act"}
+{"id": "1f8fb16ae9af", "label": "MAPPED", "slot": "dims_of:moe_sig", "reason": "router: weight-free RMSNorm x learned scale x hidden^-1/2 (folds into proj), linear scores, per-expert output scale (folds into each expert's down_proj); literature review: IRRELEVANT / folded"}
+{"id": "93a436873248", "label": "MAPPED", "slot": "dims_of:moe_sig", "reason": "softmax over experts, top_k_experts, renormalised over the top-k, times per_expert_scale (a fold into the experts): moe_why router score softmax + renorm"}
+{"id": "3c99efa7dc73", "label": "MAPPED", "slot": "norm=RMSNorm", "reason": "RMSNorm with a plain weight (init ones) instead of Gemma's (1 + w), or weight-free (with_scale False: v_norm / router norm, vnorm feature); a weight reparametrisation"}
+{"id": "bc6cffac78cd", "label": "IRRELEVANT", "slot": "", "reason": "x * (mean(x^2) + eps)^-0.5 written with pow: same math"}
+{"id": "880164aa5b2f", "label": "MAPPED", "slot": "norm=RMSNorm", "reason": "normed * weight (not 1 + weight), optional weight-free: same RMSNorm up to a weight reparametrisation; eps from rms_norm_eps"}
+{"id": "c53784affbaa", "label": "IRRELEVANT", "slot": "", "reason": "nn.Module.__init__ call / deprecated device kwarg: refactor"}
+{"id": "5b3ac535dfaa", "label": "IRRELEVANT", "slot": "", "reason": "rope_init_fns bookkeeping dict"}
+{"id": "ee5314988430", "label": "MAPPED", "slot": "dims_of:rope_sched", "reason": "per-layer-type rotary tables from per_layer_config (full layers: global_head_dim, proportional RoPE with a zero tail -> cap = head in _rope_schedules)"}

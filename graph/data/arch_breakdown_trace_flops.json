@@ -1,0 +1,13687 @@
+{
+"apertus": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+13631488,
+13631488
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+5242880,
+5242880
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "swiss-ai/Apertus-8B-Instruct-2509",
+"seconds": 4.3
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+13631488,
+13631488
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+5242880,
+5242880
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "swiss-ai/Apertus-70B-Instruct-2509",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"arcee": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "arcee-ai/AFM-4.5B",
+"seconds": 4.3
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "arcee-ai/AFM-4.5B-Base",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"bamba": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+28672,
+28672
+],
+"decode:attn.proj": [
+1310720,
+1310720
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"decode:rec.proj": [
+23969792,
+23969792
+],
+"prefill:attn.core": [
+346112,
+346112
+],
+"prefill:attn.proj": [
+17039360,
+17039360
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+],
+"prefill:rec.proj": [
+311607296,
+311607296
+]
+},
+"5": {
+"decode:attn.core": [
+12288,
+12288
+],
+"decode:attn.proj": [
+1310720,
+1310720
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"decode:rec.proj": [
+23969792,
+23969792
+],
+"prefill:attn.core": [
+51200,
+51200
+],
+"prefill:attn.proj": [
+6553600,
+6553600
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+],
+"prefill:rec.proj": [
+119848960,
+119848960
+]
+}
+},
+"all_equal": true,
+"core_modelled": false,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.proj": true
+},
+"repo": "ibm-ai-platform/Bamba-9B-v1",
+"seconds": 13.7
+}
+],
+"errors": []
+},
+"biogpt": {
+"checked": [
+{
+"L": {
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+},
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "microsoft/biogpt",
+"seconds": 4.2
+},
+{
+"L": {
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+},
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "microsoft/BioGPT-Large",
+"seconds": 0.7
+}
+],
+"errors": []
+},
+"bloom": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+458752,
+458752
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+134217728,
+134217728
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+872415232,
+872415232
+],
+"prefill:lm_head": [
+13631488,
+13631488
+],
+"prefill:mlp": [
+1744830464,
+1744830464
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+134217728,
+134217728
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+335544320,
+335544320
+],
+"prefill:lm_head": [
+5242880,
+5242880
+],
+"prefill:mlp": [
+671088640,
+671088640
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "bigscience/bloomz-560m",
+"seconds": 3.1
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+458752,
+458752
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+134217728,
+134217728
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+872415232,
+872415232
+],
+"prefill:lm_head": [
+13631488,
+13631488
+],
+"prefill:mlp": [
+1744830464,
+1744830464
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+134217728,
+134217728
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+335544320,
+335544320
+],
+"prefill:lm_head": [
+5242880,
+5242880
+],
+"prefill:mlp": [
+671088640,
+671088640
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "bigscience/bloom-560m",
+"seconds": 2.5
+}
+],
+"errors": []
+},
+"codegen": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+458752,
+458752
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+134217728,
+134217728
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+872415232,
+872415232
+],
+"prefill:lm_head": [
+13631488,
+13631488
+],
+"prefill:mlp": [
+1744830464,
+1744830464
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+134217728,
+134217728
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+335544320,
+335544320
+],
+"prefill:lm_head": [
+5242880,
+5242880
+],
+"prefill:mlp": [
+671088640,
+671088640
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "Salesforce/codegen2-16B_P",
+"seconds": 2.9
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+109051904,
+109051904
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+41943040,
+41943040
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "Salesforce/codegen-350M-mono",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"cohere": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "NLPark/AnFeng_v3_Avocet",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "alpindale/c4ai-command-r-plus-GPTQ",
+"seconds": 1.3
+}
+],
+"errors": []
+},
+"cohere2": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+155648,
+155648
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "saidutta69/c4ai-command-r7b-12-2024-heretic",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"ctrl": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+143360,
+143360
+],
+"decode:attn.proj": [
+6553600,
+6553600
+],
+"decode:lm_head": [
+327680,
+327680
+],
+"decode:mlp": [
+655360,
+655360
+],
+"prefill:attn.core": [
+1730560,
+1730560
+],
+"prefill:attn.proj": [
+85196800,
+85196800
+],
+"prefill:lm_head": [
+4259840,
+4259840
+],
+"prefill:mlp": [
+8519680,
+8519680
+]
+},
+"5": {
+"decode:attn.core": [
+61440,
+61440
+],
+"decode:attn.proj": [
+6553600,
+6553600
+],
+"decode:lm_head": [
+327680,
+327680
+],
+"decode:mlp": [
+655360,
+655360
+],
+"prefill:attn.core": [
+256000,
+256000
+],
+"prefill:attn.proj": [
+32768000,
+32768000
+],
+"prefill:lm_head": [
+1638400,
+1638400
+],
+"prefill:mlp": [
+3276800,
+3276800
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "Salesforce/ctrl",
+"seconds": 0.9
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+1792,
+1792
+],
+"decode:attn.proj": [
+4096,
+4096
+],
+"decode:lm_head": [
+16384,
+16384
+],
+"decode:mlp": [
+256,
+256
+],
+"prefill:attn.core": [
+21632,
+21632
+],
+"prefill:attn.proj": [
+53248,
+53248
+],
+"prefill:lm_head": [
+212992,
+212992
+],
+"prefill:mlp": [
+3328,
+3328
+]
+},
+"5": {
+"decode:attn.core": [
+768,
+768
+],
+"decode:attn.proj": [
+4096,
+4096
+],
+"decode:lm_head": [
+16384,
+16384
+],
+"decode:mlp": [
+256,
+256
+],
+"prefill:attn.core": [
+3200,
+3200
+],
+"prefill:attn.proj": [
+20480,
+20480
+],
+"prefill:lm_head": [
+81920,
+81920
+],
+"prefill:mlp": [
+1280,
+1280
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "sshleifer/tiny-ctrl",
+"seconds": 0.5
+}
+],
+"errors": []
+},
+"deepseek_v2": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+286720,
+286720
+],
+"decode:attn.proj": [
+15990784,
+15990784
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+98304,
+98304
+],
+"decode:moe.experts": [
+4128768,
+4128768
+],
+"decode:moe.router": [
+229376,
+229376
+],
+"decode:moe.shared": [
+1376256,
+1376256
+],
+"prefill:attn.core": [
+3461120,
+3461120
+],
+"prefill:attn.proj": [
+207880192,
+207880192
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+1277952,
+1277952
+],
+"prefill:moe.experts": [
+53673984,
+53673984
+],
+"prefill:moe.router": [
+2981888,
+2981888
+],
+"prefill:moe.shared": [
+17891328,
+17891328
+]
+},
+"5": {
+"decode:attn.core": [
+122880,
+122880
+],
+"decode:attn.proj": [
+15990784,
+15990784
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+98304,
+98304
+],
+"decode:moe.experts": [
+4128768,
+4128768
+],
+"decode:moe.router": [
+229376,
+229376
+],
+"decode:moe.shared": [
+1376256,
+1376256
+],
+"prefill:attn.core": [
+512000,
+512000
+],
+"prefill:attn.proj": [
+79953920,
+79953920
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+491520,
+491520
+],
+"prefill:moe.experts": [
+20643840,
+20643840
+],
+"prefill:moe.router": [
+1146880,
+1146880
+],
+"prefill:moe.shared": [
+6881280,
+6881280
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "deepseek-ai/DeepSeek-V2-Lite",
+"seconds": 3.1
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+286720,
+286720
+],
+"decode:attn.proj": [
+38010880,
+38010880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+98304,
+98304
+],
+"decode:moe.experts": [
+4128768,
+4128768
+],
+"decode:moe.router": [
+573440,
+573440
+],
+"decode:moe.shared": [
+1376256,
+1376256
+],
+"prefill:attn.core": [
+3461120,
+3461120
+],
+"prefill:attn.proj": [
+494141440,
+494141440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+1277952,
+1277952
+],
+"prefill:moe.experts": [
+53673984,
+53673984
+],
+"prefill:moe.router": [
+7454720,
+7454720
+],
+"prefill:moe.shared": [
+17891328,
+17891328
+]
+},
+"5": {
+"decode:attn.core": [
+122880,
+122880
+],
+"decode:attn.proj": [
+38010880,
+38010880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+98304,
+98304
+],
+"decode:moe.experts": [
+4128768,
+4128768
+],
+"decode:moe.router": [
+573440,
+573440
+],
+"decode:moe.shared": [
+1376256,
+1376256
+],
+"prefill:attn.core": [
+512000,
+512000
+],
+"prefill:attn.proj": [
+190054400,
+190054400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+491520,
+491520
+],
+"prefill:moe.experts": [
+20643840,
+20643840
+],
+"prefill:moe.router": [
+2867200,
+2867200
+],
+"prefill:moe.shared": [
+6881280,
+6881280
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "RedHatAI/DeepSeek-V2.5-1210-FP8",
+"seconds": 4.7
+}
+],
+"errors": []
+},
+"deepseek_v3": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+286720,
+286720
+],
+"decode:attn.proj": [
+38010880,
+38010880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+294912,
+294912
+],
+"decode:moe.experts": [
+3932160,
+3932160
+],
+"decode:moe.router": [
+655360,
+655360
+],
+"decode:moe.shared": [
+491520,
+491520
+],
+"prefill:attn.core": [
+3461120,
+3461120
+],
+"prefill:attn.proj": [
+494141440,
+494141440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+3833856,
+3833856
+],
+"prefill:moe.experts": [
+51118080,
+51118080
+],
+"prefill:moe.router": [
+8519680,
+8519680
+],
+"prefill:moe.shared": [
+6389760,
+6389760
+]
+},
+"5": {
+"decode:attn.core": [
+122880,
+122880
+],
+"decode:attn.proj": [
+38010880,
+38010880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+294912,
+294912
+],
+"decode:moe.experts": [
+3932160,
+3932160
+],
+"decode:moe.router": [
+655360,
+655360
+],
+"decode:moe.shared": [
+491520,
+491520
+],
+"prefill:attn.core": [
+512000,
+512000
+],
+"prefill:attn.proj": [
+190054400,
+190054400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+1474560,
+1474560
+],
+"prefill:moe.experts": [
+19660800,
+19660800
+],
+"prefill:moe.router": [
+3276800,
+3276800
+],
+"prefill:moe.shared": [
+2457600,
+2457600
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "deepseek-ai/DeepSeek-R1",
+"seconds": 6.1
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+286720,
+286720
+],
+"decode:attn.proj": [
+38010880,
+38010880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+98304,
+98304
+],
+"decode:moe.experts": [
+5505024,
+5505024
+],
+"decode:moe.router": [
+1376256,
+1376256
+],
+"decode:moe.shared": [
+688128,
+688128
+],
+"prefill:attn.core": [
+3461120,
+3461120
+],
+"prefill:attn.proj": [
+494141440,
+494141440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+1277952,
+1277952
+],
+"prefill:moe.experts": [
+71565312,
+71565312
+],
+"prefill:moe.router": [
+17891328,
+17891328
+],
+"prefill:moe.shared": [
+8945664,
+8945664
+]
+},
+"5": {
+"decode:attn.core": [
+122880,
+122880
+],
+"decode:attn.proj": [
+38010880,
+38010880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+98304,
+98304
+],
+"decode:moe.experts": [
+5505024,
+5505024
+],
+"decode:moe.router": [
+1376256,
+1376256
+],
+"decode:moe.shared": [
+688128,
+688128
+],
+"prefill:attn.core": [
+512000,
+512000
+],
+"prefill:attn.proj": [
+190054400,
+190054400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+491520,
+491520
+],
+"prefill:moe.experts": [
+27525120,
+27525120
+],
+"prefill:moe.router": [
+6881280,
+6881280
+],
+"prefill:moe.shared": [
+3440640,
+3440640
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "nvidia/Kimi-K2-Thinking-NVFP4",
+"seconds": 14.6
+}
+],
+"errors": []
+},
+"doge": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+12697600,
+12697600
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+163684352,
+163684352
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+12632064,
+12632064
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+62955520,
+62955520
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "SmallDoge/Doge-320M",
+"seconds": 1.0
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+3174400,
+3174400
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+40921088,
+40921088
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+3158016,
+3158016
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+15738880,
+15738880
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "SmallDoge/Doge-20M",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"dots1": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+196608,
+196608
+],
+"decode:moe.experts": [
+8257536,
+8257536
+],
+"decode:moe.router": [
+917504,
+917504
+],
+"decode:moe.shared": [
+2752512,
+2752512
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+2555904,
+2555904
+],
+"prefill:moe.experts": [
+107347968,
+107347968
+],
+"prefill:moe.router": [
+11927552,
+11927552
+],
+"prefill:moe.shared": [
+35782656,
+35782656
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+196608,
+196608
+],
+"decode:moe.experts": [
+8257536,
+8257536
+],
+"decode:moe.router": [
+917504,
+917504
+],
+"decode:moe.shared": [
+2752512,
+2752512
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+983040,
+983040
+],
+"prefill:moe.experts": [
+41287680,
+41287680
+],
+"prefill:moe.router": [
+4587520,
+4587520
+],
+"prefill:moe.shared": [
+13762560,
+13762560
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "rednote-hilab/dots.llm1.base",
+"seconds": 5.6
+}
+],
+"errors": []
+},
+"ernie4_5": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "baidu/ERNIE-4.5-0.3B-PT",
+"seconds": 0.7
+}
+],
+"errors": []
+},
+"ernie4_5_moe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+196608,
+196608
+],
+"decode:moe.experts": [
+8257536,
+8257536
+],
+"decode:moe.router": [
+458752,
+458752
+],
+"decode:moe.shared": [
+2752512,
+2752512
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+2555904,
+2555904
+],
+"prefill:moe.experts": [
+107347968,
+107347968
+],
+"prefill:moe.router": [
+5963776,
+5963776
+],
+"prefill:moe.shared": [
+35782656,
+35782656
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+196608,
+196608
+],
+"decode:moe.experts": [
+8257536,
+8257536
+],
+"decode:moe.router": [
+458752,
+458752
+],
+"decode:moe.shared": [
+2752512,
+2752512
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+983040,
+983040
+],
+"prefill:moe.experts": [
+41287680,
+41287680
+],
+"prefill:moe.router": [
+2293760,
+2293760
+],
+"prefill:moe.shared": [
+13762560,
+13762560
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "baidu/ERNIE-4.5-21B-A3B-Thinking",
+"seconds": 4.7
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+196608,
+196608
+],
+"decode:moe.experts": [
+8257536,
+8257536
+],
+"decode:moe.router": [
+458752,
+458752
+],
+"decode:moe.shared": [
+2752512,
+2752512
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+2555904,
+2555904
+],
+"prefill:moe.experts": [
+107347968,
+107347968
+],
+"prefill:moe.router": [
+5963776,
+5963776
+],
+"prefill:moe.shared": [
+35782656,
+35782656
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+196608,
+196608
+],
+"decode:moe.experts": [
+8257536,
+8257536
+],
+"decode:moe.router": [
+458752,
+458752
+],
+"decode:moe.shared": [
+2752512,
+2752512
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+983040,
+983040
+],
+"prefill:moe.experts": [
+41287680,
+41287680
+],
+"prefill:moe.router": [
+2293760,
+2293760
+],
+"prefill:moe.shared": [
+13762560,
+13762560
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "baidu/ERNIE-4.5-21B-A3B-PT",
+"seconds": 7.3
+}
+],
+"errors": []
+},
+"exaone4": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+155648,
+155648
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "LGAI-EXAONE/EXAONE-4.0-32B",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"falcon": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+34078720,
+34078720
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+109051904,
+109051904
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+13107200,
+13107200
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+41943040,
+41943040
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "tiiuae/falcon-7b",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+34078720,
+34078720
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+109051904,
+109051904
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+13107200,
+13107200
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+41943040,
+41943040
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "tiiuae/falcon-40b-instruct",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"falcon_h1": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:rec.proj": [
+7372800,
+7372800
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+34078720,
+34078720
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+],
+"prefill:rec.proj": [
+95846400,
+95846400
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:rec.proj": [
+7372800,
+7372800
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+13107200,
+13107200
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+],
+"prefill:rec.proj": [
+36864000,
+36864000
+]
+}
+},
+"all_equal": true,
+"core_modelled": false,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.proj": true
+},
+"repo": "tiiuae/Falcon-H1-0.5B-Base",
+"seconds": 1.9
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:rec.proj": [
+8404992,
+8404992
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+],
+"prefill:rec.proj": [
+109264896,
+109264896
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:rec.proj": [
+8404992,
+8404992
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+],
+"prefill:rec.proj": [
+42024960,
+42024960
+]
+}
+},
+"all_equal": true,
+"core_modelled": false,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.proj": true
+},
+"repo": "tiiuae/Falcon-H1-3B-Instruct",
+"seconds": 3.9
+}
+],
+"errors": []
+},
+"falcon_mamba": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:lm_head": [
+131072,
+131072
+],
+"decode:rec.core": [
+4096,
+4096
+],
+"decode:rec.proj": [
+212992,
+212992
+],
+"prefill:lm_head": [
+1703936,
+1703936
+],
+"prefill:rec.core": [
+86016,
+86016
+],
+"prefill:rec.proj": [
+2768896,
+2768896
+]
+},
+"5": {
+"decode:lm_head": [
+131072,
+131072
+],
+"decode:rec.core": [
+4096,
+4096
+],
+"decode:rec.proj": [
+212992,
+212992
+],
+"prefill:lm_head": [
+655360,
+655360
+],
+"prefill:rec.core": [
+36864,
+36864
+],
+"prefill:rec.proj": [
+1064960,
+1064960
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"lm_head": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "tiiuae/falcon-mamba-tiny-dev",
+"seconds": 1.0
+},
+{
+"L": {
+"13": {
+"decode:lm_head": [
+4194304,
+4194304
+],
+"decode:rec.core": [
+16384,
+16384
+],
+"decode:rec.proj": [
+13139968,
+13139968
+],
+"prefill:lm_head": [
+54525952,
+54525952
+],
+"prefill:rec.core": [
+278528,
+278528
+],
+"prefill:rec.proj": [
+170819584,
+170819584
+]
+},
+"5": {
+"decode:lm_head": [
+4194304,
+4194304
+],
+"decode:rec.core": [
+16384,
+16384
+],
+"decode:rec.proj": [
+13139968,
+13139968
+],
+"prefill:lm_head": [
+20971520,
+20971520
+],
+"prefill:rec.core": [
+114688,
+114688
+],
+"prefill:rec.proj": [
+65699840,
+65699840
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"lm_head": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "tiiuae/falcon-mamba-7b",
+"seconds": 1.5
+}
+],
+"errors": []
+},
+"flex_olmo": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+11010048,
+11010048
+],
+"decode:moe.router": [
+57344,
+57344
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:moe.experts": [
+143130624,
+143130624
+],
+"prefill:moe.router": [
+745472,
+745472
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+11010048,
+11010048
+],
+"decode:moe.router": [
+57344,
+57344
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:moe.experts": [
+55050240,
+55050240
+],
+"prefill:moe.router": [
+286720,
+286720
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "allenai/FlexOlmo-7x7B-1T",
+"seconds": 3.5
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+16384,
+16384
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:moe.experts": [
+40894464,
+40894464
+],
+"prefill:moe.router": [
+212992,
+212992
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+16384,
+16384
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:moe.experts": [
+15728640,
+15728640
+],
+"prefill:moe.router": [
+81920,
+81920
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "allenai/Flex-reddit-2x7B-1T",
+"seconds": 1.6
+}
+],
+"errors": []
+},
+"gemma": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+458752,
+458752
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "google/gemma-7b",
+"seconds": 3.3
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+458752,
+458752
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "BAAI/bge-reranker-v2-gemma",
+"seconds": 3.3
+}
+],
+"errors": []
+},
+"gemma2": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+360448,
+360448
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+163577856,
+163577856
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+62914560,
+62914560
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "hugging-quants/gemma-2-9b-it-AWQ-INT4",
+"seconds": 1.1
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+360448,
+360448
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+163577856,
+163577856
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+62914560,
+62914560
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "google/shieldgemma-9b",
+"seconds": 1.4
+}
+],
+"errors": []
+},
+"gemma3": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+286720,
+286720
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+163577856,
+163577856
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+62914560,
+62914560
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "chbae624/vllm-translategemma-12b-it",
+"seconds": 3.4
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+286720,
+286720
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+163577856,
+163577856
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+62914560,
+62914560
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "DreamFast/gemma-3-12b-it-heretic-v2",
+"seconds": 1.8
+}
+],
+"errors": []
+},
+"gemma3_text": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+286720,
+286720
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+163577856,
+163577856
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+12582912,
+12582912
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+62914560,
+62914560
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "cjvt/GaMS3-12B-Instruct",
+"seconds": 1.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+286720,
+286720
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "google/gemma-3-1b-it",
+"seconds": 1.1
+}
+],
+"errors": []
+},
+"glm": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "zai-org/glm-4-9b-chat-hf",
+"seconds": 0.7
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "shashanth-27xA9/GLM-5.3-8GB-SuperExpert",
+"seconds": 0.7
+}
+],
+"errors": []
+},
+"glm4": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "zai-org/GLM-Z1-32B-0414",
+"seconds": 0.9
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "zai-org/GLM-4-9B-0414",
+"seconds": 1.2
+}
+],
+"errors": []
+},
+"glm4_moe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+98304,
+98304
+],
+"decode:moe.experts": [
+5505024,
+5505024
+],
+"decode:moe.router": [
+458752,
+458752
+],
+"decode:moe.shared": [
+688128,
+688128
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+1277952,
+1277952
+],
+"prefill:moe.experts": [
+71565312,
+71565312
+],
+"prefill:moe.router": [
+5963776,
+5963776
+],
+"prefill:moe.shared": [
+8945664,
+8945664
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+98304,
+98304
+],
+"decode:moe.experts": [
+5505024,
+5505024
+],
+"decode:moe.router": [
+458752,
+458752
+],
+"decode:moe.shared": [
+688128,
+688128
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+491520,
+491520
+],
+"prefill:moe.experts": [
+27525120,
+27525120
+],
+"prefill:moe.router": [
+2293760,
+2293760
+],
+"prefill:moe.shared": [
+3440640,
+3440640
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "zai-org/GLM-4.5-Air",
+"seconds": 3.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+294912,
+294912
+],
+"decode:moe.experts": [
+3932160,
+3932160
+],
+"decode:moe.router": [
+409600,
+409600
+],
+"decode:moe.shared": [
+491520,
+491520
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+3833856,
+3833856
+],
+"prefill:moe.experts": [
+51118080,
+51118080
+],
+"prefill:moe.router": [
+5324800,
+5324800
+],
+"prefill:moe.shared": [
+6389760,
+6389760
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+294912,
+294912
+],
+"decode:moe.experts": [
+3932160,
+3932160
+],
+"decode:moe.router": [
+409600,
+409600
+],
+"decode:moe.shared": [
+491520,
+491520
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+1474560,
+1474560
+],
+"prefill:moe.experts": [
+19660800,
+19660800
+],
+"prefill:moe.router": [
+2048000,
+2048000
+],
+"prefill:moe.shared": [
+2457600,
+2457600
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "zai-org/GLM-4.5",
+"seconds": 3.8
+}
+],
+"errors": []
+},
+"gpt2": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+109051904,
+109051904
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+41943040,
+41943040
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "openai-community/gpt2",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+86016,
+86016
+],
+"decode:attn.proj": [
+3145728,
+3145728
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+6291456,
+6291456
+],
+"prefill:attn.core": [
+1038336,
+1038336
+],
+"prefill:attn.proj": [
+40894464,
+40894464
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+81788928,
+81788928
+]
+},
+"5": {
+"decode:attn.core": [
+36864,
+36864
+],
+"decode:attn.proj": [
+3145728,
+3145728
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+6291456,
+6291456
+],
+"prefill:attn.core": [
+153600,
+153600
+],
+"prefill:attn.proj": [
+15728640,
+15728640
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+31457280,
+31457280
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "distilbert/distilgpt2",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"gpt_bigcode": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+34078720,
+34078720
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+13107200,
+13107200
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "bigcode/tiny_starcoder_py",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+13631488,
+13631488
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+5242880,
+5242880
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "bigcode/gpt_bigcode-santacoder",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"gpt_neo": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+109051904,
+109051904
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+41943040,
+41943040
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "EleutherAI/gpt-neo-125m",
+"seconds": 1.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+7168,
+7168
+],
+"decode:attn.proj": [
+16384,
+16384
+],
+"decode:lm_head": [
+16384,
+16384
+],
+"decode:mlp": [
+32768,
+32768
+],
+"prefill:attn.core": [
+86528,
+86528
+],
+"prefill:attn.proj": [
+212992,
+212992
+],
+"prefill:lm_head": [
+212992,
+212992
+],
+"prefill:mlp": [
+425984,
+425984
+]
+},
+"5": {
+"decode:attn.core": [
+3072,
+3072
+],
+"decode:attn.proj": [
+16384,
+16384
+],
+"decode:lm_head": [
+16384,
+16384
+],
+"decode:mlp": [
+32768,
+32768
+],
+"prefill:attn.core": [
+12800,
+12800
+],
+"prefill:attn.proj": [
+81920,
+81920
+],
+"prefill:lm_head": [
+81920,
+81920
+],
+"prefill:mlp": [
+163840,
+163840
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "roneneldan/TinyStories-1M",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"gpt_neox": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "EleutherAI/pythia-160m",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+86016,
+86016
+],
+"decode:attn.proj": [
+3145728,
+3145728
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+393216,
+393216
+],
+"prefill:attn.core": [
+1038336,
+1038336
+],
+"prefill:attn.proj": [
+40894464,
+40894464
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+5111808,
+5111808
+]
+},
+"5": {
+"decode:attn.core": [
+36864,
+36864
+],
+"decode:attn.proj": [
+3145728,
+3145728
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+393216,
+393216
+],
+"prefill:attn.core": [
+153600,
+153600
+],
+"prefill:attn.proj": [
+15728640,
+15728640
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+1966080,
+1966080
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "EleutherAI/pythia-70m-deduped",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"gpt_neox_japanese": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+143360,
+143360
+],
+"decode:attn.proj": [
+6553600,
+6553600
+],
+"decode:lm_head": [
+327680,
+327680
+],
+"decode:mlp": [
+13107200,
+13107200
+],
+"prefill:attn.core": [
+1730560,
+1730560
+],
+"prefill:attn.proj": [
+85196800,
+85196800
+],
+"prefill:lm_head": [
+4259840,
+4259840
+],
+"prefill:mlp": [
+170393600,
+170393600
+]
+},
+"5": {
+"decode:attn.core": [
+61440,
+61440
+],
+"decode:attn.proj": [
+6553600,
+6553600
+],
+"decode:lm_head": [
+327680,
+327680
+],
+"decode:mlp": [
+13107200,
+13107200
+],
+"prefill:attn.core": [
+256000,
+256000
+],
+"prefill:attn.proj": [
+32768000,
+32768000
+],
+"prefill:lm_head": [
+1638400,
+1638400
+],
+"prefill:mlp": [
+65536000,
+65536000
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "abeja/gpt-neox-japanese-2.7b",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"gpt_oss": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+90112,
+90112
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+131072,
+131072
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+34078720,
+34078720
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+40894464,
+40894464
+],
+"prefill:moe.router": [
+1703936,
+1703936
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+131072,
+131072
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+13107200,
+13107200
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+15728640,
+15728640
+],
+"prefill:moe.router": [
+655360,
+655360
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "openai/gpt-oss-20b",
+"seconds": 2.2
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+90112,
+90112
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+34078720,
+34078720
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+40894464,
+40894464
+],
+"prefill:moe.router": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+13107200,
+13107200
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+15728640,
+15728640
+],
+"prefill:moe.router": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "openai/gpt-oss-120b",
+"seconds": 2.3
+}
+],
+"errors": []
+},
+"gptj": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+458752,
+458752
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+134217728,
+134217728
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+872415232,
+872415232
+],
+"prefill:lm_head": [
+13631488,
+13631488
+],
+"prefill:mlp": [
+1744830464,
+1744830464
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+134217728,
+134217728
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+335544320,
+335544320
+],
+"prefill:lm_head": [
+5242880,
+5242880
+],
+"prefill:mlp": [
+671088640,
+671088640
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "EleutherAI/gpt-j-6b",
+"seconds": 2.7
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+109051904,
+109051904
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+41943040,
+41943040
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "Milos/slovak-gpt-j-405M",
+"seconds": 1.1
+}
+],
+"errors": []
+},
+"granite": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+34078720,
+34078720
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+13107200,
+13107200
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "ibm-granite/granite-4.1-3b",
+"seconds": 1.5
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "ibm-granite/granite-3.3-8b-instruct",
+"seconds": 1.5
+}
+],
+"errors": []
+},
+"granitemoe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+86016,
+86016
+],
+"decode:attn.proj": [
+1572864,
+1572864
+],
+"decode:lm_head": [
+196608,
+196608
+],
+"decode:moe.experts": [
+4718592,
+4718592
+],
+"decode:moe.router": [
+122880,
+122880
+],
+"prefill:attn.core": [
+1038336,
+1038336
+],
+"prefill:attn.proj": [
+20447232,
+20447232
+],
+"prefill:lm_head": [
+2555904,
+2555904
+],
+"prefill:moe.experts": [
+61341696,
+61341696
+],
+"prefill:moe.router": [
+1597440,
+1597440
+]
+},
+"5": {
+"decode:attn.core": [
+36864,
+36864
+],
+"decode:attn.proj": [
+1572864,
+1572864
+],
+"decode:lm_head": [
+196608,
+196608
+],
+"decode:moe.experts": [
+4718592,
+4718592
+],
+"decode:moe.router": [
+122880,
+122880
+],
+"prefill:attn.core": [
+153600,
+153600
+],
+"prefill:attn.proj": [
+7864320,
+7864320
+],
+"prefill:lm_head": [
+983040,
+983040
+],
+"prefill:moe.experts": [
+23592960,
+23592960
+],
+"prefill:moe.router": [
+614400,
+614400
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "ibm-granite/granite-3.1-3b-a800m-instruct",
+"seconds": 2.4
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+86016,
+86016
+],
+"decode:attn.proj": [
+1572864,
+1572864
+],
+"decode:lm_head": [
+196608,
+196608
+],
+"decode:moe.experts": [
+4718592,
+4718592
+],
+"decode:moe.router": [
+122880,
+122880
+],
+"prefill:attn.core": [
+1038336,
+1038336
+],
+"prefill:attn.proj": [
+20447232,
+20447232
+],
+"prefill:lm_head": [
+2555904,
+2555904
+],
+"prefill:moe.experts": [
+61341696,
+61341696
+],
+"prefill:moe.router": [
+1597440,
+1597440
+]
+},
+"5": {
+"decode:attn.core": [
+36864,
+36864
+],
+"decode:attn.proj": [
+1572864,
+1572864
+],
+"decode:lm_head": [
+196608,
+196608
+],
+"decode:moe.experts": [
+4718592,
+4718592
+],
+"decode:moe.router": [
+122880,
+122880
+],
+"prefill:attn.core": [
+153600,
+153600
+],
+"prefill:attn.proj": [
+7864320,
+7864320
+],
+"prefill:lm_head": [
+983040,
+983040
+],
+"prefill:moe.experts": [
+23592960,
+23592960
+],
+"prefill:moe.router": [
+614400,
+614400
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "ibm-research/PowerMoE-3b",
+"seconds": 1.5
+}
+],
+"errors": []
+},
+"granitemoehybrid": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "ibm-granite/granite-4.0-1b",
+"seconds": 1.2
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+34078720,
+34078720
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+2621440,
+2621440
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+13107200,
+13107200
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "desert-ant-labs/title",
+"seconds": 0.7
+}
+],
+"errors": []
+},
+"helium": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "kyutai/helium-1-preview-2b",
+"seconds": 1.4
+}
+],
+"errors": []
+},
+"hunyuan_v1_dense": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "tencent/Hy-MT2-7B",
+"seconds": 1.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "tencent/Hy-MT2-1.8B",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"hunyuan_v1_moe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+262144,
+262144
+],
+"decode:moe.shared": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+81788928,
+81788928
+],
+"prefill:moe.router": [
+3407872,
+3407872
+],
+"prefill:moe.shared": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+262144,
+262144
+],
+"decode:moe.shared": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+31457280,
+31457280
+],
+"prefill:moe.router": [
+1310720,
+1310720
+],
+"prefill:moe.shared": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "tencent/Hunyuan-A13B-Instruct",
+"seconds": 3.7
+}
+],
+"errors": []
+},
+"idefics3": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+86016,
+86016
+],
+"decode:attn.proj": [
+2097152,
+2097152
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+1038336,
+1038336
+],
+"prefill:attn.proj": [
+27262976,
+27262976
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+36864,
+36864
+],
+"decode:attn.proj": [
+2097152,
+2097152
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+153600,
+153600
+],
+"prefill:attn.proj": [
+10485760,
+10485760
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "ibm-granite/granite-docling-258M",
+"seconds": 1.2
+}
+],
+"errors": []
+},
+"jamba": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+28672,
+28672
+],
+"decode:attn.proj": [
+1310720,
+1310720
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"decode:rec.core": [
+229376,
+229376
+],
+"decode:rec.proj": [
+27066368,
+27066368
+],
+"prefill:attn.core": [
+346112,
+346112
+],
+"prefill:attn.proj": [
+17039360,
+17039360
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+],
+"prefill:rec.core": [
+3899392,
+3899392
+],
+"prefill:rec.proj": [
+351862784,
+351862784
+]
+},
+"5": {
+"decode:attn.core": [
+12288,
+12288
+],
+"decode:attn.proj": [
+1310720,
+1310720
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"decode:rec.core": [
+229376,
+229376
+],
+"decode:rec.proj": [
+27066368,
+27066368
+],
+"prefill:attn.core": [
+51200,
+51200
+],
+"prefill:attn.proj": [
+6553600,
+6553600
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+],
+"prefill:rec.core": [
+1605632,
+1605632
+],
+"prefill:rec.proj": [
+135331840,
+135331840
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "ai21labs/AI21-Jamba-Reasoning-3B",
+"seconds": 1.5
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+28672,
+28672
+],
+"decode:attn.proj": [
+1310720,
+1310720
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:moe.experts": [
+1572864,
+1572864
+],
+"decode:moe.router": [
+65536,
+65536
+],
+"decode:rec.core": [
+229376,
+229376
+],
+"decode:rec.proj": [
+29818880,
+29818880
+],
+"prefill:attn.core": [
+346112,
+346112
+],
+"prefill:attn.proj": [
+17039360,
+17039360
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+10223616,
+10223616
+],
+"prefill:moe.experts": [
+20447232,
+20447232
+],
+"prefill:moe.router": [
+851968,
+851968
+],
+"prefill:rec.core": [
+3899392,
+3899392
+],
+"prefill:rec.proj": [
+387645440,
+387645440
+]
+},
+"5": {
+"decode:attn.core": [
+12288,
+12288
+],
+"decode:attn.proj": [
+1310720,
+1310720
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:moe.experts": [
+1572864,
+1572864
+],
+"decode:moe.router": [
+65536,
+65536
+],
+"decode:rec.core": [
+229376,
+229376
+],
+"decode:rec.proj": [
+29818880,
+29818880
+],
+"prefill:attn.core": [
+51200,
+51200
+],
+"prefill:attn.proj": [
+6553600,
+6553600
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+3932160,
+3932160
+],
+"prefill:moe.experts": [
+7864320,
+7864320
+],
+"prefill:moe.router": [
+327680,
+327680
+],
+"prefill:rec.core": [
+1605632,
+1605632
+],
+"prefill:rec.proj": [
+149094400,
+149094400
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"moe.experts": true,
+"moe.router": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "ai21labs/Jamba-v0.1",
+"seconds": 2.3
+}
+],
+"errors": []
+},
+"jetmoe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+6324224,
+6324224
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+138412032,
+138412032
+],
+"decode:moe.router": [
+32768,
+32768
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+82214912,
+82214912
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+1799356416,
+1799356416
+],
+"prefill:moe.router": [
+425984,
+425984
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+6324224,
+6324224
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+138412032,
+138412032
+],
+"decode:moe.router": [
+32768,
+32768
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+31621120,
+31621120
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+692060160,
+692060160
+],
+"prefill:moe.router": [
+163840,
+163840
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "jetmoe/jetmoe-8b",
+"seconds": 3.9
+}
+],
+"errors": []
+},
+"lfm2": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+43008,
+43008
+],
+"decode:attn.proj": [
+1179648,
+1179648
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:rec.proj": [
+2621440,
+2621440
+],
+"prefill:attn.core": [
+519168,
+519168
+],
+"prefill:attn.proj": [
+15335424,
+15335424
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+],
+"prefill:rec.core": [
+115200,
+115200
+],
+"prefill:rec.proj": [
+34078720,
+34078720
+]
+},
+"5": {
+"decode:attn.core": [
+18432,
+18432
+],
+"decode:attn.proj": [
+1179648,
+1179648
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:rec.proj": [
+2621440,
+2621440
+],
+"prefill:attn.core": [
+76800,
+76800
+],
+"prefill:attn.proj": [
+5898240,
+5898240
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+],
+"prefill:rec.core": [
+53760,
+53760
+],
+"prefill:rec.proj": [
+13107200,
+13107200
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "LiquidAI/LFM2.5-230M-Base",
+"seconds": 0.7
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+28672,
+28672
+],
+"decode:attn.proj": [
+655360,
+655360
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+3145728,
+3145728
+],
+"decode:rec.proj": [
+3145728,
+3145728
+],
+"prefill:attn.core": [
+346112,
+346112
+],
+"prefill:attn.proj": [
+8519680,
+8519680
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+40894464,
+40894464
+],
+"prefill:rec.core": [
+138240,
+138240
+],
+"prefill:rec.proj": [
+40894464,
+40894464
+]
+},
+"5": {
+"decode:attn.core": [
+12288,
+12288
+],
+"decode:attn.proj": [
+655360,
+655360
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+3145728,
+3145728
+],
+"decode:rec.proj": [
+3145728,
+3145728
+],
+"prefill:attn.core": [
+51200,
+51200
+],
+"prefill:attn.proj": [
+3276800,
+3276800
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+15728640,
+15728640
+],
+"prefill:rec.core": [
+64512,
+64512
+],
+"prefill:rec.proj": [
+15728640,
+15728640
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "lmstudio-community/LFM2.5-1.2B-Instruct-MLX-6bit",
+"seconds": 1.1
+}
+],
+"errors": []
+},
+"llama": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "dphn/dolphin-2.9.1-yi-1.5-34b",
+"seconds": 0.9
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "meta-llama/Llama-3.1-8B-Instruct",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"llama4": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+155648,
+155648
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+12582912,
+12582912
+],
+"decode:moe.router": [
+65536,
+65536
+],
+"decode:moe.shared": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+163577856,
+163577856
+],
+"prefill:moe.router": [
+851968,
+851968
+],
+"prefill:moe.shared": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+12582912,
+12582912
+],
+"decode:moe.router": [
+65536,
+65536
+],
+"decode:moe.shared": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+62914560,
+62914560
+],
+"prefill:moe.router": [
+327680,
+327680
+],
+"prefill:moe.shared": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "lmstudio-community/Llama-4-Scout-17B-16E-MLX-text-8bit",
+"seconds": 8.3
+}
+],
+"errors": []
+},
+"mamba": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:lm_head": [
+786432,
+786432
+],
+"decode:rec.core": [
+16384,
+16384
+],
+"decode:rec.proj": [
+2490368,
+2490368
+],
+"prefill:lm_head": [
+10223616,
+10223616
+],
+"prefill:rec.core": [
+278528,
+278528
+],
+"prefill:rec.proj": [
+32374784,
+32374784
+]
+},
+"5": {
+"decode:lm_head": [
+786432,
+786432
+],
+"decode:rec.core": [
+16384,
+16384
+],
+"decode:rec.proj": [
+2490368,
+2490368
+],
+"prefill:lm_head": [
+3932160,
+3932160
+],
+"prefill:rec.core": [
+114688,
+114688
+],
+"prefill:rec.proj": [
+12451840,
+12451840
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"lm_head": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "state-spaces/mamba-130m-hf",
+"seconds": 1.1
+},
+{
+"L": {
+"13": {
+"decode:lm_head": [
+2621440,
+2621440
+],
+"decode:rec.core": [
+16384,
+16384
+],
+"decode:rec.proj": [
+8224768,
+8224768
+],
+"prefill:lm_head": [
+34078720,
+34078720
+],
+"prefill:rec.core": [
+278528,
+278528
+],
+"prefill:rec.proj": [
+106921984,
+106921984
+]
+},
+"5": {
+"decode:lm_head": [
+2621440,
+2621440
+],
+"decode:rec.core": [
+16384,
+16384
+],
+"decode:rec.proj": [
+8224768,
+8224768
+],
+"prefill:lm_head": [
+13107200,
+13107200
+],
+"prefill:rec.core": [
+114688,
+114688
+],
+"prefill:rec.proj": [
+41123840,
+41123840
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"lm_head": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "state-spaces/mamba-2.8b-hf",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"minimax": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+28672,
+28672
+],
+"decode:attn.proj": [
+655360,
+655360
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+1572864,
+1572864
+],
+"decode:moe.router": [
+131072,
+131072
+],
+"decode:rec.proj": [
+9175040,
+9175040
+],
+"prefill:attn.core": [
+346112,
+346112
+],
+"prefill:attn.proj": [
+8519680,
+8519680
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+20447232,
+20447232
+],
+"prefill:moe.router": [
+1703936,
+1703936
+],
+"prefill:rec.proj": [
+119275520,
+119275520
+]
+},
+"5": {
+"decode:attn.core": [
+12288,
+12288
+],
+"decode:attn.proj": [
+655360,
+655360
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+1572864,
+1572864
+],
+"decode:moe.router": [
+131072,
+131072
+],
+"decode:rec.proj": [
+9175040,
+9175040
+],
+"prefill:attn.core": [
+51200,
+51200
+],
+"prefill:attn.proj": [
+3276800,
+3276800
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+7864320,
+7864320
+],
+"prefill:moe.router": [
+655360,
+655360
+],
+"prefill:rec.proj": [
+45875200,
+45875200
+]
+}
+},
+"all_equal": true,
+"core_modelled": false,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true,
+"rec.proj": true
+},
+"repo": "MiniMaxAI/MiniMax-Text-01-hf",
+"seconds": 2.4
+}
+],
+"errors": []
+},
+"ministral": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+155648,
+155648
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "saidutta69/Ministral-8B-Instruct-heretic",
+"seconds": 1.1
+}
+],
+"errors": []
+},
+"mistral": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "mistralai/Mistral-7B-Instruct-v0.2",
+"seconds": 0.9
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+131072,
+131072
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "mistralai/Mistral-7B-v0.1",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"mistral3": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "RedHatAI/Mistral-Small-3.2-24B-Instruct-2506-NVFP4",
+"seconds": 1.3
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "dphn/Dolphin-Mistral-24B-Venice-Edition",
+"seconds": 1.0
+}
+],
+"errors": []
+},
+"mixtral": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+64512,
+64512
+],
+"decode:attn.proj": [
+2359296,
+2359296
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+1179648,
+1179648
+],
+"decode:moe.router": [
+12288,
+12288
+],
+"prefill:attn.core": [
+778752,
+778752
+],
+"prefill:attn.proj": [
+30670848,
+30670848
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+15335424,
+15335424
+],
+"prefill:moe.router": [
+159744,
+159744
+]
+},
+"5": {
+"decode:attn.core": [
+27648,
+27648
+],
+"decode:attn.proj": [
+2359296,
+2359296
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+1179648,
+1179648
+],
+"decode:moe.router": [
+12288,
+12288
+],
+"prefill:attn.core": [
+115200,
+115200
+],
+"prefill:attn.proj": [
+11796480,
+11796480
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+5898240,
+5898240
+],
+"prefill:moe.router": [
+61440,
+61440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "ggml-org/stories15M_MOE",
+"seconds": 1.2
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+1572864,
+1572864
+],
+"decode:moe.router": [
+32768,
+32768
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+20447232,
+20447232
+],
+"prefill:moe.router": [
+425984,
+425984
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+1572864,
+1572864
+],
+"decode:moe.router": [
+32768,
+32768
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+7864320,
+7864320
+],
+"prefill:moe.router": [
+163840,
+163840
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "MaziyarPanahi/Mixtral-8x22B-v0.1-GGUF",
+"seconds": 1.6
+}
+],
+"errors": []
+},
+"moshi": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+1048576,
+1048576
+],
+"decode:attn.proj": [
+1073741824,
+1073741824
+],
+"decode:lm_head": [
+4194304,
+4194304
+],
+"decode:mlp": [
+12582912,
+12582912
+],
+"prefill:attn.core": [
+22151168,
+22151168
+],
+"prefill:attn.proj": [
+13958643712,
+13958643712
+],
+"prefill:lm_head": [
+54525952,
+54525952
+],
+"prefill:mlp": [
+163577856,
+163577856
+]
+},
+"5": {
+"decode:attn.core": [
+786432,
+786432
+],
+"decode:attn.proj": [
+1073741824,
+1073741824
+],
+"decode:lm_head": [
+4194304,
+4194304
+],
+"decode:mlp": [
+12582912,
+12582912
+],
+"prefill:attn.core": [
+3276800,
+3276800
+],
+"prefill:attn.proj": [
+5368709120,
+5368709120
+],
+"prefill:lm_head": [
+20971520,
+20971520
+],
+"prefill:mlp": [
+62914560,
+62914560
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "kmhf/hf-moshika",
+"seconds": 10.2
+}
+],
+"errors": []
+},
+"mpt": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+8960,
+8960
+],
+"decode:attn.proj": [
+40960,
+40960
+],
+"decode:lm_head": [
+32768,
+32768
+],
+"decode:mlp": [
+81920,
+81920
+],
+"prefill:attn.core": [
+108160,
+108160
+],
+"prefill:attn.proj": [
+532480,
+532480
+],
+"prefill:lm_head": [
+425984,
+425984
+],
+"prefill:mlp": [
+1064960,
+1064960
+]
+},
+"5": {
+"decode:attn.core": [
+3840,
+3840
+],
+"decode:attn.proj": [
+40960,
+40960
+],
+"decode:lm_head": [
+32768,
+32768
+],
+"decode:mlp": [
+81920,
+81920
+],
+"prefill:attn.core": [
+16000,
+16000
+],
+"prefill:attn.proj": [
+204800,
+204800
+],
+"prefill:lm_head": [
+163840,
+163840
+],
+"prefill:mlp": [
+409600,
+409600
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "explosion-testing/mpt-test",
+"seconds": 0.6
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+1146880,
+1146880
+],
+"decode:attn.proj": [
+419430400,
+419430400
+],
+"decode:lm_head": [
+2621440,
+2621440
+],
+"decode:mlp": [
+838860800,
+838860800
+],
+"prefill:attn.core": [
+13844480,
+13844480
+],
+"prefill:attn.proj": [
+5452595200,
+5452595200
+],
+"prefill:lm_head": [
+34078720,
+34078720
+],
+"prefill:mlp": [
+10905190400,
+10905190400
+]
+},
+"5": {
+"decode:attn.core": [
+491520,
+491520
+],
+"decode:attn.proj": [
+419430400,
+419430400
+],
+"decode:lm_head": [
+2621440,
+2621440
+],
+"decode:mlp": [
+838860800,
+838860800
+],
+"prefill:attn.core": [
+2048000,
+2048000
+],
+"prefill:attn.proj": [
+2097152000,
+2097152000
+],
+"prefill:lm_head": [
+13107200,
+13107200
+],
+"prefill:mlp": [
+4194304000,
+4194304000
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "replit/replit-code-v1-3b",
+"seconds": 12.3
+}
+],
+"errors": []
+},
+"nemotron": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+172032,
+172032
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+2076672,
+2076672
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+73728,
+73728
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+307200,
+307200
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "nvidia/Nemotron-Mini-4B-Instruct",
+"seconds": 1.3
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+172032,
+172032
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+2076672,
+2076672
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+73728,
+73728
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+307200,
+307200
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "nvidia/Minitron-4B-Base",
+"seconds": 0.7
+}
+],
+"errors": []
+},
+"olmo": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "allenai/OLMo-1B-hf",
+"seconds": 2.2
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "allenai/OLMo-7B-hf",
+"seconds": 2.1
+}
+],
+"errors": []
+},
+"olmo2": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "allenai/OLMo-2-0425-1B",
+"seconds": 1.1
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "allenai/OLMo-2-1124-7B-Instruct",
+"seconds": 1.0
+}
+],
+"errors": []
+},
+"olmo3": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+155648,
+155648
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "allenai/Olmo-3-7B-Instruct",
+"seconds": 1.0
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+155648,
+155648
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "allenai/Olmo-3.1-32B-Instruct",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"olmoe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+12582912,
+12582912
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:moe.experts": [
+163577856,
+163577856
+],
+"prefill:moe.router": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+12582912,
+12582912
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:moe.experts": [
+62914560,
+62914560
+],
+"prefill:moe.router": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "allenai/OLMoE-1B-7B-0924",
+"seconds": 8.0
+}
+],
+"errors": []
+},
+"openai-gpt": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+8192,
+8192
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+109051904,
+109051904
+]
+},
+"5": {
+"decode:attn.core": [
+8192,
+8192
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+8388608,
+8388608
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+41943040,
+41943040
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "openai-community/openai-gpt",
+"seconds": 2.1
+}
+],
+"errors": []
+},
+"opt": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+786432,
+786432
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"decode:other": [
+786432,
+786432
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+10223616,
+10223616
+],
+"prefill:mlp": [
+13631488,
+13631488
+],
+"prefill:other": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+786432,
+786432
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"decode:other": [
+786432,
+786432
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+3932160,
+3932160
+],
+"prefill:mlp": [
+5242880,
+5242880
+],
+"prefill:other": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"other": true
+},
+"repo": "facebook/opt-125m",
+"seconds": 1.1
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"decode:other": [
+524288,
+524288
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+13631488,
+13631488
+],
+"prefill:other": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"decode:other": [
+524288,
+524288
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+5242880,
+5242880
+],
+"prefill:other": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"other": true
+},
+"repo": "facebook/opt-350m",
+"seconds": 1.3
+}
+],
+"errors": []
+},
+"persimmon": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "adept/persimmon-8b-base",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "adept/persimmon-8b-chat",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"phi": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+143360,
+143360
+],
+"decode:attn.proj": [
+6553600,
+6553600
+],
+"decode:lm_head": [
+327680,
+327680
+],
+"decode:mlp": [
+655360,
+655360
+],
+"prefill:attn.core": [
+1730560,
+1730560
+],
+"prefill:attn.proj": [
+85196800,
+85196800
+],
+"prefill:lm_head": [
+4259840,
+4259840
+],
+"prefill:mlp": [
+8519680,
+8519680
+]
+},
+"5": {
+"decode:attn.core": [
+61440,
+61440
+],
+"decode:attn.proj": [
+6553600,
+6553600
+],
+"decode:lm_head": [
+327680,
+327680
+],
+"decode:mlp": [
+655360,
+655360
+],
+"prefill:attn.core": [
+256000,
+256000
+],
+"prefill:attn.proj": [
+32768000,
+32768000
+],
+"prefill:lm_head": [
+1638400,
+1638400
+],
+"prefill:mlp": [
+3276800,
+3276800
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "microsoft/phi-2",
+"seconds": 0.9
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+524288,
+524288
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "microsoft/phi-1_5",
+"seconds": 1.2
+}
+],
+"errors": []
+},
+"phi3": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+9437184,
+9437184
+],
+"decode:lm_head": [
+393216,
+393216
+],
+"decode:mlp": [
+1179648,
+1179648
+],
+"prefill:attn.core": [
+2076672,
+2076672
+],
+"prefill:attn.proj": [
+122683392,
+122683392
+],
+"prefill:lm_head": [
+5111808,
+5111808
+],
+"prefill:mlp": [
+15335424,
+15335424
+]
+},
+"5": {
+"decode:attn.core": [
+73728,
+73728
+],
+"decode:attn.proj": [
+9437184,
+9437184
+],
+"decode:lm_head": [
+393216,
+393216
+],
+"decode:mlp": [
+1179648,
+1179648
+],
+"prefill:attn.core": [
+307200,
+307200
+],
+"prefill:attn.proj": [
+47185920,
+47185920
+],
+"prefill:lm_head": [
+1966080,
+1966080
+],
+"prefill:mlp": [
+5898240,
+5898240
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "microsoft/Phi-3.5-mini-instruct",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+6291456,
+6291456
+],
+"decode:lm_head": [
+393216,
+393216
+],
+"decode:mlp": [
+1179648,
+1179648
+],
+"prefill:attn.core": [
+2076672,
+2076672
+],
+"prefill:attn.proj": [
+81788928,
+81788928
+],
+"prefill:lm_head": [
+5111808,
+5111808
+],
+"prefill:mlp": [
+15335424,
+15335424
+]
+},
+"5": {
+"decode:attn.core": [
+73728,
+73728
+],
+"decode:attn.proj": [
+6291456,
+6291456
+],
+"decode:lm_head": [
+393216,
+393216
+],
+"decode:mlp": [
+1179648,
+1179648
+],
+"prefill:attn.core": [
+307200,
+307200
+],
+"prefill:attn.proj": [
+31457280,
+31457280
+],
+"prefill:lm_head": [
+1966080,
+1966080
+],
+"prefill:mlp": [
+5898240,
+5898240
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "microsoft/Phi-4-mini-instruct",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"phimoe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+131072,
+131072
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+131072,
+131072
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:moe.experts": [
+40894464,
+40894464
+],
+"prefill:moe.router": [
+1703936,
+1703936
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+131072,
+131072
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:moe.experts": [
+15728640,
+15728640
+],
+"prefill:moe.router": [
+655360,
+655360
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "microsoft/Phi-tiny-MoE-instruct",
+"seconds": 2.0
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+131072,
+131072
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+131072,
+131072
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:moe.experts": [
+40894464,
+40894464
+],
+"prefill:moe.router": [
+1703936,
+1703936
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+3145728,
+3145728
+],
+"decode:moe.router": [
+131072,
+131072
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:moe.experts": [
+15728640,
+15728640
+],
+"prefill:moe.router": [
+655360,
+655360
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "microsoft/Phi-3.5-MoE-instruct",
+"seconds": 2.1
+}
+],
+"errors": []
+},
+"qwen2": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "Qwen/Qwen2.5-7B-Instruct",
+"seconds": 0.9
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "Qwen/Qwen2.5-1.5B-Instruct",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"qwen2_5_vl": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "nvidia/Qwen2.5-VL-7B-Instruct-NVFP4",
+"seconds": 1.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "FreedomIntelligence/HuatuoGPT-Vision-7B-Qwen2.5VL",
+"seconds": 1.7
+}
+],
+"errors": []
+},
+"qwen2_moe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+491520,
+491520
+],
+"decode:moe.shared": [
+1581056,
+1581056
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:moe.experts": [
+81788928,
+81788928
+],
+"prefill:moe.router": [
+6389760,
+6389760
+],
+"prefill:moe.shared": [
+20553728,
+20553728
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+491520,
+491520
+],
+"decode:moe.shared": [
+1581056,
+1581056
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:moe.experts": [
+31457280,
+31457280
+],
+"prefill:moe.router": [
+2457600,
+2457600
+],
+"prefill:moe.shared": [
+7905280,
+7905280
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "Qwen/Qwen1.5-MoE-A2.7B",
+"seconds": 5.1
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+491520,
+491520
+],
+"decode:moe.shared": [
+1581056,
+1581056
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:moe.experts": [
+81788928,
+81788928
+],
+"prefill:moe.router": [
+6389760,
+6389760
+],
+"prefill:moe.shared": [
+20553728,
+20553728
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+491520,
+491520
+],
+"decode:moe.shared": [
+1581056,
+1581056
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:moe.experts": [
+31457280,
+31457280
+],
+"prefill:moe.router": [
+2457600,
+2457600
+],
+"prefill:moe.shared": [
+7905280,
+7905280
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true
+},
+"repo": "Qwen/Qwen1.5-MoE-A2.7B-Chat",
+"seconds": 5.2
+}
+],
+"errors": []
+},
+"qwen3": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+6291456,
+6291456
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+81788928,
+81788928
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+6291456,
+6291456
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+31457280,
+31457280
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "Qwen/Qwen3-0.6B",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "Qwen/Qwen3-14B",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"qwen3_moe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+81788928,
+81788928
+],
+"prefill:moe.router": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+31457280,
+31457280
+],
+"prefill:moe.router": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+"seconds": 3.4
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+81788928,
+81788928
+],
+"prefill:moe.router": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+6291456,
+6291456
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+31457280,
+31457280
+],
+"prefill:moe.router": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "Qwen/Qwen3-30B-A3B",
+"seconds": 3.4
+}
+],
+"errors": []
+},
+"qwen3_next": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+3670016,
+3670016
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+7864320,
+7864320
+],
+"decode:moe.router": [
+2097152,
+2097152
+],
+"decode:moe.shared": [
+790528,
+790528
+],
+"decode:rec.proj": [
+6316032,
+6316032
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+47710208,
+47710208
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+102236160,
+102236160
+],
+"prefill:moe.router": [
+27262976,
+27262976
+],
+"prefill:moe.shared": [
+10276864,
+10276864
+],
+"prefill:rec.proj": [
+82108416,
+82108416
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+3670016,
+3670016
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+7864320,
+7864320
+],
+"decode:moe.router": [
+2097152,
+2097152
+],
+"decode:moe.shared": [
+790528,
+790528
+],
+"decode:rec.proj": [
+6316032,
+6316032
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+18350080,
+18350080
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+39321600,
+39321600
+],
+"prefill:moe.router": [
+10485760,
+10485760
+],
+"prefill:moe.shared": [
+3952640,
+3952640
+],
+"prefill:rec.proj": [
+31580160,
+31580160
+]
+}
+},
+"all_equal": true,
+"core_modelled": false,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true,
+"rec.proj": true
+},
+"repo": "Qwen/Qwen3-Coder-Next",
+"seconds": 16.7
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+3670016,
+3670016
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+7864320,
+7864320
+],
+"decode:moe.router": [
+2097152,
+2097152
+],
+"decode:moe.shared": [
+790528,
+790528
+],
+"decode:rec.proj": [
+6316032,
+6316032
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+47710208,
+47710208
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+102236160,
+102236160
+],
+"prefill:moe.router": [
+27262976,
+27262976
+],
+"prefill:moe.shared": [
+10276864,
+10276864
+],
+"prefill:rec.proj": [
+82108416,
+82108416
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+3670016,
+3670016
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+7864320,
+7864320
+],
+"decode:moe.router": [
+2097152,
+2097152
+],
+"decode:moe.shared": [
+790528,
+790528
+],
+"decode:rec.proj": [
+6316032,
+6316032
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+18350080,
+18350080
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+39321600,
+39321600
+],
+"prefill:moe.router": [
+10485760,
+10485760
+],
+"prefill:moe.shared": [
+3952640,
+3952640
+],
+"prefill:rec.proj": [
+31580160,
+31580160
+]
+}
+},
+"all_equal": true,
+"core_modelled": false,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true,
+"moe.shared": true,
+"rec.proj": true
+},
+"repo": "Qwen/Qwen3-Next-80B-A3B-Instruct",
+"seconds": 13.9
+}
+],
+"errors": []
+},
+"qwen3_vl": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "RedHatAI/Qwen3-VL-32B-Instruct-NVFP4",
+"seconds": 3.6
+}
+],
+"errors": [
+{
+"error": "AttributeError: 'NoneType' object has no attribute 'get'",
+"repo": "DreamFast/Qwen3-VL-8B-Heretic-1.3.0"
+}
+]
+},
+"qwen3_vl_moe": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+100663296,
+100663296
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+1308622848,
+1308622848
+],
+"prefill:moe.router": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+100663296,
+100663296
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+503316480,
+503316480
+],
+"prefill:moe.router": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "QuantTrio/Qwen3-VL-30B-A3B-Instruct-AWQ",
+"seconds": 3.6
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+100663296,
+100663296
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:moe.experts": [
+1308622848,
+1308622848
+],
+"prefill:moe.router": [
+6815744,
+6815744
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:moe.experts": [
+100663296,
+100663296
+],
+"decode:moe.router": [
+524288,
+524288
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:moe.experts": [
+503316480,
+503316480
+],
+"prefill:moe.router": [
+2621440,
+2621440
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"moe.experts": true,
+"moe.router": true
+},
+"repo": "QuantTrio/Qwen3-VL-30B-A3B-Thinking-AWQ",
+"seconds": 3.8
+}
+],
+"errors": []
+},
+"recurrent_gemma": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+65536,
+65536
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"decode:rec.core": [
+6291456,
+6291456
+],
+"decode:rec.proj": [
+37748736,
+37748736
+],
+"prefill:attn.core": [
+851968,
+851968
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+13631488,
+13631488
+],
+"prefill:mlp": [
+20447232,
+20447232
+],
+"prefill:rec.core": [
+82575360,
+82575360
+],
+"prefill:rec.proj": [
+490733568,
+490733568
+]
+},
+"5": {
+"decode:attn.core": [
+65536,
+65536
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"decode:rec.core": [
+6291456,
+6291456
+],
+"decode:rec.proj": [
+37748736,
+37748736
+],
+"prefill:attn.core": [
+327680,
+327680
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+5242880,
+5242880
+],
+"prefill:mlp": [
+7864320,
+7864320
+],
+"prefill:rec.core": [
+31850496,
+31850496
+],
+"prefill:rec.proj": [
+188743680,
+188743680
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "google/recurrentgemma-2b-it",
+"seconds": 1.4
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+65536,
+65536
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"decode:rec.core": [
+6291456,
+6291456
+],
+"decode:rec.proj": [
+37748736,
+37748736
+],
+"prefill:attn.core": [
+851968,
+851968
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+13631488,
+13631488
+],
+"prefill:mlp": [
+20447232,
+20447232
+],
+"prefill:rec.core": [
+82575360,
+82575360
+],
+"prefill:rec.proj": [
+490733568,
+490733568
+]
+},
+"5": {
+"decode:attn.core": [
+65536,
+65536
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"decode:rec.core": [
+6291456,
+6291456
+],
+"decode:rec.proj": [
+37748736,
+37748736
+],
+"prefill:attn.core": [
+327680,
+327680
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+5242880,
+5242880
+],
+"prefill:mlp": [
+7864320,
+7864320
+],
+"prefill:rec.core": [
+31850496,
+31850496
+],
+"prefill:rec.proj": [
+188743680,
+188743680
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "google/recurrentgemma-2b",
+"seconds": 1.4
+}
+],
+"errors": []
+},
+"rwkv": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:lm_head": [
+786432,
+786432
+],
+"decode:mlp": [
+11010048,
+11010048
+],
+"decode:rec.proj": [
+37748736,
+37748736
+],
+"prefill:lm_head": [
+10223616,
+10223616
+],
+"prefill:mlp": [
+143130624,
+143130624
+],
+"prefill:rec.proj": [
+490733568,
+490733568
+]
+},
+"5": {
+"decode:lm_head": [
+786432,
+786432
+],
+"decode:mlp": [
+11010048,
+11010048
+],
+"decode:rec.proj": [
+37748736,
+37748736
+],
+"prefill:lm_head": [
+3932160,
+3932160
+],
+"prefill:mlp": [
+55050240,
+55050240
+],
+"prefill:rec.proj": [
+188743680,
+188743680
+]
+}
+},
+"all_equal": true,
+"core_modelled": false,
+"equal": {
+"lm_head": true,
+"mlp": true,
+"rec.proj": true
+},
+"repo": "RWKV/rwkv-4-169m-pile",
+"seconds": 5.0
+}
+],
+"errors": []
+},
+"seed_oss": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "ByteDance-Seed/Seed-OSS-36B-Instruct",
+"seconds": 0.9
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+68157440,
+68157440
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+5242880,
+5242880
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+26214400,
+26214400
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "lmstudio-community/Seed-OSS-36B-Instruct-MLX-5bit",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"smollm3": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "HuggingFaceTB/SmolLM3-3B",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+20447232,
+20447232
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1572864,
+1572864
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+7864320,
+7864320
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "webAI-Official/TwIL-LM3",
+"seconds": 1.1
+}
+],
+"errors": []
+},
+"stablelm": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+143360,
+143360
+],
+"decode:attn.proj": [
+6553600,
+6553600
+],
+"decode:lm_head": [
+327680,
+327680
+],
+"decode:mlp": [
+983040,
+983040
+],
+"prefill:attn.core": [
+1730560,
+1730560
+],
+"prefill:attn.proj": [
+85196800,
+85196800
+],
+"prefill:lm_head": [
+4259840,
+4259840
+],
+"prefill:mlp": [
+12779520,
+12779520
+]
+},
+"5": {
+"decode:attn.core": [
+61440,
+61440
+],
+"decode:attn.proj": [
+6553600,
+6553600
+],
+"decode:lm_head": [
+327680,
+327680
+],
+"decode:mlp": [
+983040,
+983040
+],
+"prefill:attn.core": [
+256000,
+256000
+],
+"prefill:attn.proj": [
+32768000,
+32768000
+],
+"prefill:lm_head": [
+1638400,
+1638400
+],
+"prefill:mlp": [
+4915200,
+4915200
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "stabilityai/stablelm-zephyr-3b",
+"seconds": 0.8
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+458752,
+458752
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+3145728,
+3145728
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+872415232,
+872415232
+],
+"prefill:lm_head": [
+13631488,
+13631488
+],
+"prefill:mlp": [
+40894464,
+40894464
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+67108864,
+67108864
+],
+"decode:lm_head": [
+1048576,
+1048576
+],
+"decode:mlp": [
+3145728,
+3145728
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+335544320,
+335544320
+],
+"prefill:lm_head": [
+5242880,
+5242880
+],
+"prefill:mlp": [
+15728640,
+15728640
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "UnfilteredAI/NSFW-flash",
+"seconds": 1.2
+}
+],
+"errors": []
+},
+"starcoder2": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+131072,
+131072
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+13631488,
+13631488
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+5242880,
+5242880
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "bigcode/starcoder2-3b",
+"seconds": 1.5
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+131072,
+131072
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+136314880,
+136314880
+],
+"prefill:lm_head": [
+6815744,
+6815744
+],
+"prefill:mlp": [
+13631488,
+13631488
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+10485760,
+10485760
+],
+"decode:lm_head": [
+524288,
+524288
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+52428800,
+52428800
+],
+"prefill:lm_head": [
+2621440,
+2621440
+],
+"prefill:mlp": [
+5242880,
+5242880
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "bigcode/starcoder2-7b",
+"seconds": 0.8
+}
+],
+"errors": []
+},
+"vaultgemma": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+458752,
+458752
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+5537792,
+5537792
+],
+"prefill:attn.proj": [
+218103808,
+218103808
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+10223616,
+10223616
+]
+},
+"5": {
+"decode:attn.core": [
+196608,
+196608
+],
+"decode:attn.proj": [
+16777216,
+16777216
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+786432,
+786432
+],
+"prefill:attn.core": [
+819200,
+819200
+],
+"prefill:attn.proj": [
+83886080,
+83886080
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+3932160,
+3932160
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "google/vaultgemma-1b",
+"seconds": 0.9
+}
+],
+"errors": []
+},
+"xglm": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+13631488,
+13631488
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+5242880,
+5242880
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "facebook/xglm-564M",
+"seconds": 0.6
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+114688,
+114688
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+1384448,
+1384448
+],
+"prefill:attn.proj": [
+54525952,
+54525952
+],
+"prefill:lm_head": [
+3407872,
+3407872
+],
+"prefill:mlp": [
+13631488,
+13631488
+]
+},
+"5": {
+"decode:attn.core": [
+49152,
+49152
+],
+"decode:attn.proj": [
+4194304,
+4194304
+],
+"decode:lm_head": [
+262144,
+262144
+],
+"decode:mlp": [
+1048576,
+1048576
+],
+"prefill:attn.core": [
+204800,
+204800
+],
+"prefill:attn.proj": [
+20971520,
+20971520
+],
+"prefill:lm_head": [
+1310720,
+1310720
+],
+"prefill:mlp": [
+5242880,
+5242880
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true
+},
+"repo": "facebook/incoder-1B",
+"seconds": 0.6
+}
+],
+"errors": []
+},
+"zamba": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+831488,
+831488
+],
+"decode:attn.proj": [
+771620864,
+771620864
+],
+"decode:lm_head": [
+3801088,
+3801088
+],
+"decode:mlp": [
+2850816,
+2850816
+],
+"decode:rec.core": [
+60817408,
+60817408
+],
+"decode:rec.proj": [
+1377894400,
+1377894400
+],
+"prefill:attn.core": [
+10037248,
+10037248
+],
+"prefill:attn.proj": [
+10031071232,
+10031071232
+],
+"prefill:lm_head": [
+49414144,
+49414144
+],
+"prefill:mlp": [
+37060608,
+37060608
+],
+"prefill:rec.core": [
+798228480,
+798228480
+],
+"prefill:rec.proj": [
+17912627200,
+17912627200
+]
+},
+"5": {
+"decode:attn.core": [
+356352,
+356352
+],
+"decode:attn.proj": [
+771620864,
+771620864
+],
+"decode:lm_head": [
+3801088,
+3801088
+],
+"decode:mlp": [
+2850816,
+2850816
+],
+"decode:rec.core": [
+60817408,
+60817408
+],
+"decode:rec.proj": [
+1377894400,
+1377894400
+],
+"prefill:attn.core": [
+1484800,
+1484800
+],
+"prefill:attn.proj": [
+3858104320,
+3858104320
+],
+"prefill:lm_head": [
+19005440,
+19005440
+],
+"prefill:mlp": [
+14254080,
+14254080
+],
+"prefill:rec.core": [
+307888128,
+307888128
+],
+"prefill:rec.proj": [
+6889472000,
+6889472000
+]
+}
+},
+"all_equal": true,
+"core_modelled": true,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.core": true,
+"rec.proj": true
+},
+"repo": "Zyphra/Zamba-7B-v1",
+"seconds": 18.9
+}
+],
+"errors": []
+},
+"zamba2": {
+"checked": [
+{
+"L": {
+"13": {
+"decode:attn.core": [
+401408,
+401408
+],
+"decode:attn.proj": [
+359661568,
+359661568
+],
+"decode:lm_head": [
+3670016,
+3670016
+],
+"decode:mlp": [
+1376256,
+1376256
+],
+"decode:rec.proj": [
+1280868352,
+1280868352
+],
+"prefill:attn.core": [
+4845568,
+4845568
+],
+"prefill:attn.proj": [
+4675600384,
+4675600384
+],
+"prefill:lm_head": [
+47710208,
+47710208
+],
+"prefill:mlp": [
+17891328,
+17891328
+],
+"prefill:rec.proj": [
+16651288576,
+16651288576
+]
+},
+"5": {
+"decode:attn.core": [
+172032,
+172032
+],
+"decode:attn.proj": [
+359661568,
+359661568
+],
+"decode:lm_head": [
+3670016,
+3670016
+],
+"decode:mlp": [
+1376256,
+1376256
+],
+"decode:rec.proj": [
+1280868352,
+1280868352
+],
+"prefill:attn.core": [
+716800,
+716800
+],
+"prefill:attn.proj": [
+1798307840,
+1798307840
+],
+"prefill:lm_head": [
+18350080,
+18350080
+],
+"prefill:mlp": [
+6881280,
+6881280
+],
+"prefill:rec.proj": [
+6404341760,
+6404341760
+]
+}
+},
+"all_equal": true,
+"core_modelled": false,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.proj": true
+},
+"repo": "Zyphra/Zamba2-7B-Instruct",
+"seconds": 68.1
+},
+{
+"L": {
+"13": {
+"decode:attn.core": [
+229376,
+229376
+],
+"decode:attn.proj": [
+117440512,
+117440512
+],
+"decode:lm_head": [
+2097152,
+2097152
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:rec.proj": [
+428376064,
+428376064
+],
+"prefill:attn.core": [
+2768896,
+2768896
+],
+"prefill:attn.proj": [
+1526726656,
+1526726656
+],
+"prefill:lm_head": [
+27262976,
+27262976
+],
+"prefill:mlp": [
+10223616,
+10223616
+],
+"prefill:rec.proj": [
+5568888832,
+5568888832
+]
+},
+"5": {
+"decode:attn.core": [
+98304,
+98304
+],
+"decode:attn.proj": [
+117440512,
+117440512
+],
+"decode:lm_head": [
+2097152,
+2097152
+],
+"decode:mlp": [
+786432,
+786432
+],
+"decode:rec.proj": [
+428376064,
+428376064
+],
+"prefill:attn.core": [
+409600,
+409600
+],
+"prefill:attn.proj": [
+587202560,
+587202560
+],
+"prefill:lm_head": [
+10485760,
+10485760
+],
+"prefill:mlp": [
+3932160,
+3932160
+],
+"prefill:rec.proj": [
+2141880320,
+2141880320
+]
+}
+},
+"all_equal": true,
+"core_modelled": false,
+"equal": {
+"attn.core": true,
+"attn.proj": true,
+"lm_head": true,
+"mlp": true,
+"rec.proj": true
+},
+"repo": "Zyphra/Zamba2-1.2B-instruct",
+"seconds": 56.2
+}
+],
+"errors": []
+}
+}

@@ -1,0 +1,78 @@
+{
+ "note": "coverage may only go up: tests/test_coverage_ratchet.py compares each metric's fraction with this; update with python -m verify.coverage_report --update-baseline",
+ "commit": "0d31c70",
+ "metrics": {
+  "M1": {
+   "numerator": 430,
+   "denominator": 430,
+   "pct": 100.0,
+   "source": "verify/sweep"
+  },
+  "M2": {
+   "numerator": 106,
+   "denominator": 242,
+   "pct": 43.8,
+   "source": "verify/sweep"
+  },
+  "M3": {
+   "numerator": 164,
+   "denominator": 189,
+   "pct": 86.77,
+   "source": "verify/EDGE_JUSTIFICATION.md"
+  },
+  "M4": {
+   "numerator": 14,
+   "denominator": 18,
+   "pct": 77.78,
+   "source": "proofs/PROOFS.md"
+  },
+  "M5": {
+   "numerator": 228,
+   "denominator": 388,
+   "pct": 58.76,
+   "source": "verify/BRIDGES.md + proofs/lean/EmulationProofs"
+  },
+  "M6": {
+   "numerator": 158,
+   "denominator": 164,
+   "pct": 96.34,
+   "source": "live, this checkout: verify/spot/reduction_types.json + tests/test_reduction_catalog.py"
+  },
+  "M7": {
+   "numerator": 70,
+   "denominator": 240,
+   "pct": 29.17,
+   "source": "verify/spot/results.jsonl"
+  },
+  "M8": {
+   "numerator": 16769,
+   "denominator": 38134,
+   "pct": 43.97,
+   "source": "live, this checkout: graph.model_graph.emul_matrix(payable) + elephantine.emulate.support"
+  },
+  "M9": {
+   "numerator": 8883060,
+   "denominator": 8883060,
+   "pct": 100.0,
+   "source": "verify/EDGE_JUSTIFICATION.md"
+  },
+  "M11": {
+   "numerator": 3531,
+   "denominator": 3906,
+   "pct": 90.4,
+   "source": "live, this checkout: graph.minimal_emulator.loaded_split"
+  },
+  "M12": {
+   "numerator": 5,
+   "denominator": 11,
+   "pct": 45.45,
+   "source": "proofs/PROOFS.md + proofs/lean/EmulationProofs"
+  },
+  "M15": {
+   "numerator": 10,
+   "denominator": 10,
+   "pct": 100.0,
+   "source": "tests/test_review_findings.py"
+  }
+ }
+}

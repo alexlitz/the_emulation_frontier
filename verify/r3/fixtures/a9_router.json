@@ -1,0 +1,140 @@
+{
+  "renorm_by_code_unlisted": {
+    "detector": "detect_renorm_by_code_unlisted",
+    "flag": {
+      "inclusionAI/Ling-1T": "R",
+      "inclusionAI/Ring-2.5-1T": "R",
+      "inclusionAI/Ling-3.1-flash": "R",
+      "Edge0/Edge0-8B-A1B-preview": "R",
+      "yifanyu/LLaDA2.1-mini-ORL": "R",
+      "bharatgenai/Param2-17B-A2.4B-Thinking": "R",
+      "inclusionAI/Ming-3.0-asr-tiny": "R",
+      "CladeTeam/CENO-1.3B-A450M-1m": "R",
+      "Motif-Technologies/Motif-3": "key:R",
+      "AMAImedia/AliceAI-Foundation-80B-A3B-NOESIS-BF16-GGUF": "R",
+      "llama-moe/LLaMA-MoE-v1-3_0B-2_16": "R",
+      "ZAQERIS/ZAQERIS_AXIOM": "R",
+      "Snowflake/snowflake-arctic-instruct": "R",
+      "BananaMind/BananaMind-2-MoE": "P",
+      "stepfun-ai/step3": "P",
+      "Yo-Purple/Meditor-1-2.2B-A500M-MoE": "R",
+      "tardellirs/gemma3moe-16x4-270m-starter": "R",
+      "IQuestLab/IQuest-Q1": "R",
+      "mlx-community/Mistral-Large-4-1T-A52B-Text-4bit": "R",
+      "allenai/MolmoE-1B-0924": "P"
+    },
+    "not_flag": [
+      "inclusionAI/Ling-lite",
+      "inclusionAI/Ling-plus",
+      "allenai/Molmo-7B-D-0924",
+      "stepfun-ai/Step-3.5-Flash",
+      "Qwen/Qwen3-30B-A3B",
+      "deepseek-ai/DeepSeek-V3",
+      "mlx-community/Mistral-Small-4-119B-2603-OptiQ-2bit"
+    ]
+  },
+  "router_score_unread": {
+    "detector": "detect_router_score_unread",
+    "flag": {
+      "reflection/Beam-1.0-501B-A23B": "sigmoid/sigmoid",
+      "Baekpica/Beam-1.0-501B-A23B-VQ-GGUF": "sigmoid/sigmoid",
+      "sarvamai/sarvam-105b": "sigmoid/sigmoid",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.09.21": "sigmoid/sigmoid",
+      "open-athena/snowball-67b-a2b-base-262k-qk175": "sigmoid/sigmoid",
+      "Interchained/Muse-Spark-Open-816B-A42B-GGUF": "sigmoid/sigmoid",
+      "staccs/Muse-Spark-Open-816B-A42B-lecore-mlx": "sigmoid/sigmoid",
+      "eins78/Kolibri-1-mlx-mixed-4-8-bit": "sigmoid/sigmoid",
+      "miceworks/Mark-SLM-V3-150M": "sigmoid/sigmoid",
+      "IFM/K2-Horizon-375B-A23B": "sigmoid/sigmoid|softmax",
+      "inception42/Jais-3-375B-A23B": "sigmoid/sigmoid|softmax",
+      "inception42/Jais-3-MoVA-36B-A4B": "sigmoid/sigmoid|softmax",
+      "Motif-Technologies/Motif-3": "sigmoid/sigmoid|softmax",
+      "KBlueLeaf/TIPO-v2.1-1B-A200M": "sigmoid/sigmoid|softmax|sqrtsoftplus"
+    },
+    "not_flag": [
+      "IFM/K2-Horizon-7B",
+      "inception42/Jais-3-32B",
+      "deepseek-ai/DeepSeek-V2-Lite",
+      "deepseek-ai/DeepSeek-V3",
+      "Qwen/Qwen3-30B-A3B",
+      "inclusionAI/Ling-1T"
+    ]
+  },
+  "router_bias_unread": {
+    "detector": "detect_router_bias_unread",
+    "flag": {
+      "tencent/Youtu-LLM-A7B-Base": "logit",
+      "Motif-Technologies/Motif-3": "score",
+      "AMAImedia/AliceAI-Foundation-80B-A3B-NOESIS-BF16-GGUF": "score",
+      "miceworks/Mark-SLM-V3-150M": "score",
+      "KBlueLeaf/TIPO-v2.1-1B-A200M": "score",
+      "reflection/Beam-1.0-501B-A23B": "score",
+      "Interchained/Muse-Spark-Open-816B-A42B-GGUF": "score",
+      "open-athena/Grug-67B-A2B-Datakit-SFT-262K-2026.10.05": "logit",
+      "eins78/Kolibri-1-mlx-mixed-4-8-bit": "logit"
+    },
+    "not_flag": [
+      "deepseek-ai/DeepSeek-V3",
+      "sarvamai/sarvam-105b",
+      "IFM/K2-Horizon-375B-A23B",
+      "deepseek-ai/DeepSeek-V2-Lite",
+      "Qwen/Qwen3-30B-A3B"
+    ]
+  },
+  "group_mask_zero_fill": {
+    "detector": "detect_group_mask_zero_fill",
+    "flag": {
+      "skt/A.X-K2-NVFP4": "top2sum_zero",
+      "Baekpica/A.X-K2-VQ-GGUF": "top2sum_zero",
+      "microsoft/MAI-DS-R1": "top2sum_zero",
+      "meituan/DeepSeek-R1-Block-INT8": "top2sum_zero",
+      "nvidia/DeepSeek-R1-NVFP4-v2": "top2sum_zero",
+      "moonshotai/Kimi-K2-Instruct": "top2sum_zero",
+      "moonshotai/Moonlight-16B-A3B": "top2sum_zero",
+      "nvidia/Kimi-K2.5-NVFP4": "top2sum_zero",
+      "mlx-community/Kimi-K2.6-mlx-DQ3_K_M-q8": "top2sum_zero",
+      "jdopensource/JoyAI-LLM-Flash": "top2sum_zero"
+    },
+    "not_flag": [
+      "deepseek-ai/DeepSeek-V3",
+      "deepseek-ai/DeepSeek-R1",
+      "nvidia/DeepSeek-R1-0528-NVFP4-v2",
+      "deepseek-ai/DeepSeek-V3.2",
+      "skt/A.X-K1",
+      "deepseek-ai/DeepSeek-V2-Chat",
+      "inclusionAI/Ling-1T",
+      "reflection/Beam-1.0-501B-A23B",
+      "mlx-community/Mistral-Large-4-1T-A52B-Text-4bit"
+    ]
+  },
+  "router_group_balanced": {
+    "detector": "detect_router_group_balanced",
+    "flag": {"internlm/Intern-S1-Pro": "per_group"},
+    "not_flag": ["deepseek-ai/DeepSeek-V3", "Qwen/Qwen3-30B-A3B", "inclusionAI/Ling-1T"]
+  },
+  "dual_sigmoid_router_sum": {
+    "detector": "detect_dual_sigmoid_router_sum",
+    "flag": {"baidu/ERNIE-5.5-Flash-Base": "sigmoid2"},
+    "not_flag": ["baidu/ERNIE-4.5-21B-A3B-PT", "baidu/ERNIE-4.5-300B-A47B-PT", "deepseek-ai/DeepSeek-V3"]
+  },
+  "hash_route_by_code": {
+    "detector": "detect_hash_route_by_code",
+    "flag": {"AETHORIA-AI/TR-HASH-MOE-500M-HF": true, "Pacific-i64/TR-MOE-306": true},
+    "not_flag": ["deepseek-ai/DeepSeek-V2-Lite", "Qwen/Qwen3-30B-A3B", "allenai/OLMoE-1B-7B-0924"]
+  },
+  "mlp_router": {
+    "detector": "detect_mlp_router",
+    "flag": {"llama-moe/LLaMA-MoE-v1-3_0B-2_16": "tanh_mlp"},
+    "not_flag": ["Qwen/Qwen3-30B-A3B", "allenai/OLMoE-1B-7B-0924", "ggml-org/stories15M_MOE"]
+  },
+  "moe_capacity_drop": {
+    "detector": "detect_moe_capacity_drop",
+    "flag": {"tencent/Hunyuan-A13B-Instruct": true},
+    "not_flag": ["tencent/HunyuanImage-3.0", "Qwen/Qwen3-30B-A3B", "allenai/OLMoE-1B-7B-0924"]
+  },
+  "block_routing": {
+    "detector": "detect_block_routing",
+    "flag": {"inclusionAI/LLaDA2.2-mini": true},
+    "not_flag": ["inclusionAI/LLaDA2.1-mini", "inclusionAI/LLaDA2.0-mini", "yifanyu/LLaDA2.1-mini-ORL", "inclusionAI/Ling-mini-2.0"]
+  }
+}

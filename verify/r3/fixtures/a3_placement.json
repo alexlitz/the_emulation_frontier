@@ -1,0 +1,240 @@
+{
+ "not_a_causal_lm": {
+  "detector": "detect_not_a_causal_lm",
+  "flag": {
+   "BAAI/bge-reranker-v2-minicpm-layerwise": "score_head",
+   "BAAI/bge-reranker-v2.5-gemma2-lightweight": "score_head",
+   "thuml/sundial-base-128m": "continuous_io"
+  },
+  "not_flag": [
+   "BAAI/bge-reranker-v2-gemma",
+   "openbmb/MiniCPM4-8B",
+   "google/gemma-2-2b",
+   "kuleshov-group/bd3lm-owt-block_size4",
+   "XinyueWangg/TimeBraid-2.5B"
+  ]
+ },
+ "no_model_type_longcat": {
+  "detector": "detect_no_model_type_longcat",
+  "flag": {
+   "meituan-longcat/LongCat-Flash-Chat": "longcat_flash",
+   "meituan-longcat/LongCat-Flash-Thinking": "longcat_flash",
+   "meituan-longcat/LongCat-Flash-Thinking-2601": "longcat_flash",
+   "meituan-longcat/LongCat-2.0": "longcat_flash",
+   "meituan-longcat/LongCat-Flash-Lite-Sparse": "longcat_flash"
+  },
+  "not_flag": [
+   "openbmb/MiniCPM4-0.5B",
+   "deepseek-ai/DeepSeek-V2-Lite",
+   "openbmb/MiniCPM-2B-sft-bf16"
+  ]
+ },
+ "remote_code_not_config_family": {
+  "detector": "detect_remote_code_not_config_family",
+  "flag": {
+   "CrashOverrideX/Quillan-Ronin": "skip",
+   "shashanth-27xA9/GLM-5.3-SuperExpert-v2-9.2GB": "skip"
+  },
+  "not_flag": [
+   "dealignai/GLM-5.3-Flash-CYBERSECURITY-W4A16",
+   "local-inference-lab/GLM-5.3-Flash-NVFP4-Spark",
+   "defnoteatin/PseudoBrain-GLM-5.3-Flash-Chronos-v7.5"
+  ]
+ },
+ "audio_key_read_as_lm": {
+  "detector": "detect_audio_key_read_as_lm",
+  "flag": {
+   "Edge0/Audio8-ASR-0.1B": "qwen2",
+   "Edge0/ARK-ASR-3B": "qwen2"
+  },
+  "not_flag": [
+   "Qwen/Qwen2-0.5B",
+   "upstage/Solar-Open2-250B",
+   "nota-ai/Solar-Open2-250B-Nota-NVFP4"
+  ]
+ },
+ "breeze_backbone_config_unread": {
+  "detector": "detect_breeze_backbone_config_unread",
+  "flag": {
+   "BreezeBlue/Breeze-TTS-2": "qwen3",
+   "drbaph/Breeze-TTS-2-comfyui": "qwen3"
+  },
+  "not_flag": [
+   "Qwen/Qwen3-0.6B",
+   "kmhf/hf-moshika",
+   "parler-tts/parler-tts-mini-v1"
+  ]
+ },
+ "text_encoder_input_embeds": {
+  "detector": "detect_text_encoder_input_embeds",
+  "flag": {
+   "BreezeBlue/Breeze-TTS-2": true,
+   "drbaph/Breeze-TTS-2-comfyui": true
+  },
+  "not_flag": [
+   "Qwen/Qwen3-0.6B",
+   "kmhf/hf-moshika",
+   "parler-tts/parler-tts-mini-v1",
+   "XinyueWangg/TimeBraid-2.5B"
+  ]
+ },
+ "lm_head_vocab_plus_one": {
+  "detector": "detect_lm_head_vocab_plus_one",
+  "flag": {
+   "BreezeBlue/Breeze-TTS-2": 2052,
+   "drbaph/Breeze-TTS-2-comfyui": 2052
+  },
+  "not_flag": [
+   "Qwen/Qwen3-0.6B",
+   "kmhf/hf-moshika"
+  ]
+ },
+ "multi_codebook_lm_heads": {
+  "detector": "detect_multi_codebook_lm_heads",
+  "flag": {
+   "parler-tts/parler-tts-large-v1": 9,
+   "parler-tts/parler-tts-mini-multilingual-v1.1": 9,
+   "parler-tts/parler-tts-mini-v1": 9,
+   "parler-tts/parler-tts-mini-v1.1": 9,
+   "parler-tts/parler_tts_mini_v0.1": 9
+  },
+  "not_flag": [
+   "BreezeBlue/Breeze-TTS-2",
+   "kmhf/hf-moshika",
+   "openai-community/gpt2"
+  ]
+ },
+ "prompt_prefix_embed_table": {
+  "detector": "detect_prompt_prefix_embed_table",
+  "flag": {
+   "parler-tts/parler-tts-large-v1": true,
+   "parler-tts/parler-tts-mini-multilingual-v1.1": true,
+   "parler-tts/parler-tts-mini-v1": true,
+   "parler-tts/parler-tts-mini-v1.1": true,
+   "parler-tts/parler_tts_mini_v0.1": true
+  },
+  "not_flag": [
+   "BreezeBlue/Breeze-TTS-2",
+   "kmhf/hf-moshika",
+   "openai-community/gpt2"
+  ]
+ },
+ "cross_attention_decoder_unflagged": {
+  "detector": "detect_cross_attention_decoder_unflagged",
+  "flag": {
+   "parler-tts/parler-tts-large-v1": true,
+   "parler-tts/parler-tts-mini-multilingual-v1.1": true,
+   "parler-tts/parler-tts-mini-v1": true,
+   "parler-tts/parler-tts-mini-v1.1": true,
+   "parler-tts/parler_tts_mini_v0.1": true
+  },
+  "not_flag": [
+   "BreezeBlue/Breeze-TTS-2",
+   "kmhf/hf-moshika",
+   "openai-community/gpt2",
+   "kuleshov-group/bd3lm-owt-block_size4"
+  ]
+ },
+ "fake_quant_forward": {
+  "detector": "detect_fake_quant_forward",
+  "flag": {
+   "openbmb/BitCPM-CANN-0.5B-unquantized": true,
+   "openbmb/BitCPM-CANN-1B-unquantized": true,
+   "openbmb/BitCPM-CANN-3B-unquantized": true,
+   "openbmb/BitCPM-CANN-8B-unquantized": true
+  },
+  "not_flag": [
+   "openbmb/BitCPM-CANN-0.5B",
+   "openbmb/BitCPM-CANN-8B",
+   "openbmb/MiniCPM4-0.5B",
+   "openbmb/MiniCPM4-8B",
+   "openbmb/BitCPM-CANN-1B"
+  ],
+  "repo_keyed": true
+ },
+ "cyrah_attn_impl_unread": {
+  "detector": "detect_cyrah_attn_impl_unread",
+  "flag": {
+   "Lilgarca/my-model-v01": "kv=GQA,pos=rope,window=full,qknorm=head"
+  },
+  "not_flag": [
+   "LiquidAI/LFM2-350M",
+   "deepseek-ai/DeepSeek-V2-Lite",
+   "Qwen/Qwen3-0.6B"
+  ]
+ },
+ "cyrah_shortconv_is_lfm2": {
+  "detector": "detect_cyrah_shortconv_is_lfm2",
+  "flag": {
+   "Lilgarca/my-model-v01": "shortconv"
+  },
+  "not_flag": [
+   "LiquidAI/LFM2-350M",
+   "LiquidAI/LFM2.5-230M-Base"
+  ]
+ },
+ "router_feats_on_dense_model": {
+  "detector": "detect_router_feats_on_dense_model",
+  "flag": {
+   "Lilgarca/my-model-v01": "dense",
+   "agurung/cobalt-seeded-rl-base-ramp25-stoppen-gen4k-ep2-ncp5-n3nc-vs16-s3": "dense",
+   "agurung/cobalt-seeded-rl-base-ramp25-stoppen-gen4k-ep2-ncp5-n3nc-base-s3": "dense",
+   "nvidia/Hymba-1.5B-Base": "dense",
+   "ai21labs/AI21-Jamba-Reasoning-3B": "dense",
+   "dphn/dolphin-2.9.1-mixtral-1x22b": "dense"
+  },
+  "not_flag": [
+   "deepseek-ai/DeepSeek-V2-Lite",
+   "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+   "ai21labs/Jamba-v0.1",
+   "Qwen/Qwen1.5-MoE-A2.7B",
+   "RedHatAI/Mixtral-8x7B-Instruct-v0.1",
+   "nvidia/Nemotron-H-8B-Base-8K"
+  ]
+ },
+ "attn_feats_without_attention": {
+  "detector": "detect_attn_feats_without_attention",
+  "flag": {
+   "summerAIO/Qwen3.8-27B-Longbook27-v2": "no_attention",
+   "summerAIO/Cyber-9B-Qwen-AllGDN-Engram": "no_attention"
+  },
+  "not_flag": [
+   "whittleOrg/Qwen3.8-Whittle-16B",
+   "autotrust/JEV-9B",
+   "LiquidAI/LFM2-350M",
+   "state-spaces/mamba-130m-hf",
+   "nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16"
+  ]
+ },
+ "factorized_embedding_proj": {
+  "detector": "detect_factorized_embedding_proj",
+  "flag": {
+   "facebook/opt-350m": 512
+  },
+  "not_flag": [
+   "facebook/opt-125m",
+   "facebook/opt-1.3b",
+   "facebook/galactica-125m",
+   "allenai/OLMo-1B"
+  ]
+ },
+ "bidirectional_flag_true": {
+  "detector": "detect_bidirectional_flag_true",
+  "flag": {
+   "MongoDB/voyage-4-nano": "diffusion",
+   "NovaSearch/stella_en_1.5B_v5": "diffusion",
+   "sdadas/stella-pl-retrieval-8k": "diffusion",
+   "Alibaba-NLP/gte-Qwen2-1.5B-instruct": "diffusion",
+   "Alibaba-NLP/gte-Qwen2-7B-instruct": "diffusion"
+  },
+  "not_flag": [
+   "GritLM/GritLM-7B",
+   "GritLM/GritLM-7B-KTO",
+   "GritLM/GritLM-8x7B",
+   "GritLM/GritLM-8x7B-KTO",
+   "google/gemma-3-1b-it",
+   "Qwen/Qwen2-0.5B",
+   "incoai/GLM-5.3-DFlash2"
+  ]
+ }
+}

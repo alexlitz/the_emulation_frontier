@@ -1,0 +1,35 @@
+1360 checkpoints. Top by #emulated (current rules: softened qk-norm/softcap):
+
+ #emul    %  checkpoint                          architecture
+  1004  74%  Qwen1.5-72B                        [RMSNorm | rope | MHA | glu | SiLU] h8192 L80 kv8192
+   925  68%  Llama-3.1-405B-FP8                 [RMSNorm | rope | GQA | glu | SiLU] h16384 L126 kv1024
+   907  67%  Qwen1.5-110B-Chat                  [RMSNorm | rope | GQA | glu | SiLU] h8192 L80 kv1024
+   898  66%  XORTRON.CriminalComputing.LARGE.2026.3 [RMSNorm | rope | GQA | glu | SiLU] h12288 L88 kv1024
+   897  66%  Qwen2.5-72B-Instruct-AWQ           [RMSNorm | rope | GQA | glu | SiLU] h8192 L80 kv1024
+   896  66%  Qwen2-72B                          [RMSNorm | rope | GQA | glu | SiLU] h8192 L80 kv1024
+   892  66%  Shi-Ci_v3-Robin                    [RMSNorm | rope | GQA | glu | SiLU] h8192 L80 kv1024
+   849  62%  AnFeng_v3_Avocet                   [RMSNorm | rope | MHA | glu | SiLU] h8192 L40 kv8192
+   839  62%  xLAM-8x22b-r                       [RMSNorm | rope | GQA | moe | SiLU] h6144 L56 kv1024
+   810  60%  Yi-34Bx2-MoE-60B                   [RMSNorm | rope | GQA | moe | SiLU] h7168 L60 kv1024
+   802  59%  deepseek-llm-67b-base              [RMSNorm | rope | GQA | glu | SiLU] h8192 L95 kv1024
+   793  58%  openbuddy-zero-56b-v21.2-32k       [RMSNorm | rope | GQA | glu | SiLU] h7168 L100 kv1024
+   782  58%  Hermes-4.3-36B-AWQ-4bit            [RMSNorm | rope | GQA | glu | SiLU] h5120 L64 kv1024
+   778  57%  Yi-34B                             [RMSNorm | rope | GQA | glu | SiLU] h7168 L60 kv1024
+   772  57%  IQuest-Coder-V1-40B-Instruct       [RMSNorm | rope | GQA | glu | SiLU] h5120 L80 kv1024
+   769  57%  QwQ-32B                            [RMSNorm | rope | GQA | glu | SiLU] h5120 L64 kv1024
+   757  56%  Orion-14B-Chat                     [RMSNorm | rope | MHA | glu | SiLU] h5120 L40 kv5120
+   753  55%  Qwen1.5-32B                        [RMSNorm | rope | GQA | glu | SiLU] h5120 L64 kv1024
+   752  55%  ReflectionCoder-DS-33B             [RMSNorm | rope | GQA | glu | SiLU] h7168 L62 kv1024
+   750  55%  TildeOpen-30b                      [RMSNorm | rope | GQA | glu | SiLU] h6144 L60 kv1024
+   742  55%  glm-4-9b                           [RMSNorm | rope | MHA | glu | SiLU] h4096 L40 kv4096
+   739  54%  CodeLlama-34b-hf                   [RMSNorm | rope | GQA | glu | SiLU] h8192 L48 kv1024
+   737  54%  Mixolar-4x7b                       [RMSNorm | rope | GQA | moe | SiLU] h4096 L48 kv1024
+   731  54%  granite-4.1-30b                    [RMSNorm | rope | GQA | glu | SiLU] h4096 L64 kv1024
+   717  53%  FlexOlmo-7x7B-1T                   [RMSNorm | rope | MHA | moe | SiLU] h4096 L32 kv4096
+   699  51%  dolphin-2.9.1-mixtral-1x22b        [RMSNorm | rope | GQA | moe | SiLU] h6144 L56 kv1024
+   696  51%  openbuddy-mistral-22b-v21.1-32k    [RMSNorm | rope | GQA | glu | SiLU] h6144 L56 kv1024
+   687  51%  Flex-reddit-2x7B-1T                [RMSNorm | rope | MHA | moe | SiLU] h4096 L32 kv4096
+   685  50%  EuroLLM-22B-Instruct-GPTQ          [RMSNorm | rope | GQA | glu | SiLU] h6144 L54 kv1024
+   680  50%  internlm2-20b                      [RMSNorm | rope | GQA | glu | SiLU] h6144 L48 kv1024
+   674  50%  sarvam-m                           [RMSNorm | rope | GQA | glu | SiLU] h5120 L40 kv1024
+   655  48%  bigstral-12b-32k                   [RMSNorm | rope | GQA | glu | SiLU] h4096 L56 kv1024
